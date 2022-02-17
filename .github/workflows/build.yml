@@ -26,4 +26,10 @@ jobs:
       - name: Build
         run: |
           cd doc
+          chmod +x patch-antora-js.sh
           make
+      - name: Publish to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: doc/build/site
