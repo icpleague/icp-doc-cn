@@ -18,11 +18,15 @@ content:
     # TODO: Pull in Motoko base
     #- url: ../../motoko-base
     #  branches: 'doc-pages'
-
+    - url: https://github.com/icpleague/docs-cn.git
+      branches: HEAD
+    # setting edit_url to false disables the Edit this Page link for any page that originates from this repository
+    # the same thing can be achieved by adding empty credentials (i.e., @) in front of the domain in the URL
+      edit_url: false
 ui:
   bundle:
     # local copy of https://github.com/dfinity/antora-sdk/raw/master/build/ui-bundle.zip
-    url: ./test-ui-bundle.zip
+    url: ./ui-bundle.zip
     snapshot: true
 
 asciidoc:

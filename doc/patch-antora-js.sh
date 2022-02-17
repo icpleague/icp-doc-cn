@@ -16,7 +16,8 @@ if ! [ -d build ]; then
   exit 1
 fi
 
-MOC_JS="${MOC_JS:-../src/moc.js}"
+MOC_JS="${MOC_JS:-../moc.js}"
+MOTOKO_BASE="${MOTOKO_BASE:-../motoko-base/src}"
 
 if ! [ -r "$MOC_JS" ]; then
   echo "Did not find \"$MOC_JS\". Please run make -C ../src moc.js or set  \$MOC_JS."
