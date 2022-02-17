@@ -1,7 +1,7 @@
 all: overview-slides.html antora
 
 SHELL=bash
-chmod +x patch-antora-js.sh
+
 overview-slides.html : overview-slides.md
 	pandoc \
 	  -t revealjs -s -o overview-slides.html overview-slides.md \
