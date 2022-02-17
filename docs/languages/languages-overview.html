@@ -8,84 +8,25 @@
 <link rel="stylesheet" href="../../_/css/site.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" /><meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta property="og:title" content="Internet Computer | Documentation" />
+<meta property="og:title" content="The Internet Computer | Documentation" />
 <meta property="og:description" content="Documentation for the internet computer." />
 <meta property="og:image" content="../../_/img/share.jpg" />
 <meta property="og:image:url" content="../../_/img/share.jpg" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@DFINITYDev" />
 <meta name="twitter:image" content="../../_/img/logo-RGB.png" />
-<meta name="twitter:image:alt" content="DFINITY Logo" />    <script>
-        if (location.hostname === 'sdk.dfinity.org') {
-            location.replace(location.href.replace("sdk.dfinity.org","smartcontracts.org"));
-        }
-    </script>
-
-
-    <!-- Appzi: Capture Insightful Feedback -->
-    <script async src="https://w.appzi.io/w.js?token=Zrf92"></script>
-    <!-- End Appzi -->
-
-    <link rel="icon" href="../../_/img/favicon.ico" type="image/x-icon">
+<meta name="twitter:image:alt" content="DFINITY Logo" />    <link rel="icon" href="../../_/img/favicon.ico" type="image/x-icon">
   </head>
   <body class="article">
-<script>
-  function switchToLightMode(persist) {
-    document.querySelector("body").classList.remove("dark-mode");
-    if (persist) {
-      localStorage.setItem("theme-preference", "light");
-    }
-  }
-  function switchToDarkMode(persist) {
-    document.querySelector("body").classList.add("dark-mode");
-    if (persist) {
-      localStorage.setItem("theme-preference", "dark");
-    }
-  }
-
-  var themePreference = localStorage.getItem("theme-preference");
-
-  if (themePreference == "dark") {
-    switchToDarkMode(false);
-  } else if (themePreference == "light") {
-    switchToLightMode(false);
-  } else {
-    // dark mode by default
-    switchToDarkMode(false);
-
-    // uncomment to enable setting the defult by user preference
-    // try {
-    //   if (
-    //     window.matchMedia &&
-    //     window.matchMedia("(prefers-color-scheme: dark)").matches
-    //   ) {
-    //     switchToDarkMode(false);
-    //   }
-    // } catch {}
-  }
-</script>
 <header class="header">
   <nav class="navbar">
     <div class="navbar-brand">
-      <a class="logo-container" href="/docs/introduction/welcome.html">
+      <a class="logo-container" href="https://dfinity.org/">
         <img class="header-logo" src="../../_/img/logo.svg">
-        <img class="header-logo dark" src="../../_/img/logo-dark.svg">
         <h1 class="header-title">Motoko documentation</h1>
       </a>
     </div>
-    <div id="topbar-nav" class="navbar-menu">
-          <a class="navbar-item" target="blank" href="https://dfinity.org/">DFINITY.org</a>
-          <a class="navbar-item" target="blank" href="https://forum.dfinity.org/">Forum</a>
-          <!--<a class="navbar-item" target="blank" href="mailto:support@dfinity.org?subject=Feedback - SDK Developer Center">Email us</a>-->
-          <a class="navbar-item" target="blank" href="https://support.dfinity.org/">Support</a>          
-          <a class="navbar-item" target="blank" href="https://www.twitter.com/dfinitydev">
-            <img class="light-only" src="../../_/img/social/twitter-icon.svg">
-            <img class="dark-only" src="../../_/img/social/twitter-icon-dark.svg">
-          </a>
-      </div>
     <div class="nav-items-wrapper">
-      <button class="to-light-mode dark-only" aria-label="switch to light mode" onclick="switchToLightMode(true)"></button>
-      <button class="to-dark-mode light-only" aria-label="switch to dark mode" onclick="switchToDarkMode(true)"></button>
       <div class="search-container">
   <svg class="search-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -100,9 +41,16 @@
         <span></span>
         <span></span>
       </button>
+      <div id="topbar-nav" class="navbar-menu">
+        <div class="navbar-end">
+          <a class="navbar-item" target="blank" href="https://forum.dfinity.org/">Forum</a>
+          <a class="navbar-item" target="blank" href="mailto:support@dfinity.org?subject=Feedback - SDK Developer Center">Email us</a>
+          <a class="navbar-item" target="blank" href="https://www.twitter.com/dfinitydev">
+            <img src="../../_/img/social/twitter-icon.svg">
+          </a>
+        </div>
       </div>
-      
-    <div class="gradient-decoration"></div>
+    </div>
   </nav>
 </header>
 <div class="body">
@@ -111,174 +59,136 @@
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
   <nav class="nav-menu">
-    <h3 class="title">Docs</h3>
+    <h3 class="title"><a href="../index.html">Developer Center</a></h3>
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="../introduction/welcome.html"><strong>Introduction</strong></a>
-    
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../introduction/welcome.html#for-first-timers">For: First-Timers</a>
-    
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../introduction/welcome.html#for-developers">For: Developers</a>
-    
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../introduction/welcome.html#for-protocol-enthusiasts">For: Protocol Enthusiasts</a>
-    
   </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="../quickstart/quickstart-intro.html">Quick Start</a>
-    
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../quickstart/newcomers.html">For Newcomers</a>
-    
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../quickstart/cycles-faucet.html">Claim Your Free Cycles</a>
-    
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../quickstart/host-a-website.html">Host a Static Website</a>
-    
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../quickstart/local-quickstart.html">Local Development</a>
-    
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../quickstart/network-quickstart.html">Network Deployment</a>
-    
   </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="../examples/index.html">Example Code</a>
-    
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../examples/hello.html">Hello Example</a>
-    
   </li>
   <li class="nav-item" data-depth="2">
     <span class="nav-text"><a href="https://github.com/dfinity/examples" target="_blank" rel="noopener">Dfinity Examples</a></span>
-    
   </li>
   <li class="nav-item" data-depth="2">
     <span class="nav-text"><a href="https://github.com/dfinity/awesome-dfinity" target="_blank" rel="noopener">Open-source Community Projects</a></span>
-    
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../examples/hackathon-projects.html">Hackathon Projects</a>
-    
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../examples/codelabs.html">CodeLabs</a>
-    
   </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
     <span class="nav-text">Developer Docs</span>
-    
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <button class="nav-item-toggle"></button>
     <span class="nav-text">Getting Started</span>
-    
 <ul class="nav-list">
   <li class="nav-item" data-depth="3">
     <button class="nav-item-toggle"></button>
     <span class="nav-text">Introducing the SDK</span>
-    
 <ul class="nav-list">
   <li class="nav-item" data-depth="4">
     <a class="nav-link" href="../developers-guide/install-upgrade-remove.html">Install, upgrade, or remove software</a>
-    
   </li>
   <li class="nav-item" data-depth="4">
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="../release-notes/sdk-release-notes.html">Release notes</a>
-    
 <ul class="nav-list">
   <li class="nav-item" data-depth="5">
     <a class="nav-link" href="../release-notes/0.9.0-rn.html">0.9.0</a>
-    
   </li>
   <li class="nav-item" data-depth="5">
     <a class="nav-link" href="../release-notes/0.8.4-rn.html">0.8.4</a>
-    
   </li>
   <li class="nav-item" data-depth="5">
     <a class="nav-link" href="../release-notes/0.8.3-rn.html">0.8.3</a>
-    
   </li>
   <li class="nav-item" data-depth="5">
     <a class="nav-link" href="../release-notes/0.8.2-rn.html">0.8.2</a>
-    
   </li>
   <li class="nav-item" data-depth="5">
     <a class="nav-link" href="../release-notes/0.8.1-rn.html">0.8.1</a>
-    
   </li>
   <li class="nav-item" data-depth="5">
     <a class="nav-link" href="../release-notes/0.8.0-rn.html">0.8.0</a>
-    
   </li>
   <li class="nav-item" data-depth="5">
     <a class="nav-link" href="../release-notes/0.7.7-rn.html">0.7.7</a>
-    
   </li>
   <li class="nav-item" data-depth="5">
     <a class="nav-link" href="../release-notes/0.7.2-rn.html">0.7.2</a>
-    
   </li>
   <li class="nav-item" data-depth="5">
     <a class="nav-link" href="../release-notes/0.7.1-rn.html">0.7.1</a>
-    
   </li>
   <li class="nav-item" data-depth="5">
     <a class="nav-link" href="../release-notes/0.7.0-rn.html">0.7.0</a>
-    
   </li>
   <li class="nav-item" data-depth="5">
     <a class="nav-link" href="../release-notes/0.6.26-rn.html">0.6.26</a>
-    
   </li>
   <li class="nav-item" data-depth="5">
     <a class="nav-link" href="../release-notes/0.6.25-rn.html">0.6.25</a>
-    
   </li>
   <li class="nav-item" data-depth="5">
     <a class="nav-link" href="../release-notes/0.6.24-rn.html">0.6.24</a>
-    
   </li>
   <li class="nav-item" data-depth="5">
     <a class="nav-link" href="../release-notes/0.6.23-rn.html">0.6.23</a>
-    
   </li>
   <li class="nav-item" data-depth="5">
     <a class="nav-link" href="../release-notes/0.6.22-rn.html">0.6.22</a>
-    
   </li>
   <li class="nav-item" data-depth="5">
     <a class="nav-link" href="../release-notes/0.6.21-rn.html">0.6.21</a>
-    
   </li>
   <li class="nav-item" data-depth="5">
     <a class="nav-link" href="../release-notes/0.6.20-rn.html">0.6.20</a>
-    
   </li>
 </ul>
   </li>
@@ -287,19 +197,15 @@
   <li class="nav-item" data-depth="3">
     <button class="nav-item-toggle"></button>
     <span class="nav-text">Introducing DFX</span>
-    
 <ul class="nav-list">
   <li class="nav-item" data-depth="4">
     <a class="nav-link" href="../developers-guide/cli-reference.html">DFX commands</a>
-    
   </li>
   <li class="nav-item" data-depth="4">
     <a class="nav-link" href="../developers-guide/cli-reference/dfx-envars.html">DFX environment variables</a>
-    
   </li>
   <li class="nav-item" data-depth="4">
     <a class="nav-link" href="../developers-guide/glossary.html">Glossary</a>
-    
   </li>
 </ul>
   </li>
@@ -308,205 +214,156 @@
   <li class="nav-item" data-depth="2">
     <button class="nav-item-toggle"></button>
     <span class="nav-text">Building on the Internet Computer</span>
-    
 <ul class="nav-list">
   <li class="nav-item" data-depth="3">
     <button class="nav-item-toggle"></button>
     <span class="nav-text">Learn how to:</span>
-    
 <ul class="nav-list">
   <li class="nav-item" data-depth="4">
     <a class="nav-link" href="../developers-guide/sdk-guide.html">Develop smart contracts on the IC</a>
-    
   </li>
   <li class="nav-item" data-depth="4">
     <a class="nav-link" href="../developers-guide/design-apps.html">Design apps</a>
-    
   </li>
   <li class="nav-item" data-depth="4">
     <a class="nav-link" href="../developers-guide/customize-projects.html">Manage projects</a>
-    
   </li>
   <li class="nav-item" data-depth="4">
     <a class="nav-link" href="../developers-guide/working-with-canisters.html">Manage canisters</a>
-    
   </li>
   <li class="nav-item" data-depth="4">
     <a class="nav-link" href="../developers-guide/default-wallet.html">Use the default cycles wallet</a>
-    
   </li>
   <li class="nav-item" data-depth="4">
     <a class="nav-link" href="../developers-guide/tutorials/explore-templates.html">Explore the default project</a>
-    
   </li>
   <li class="nav-item" data-depth="4">
     <a class="nav-link" href="../developers-guide/tutorials/define-an-actor.html">Query using an actor</a>
-    
   </li>
   <li class="nav-item" data-depth="4">
     <a class="nav-link" href="../developers-guide/tutorials/hello-location.html">Pass text arguments</a>
-    
   </li>
   <li class="nav-item" data-depth="4">
     <a class="nav-link" href="../developers-guide/tutorials/counter-tutorial.html">Increment a natural number</a>
-    
   </li>
   <li class="nav-item" data-depth="4">
     <a class="nav-link" href="../developers-guide/tutorials/calculator.html">Use integers in calculator functions</a>
-    
   </li>
   <li class="nav-item" data-depth="4">
     <a class="nav-link" href="../developers-guide/tutorials/phonebook.html">Import library modules</a>
-    
   </li>
   <li class="nav-item" data-depth="4">
     <a class="nav-link" href="../developers-guide/tutorials/multiple-actors.html">Use multiple actors</a>
-    
   </li>
   <li class="nav-item" data-depth="4">
     <a class="nav-link" href="../developers-guide/tutorials/intercanister-calls.html">Make inter-canister calls</a>
-    
   </li>
   <li class="nav-item" data-depth="4">
     <a class="nav-link" href="../developers-guide/tutorials/access-control.html">Add access control with identities</a>
-    
   </li>
   <li class="nav-item" data-depth="4">
     <a class="nav-link" href="../developers-guide/tutorials/simple-cycles.html">Accept cycles from a wallet</a>
-    
   </li>
   <li class="nav-item" data-depth="4">
     <a class="nav-link" href="../developers-guide/tutorials/reproducible-builds.html">Build canisters reproducibly</a>
-    
   </li>
   <li class="nav-item" data-depth="4">
     <a class="nav-link" href="../developers-guide/troubleshooting.html">Troubleshoot issues</a>
-    
   </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="3">
     <button class="nav-item-toggle"></button>
     <span class="nav-text">Explore our languages</span>
-    
 <ul class="nav-list">
   <li class="nav-item" data-depth="4">
     <a class="nav-link" href="../developers-guide/work-with-languages.html">Develop using different languages</a>
-    
   </li>
   <li class="nav-item" data-depth="4">
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="../language-guide/motoko.html">Motoko</a>
-    
 <ul class="nav-list">
   <li class="nav-item" data-depth="5">
     <span class="nav-text"><a href="https://m7sm4-2iaaa-aaaab-qabra-cai.raw.ic0.app/" target="_blank" rel="noopener">Motoko Playground</a></span>
-    
   </li>
   <li class="nav-item" data-depth="5">
     <a class="nav-link" href="#base-libraries:stdlib-intro.adoc">Motoko Base Library</a>
-    
   </li>
   <li class="nav-item" data-depth="5">
     <button class="nav-item-toggle"></button>
     <span class="nav-text">Motoko Guide</span>
-    
 <ul class="nav-list">
   <li class="nav-item" data-depth="6">
     <a class="nav-link" href="../language-guide/about-this-guide.html">About the language guide</a>
-    
   </li>
   <li class="nav-item" data-depth="6">
     <a class="nav-link" href="../language-guide/motoko-introduction.html">Introduction</a>
-    
   </li>
   <li class="nav-item" data-depth="6">
     <a class="nav-link" href="../language-guide/basic-concepts.html">Basic concepts and terms</a>
-    
   </li>
   <li class="nav-item" data-depth="6">
     <a class="nav-link" href="../language-guide/mutable-state.html">Mutable state</a>
-    
   </li>
   <li class="nav-item" data-depth="6">
     <a class="nav-link" href="../language-guide/local-objects-classes.html">Local objects and classes</a>
-    
   </li>
   <li class="nav-item" data-depth="6">
     <a class="nav-link" href="../language-guide/actors-async.html">Actors and async data</a>
-    
   </li>
   <li class="nav-item" data-depth="6">
     <a class="nav-link" href="../language-guide/errors.html">Error handling</a>
-    
   </li>
   <li class="nav-item" data-depth="6">
     <a class="nav-link" href="../language-guide/pattern-matching.html">Pattern matching</a>
-    
   </li>
   <li class="nav-item" data-depth="6">
     <a class="nav-link" href="../language-guide/sharing.html">Sharing data and behavior</a>
-    
   </li>
   <li class="nav-item" data-depth="6">
     <a class="nav-link" href="../language-guide/modules-and-imports.html">Modules and imports</a>
-    
   </li>
   <li class="nav-item" data-depth="6">
     <a class="nav-link" href="../language-guide/control-flow.html">Imperative control flow</a>
-    
   </li>
   <li class="nav-item" data-depth="6">
     <a class="nav-link" href="../language-guide/structural-equality.html">Structural equality</a>
-    
   </li>
   <li class="nav-item" data-depth="6">
     <a class="nav-link" href="../language-guide/actor-classes.html">Actor classes</a>
-    
   </li>
   <li class="nav-item" data-depth="6">
     <a class="nav-link" href="../language-guide/caller-id.html">Principals and caller identification</a>
-    
   </li>
   <li class="nav-item" data-depth="6">
     <a class="nav-link" href="../language-guide/cycles.html">Managing cycles</a>
-    
   </li>
   <li class="nav-item" data-depth="6">
     <a class="nav-link" href="../language-guide/upgrades.html">Stable variables and upgrade methods</a>
-    
   </li>
   <li class="nav-item" data-depth="6">
     <a class="nav-link" href="../language-guide/compatibility.html">Upgrade compatibility</a>
-    
   </li>
   <li class="nav-item" data-depth="6">
     <a class="nav-link" href="../language-guide/stablememory.html">The ExperimentalStableMemory library</a>
-    
   </li>
   <li class="nav-item" data-depth="6">
     <a class="nav-link" href="../language-guide/heartbeats.html">Heartbeats</a>
-    
   </li>
   <li class="nav-item" data-depth="6">
     <a class="nav-link" href="../language-guide/language-manual.html">Language quick reference</a>
-    
   </li>
   <li class="nav-item" data-depth="6">
     <a class="nav-link" href="../language-guide/compiler-ref.html">Compiler reference</a>
-    
   </li>
   <li class="nav-item" data-depth="6">
     <a class="nav-link" href="../language-guide/motoko-grammar.html">Motoko grammar</a>
-    
   </li>
   <li class="nav-item" data-depth="6">
     <a class="nav-link" href="../language-guide/overview.html">Concise overview of Motoko</a>
-    
   </li>
   <li class="nav-item" data-depth="6">
     <a class="nav-link" href="../language-guide/style.html">Motoko style guidelines</a>
-    
   </li>
 </ul>
   </li>
@@ -515,59 +372,46 @@
   <li class="nav-item" data-depth="4">
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="#rust-guide:rust-intro.adoc">Rust</a>
-    
 <ul class="nav-list">
   <li class="nav-item" data-depth="5">
     <a class="nav-link" href="#rust-guide:rust-quickstart.adoc">Hello, World! Quick Start</a>
-    
   </li>
   <li class="nav-item" data-depth="5">
     <a class="nav-link" href="#rust-guide:rust-counter.adoc">Simple counter tutorial</a>
-    
   </li>
   <li class="nav-item" data-depth="5">
     <a class="nav-link" href="#rust-guide:multiply-dependency.adoc">Basic dependency tutorial</a>
-    
   </li>
   <li class="nav-item" data-depth="5">
     <a class="nav-link" href="#rust-guide:rust-profile.adoc">Profile tutorial</a>
-    
   </li>
   <li class="nav-item" data-depth="5">
     <a class="nav-link" href="#rust-guide:rust-optimize.adoc">Optimize a Rust program</a>
-    
   </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="4">
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="#candid-guide:candid-intro.adoc">Candid</a>
-    
 <ul class="nav-list">
   <li class="nav-item" data-depth="5">
     <a class="nav-link" href="#candid-guide:candid-concepts.adoc">What is Candid?</a>
-    
   </li>
   <li class="nav-item" data-depth="5">
     <a class="nav-link" href="#candid-guide:candid-howto.adoc">How to</a>
-    
   </li>
   <li class="nav-item" data-depth="5">
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="#candid-guide:candid-ref.adoc">Reference</a>
-    
 <ul class="nav-list">
   <li class="nav-item" data-depth="6">
     <a class="nav-link" href="#candid-guide:candid-types.adoc">Supported types</a>
-    
   </li>
   <li class="nav-item" data-depth="6">
     <span class="nav-text"><a href="https://github.com/dfinity/candid" target="_blank" rel="noopener">Candid specification</a></span>
-    
   </li>
   <li class="nav-item" data-depth="6">
     <span class="nav-text"><a href="https://docs.rs/candid" target="_blank" rel="noopener">Candid Rust crate</a></span>
-    
   </li>
 </ul>
   </li>
@@ -578,38 +422,30 @@
   <li class="nav-item" data-depth="3">
     <button class="nav-item-toggle"></button>
     <span class="nav-text">Introducing the Internet Identity</span>
-    
 <ul class="nav-list">
   <li class="nav-item" data-depth="4">
     <a class="nav-link" href="#ic-identity-guide:what-is-ic-identity.adoc">What is Internet Identity</a>
-    
   </li>
   <li class="nav-item" data-depth="4">
     <a class="nav-link" href="#ic-identity-guide:auth-how-to.adoc">How to use the Internet Identity</a>
-    
   </li>
   <li class="nav-item" data-depth="4">
     <a class="nav-link" href="#ic-identity-guide:hello-guide.adoc">Windows Hello Guide</a>
-    
   </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="3">
     <button class="nav-item-toggle"></button>
     <span class="nav-text">Frontend development</span>
-    
 <ul class="nav-list">
   <li class="nav-item" data-depth="4">
     <a class="nav-link" href="../developers-guide/webpack-config.html">Add frontend assets</a>
-    
   </li>
   <li class="nav-item" data-depth="4">
     <a class="nav-link" href="../developers-guide/tutorials/custom-frontend.html">Customize the front-end</a>
-    
   </li>
   <li class="nav-item" data-depth="4">
     <a class="nav-link" href="../developers-guide/tutorials/my-contacts.html">Add a stylesheet</a>
-    
   </li>
 </ul>
   </li>
@@ -620,48 +456,37 @@
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
     <span class="nav-text">Protocol Docs</span>
-    
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="../developers-guide/concepts/concepts-intro.html">Concepts</a>
-    
 <ul class="nav-list">
   <li class="nav-item" data-depth="3">
     <a class="nav-link" href="../developers-guide/concepts/what-is-IC.html">What is the Internet Computer</a>
-    
   </li>
   <li class="nav-item" data-depth="3">
     <a class="nav-link" href="#interface-spec:index.adoc">Internet Computer Interface Specification</a>
-    
   </li>
   <li class="nav-item" data-depth="3">
     <a class="nav-link" href="../developers-guide/concepts/nodes-subnets.html">Nodes and sub-networks</a>
-    
   </li>
   <li class="nav-item" data-depth="3">
     <a class="nav-link" href="../developers-guide/concepts/data-centers.html">Decentralized data centers</a>
-    
   </li>
   <li class="nav-item" data-depth="3">
     <a class="nav-link" href="../developers-guide/concepts/canisters-code.html">Canisters and code</a>
-    
   </li>
   <li class="nav-item" data-depth="3">
     <a class="nav-link" href="../developers-guide/concepts/trust-in-canisters.html">Trust in canisters</a>
-    
   </li>
   <li class="nav-item" data-depth="3">
     <a class="nav-link" href="../developers-guide/concepts/tokens-cycles.html">Tokens and cycles</a>
-    
   </li>
   <li class="nav-item" data-depth="3">
     <a class="nav-link" href="../developers-guide/concepts/governance.html">Neurons and governance</a>
-    
   </li>
   <li class="nav-item" data-depth="3">
     <a class="nav-link" href="../developers-guide/concepts/bitcoin-integration.html">Bitcoin integration</a>
-    
   </li>
 </ul>
   </li>
@@ -670,42 +495,34 @@
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
     <span class="nav-text">General Docs</span>
-    
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <button class="nav-item-toggle"></button>
     <span class="nav-text">Overview of self-custody</span>
-    
 <ul class="nav-list">
   <li class="nav-item" data-depth="3">
     <a class="nav-link" href="../token-holders/custody-options-intro.html">Choosing self-custody for digital assets</a>
-    
   </li>
   <li class="nav-item" data-depth="3">
     <a class="nav-link" href="../token-holders/self-custody-quickstart.html">Self-custody quick start</a>
-    
   </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="2">
     <button class="nav-item-toggle"></button>
     <span class="nav-text">Overview of ledger</span>
-    
 <ul class="nav-list">
   <li class="nav-item" data-depth="3">
     <a class="nav-link" href="../integration/ledger-quick-start.html">Ledger quick start</a>
-    
   </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="2">
     <button class="nav-item-toggle"></button>
     <span class="nav-text">Overview of the NNS App</span>
-    
 <ul class="nav-list">
   <li class="nav-item" data-depth="3">
     <a class="nav-link" href="../token-holders/nns-app-quickstart.html">NNS App quick start</a>
-    
   </li>
 </ul>
   </li>
@@ -714,130 +531,102 @@
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
     <span class="nav-text">Additional Resources</span>
-    
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <button class="nav-item-toggle"></button>
     <span class="nav-text">Developer videos</span>
-    
 <ul class="nav-list">
   <li class="nav-item" data-depth="3">
     <span class="nav-text"><a href="https://www.youtube.com/watch?v=oxEr8UzGeBo&amp;list=PLuhDt1vhGcrf4DgKZecU3ar_RA1cB0vUT&amp;index=11&amp;ab_channel=DFINITY" target="_blank" rel="noopener">Internet Identity</a></span>
-    
   </li>
   <li class="nav-item" data-depth="3">
     <span class="nav-text"><a href="https://www.youtube.com/watch?v=4eSceDOS-Ms&amp;list=PLuhDt1vhGcrf4DgKZecU3ar_RA1cB0vUT&amp;index=21&amp;ab_channel=DFINITY" target="_blank" rel="noopener">Motoko</a></span>
-    
   </li>
   <li class="nav-item" data-depth="3">
     <span class="nav-text"><a href="https://www.youtube.com/watch?v=GzkRsbqPaA0&amp;ab_channel=DFINITY" target="_blank" rel="noopener">Building a multiplayer game for the Internet Computer</a></span>
-    
   </li>
   <li class="nav-item" data-depth="3">
     <span class="nav-text"><a href="https://www.youtube.com/watch?v=b_nc6yx5_DQ&amp;list=PLuhDt1vhGcrf4DgKZecU3ar_RA1cB0vUT&amp;index=7&amp;ab_channel=DFINITY" target="_blank" rel="noopener">Deploying static sites to the Internet Computer</a></span>
-    
   </li>
   <li class="nav-item" data-depth="3">
     <span class="nav-text"><a href="https://www.youtube.com/watch?v=2miweY9-vZc&amp;list=PLuhDt1vhGcrf4DgKZecU3ar_RA1cB0vUT&amp;index=6&amp;ab_channel=DFINITY" target="_blank" rel="noopener">Zero to fullstack: web apps on the Internet Computer </a></span>
-    
   </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="2">
     <button class="nav-item-toggle"></button>
     <span class="nav-text">Protocol videos</span>
-    
 <ul class="nav-list">
   <li class="nav-item" data-depth="3">
     <span class="nav-text"><a href="https://dfinity.org/technicals/" target="_blank" rel="noopener">Technical library</a></span>
-    
   </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="2">
     <button class="nav-item-toggle"></button>
     <span class="nav-text">Developer tooling</span>
-    
 <ul class="nav-list">
   <li class="nav-item" data-depth="3">
     <a class="nav-link" href="../download.html">DFINITY Canister SDK</a>
-    
   </li>
   <li class="nav-item" data-depth="3">
     <span class="nav-text"><a href="https://github.com/dfinity/cdk-rs" target="_blank" rel="noopener">Rust CDK</a></span>
-    
   </li>
   <li class="nav-item" data-depth="3">
     <span class="nav-text"><a href="https://github.com/kritzcreek/vessel" target="_blank" rel="noopener">Vessel Package Manager</a></span>
-    
   </li>
   <li class="nav-item" data-depth="3">
     <span class="nav-text"><a href="https://marketplace.visualstudio.com/items?itemName=dfinity-foundation.vscode-motoko" target="_blank" rel="noopener">Motoko VS Code Extension</a></span>
-    
   </li>
   <li class="nav-item" data-depth="3">
     <span class="nav-text"><a href="https://github.com/dfinity/agent-js" target="_blank" rel="noopener">Agent JS</a></span>
-    
   </li>
   <li class="nav-item" data-depth="3">
     <span class="nav-text"><a href="https://github.com/sudograph/sudograph" target="_blank" rel="noopener">Sudograph</a></span>
-    
   </li>
   <li class="nav-item" data-depth="3">
     <span class="nav-text"><a href="https://github.com/dfinity/cycles-wallet" target="_blank" rel="noopener">Cycles Wallet</a></span>
-    
   </li>
   <li class="nav-item" data-depth="3">
     <span class="nav-text"><a href="https://m7sm4-2iaaa-aaaab-qabra-cai.raw.ic0.app/" target="_blank" rel="noopener">Motoko Playground</a></span>
-    
   </li>
   <li class="nav-item" data-depth="3">
     <span class="nav-text"><a href="https://github.com/dfinity/quill" target="_blank" rel="noopener">Quill</a></span>
-    
   </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="2">
     <button class="nav-item-toggle"></button>
     <span class="nav-text">Community created resources</span>
-    
 <ul class="nav-list">
   <li class="nav-item" data-depth="3">
     <span class="nav-text"><a href="https://ic.rocks/" target="_blank" rel="noopener">ic.rocks (Block explorer)</a></span>
-    
   </li>
   <li class="nav-item" data-depth="3">
     <span class="nav-text"><a href="https://plugwallet.ooo/" target="_blank" rel="noopener">Plug (Browser-based wallet extension)</a></span>
-    
   </li>
   <li class="nav-item" data-depth="3">
     <span class="nav-text"><a href="https://fleek.co/" target="_blank" rel="noopener">Fleek (Netlify for the open web)</a></span>
-    
   </li>
   <li class="nav-item" data-depth="3">
     <span class="nav-text"><a href="http://faucet.dfinity.org/" target="_blank" rel="noopener">Cycles Faucet</a></span>
-    
   </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../developers-guide/computation-and-storage-costs.html">Computation and Storage Costs</a>
-    
   </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
     <span class="nav-text">Community</span>
-    
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <span class="nav-text"><a href="https://discord.gg/cA7y6ezyE2" target="_blank" rel="noopener">Developer Discord</a></span>
-    
   </li>
   <li class="nav-item" data-depth="2">
     <span class="nav-text"><a href="https://forum.dfinity.org/" target="_blank" rel="noopener">Developer Forum</a></span>
-    
   </li>
 </ul>
   </li>
@@ -867,7 +656,8 @@
 </div>
 <main>
 <div class="toolbar" role="navigation">
-<button class="nav-toggle">Table of contents</button>
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">Developer Center</a></li>
@@ -966,9 +756,6 @@
         <a class="footer-link" href="http://www.dfinity.org/data-centers">
           Data Centers
         </a>
-        <a class="footer-link" href="https://support.dfinity.org">
-          Support
-        </a>
       </div>
 
       <div class="col2">
@@ -1034,7 +821,7 @@
 
         </a>
 
-        <a class="social-icon-link" target="blank" href="https://www.linkedin.com/company/dfinity">
+        <a class="social-icon-link" target="blank" href="https://www.linkedin.com/company/dfinity'">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" clip-rule="evenodd"
               d="M1 4.35878C1 3.01688 2.03589 2 3.61924 2C5.20139 2 6.17406 3.01448 6.20507 4.35519C6.20507 5.67205 5.20139 6.71456 3.58942 6.71456H3.55841C2.00666 6.71456 1 5.67562 1 4.35878ZM17.5581 8.28158C15.1017 8.28158 13.5625 9.61217 13.278 10.5449V8.41225H8.46122C8.52324 9.54475 8.46122 21.9995 8.46122 21.9995H13.278V14.647C13.278 14.5987 13.2778 14.5505 13.2775 14.5025C13.2756 14.1436 13.2736 13.7952 13.383 13.5365C13.714 12.7194 14.4255 11.8719 15.7046 11.8719C17.3775 11.8719 18.1378 13.128 18.1378 14.9685V21.9995H23V14.4448C23 10.236 20.6056 8.28158 17.5581 8.28158ZM1.55371 8.41275H5.84157V22H1.55371V8.41275Z"
@@ -1082,9 +869,8 @@
 <script async src="../../_/js/vendor/highlight.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
 <script type="text/javascript"> docsearch({
-    appId: 'ZM55OFXXZ2',
-    apiKey: 'a7d619461c99684e30dd0b3e9d375513',
-    indexName: 'smartcontracts.org',
+    apiKey: 'b93d56cc4b00b0afbcdaacab04dcf25b',
+    indexName: 'dfinity_sdk',
     inputSelector: '.search-input',
     debug: false // Set debug to true if you want to inspect the dropdown
   });
@@ -1122,7 +908,7 @@ async function addPackage(name, repo, version, dir) {
   }
   Promise.all(promises).then(() => {
     Motoko.addPackage(name, name + '/');
-    console.log(`Loaded motoko library "${name}"`);
+    console.log("base library loaded");
     changeCodeBlock(); // from run_repl.js
   });
 }
@@ -1130,7 +916,7 @@ function loadBase() {
   addPackage('base', 'dfinity/motoko-base', 'dfx-0.6.18', 'src');
 }
 </script>
-<script async src="../../_/js/moc/moc-interpreter-0.6.11.js" onload="loadBase()">
+<script async src="../../_/js/vendor/moc.js" onload="loadBase()">
 </script>
   </body>
 </html>
