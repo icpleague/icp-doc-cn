@@ -13,10 +13,10 @@ jobs:
         
       - name: install dependencies
         run: |
-          apt install pandoc -y  
+          sudo apt install pandoc -y  
       - name: install dependencies
         run: |
-          apt install make -y
+          sudo apt install make -y
       - name: Build
         run: make
       - name: Publish to GitHub Pages
