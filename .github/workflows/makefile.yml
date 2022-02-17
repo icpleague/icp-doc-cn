@@ -11,9 +11,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
         
-      - name: Install dependencies
-        run: pandoc  
-      - name: Install dependencies
+      - name: install dependencies
+        run: |
+          apt install pandoc -y  
+      - name: install dependencies
+        run: |
+          apt install make -y
+      - name: Build
         run: make
       - name: Publish to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
