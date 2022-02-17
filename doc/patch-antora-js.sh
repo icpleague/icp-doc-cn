@@ -15,9 +15,9 @@ if ! [ -d build ]; then
   echo "Did not find build/, did you run antora?"
   exit 1
 fi
-
+git clone https://github.com/dfinity/motoko-base.git
 MOC_JS="${MOC_JS:-../moc.js}"
-MOTOKO_BASE="${MOTOKO_BASE:-../motoko-base/src}"
+MOTOKO_BASE="${MOTOKO_BASE:-./motoko-base/src}"
 
 if ! [ -r "$MOC_JS" ]; then
   echo "Did not find \"$MOC_JS\". Please run make -C ../src moc.js or set  \$MOC_JS."
