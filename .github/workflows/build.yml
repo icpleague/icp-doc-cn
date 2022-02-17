@@ -26,4 +26,5 @@ jobs:
       - name: Build
         run: |
           cd doc
+          chmod +x patch-antora-js.sh
           make
