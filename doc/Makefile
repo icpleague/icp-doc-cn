@@ -18,6 +18,7 @@ overview-slides.html : overview-slides.md
 
 antora:
 	rm -rf build
+	rm -rf ~/.cache/antora/content/*
 	npx antora antora-test-playbook.yml
 	./patch-antora-js.sh
 
