@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>介绍互联网计算机 :: Motoko documentation</title>
+    <title>介绍 :: Motoko documentation</title>
     <meta name="generator" content="Antora 3.0.1">
 <link rel="stylesheet" href="../../_/css/site.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" /><meta property="og:image:width" content="1200" />
@@ -116,21 +116,21 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
-  <li class="nav-item is-current-page" data-depth="1">
+  <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="welcome.html"><strong>介绍</strong></a>
+    <a class="nav-link" href="../introduction/welcome.html"><strong>介绍</strong></a>
     
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="#for-first-timers">适合: 初学者</a>
+    <a class="nav-link" href="../introduction/welcome.html#for-first-timers">适合: 初学者</a>
     
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="#for-developers">适合: 开发者</a>
+    <a class="nav-link" href="../introduction/welcome.html#for-developers">适合: 开发者</a>
     
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="#for-protocol-enthusiasts">适合: 协议爱好者</a>
+    <a class="nav-link" href="../introduction/welcome.html#for-protocol-enthusiasts">适合: 协议爱好者</a>
     
   </li>
 </ul>
@@ -873,126 +873,63 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">Developer Center</a></li>
-    <li><a href="welcome.html"><strong>介绍</strong></a></li>
+    <li><a href="introduction.html">介绍</a></li>
   </ul>
 </nav>
 </div>
 <div class="main-content">
 <article class="doc">
-<h1 class="page">介绍互联网计算机</h1>
+<h1 class="page">介绍</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>大家好!</p>
+<p>本文档提供了在 Internet 计算机上开发 Rust 容器和容器服务的 Web 应用程序的安全最佳实践。 这些最佳实践主要受到安全审查中发现的问题的启发。</p>
 </div>
 <div class="paragraph">
-<p>如果你登陆到这里，有兴趣了解更多关于互联网计算机的信息。那么你来对了地方&#8212;&#8203;看看下面的内容，看看从哪里开始吧！</p>
+<p>我们希望向开发人员宣传这些最佳实践，以便在新 dApp 开发过程中尽早解决潜在问题，而不仅仅是在最后（如果有的话）进行安全审查时解决。 理想情况下，这将使安全 dApp 的开发更加高效。</p>
 </div>
 <div class="paragraph">
-<p>注释: 合格的开发者可以获得价值20美元的免费燃料费，开始向互联网计算机区块链部署容器智能合约。https://faucet.dfinity.org/auth[申请你的免费燃料费]</p>
+<p>此处链接的一些优秀的罐最佳实践来自链接：https://mmapped.blog/posts/01-effective-rust-canisters.html[Effective Rust Canisters] 和链接：https://www.joachim-breitner.de/ blog/788-How_to_audit_an_Internet_Computer_canister[如何审核互联网计算机容器]。 相关部分链接在各个最佳实践中。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="针对菜鸟"><a class="anchor" href="#针对菜鸟"></a>针对: 菜鸟</h2>
+<h2 id="_最佳实践概述"><a class="anchor" href="#_最佳实践概述"></a>最佳实践概述</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>互联网计算机是一个以网络速度运行的区块链，容量不受限制。</p>
-</div>
-<div class="paragraph">
-<p>作为区块链历史的速成课程，比特币创造了数字黄金。然后，在下一步的演变中，以太坊开发了智能合约并开创了DeFi和NFT用例。</p>
-</div>
-<div class="paragraph">
-<p>互联网计算机是第三大区块链创新&#8212;&#8203;区块链可以扩展智能合约的计算，以网络速度运行它们，有效地处理和存储数据，并为开发者提供强大的软件框架。通过使之成为可能，互联网计算机使系统和应用程序的运行方式得到了完全的重新想象。</p>
-</div>
-<div class="paragraph">
-<p>有兴趣了解更多吗？请查看以下资源：</p>
+<p>我们在后续页面中提供以下安全最佳实践：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>链接:https://www.youtube.com/watch?v=YWHTNr8RZHg&amp;list=PLuhDt1vhGcrf4DgKZecU3ar_RA1cB0vUT&amp;index=17&amp;ab_channel=DFINITY[互联网计算机入门]， 10分钟的互联网计算机高级概述</p>
+<p>链接：general-security-best-practices.adoc[一般安全最佳实践]</p>
 </li>
 <li>
-<p>链接:https://medium.com/dfinity[互联网计算机评测]， 我们的博客涵盖了互联网计算机的更新</p>
+<p>链接：web-app-development-security-best-practices.adoc[Web App Specific Security Best Practices],</p>
 </li>
 <li>
-<p>链接:https://thereboot.com/[重新启动]], 我们的探讨当前互联网的问题的技术性出版物</p>
+<p>链接：rust-canister-development-security-best-practices.adoc[Rust Canister 开发安全最佳实践]</p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p>在官方链接上关注我们获取最新的更新信息https://twitter.com/dfinity[DFINITY Twitter]。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="针对开发者"><a class="anchor" href="#针对开发者"></a>针对: 开发者</h2>
+<h2 id="_目标受众"><a class="anchor" href="#_目标受众"></a>目标受众</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>互联网计算机承载着特殊的智能合约，称为 链接:https://medium.com/dfinity/software-canisters-an-evolution-of-smart-contracts-internet-computer-f1f92f1bfffb[canisters]. 容器智能合约是一些 链接:https://webassembly.org/[WebAssembly]字节码逻辑和内存页。互联网计算机上的Dapps是由一个或多个容器创建的。</p>
-</div>
-<div class="paragraph">
-<p>容器智能合约可以直接向终端用户提供网络内容，例如在他们的浏览器中，用户可以与区块链服务互动，而无需持有代币。</p>
-</div>
-<div class="paragraph">
-<p>互联网计算机区块链最终可以承载任何数量的容器智能合约（即代码和状态）。此外，它可以以无限制的链上容量并发运行它们。这意味着你可以创建可以扩展的dapp。</p>
-</div>
-<div class="paragraph">
-<p>容器智能合约是不可阻挡和不可篡改的。想象一下，建设时不必担心数据库、缓存、防火墙、CDN、云供应商、VPN、DNS，甚至用户名和密码&#8212;&#8203;所有这些都是因为互联网计算机将这些需求抽象出来了。</p>
-</div>
-<div class="paragraph">
-<p>跃跃欲试了吗？看看我们的 <a href="../quickstart/quickstart-intro.html" class="xref page">快速入门</a>，开始使用一个简单的hello world dapp。</p>
-</div>
-<div class="paragraph">
-<p>对融入我们的开发者社区感兴趣吗？请查看以下内容：</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>链接:https://discord.gg/cA7y6ezyE2[Developer Discord]， 我们为开发者社区提供的官方 Discord</p>
-</li>
-<li>
-<p>链接:https://forum.dfinity.org/[开发者论坛]， 一个关于在互联网上建立计算机的技术讨论的温馨空间。</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>您可以通过链接:https://twitter.com/dfinitydev[DFINITY Developer Twitter] 关注我们，了解最新的开发者专用更新。</p>
+<p>本文档最初旨在供 DFINITY 内部使用。但是，我们现在将其发布到社区，以便每个开发人员都能受益。目标受众是为 Internet 计算机开发容器或 Web 应用程序的任何开发人员。这也是对此类代码进行审查的任何人的兴趣所在。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="针对协议爱好者"><a class="anchor" href="#针对协议爱好者"></a>针对: 协议爱好者</h2>
+<h2 id="_免责声明和限制"><a class="anchor" href="#_免责声明和限制"></a>免责声明和限制</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>互联网计算机是由互联网计算机协议（"ICP"）创建的，它已经形成了世界上第一个网络速度、网络服务的公共区块链。互联网计算机是自我管理的，可以根据需要增长其容量。它结合了由世界各地的独立数据中心集体运行的特殊节点机器。像所有区块链一样，它是不可阻挡的，它所存储的代码是不可篡改的。</p>
+<p>我们提供了一系列最佳实践，这些实践可能会随着时间的推移而增长。虽然我们认为这有助于提高互联网计算机上 dApp 的安全性，但我们想指出，这样的列表永远不会完整，也永远不会涵盖所有潜在的安全问题。例如，总会有特定于 dApp 用例的攻击向量，一般最佳实践无法涵盖这些用例。因此，遵循最佳实践可以补充但不能替代安全审查。特别是对于安全关键的 dApp，我们建议执行安全审查/审计。此外，请注意，最佳实践目前未根据风险或优先级排序。</p>
 </div>
 <div class="paragraph">
-<p>从我们左边的 "概念 "部分开始，从 <a href="../developers-guide/concepts/what-is-IC.html" class="xref page">什么是互联网计算机</a></p>
-</div>
-<div class="paragraph">
-<p>要了解更多关于互联网计算机协议的信息，请查看以下资源：</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>链接:https://dfinity.org/technicals/[技术库], 了解我们世界级研发团队解释互联网计算机协议组成部分的深入视频。特别值得注意的是:</p>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://dfinity.org/technicals/chain-key-technology">链式密钥加密法</a>, 是使互联网计算机能够扩展到数百万节点的基本突破之一。链式钥匙加密法最显著的创新是，互联网计算机有一个单一的公钥，这使得任何设备都可以验证互联网计算机产生的人工制品的真实性，甚至是智能手表和手机。</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><a href="#interface-spec:index.adoc" class="xref unresolved">接口规范</a>, 是一份深入的技术文件，提供了互联网计算机的低级外部接口的概述</p>
-</li>
-<li>
-<p>链接:https://dashboard.internetcomputer.org/[互联网计算机仪表盘], 以监测围绕互联网计算机区块链的实时指标。</p>
-</li>
-</ul>
+<p>目前，容器最佳实践集中在 Rust。我们也将努力纳入针对 Motoko 的最佳实践。</p>
 </div>
 </div>
 </div>

@@ -3,9 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Quick start :: Motoko documentation</title>
-    <meta name="description" content="Download the DFINITY Canister SDK and learn how to deploy your first application.">
-    <meta name="keywords" content="Internet Computer,blockchain,cryptocurrency,ICP tokens,smart contracts,cycles,wallet,software canister,developer onboarding">
+    <title>快速入门 :: Motoko documentation</title>
     <meta name="generator" content="Antora 3.0.1">
 <link rel="stylesheet" href="../../_/css/site.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" /><meta property="og:image:width" content="1200" />
@@ -881,86 +879,86 @@
 </div>
 <div class="main-content">
 <article class="doc">
-<h1 class="page">Quick start</h1>
+<h1 class="page">快速入门</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div id="quick-start-intro" class="paragraph">
-<p>This DFINITY Canister Software Development Kit (SDK) provides tools, sample code, and documentation to help you create canister smart contract dapps and deploy them on the Internet Computer blockchain mainnet.
-The <em>Quick Start</em> tutorial assumes that you are installing the {sdk-short-name} for the first time and illustrates how to create, build, and deploy your first dapp.</p>
+<p>T此 DFINITY Canister Software Development Kit (SDK) 提供工具、示例代码和文档，以帮助您创建罐式智能合约 dapp 并将它们部署在 Internet Computer 区块链主网上。
+<em>快速入门</em> 教程假设您是第一次安装 {sdk-short-name}，并说明如何创建、构建和部署您的第一个 dapp。</p>
 </div>
 <div class="paragraph">
-<p>To keep the instructions simple and focused on the task at hand, the <em>Quick start</em> is split into two scenarios:</p>
+<p>为了使说明简单并专注于手头的任务，_快速入门_分为两个场景：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>In the <a href="local-quickstart.html">Local development</a> scenario, you create and deploy the sample dapp with processes that run in a <em>local canister execution environment</em>.</p>
+<p>在链接:local-quickstart.html[本地开发] 场景中，您创建和部署示例 dapp，其进程在_本地容器执行环境_中运行。</p>
 </li>
 <li>
-<p>In the <a href="network-quickstart.html">On-chain deployment</a> scenario, you create the sample dapp locally but <em>connect to the Internet Computer platform</em> running on node machines in independent data centers and deploy the dapp there.</p>
+<p>在链接:network-quickstart.html[链上部署] 场景中，您在本地创建示例 dapp，但_连接到在独立数据中心的节点机器上运行的 Internet Computer platform_ 并在那里部署 dapp。</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>If you need some help setting up your development environment—for example, if you aren’t sure how to open a new terminal, install packages, or create folders and navigate between directories—you might want to start with the <a href="newcomers.html">Preliminary steps for newcomers</a>.</p>
+<p>如果您在设置开发环境时需要一些帮助（例如，如果您不确定如何打开新终端、安装软件包或创建文件夹以及在目录之间导航），您可能希望从链接开始：newcomers{outfilesuffix }[新手的初步步骤]。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="default-app"><a class="anchor" href="#default-app"></a>Default dapp</h2>
+<h2 id="default-app"><a class="anchor" href="#default-app"></a>默认 dapp</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Both scenarios build and deploy a simple Hello canister smart contract that has just one function—called <code>greet</code>. The <code>greet</code> function accepts one text argument and returns the result with a greeting similar to <strong>Hello,&#160;everyone!</strong> in a terminal if you run the canister using the command-line or in an alert pop-up window if you access the dapp in a browser.</p>
+<p>这两种场景都构建和部署了一个简单的 Hello canister 智能合约，它只有一个功能——称为 <code>greet</code>。 <code>greet</code> 函数接受一个文本参数并在终端中返回类似于 <strong>Hello,&#160;everyone!</strong> 的问候语（如果您使用命令行或在警报弹出窗口中运行容器） 如果您在浏览器中访问 dapp，则窗口。</p>
 </div>
 <div class="paragraph">
-<p>The default dapp consists of back-end code written in  Motoko, a programming language specifically designed for interacting with the Internet Computer, and a simple webpack-based front-end.</p>
+<p>默认的 dapp 包含用 Motoko 编写的后端代码，这是一种专门为与 Internet Computer 交互而设计的编程语言，以及一个简单的基于 webpack 的前端。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_getting_icp_tokens_and_cycles"><a class="anchor" href="#_getting_icp_tokens_and_cycles"></a>Getting ICP tokens and cycles</h2>
+<h2 id="_获取_icp_代币和燃料费"><a class="anchor" href="#_获取_icp_代币和燃料费"></a>获取 ICP 代币和燃料费</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>As discussed in <a href="../developers-guide/concepts/tokens-cycles.html">Tokens and cycles</a>, <strong>cycles</strong> are required to power canister smart contract operations for dapps running on the Internet Computer platform.
-As a developer, you have a few different options for acquiring and managing cycles for your dapps:</p>
+<p>如链接中所讨论的：../developers-guide/concepts/tokens-cycles.html[Tokens and Cycles]，<strong>cycles</strong> 需要为在 Internet Computer platform 上运行的 dapps 提供智能合约操作。
+作为开发人员，您有几个不同的选项来获取和管理 dapp 的周期：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Purchase or claim ICP tokens through an exchange that lists ICP tokens available for trade, then convert your tokens to cycles using the <a href="network-quickstart.html#convert-tokens">{sdk-short-name} command-line interface</a> or the <a href="https://nns.ic0.app/#/auth">Network Nervous System application</a>.</p>
+<p>通过列出可交易 ICP 代币的交易所购买或领取 ICP 代币，然后使用链接将您的代币转换为燃料费：network-quickstart.html#convert-tokens[{sdk-short-name} 命令行界面]或链接：https://nns.ic0.app/#/auth[网络神经系统应用]。</p>
 </li>
 <li>
-<p>Register for cycles by signing up for an account or <a href="../developers-guide/default-wallet.html#wallet-create-wallets">cycles wallet</a> through a provider offering those services.</p>
+<p>通过注册帐户或链接来注册燃料费：../developers-guide/default-wallet.html#wallet-create-wallets[cycles wallet] 通过提供这些服务的提供商。</p>
 </li>
 <li>
-<p>Coordinate with other developers to <a href="../developers-guide/default-wallet.html#wallet-send">send</a> and <a href="../developers-guide/default-wallet.html#wallet-receive">receive</a> cycles directly to and from canisters through a cycles wallet or another canister.</p>
+<p>与其他开发者协调链接：../developers-guide/default-wallet.html#wallet-send[send] 和链接：../developers-guide/default-wallet.html#wallet-receive[receive ] 通过燃料费钱包或另一个容器直接往返于容器。</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Because only canisters require and consume cycles—to perform operations and to pay for the resources they use—cycles are always transferred between canisters and not to users or developers. You can manage the distribution of cycles, however, through a cycles wallet created for you or using a similar dapp.</p>
+<p>B因为只有容器需要和消耗燃料费——执行操作并为其使用的资源付费——周期总是在容器之间传输，而不是传递给用户或开发人员。 但是，您可以通过为您创建的燃料费钱包或使用类似的 dapp 来管理燃料费的分配。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_want_to_learn_more"><a class="anchor" href="#_want_to_learn_more"></a>Want to learn more?</h2>
+<h2 id="_想了解更多"><a class="anchor" href="#_想了解更多"></a>想了解更多？</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>If you are looking for more information before getting started or want to view a demonstration of how to deploy before you try it for yourself, check out the following related resources:</p>
+<p>如果您在开始之前正在寻找更多信息，或者想在自己尝试之前查看如何部署的演示，请查看以下相关资源：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="../developers-guide/concepts/tokens-cycles.html#using-tokens">How you can use ICP tokens (overview)</a></p>
+<p>链接:../developers-guide/concepts/tokens-cycles.html#using-tokens[How you can use ICP tokens (overview)]</p>
 </li>
 <li>
-<p><a href="https://www.youtube.com/watch?v=jduSMHxdYD8">Building on the Internet Computer: Fundamentals (video)</a></p>
+<p>链接:https://www.youtube.com/watch?v=jduSMHxdYD8[Building on the Internet Computer: Fundamentals (video)]</p>
 </li>
 <li>
-<p><a href="https://www.youtube.com/watch?v=60uHQfoA8Dk">What is the DFINITY Canister SDK (video)</a></p>
+<p>链接:https://www.youtube.com/watch?v=60uHQfoA8Dk[What is the DFINITY Canister SDK (video)]</p>
 </li>
 <li>
-<p><a href="https://www.youtube.com/watch?v=yqIoiyuGYNA">Deploying your first dapp (video)</a></p>
+<p>链接:https://www.youtube.com/watch?v=yqIoiyuGYNA[Deploying your first dapp (video)]</p>
 </li>
 </ul>
 </div>

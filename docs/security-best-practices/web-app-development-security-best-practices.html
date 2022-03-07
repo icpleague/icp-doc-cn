@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>介绍互联网计算机 :: Motoko documentation</title>
+    <title>Web 应用程序开发安全最佳实践 :: Motoko documentation</title>
     <meta name="generator" content="Antora 3.0.1">
 <link rel="stylesheet" href="../../_/css/site.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" /><meta property="og:image:width" content="1200" />
@@ -116,21 +116,21 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
-  <li class="nav-item is-current-page" data-depth="1">
+  <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="welcome.html"><strong>介绍</strong></a>
+    <a class="nav-link" href="../introduction/welcome.html"><strong>介绍</strong></a>
     
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="#for-first-timers">适合: 初学者</a>
+    <a class="nav-link" href="../introduction/welcome.html#for-first-timers">适合: 初学者</a>
     
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="#for-developers">适合: 开发者</a>
+    <a class="nav-link" href="../introduction/welcome.html#for-developers">适合: 开发者</a>
     
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="#for-protocol-enthusiasts">适合: 协议爱好者</a>
+    <a class="nav-link" href="../introduction/welcome.html#for-protocol-enthusiasts">适合: 协议爱好者</a>
     
   </li>
 </ul>
@@ -873,126 +873,243 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">Developer Center</a></li>
-    <li><a href="welcome.html"><strong>介绍</strong></a></li>
+    <li><a href="web-app-development-security-best-practices.html">Web 应用程序开发安全最佳实践</a></li>
   </ul>
 </nav>
 </div>
 <div class="main-content">
 <article class="doc">
-<h1 class="page">介绍互联网计算机</h1>
-<div id="preamble">
+<h1 class="page">Web 应用程序开发安全最佳实践</h1>
+<div class="sect1">
+<h2 id="_身份验证"><a class="anchor" href="#_身份验证"></a>身份验证</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="_使用经过良好审核的身份验证服务和客户端_ic_库"><a class="anchor" href="#_使用经过良好审核的身份验证服务和客户端_ic_库"></a>使用经过良好审核的身份验证服务和客户端 IC 库</h3>
+<div class="sect3">
+<h4 id="_安全问题"><a class="anchor" href="#_安全问题"></a>安全问题</h4>
 <div class="paragraph">
-<p>大家好!</p>
+<p>在您的 Web 应用程序中自己实施用户身份验证和容器调用容易出错且存在风险。 例如，如果容器调用是从头开始实现的，则可能存在围绕签名创建或验证的错误。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_推荐"><a class="anchor" href="#_推荐"></a>推荐</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>考虑使用例如 链接：https://github.com/dfinity/internet-identity[Internet Identity] 进行身份验证，使用链接：https://github.com/dfinity/agent-js[agent-js] 进行容器调用，以及 链接：https://github.com/dfinity/agent-js/tree/main/packages/auth-client[auth-client] 用于与您的 dApp 中的互联网身份进行交互。</p>
+</li>
+<li>
+<p>当然，考虑在 IC 上使用替代认证框架进行认证也是一种选择。</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_设置适当的会话超时"><a class="anchor" href="#_设置适当的会话超时"></a>设置适当的会话超时</h3>
+<div class="sect3">
+<h4 id="_安全问题_2"><a class="anchor" href="#_安全问题_2"></a>安全问题</h4>
+<div class="paragraph">
+<p>目前，互联网身份向授权发出到期时间。 这个过期时间可以在链接中设置：https://github.com/dfinity/agent-js/tree/main/packages/auth-client[auth-client]。 委托到期后，用户必须重新进行身份验证。 设置一个好的值是安全性和可用性之间的权衡。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_推荐_2"><a class="anchor" href="#_推荐_2"></a>推荐</h4>
+<div class="paragraph">
+<p>见链接：https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#session-expiration[OWASP Recommendations]。 应为安全敏感的应用程序设置 30 分钟的超时。</p>
 </div>
 <div class="paragraph">
-<p>如果你登陆到这里，有兴趣了解更多关于互联网计算机的信息。那么你来对了地方&#8212;&#8203;看看下面的内容，看看从哪里开始吧！</p>
+<p>注意：空闲超时可能很快就会引入，请参见链接：https://forum.dfinity.org/t/authclient-update-idle-timeouts/10464[this]。</p>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_不要在生产环境中的_agent_js_中使用_fetchrootkey"><a class="anchor" href="#_不要在生产环境中的_agent_js_中使用_fetchrootkey"></a>不要在生产环境中的 agent-js 中使用 fetchRootKey</h3>
+<div class="sect3">
+<h4 id="_安全问题_3"><a class="anchor" href="#_安全问题_3"></a>安全问题</h4>
 <div class="paragraph">
-<p>注释: 合格的开发者可以获得价值20美元的免费燃料费，开始向互联网计算机区块链部署容器智能合约。https://faucet.dfinity.org/auth[申请你的免费燃料费]</p>
+<p><code>agent.fetchRootKey()</code> 可以在链接中使用：https://github.com/dfinity/agent-js[agent-js] 从测试环境中的状态调用中​​获取根子网阈值公钥。此密钥用于验证通过容器更新调用接收的认证数据的阈值签名。在生产 Web 应用程序中使用此方法使攻击者可以选择提供自己的公钥，从而使更新响应的所有真实性保证无效。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_推荐_3"><a class="anchor" href="#_推荐_3"></a>推荐</h4>
+<div class="paragraph">
+<p>切勿在生产版本中使用 <code>agent.fetchRootKey()</code>，仅在测试版本中使用。不调用此方法将导致主网的硬编码根子网公钥用于签名验证，这是生产中的预期行为。</p>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="针对菜鸟"><a class="anchor" href="#针对菜鸟"></a>针对: 菜鸟</h2>
+<h2 id="_非特定于_internet_计算机"><a class="anchor" href="#_非特定于_internet_计算机"></a>非特定于 Internet 计算机</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>互联网计算机是一个以网络速度运行的区块链，容量不受限制。</p>
+<p>本节中的最佳实践非常笼统，并不特定于互联网计算机。此列表绝不是完整的，仅列出了过去导致问题的一些非常具体的问题。</p>
 </div>
+<div class="sect2">
+<h3 id="_在前端验证输入"><a class="anchor" href="#_在前端验证输入"></a>在前端验证输入</h3>
+<div class="sect3">
+<h4 id="_安全问题_4"><a class="anchor" href="#_安全问题_4"></a>安全问题</h4>
 <div class="paragraph">
-<p>作为区块链历史的速成课程，比特币创造了数字黄金。然后，在下一步的演变中，以太坊开发了智能合约并开创了DeFi和NFT用例。</p>
+<p>对来自不受信任来源（例如用户）的数据的输入验证缺失可能会导致格式错误的数据被持久化并返回给用户。这可能会导致 DoS、注入攻击、网络钓鱼等。</p>
 </div>
-<div class="paragraph">
-<p>互联网计算机是第三大区块链创新&#8212;&#8203;区块链可以扩展智能合约的计算，以网络速度运行它们，有效地处理和存储数据，并为开发者提供强大的软件框架。通过使之成为可能，互联网计算机使系统和应用程序的运行方式得到了完全的重新想象。</p>
 </div>
-<div class="paragraph">
-<p>有兴趣了解更多吗？请查看以下资源：</p>
-</div>
+<div class="sect3">
+<h4 id="_推荐_4"><a class="anchor" href="#_推荐_4"></a>推荐</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>链接:https://www.youtube.com/watch?v=YWHTNr8RZHg&amp;list=PLuhDt1vhGcrf4DgKZecU3ar_RA1cB0vUT&amp;index=17&amp;ab_channel=DFINITY[互联网计算机入门]， 10分钟的互联网计算机高级概述</p>
+<p>除了容器中的数据验证之外，已经在前端执行数据验证。数据验证应尽早进行。</p>
 </li>
 <li>
-<p>链接:https://medium.com/dfinity[互联网计算机评测]， 我们的博客涵盖了互联网计算机的更新</p>
-</li>
-<li>
-<p>链接:https://thereboot.com/[重新启动]], 我们的探讨当前互联网的问题的技术性出版物</p>
+<p>见链接：https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html#goals-of-input-validation[OWASP Input Validation Cheat Sheet]</p>
 </li>
 </ul>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="不要加载不受信任的内容"><a class="anchor" href="#不要加载不受信任的内容"></a>不要从不受信任的域加载 JavaScript（和其他资产）</h3>
+<div class="sect3">
+<h4 id="_安全问题_5"><a class="anchor" href="#_安全问题_5"></a>安全问题</h4>
 <div class="paragraph">
-<p>在官方链接上关注我们获取最新的更新信息https://twitter.com/dfinity[DFINITY Twitter]。</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="针对开发者"><a class="anchor" href="#针对开发者"></a>针对: 开发者</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>互联网计算机承载着特殊的智能合约，称为 链接:https://medium.com/dfinity/software-canisters-an-evolution-of-smart-contracts-internet-computer-f1f92f1bfffb[canisters]. 容器智能合约是一些 链接:https://webassembly.org/[WebAssembly]字节码逻辑和内存页。互联网计算机上的Dapps是由一个或多个容器创建的。</p>
+<p>从 <code>&lt;canister-id&gt;.ic0.app</code> 以外的域加载不受信任的 JavaScript 意味着您完全信任该域。此外，从这些域加载的资产（包括`&lt;canister-id&gt;.raw.ic0.app`）将不使用资产认证。</p>
 </div>
 <div class="paragraph">
-<p>容器智能合约可以直接向终端用户提供网络内容，例如在他们的浏览器中，用户可以与区块链服务互动，而无需持有代币。</p>
+<p>如果他们提供恶意 JavaScript，他们可以接管网络应用程序/帐户，例如从 LocalStorage 读取由 agent-js 管理的私钥。</p>
 </div>
 <div class="paragraph">
-<p>互联网计算机区块链最终可以承载任何数量的容器智能合约（即代码和状态）。此外，它可以以无限制的链上容量并发运行它们。这意味着你可以创建可以扩展的dapp。</p>
+<p>请注意，从不受信任的域中加载其他资产（例如 CSS）也存在安全风险，请参见例如链接：https://xsleaks.dev/docs/attacks/css-injection/[这里]。</p>
 </div>
-<div class="paragraph">
-<p>容器智能合约是不可阻挡和不可篡改的。想象一下，建设时不必担心数据库、缓存、防火墙、CDN、云供应商、VPN、DNS，甚至用户名和密码&#8212;&#8203;所有这些都是因为互联网计算机将这些需求抽象出来了。</p>
 </div>
-<div class="paragraph">
-<p>跃跃欲试了吗？看看我们的 <a href="../quickstart/quickstart-intro.html" class="xref page">快速入门</a>，开始使用一个简单的hello world dapp。</p>
-</div>
-<div class="paragraph">
-<p>对融入我们的开发者社区感兴趣吗？请查看以下内容：</p>
-</div>
+<div class="sect3">
+<h4 id="_推荐_5"><a class="anchor" href="#_推荐_5"></a>推荐</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>链接:https://discord.gg/cA7y6ezyE2[Developer Discord]， 我们为开发者社区提供的官方 Discord</p>
+<p>应避免从其他来源加载 JavaScript 和其他资产。特别是对于安全关键应用程序，我们不能假设其他域是值得信赖的。</p>
 </li>
 <li>
-<p>链接:https://forum.dfinity.org/[开发者论坛]， 一个关于在互联网上建立计算机的技术讨论的温馨空间。</p>
+<p>确保交付给浏览器的所有内容都由容器使用资产认证提供和认证。这尤其适用于任何 JavaScript，也适用于字体、CSS 等。</p>
+</li>
+<li>
+<p>使用链接：https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP[Content Security Policy] 来防止脚本和其他来源的其他内容被加载。另请参阅链接：web-app-development-security-best-practices.adoc#define-security-headers[定义安全标头，包括内容安全策略 (CSP)]。</p>
 </li>
 </ul>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="定义安全标头"><a class="anchor" href="#定义安全标头"></a>定义安全标头，包括内容安全策略 (CSP)</h3>
+<div class="sect3">
+<h4 id="_安全问题_6"><a class="anchor" href="#_安全问题_6"></a>安全问题</h4>
 <div class="paragraph">
-<p>您可以通过链接:https://twitter.com/dfinitydev[DFINITY Developer Twitter] 关注我们，了解最新的开发者专用更新。</p>
+<p>安全标头可用于涵盖许多安全问题，例如禁止链接：https://owasp.org/www-community/attacks/Clickjacking[clickjacking]，链接：https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html[harden TLS]，确保链接：https： //developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/script-src[无法在浏览器中执行来自不受信任域的JavaScript或其他内容]等 不配置这些适当的标头可能会导致具体的安全问题和缺少深度防御。</p>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="针对协议爱好者"><a class="anchor" href="#针对协议爱好者"></a>针对: 协议爱好者</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>互联网计算机是由互联网计算机协议（"ICP"）创建的，它已经形成了世界上第一个网络速度、网络服务的公共区块链。互联网计算机是自我管理的，可以根据需要增长其容量。它结合了由世界各地的独立数据中心集体运行的特殊节点机器。像所有区块链一样，它是不可阻挡的，它所存储的代码是不可篡改的。</p>
-</div>
-<div class="paragraph">
-<p>从我们左边的 "概念 "部分开始，从 <a href="../developers-guide/concepts/what-is-IC.html" class="xref page">什么是互联网计算机</a></p>
-</div>
-<div class="paragraph">
-<p>要了解更多关于互联网计算机协议的信息，请查看以下资源：</p>
-</div>
+<div class="sect3">
+<h4 id="_推荐_6"><a class="anchor" href="#_推荐_6"></a>推荐</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>链接:https://dfinity.org/technicals/[技术库], 了解我们世界级研发团队解释互联网计算机协议组成部分的深入视频。特别值得注意的是:</p>
-<div class="ulist">
-<ul>
+<p>使用链接检查您的网站：https://securityheaders.com/[<a href="https://securityheaders.com/" class="bare">https://securityheaders.com/</a>]</p>
+</li>
 <li>
-<p><a href="https://dfinity.org/technicals/chain-key-technology">链式密钥加密法</a>, 是使互联网计算机能够扩展到数百万节点的基本突破之一。链式钥匙加密法最显著的创新是，互联网计算机有一个单一的公钥，这使得任何设备都可以验证互联网计算机产生的人工制品的真实性，甚至是智能手表和手机。</p>
+<p>使用链接：https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html[HSTS]，链接：https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP[CSP]，链接：https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options[X-Frame-Options]，链接：https://developer.mozilla.org/en -US/docs/Web/HTTP/Headers/Referrer-Policy[Referrer-Policy]，Permissions-Policy（链接：https://www.permissionspolicy.com/[generator]）</p>
+</li>
+<li>
+<p>这些标头（包括 CSP）已成功集成，例如在链接：https://github.com/dfinity/internet-identity[互联网身份]。</p>
+</li>
+<li>
+<p>根据链接检查您的 CSP：https://csp-evaluator.withgoogle.com/[CSP evaluator]</p>
+</li>
+<li>
+<p>另见链接：https://owasp.org/www-project-secure-headers/[OWASP 安全标头项目]</p>
 </li>
 </ul>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_crypto使用_web_crypto_api_保护密钥材料免受_xss"><a class="anchor" href="#_crypto使用_web_crypto_api_保护密钥材料免受_xss"></a>Crypto：使用 Web Crypto API 保护密钥材料免受 XSS</h3>
+<div class="sect3">
+<h4 id="_安全问题_7"><a class="anchor" href="#_安全问题_7"></a>安全问题</h4>
+<div class="paragraph">
+<p>在浏览器存储中存储密钥材料（例如链接：https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API[sessionStorage] 或链接：https://developer.mozilla.org/en- US/docs/Web/API/Web_Storage_API[localStorage]) 被认为是不安全的，因为这些密钥可以被 JavaScript 代码访问。这可能通过 XSS 攻击或从其他域加载不受信任的脚本时发生（另请参阅链接：web-app-development-security-best-practices.adoc#dont-load-untrusted-content [不要从不受信任的域加载 JavaScript ]。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_推荐_7"><a class="anchor" href="#_推荐_7"></a>推荐</h4>
+<div class="paragraph">
+<p>使用链接：https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API[WebCrypto API] 通过在 <code>generateKey</code> 中使用 <code>extractable=false</code> 来隐藏 JavaScript 中的密钥材料，请参阅链接： <a href="https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/generateKey">this</a>。可以在人员聚会项目中找到一个示例，请参见链接：https://github.com/dfinity/people-parties/blob/06208183a2679189d02bc5e64dcbd71c5f5dfbed/frontend/src/services/auth.ts#L111-L120[这里] .这使得无法从 JavaScript 访问私钥。</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_使用安全的网络框架"><a class="anchor" href="#_使用安全的网络框架"></a>使用安全的网络框架</h3>
+<div class="sect3">
+<h4 id="_安全问题_8"><a class="anchor" href="#_安全问题_8"></a>安全问题</h4>
+<div class="paragraph">
+<p>现代 Web 框架使诸如 XSS 之类的攻击变得非常困难，因为它们可以安全地逃避/清理网页上呈现的任何潜在用户提供的数据。不使用这样的框架是有风险的，因为很难避免像 XSS 这样的攻击。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_推荐_8"><a class="anchor" href="#_推荐_8"></a>推荐</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>使用具有安全模板机制的 Web 框架，例如链接：https://github.com/dfinity/nns-dapp<a href="https://svelte.dev/">Svelte</a> 以避免 XSS。这用于例如在 [NNS dApp] 项目中。</p>
 </li>
 <li>
-<p><a href="#interface-spec:index.adoc" class="xref unresolved">接口规范</a>, 是一份深入的技术文件，提供了互联网计算机的低级外部接口的概述</p>
-</li>
-<li>
-<p>链接:https://dashboard.internetcomputer.org/[互联网计算机仪表盘], 以监测围绕互联网计算机区块链的实时指标。</p>
+<p>不要使用框架的不安全功能，例如链接：https://svelte.dev/docs#template-syntax-html[@html in Svelte]。</p>
 </li>
 </ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_确保注销有效"><a class="anchor" href="#_确保注销有效"></a>确保注销有效</h3>
+<div class="sect3">
+<h4 id="_安全问题_9"><a class="anchor" href="#_安全问题_9"></a>安全问题</h4>
+<div class="paragraph">
+<p>如果用户的注销操作无效，这可能会导致帐户接管，例如如果使用共享或公共设备。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_推荐_9"><a class="anchor" href="#_推荐_9"></a>推荐</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>清除所有会话数据（特别是链接：https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage[sessionStorage] 和链接：https://developer.mozilla.org/en- US/docs/Web/API/Window/localStorage[localStorage]），清除链接：https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API[IndexedDB]等注销。</p>
+</li>
+<li>
+<p>如果在一个选项卡中触发注销，请确保其他显示相同来源的浏览器选项卡也被注销。这不会在使用 agent-js 时自动发生，因为 agent-js 在初始化后会将私钥保存在内存中。</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_使用提示警告用户任何安全关键操作让用户明确确认"><a class="anchor" href="#_使用提示警告用户任何安全关键操作让用户明确确认"></a>使用提示警告用户任何安全关键操作，让用户明确确认</h3>
+<div class="sect3">
+<h4 id="_安全问题_10"><a class="anchor" href="#_安全问题_10"></a>安全问题</h4>
+<div class="paragraph">
+<p>如果不是这种情况，用户可能会不小心执行一些敏感操作。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_推荐_10"><a class="anchor" href="#_推荐_10"></a>推荐</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>向用户显示带有安全警告的提示，描述操作的确切后果，并让他们明确确认。</p>
+</li>
+<li>
+<p>对于安全性要求高的应用程序，考虑使用事务批准，即使用例如一个 WebAuthn 设备，让用户确认某些关键操作或交易。这是推荐的，例如涉及代币或循环转账时。例如，使用链接中的硬件钱包：https://github.com/dfinity/nns-dapp[NNS dApp] 实现了这一点。</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 </div>

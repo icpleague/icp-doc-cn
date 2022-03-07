@@ -3,9 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Self-custody quick start :: Motoko documentation</title>
-    <meta name="description" content="How you can use your ICP tokens.">
-    <meta name="keywords" content="Internet Computer,blockchain,cryptocurrency,ICP tokens,smart contracts,cycles,wallet,software canister,developer onboarding">
+    <title>自托管快速入门 :: Motoko documentation</title>
     <meta name="generator" content="Antora 3.0.1">
 <link rel="stylesheet" href="../../_/css/site.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" /><meta property="og:image:width" content="1200" />
@@ -883,79 +881,79 @@
 </div>
 <div class="main-content">
 <article class="doc">
-<h1 class="page">Self-custody quick start</h1>
+<h1 class="page">自托管快速入门</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Within the Internet Computer ecosystem, Internet Computer Protocol tokens (ICP tokens) are a native utility token.
-ICP tokens play a key role in both the governance and economics of the Internet Computer.</p>
+<p>在互联网计算机生态系统中，互联网计算机协议代币（ICP 代币）是一种原生实用代币。
+ICP 代币在 Internet Computer 的治理和经济方面都发挥着关键作用。</p>
 </div>
 <div class="paragraph">
-<p>This <em>Self-Custody Quick Start</em> scenario assumes:</p>
+<p>这个 <em>自托管快速入门</em> 场景假设：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>You are a new ICP token holder.</p>
+<p>您是新的 ICP 代币持有者。</p>
 </li>
 <li>
-<p>You want to understand what you can do with your ICP tokens.</p>
+<p>您想了解您可以使用 ICP 代币做什么。</p>
 </li>
 <li>
-<p>You want to know how to convert, transfer, or lock your ICP tokens using the {sdk-short-name} command-line interface DFX.</p>
+<p>您想知道如何使用 {sdk-short-name} 命令行界面 DFX 转换、转移或锁定您的 ICP 令牌。</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>If you aren&#8217;t yet a token holder, you&#8217;ll need to purchase ICP tokens from an exchange or receive a token grant before you can take custody. For an overview of how to get ICP tokens and custody options, see <a href="../developers-guide/concepts/tokens-cycles.html#get-cycles">How you can get ICP tokens</a> and <a href="custody-options-intro.html">Choosing self-custody for digital assets</a>.</p>
+<p>如果您还不是代币持有者，您需要从交易所购买 ICP 代币或获得代币授权，然后才能进行托管。有关如何获取 ICP 代币和托管选项的概述，请参见link：../developers-guide/concepts/tokens-cycles.html#get-cycles[如何获取 ICP 代币] 和链接：托管选项- intro.html【选择数字资产自托管】。</p>
 </div>
 <div class="paragraph">
-<p>If you are using another application—such as the <a href="https://nns.ic0.app">Network Nervous System (NNS) application</a> or the user interface provided by a hardware wallet—to interact with your ICP tokens, you should refer to the documentation for that application.</p>
+<p>如果您正在使用其他应用程序（例如链接：https://nns.ic0.app[Network Nervous System (NNS) application] 或硬件钱包提供的用户界面）与您的 ICP 代币进行交互，您应该参考到该应用程序的文档。</p>
 </div>
 <div class="paragraph">
-<p>This <em>Self-Custody Quick Start</em> focuses solely on interacting with ICP tokens using the {sdk-short-name} command-line interface DFX.</p>
+<p>这个 <em>自托管快速入门</em> 只专注于使用 {sdk-short-name} 命令行界面 DFX 与 ICP 令牌进行交互。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_how_you_can_use_icp_tokens"><a class="anchor" href="#_how_you_can_use_icp_tokens"></a>How you can use ICP tokens</h2>
+<h2 id="_如何使用_icp_代币"><a class="anchor" href="#_如何使用_icp_代币"></a>如何使用 ICP 代币</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The following diagram provides a simplified overview of the three most common ways you can use tokens.</p>
+<p>下图简要概述了三种最常见的代币使用方式。</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="../developers-guide/_images/icp-tokens-how-to-use.svg" alt="icp tokens how to use"></span></p>
 </div>
 <div class="paragraph">
-<p>As this diagram suggests, how you use ICP tokens depends primarily on your goals in acquiring them.</p>
+<p>正如该图所示，您如何使用 ICP 代币主要取决于您获取它们的目标。</p>
 </div>
 <div class="paragraph">
-<p>If you are a <strong>developer</strong> or <strong>entrepreneur</strong>, ICP tokens can be converted to <strong>cycles</strong>. Cycles can then be used to build and deploy applications to deliver products and services to the market.</p>
+<p>如果您是<strong>开发人员</strong>或<strong>企业家</strong>，ICP代币可以转换为<strong>燃料费</strong>。 然后可以使用燃料费来构建和部署应用程序，以向市场提供产品和服务。</p>
 </div>
 <div class="paragraph">
-<p>If you are a member of the community interested in <strong>participating in governance</strong> and influencing the direction of the Internet Computer, you can lock up ICP tokens in a stake—called a neuron—so that you can submit and vote on proposals.</p>
+<p>如果您是对<strong>参与治理</strong>和影响 Internet Computer 方向感兴趣的社区成员，您可以将 ICP 代币锁定在一个称为神经元的权益中，以便您可以提交提案并对其进行投票 .</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="self-before"><a class="anchor" href="#self-before"></a>Before you begin</h2>
+<h2 id="self-before"><a class="anchor" href="#self-before"></a>开始之前</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>To get started, verify the following:</p>
+<p>要开始，请验证以下内容：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>You have an internet connection and access to a shell terminal on your local <strong>Intel-based macOS</strong> or <strong>Linux</strong> computer.</p>
+<p>您有互联网连接并可以访问本地<strong>基于英特尔的 macOS</strong> 或 <strong>Linux</strong> 计算机上的 shell 终端。</p>
 </li>
 <li>
-<p>You know how to open a new terminal shell on your local computer and how to run basic command-line programs in the terminal.</p>
+<p>您知道如何在本地计算机上打开一个新的终端外壳，以及如何在终端中运行基本的命令行程序。</p>
 </li>
 <li>
-<p>You hold ICP tokens in a self-custody wallet.</p>
+<p>您在自托管钱包中持有 ICP 代币。</p>
 </li>
 <li>
-<p>You have downloaded and installed the DFINITY Canister Software Development Kit (SDK) by running the following command in a terminal on your local computer:</p>
+<p>您已通过在本地计算机的终端中运行以下命令下载并安装了 DFINITY Canister Software Development Kit (SDK)：</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">sh -ci "$(curl -fsSL https://sdk.dfinity.org/install.sh)"</code></pre>
@@ -963,20 +961,20 @@ ICP tokens play a key role in both the governance and economics of the Internet 
 </div>
 </li>
 <li>
-<p>You have created a backup copy of the public/private key for the identity you are using for self-custody.</p>
+<p>您已经为您用于自我保管的身份创建了公钥/私钥的备份副本。</p>
 <div class="paragraph">
-<p>For example, if you are using the default developer identity created using the DFINITY Canister Software Development Kit (SDK) <code>dfx</code> command-line interface,
-you should have a backup of the <code>~/.config/dfx/identity/default/identity.pem</code> file stored in a secure location.</p>
+<p>例如，如果您使用使用 DFINITY Canister Software Development Kit (SDK) <code>dfx</code> 命令行界面创建的默认开发人员身份，
+您应该将`~/.config/dfx/identity/default/identity.pem` 文件的备份存储在安全位置。</p>
 </div>
 </li>
 <li>
-<p>You have a secure environment in which to perform operations involving ICP tokens.</p>
+<p>您有一个安全的环境来执行涉及 ICP 令牌的操作。</p>
 <div class="paragraph">
-<p>As a security best practice, any operations that involve the transfer of ICP tokens would require both an air-gapped computer with minimal hardware and software and a computer connected to the network.
-In practice, this requires moving files between two computers and taking other precautions to minimize risks.</p>
+<p>作为安全最佳实践，任何涉及 ICP 令牌传输的操作都需要一台具有最少硬件和软件的气隙计算机以及一台连接到网络的计算机。
+实际上，这需要在两台计算机之间移动文件并采取其他预防措施以最大程度地降低风险。</p>
 </div>
 <div class="paragraph">
-<p>For simplicity, this <em>Self-custody quick start</em> describes how to complete key tasks using a single computer connected to the network.</p>
+<p>为简单起见，本_自托管快速入门_描述了如何使用连接到网络的单台计算机完成关键任务。</p>
 </div>
 </li>
 </ul>
@@ -984,26 +982,26 @@ In practice, this requires moving files between two computers and taking other p
 </div>
 </div>
 <div class="sect1">
-<h2 id="_connect_to_the_ledger_and_get_your_account_identifier"><a class="anchor" href="#_connect_to_the_ledger_and_get_your_account_identifier"></a>Connect to the ledger and get your account identifier</h2>
+<h2 id="_连接到帐本并获取您的帐户标识符"><a class="anchor" href="#_连接到帐本并获取您的帐户标识符"></a>连接到帐本并获取您的帐户标识符</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>All ICP token transactions are recorded in a ledger canister running on the Internet Computer.
-These instructions assume that you are using the <code>default</code> developer identity that <code>dfx</code> has created for you.</p>
+<p>所有 ICP 代币交易都记录在互联网计算机上运行的分类帐容器中。
+这些说明假设您使用的是 <code>dfx</code> 为您创建的 <code>default</code> 开发者身份。</p>
 </div>
 <div class="paragraph">
-<p>This identity is represented by a <strong>principal</strong> data type and a textual representation of the principal often referred to as your <strong>principal identifier</strong>.
-This representation of your identity is similar to a Bitcoin or Ethereum address.</p>
+<p>此身份由 <strong>principal</strong> 数据类型和通常称为 <strong>principal identifier</strong> 的主体的文本表示形式表示。
+您身份的这种表示类似于比特币或以太坊地址。</p>
 </div>
 <div class="paragraph">
-<p>However, the principal associated with your developer identity is typically not the same as your <strong>account identifier</strong> in the ledger. The principal identifier and the account identifier are related—both provide a textual representation of your identity—but they use different formats.</p>
+<p>但是，与您的开发者身份相关联的主体通常与您在帐本中的*帐户标识符*不同。 委托人标识符和帐户标识符是相关的——两者都提供了您身份的文本表示——但它们使用不同的格式。</p>
 </div>
 <div class="paragraph">
-<p>To connect to the ledger and get account information:</p>
+<p>要连接到帐本并获取帐户信息：</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Create an empty <code>dfx.json</code> file in your current directory by running the following command:</p>
+<p>通过运行以下命令在当前目录中创建一个空的 <code>dfx.json</code> 文件：</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">echo '{}' &gt; dfx.json</code></pre>
@@ -1011,14 +1009,14 @@ This representation of your identity is similar to a Bitcoin or Ethereum address
 </div>
 </li>
 <li>
-<p>Check the current status of the Internet Computer network and your ability to connect to it by running the following command</p>
+<p>通过运行以下命令检查 Internet Computer 网络的当前状态以及您连接到它的能力</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx ping ic</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>You should see output similar to the following:</p>
+<p>您应该会看到类似于以下内容的输出：</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1029,15 +1027,15 @@ This representation of your identity is similar to a Bitcoin or Ethereum address
 </div>
 </li>
 <li>
-<p>(Optional) Confirm the developer identity you are currently using by running the following command:</p>
+<p>（可选）通过运行以下命令确认您当前使用的开发者身份：</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx identity whoami</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>In most cases, you should see that you are currently using your <code>default</code> developer identity.
-For example:</p>
+<p>在大多数情况下，您应该看到您当前正在使用您的 <code>default</code> 开发人员身份。
+例如：</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1046,14 +1044,14 @@ For example:</p>
 </div>
 </li>
 <li>
-<p>(Optional) View the textual representation of the principal for your current identity by running the following command:</p>
+<p>（可选）通过运行以下命令查看当前身份的主体的文本表示：</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx identity get-principal</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>This command displays output similar to the following:</p>
+<p>此命令显示类似于以下内容的输出：</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1062,15 +1060,15 @@ For example:</p>
 </div>
 </li>
 <li>
-<p>Get the account identifier for your developer identity by running the following command:</p>
+<p>通过运行以下命令获取您的开发者身份的帐户标识符：</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx ledger account-id</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>This command displays the ledger account identifier associated with your developer identity.
-For example, you should see output similar to the following:</p>
+<p>此命令显示与您的开发人员身份关联的帐本帐户标识符。
+例如，您应该看到类似于以下的输出：</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1079,15 +1077,15 @@ For example, you should see output similar to the following:</p>
 </div>
 </li>
 <li>
-<p>Check your account balance by running the following command:</p>
+<p>通过运行以下命令检查您的帐户余额：</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx ledger --network ic balance</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>This command displays the ICP token balance from the ledger account.
-For example, you should see output similar to the following:</p>
+<p>此命令显示帐本帐户中的 ICP 代币余额。
+例如，您应该看到类似于以下的输出：</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1100,28 +1098,28 @@ For example, you should see output similar to the following:</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="convert-icp"><a class="anchor" href="#convert-icp"></a>Convert ICP tokens to cycles</h2>
+<h2 id="convert-icp"><a class="anchor" href="#convert-icp"></a>将 ICP 代币转换为燃料费</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>If you want to use your ICP tokens in your ledger account to power application development, you first must convert them to cycles and transfer the cycles to a canister that will be your cycles wallet.</p>
+<p>如果您想在您的帐本帐户中使用您的 ICP 代币来为应用程序开发提供动力，您首先必须将它们转换为燃料费并将循环转移到一个容器中，该容器将成为您的燃料费钱包。</p>
 </div>
 <div class="paragraph">
-<p>To convert ICP tokens to cycles:</p>
+<p>要将 ICP 代币转换为循环：</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Create a new canister with cycles by transferring ICP tokens from your ledger account by running a command similar to the following:</p>
+<p>通过运行类似于以下的命令从您的帐本帐户转移 ICP 令牌，创建一个具有燃料费的新容器：</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx ledger --network ic create-canister &lt;controller-principal-identifier&gt; --amount &lt;icp-tokens&gt;</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>This command converts the number of ICP tokens you specify for the <code>--amount</code> argument into cycles, and associates the cycles with a new canister identifier controlled by the principal you specify.</p>
+<p>此命令将您为 <code>--amount</code> 参数指定的 ICP 代币数量转换为循环，并将燃料费与您指定的主体控制的新容器标识符相关联。</p>
 </div>
 <div class="paragraph">
-<p>For example, the following command converts 1.25 ICP tokens into cycles and specifies the principal identifier for the default identity as the controller of the new canister:</p>
+<p>例如，以下命令将 1.25 个 ICP 代币转换为燃料费，并将默认身份的主体标识符指定为新容器的控制器：</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1129,7 +1127,7 @@ For example, you should see output similar to the following:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>If the transaction is successful, the ledger records the event and you should see output similar to the following:</p>
+<p>如果交易成功，账本会记录该事件，您应该会看到类似于以下内容的输出：</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1139,7 +1137,7 @@ Canister created with id: "53zcu-tiaaa-aaaaa-qaaba-cai"</pre>
 </div>
 </li>
 <li>
-<p>Install the cycles wallet code in the newly-created canister placeholder by running a command similar to the following:</p>
+<p>通过运行类似于以下的命令，在新创建的容器占位符中安装周期钱包代码：</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx identity --network ic deploy-wallet &lt;canister-identifer&gt;</code></pre>
@@ -1154,106 +1152,165 @@ Canister created with id: "53zcu-tiaaa-aaaaa-qaaba-cai"</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>This command displays output similar to the following:</p>
+<p>此命令显示类似于以下内容的输出：</p>
 </div>
-<div class="literalblock">
-<div class="content">
-<pre>Creating a wallet canister on the ic network.
-The wallet canister on the "ic" network for user "default" is "53zcu-tiaaa-aaaaa-qaaba-cai"</pre>
-</div>
+<div class="paragraph">
+<p>……
+在 ic 网络上创建钱包容器。
+用户“default”在“ic”网络上的钱包容器是“53zcu-tiaaa-aaaaa-qaaba-cai”</p>
 </div>
 </li>
 </ol>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_transfer_icp_tokens_to_another_account"><a class="anchor" href="#_transfer_icp_tokens_to_another_account"></a>Transfer ICP tokens to another account</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>If you want to transfer ICP tokens to another account in the ledger, you need to know the account identifier for the destination account.</p>
-</div>
-<div class="paragraph">
-<p>To transfer ICP tokens to another account:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Check that you are using an identity with control over the ledger account by running the following command:</p>
-<div class="listingblock">
+<div class="literalblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx identity whoami</code></pre>
-</div>
-</div>
-</li>
-<li>
-<p>Check the current balance in the ledger account associated with your identity by running the following command:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx ledger --network ic balance</code></pre>
-</div>
-</div>
-</li>
-<li>
-<p>Transfer ICP tokens to another account by running a command similar to the following:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx ledger --network ic transfer &lt;destination-ledger-account-id&gt; --icp &lt;ICP-amount&gt; --memo &lt;numeric-memo&gt;</code></pre>
+<pre>== 将 ICP 代币转移到另一个账户
+
+如果您想将 ICP 代币转移到账本中的另一个账户，您需要知道目标账户的账户标识符。
+
+将 ICP 代币转移到另一个账户：
+
+. 通过运行以下命令，检查您是否使用了可以控制分类帐帐户的身份：
++
+[source,bash]
+----
+dfx identity whoami
+----
+. 通过运行以下命令检查与您的身份关联的帐本帐户中的当前余额：
++
+[source,bash]
+----
+dfx ledger --network ic balance
+----
+
+. 通过运行类似于以下的命令将 ICP 令牌转移到另一个帐户：
++
+[source,bash]
+----
+dfx ledger --network ic transfer &lt;destination-ledger-account-id&gt; --icp &lt;ICP-amount&gt; --memo &lt;numeric-memo&gt;
+----
++
+For example:
++</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>For example:</p>
+<p>dfx ledger --network ic transfer ae6e1a76da5725bbbf0c5c035aaf0525b791e0f0f7cce27d8e27826389871406 --icp 5 --memo 12345</p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>dfx ledger --network ic transfer ae6e1a76da5725bbbf0c5c035aaf0525b791e0f0f7cce27d8e27826389871406 --icp 5 --memo 12345</pre>
+<pre>+
+此示例说明如何使用带有 `+--icp+` 命令行选项的整数将 ICP 令牌转移到指定帐户。
++
+--
+
+* 您还可以使用 `+--e8s+` 选项单独或与 `+--icp+` 选项一起指定 ICP 令牌的小数单位 - 称为 *e8s*。
+
+* 或者，您可以使用 `+--amount+` 指定要传输的 ICP 代币数量，小数点后最多 8 位，例如，`+5.00000025+`。
+--
+
++
+目标地址可以是在 {IC} 网络上运行的分类帐容器中的地址，您使用link:https://nns.ic0.app[Network Nervous System application], 或您在交易所拥有的钱包地址。
++
+如果您将 ICP 代币转移到 link:https://nns.ic0.app[Network Nervous System application], 您可能需要刷新浏览器才能看到反映的交易。
++
+有关使用 `+dfx ledger+` 命令行选项的更多信息，请参阅 link:../developers-guide/cli-reference/dfx-ledger{outfilesuffix}[dfx ledger].
+
+== 通过将 ICP 代币放入神经元来锁定它们
+
+如果想锁住ICP代币参与治理并获得奖励，必须使用link:https://nns.ic0.app[Network Nervous System (NNS) application]或`+dfx canister call+`命令。
+
+因为使用 {sdk-short-name} 命令行界面比使用link:https://nns.ic0.app[Network Nervous System (NNS) application]，这些步骤不包含在本指南中。
+////
+
+然而，第一步是将一些 ICP 代币从您的帐本帐户转移到`+governance+` 容器以创建一个神经元。
+以下步骤说明了如何做到这一点。
+
+要从 ICP 代币创建神经元：
+
+. 通过运行类似于以下的命令确定目标帐户：
++
+[source,bash]
+----
+dfx canister --network ic call governance build_stake_transfer_targets "(&lt;unique-memo&gt; : Nat64)"
+----
++
+For example:
++</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>This example illustrates how to transfer ICP tokens to the specified account using a whole number with the <code>--icp</code> command-line option.</p>
+<p>dfx canister --network ic call governance build_stake_transfer_targets "(0001 : Nat64)"</p>
 </div>
-<div class="openblock">
+<div class="literalblock">
 <div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>You can also specify fractional units of ICP tokens—called <strong>e8s</strong>—using the <code>--e8s</code> option, either on its own or in conjunction with the <code>--icp</code> option.</p>
-</li>
-<li>
-<p>Alternatively, you can use the <code>--amount</code> to  specify the number of ICP tokens to transfer with fractional units up to 8 decimal places, for example, as <code>5.00000025</code>.</p>
-</li>
-</ul>
-</div>
+<pre>+
+此命令使用与您当前身份关联的主体和您为 _&lt;unique_memo&gt;_ 字段指定的值来返回帐户标识符和用于转移的子帐户。
++
+在命令输出中，您应该会看到类似于以下内容的帐户标识符：
++</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The destination address can be an address in the ledger canister running on the Internet Computer network, an account you have added using the <a href="https://nns.ic0.app">Network Nervous System application</a>, or the address for a wallet you have on an exchange.</p>
+<p>ae6e1a76da5725bbbf0c5c035aaf0525b791e0f0f7cce27d8e27826389871406</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>您还应该看到类似于以下内容的子帐户：
++</pre>
+</div>
 </div>
 <div class="paragraph">
-<p>If you transfer the ICP tokens to an account in the <a href="https://nns.ic0.app">Network Nervous System application</a>, you might need to refresh the browser to see the transaction reflected.</p>
+<p>\c1_\8d\22/_\08\db\89\0c0\c6\a7C}\b5\9d=3\b92]1\1fHT\c9t\af\99\ad\fb</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>. 通过运行类似于以下的命令，将 ICP 令牌从分类帐帐户转移到上一步中返回的目标帐户标识符：
++
+[source,bash]
+----
+dfx ledger --network ic transfer &lt;destination-account-id&gt; --amount &lt;ICP-amount&gt; --memo &lt;unique-memo&gt;
+----
++
+For example:
++</pre>
+</div>
 </div>
 <div class="paragraph">
-<p>For more information about using the <code>dfx ledger</code> command-line options, see <a href="../developers-guide/cli-reference/dfx-ledger.html">dfx ledger</a>.</p>
+<p>dfx ledger --network ic transfer ae6e1a76da5725bbbf0c5c035aaf0525b791e0f0f7cce27d8e27826389871406 --amount 20 --memo 0001</p>
 </div>
-</li>
-</ol>
+<div class="literalblock">
+<div class="content">
+<pre>+
+如果转账成功，该命令返回交易的区块高度。
+例如：
++
+……
+在 BlockHeight 发送的转账：20</pre>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_lock_icp_tokens_by_staking_them_in_a_neuron"><a class="anchor" href="#_lock_icp_tokens_by_staking_them_in_a_neuron"></a>Lock ICP tokens by staking them in a neuron</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_配置神经元属性"><a class="anchor" href="#_配置神经元属性"></a>配置神经元属性</h3>
 <div class="paragraph">
-<p>If you want to lock up ICP tokens to participate in governance and earn rewards, you must use the <a href="https://nns.ic0.app">Network Nervous System (NNS) application</a> or <code>dfx canister call</code> commands.</p>
+<p>创建神经元后，需要配置几个属性来锁定质押、设置溶解延迟并开始提交提案并获得奖励。
+您可以通过调用`governance<code>容器和</code>manage_neuron`方法或使用网络神经系统应用程序（nns.ic0.app）从命令行为神经元设置这些属性。</p>
 </div>
 <div class="paragraph">
-<p>Because locking up ICP tokens to create staked neurons is a more complex process when using the {sdk-short-name} command-line interface than it is when using the <a href="https://nns.ic0.app">Network Nervous System (NNS) application</a>, the steps aren&#8217;t included in this guide.</p>
+<p>例如，如果您继续使用 <code>dfx</code> 命令行界面，则可以通过运行类似于以下的命令来配置神经元以具有热键：</p>
 </div>
-<div class="paragraph">
-<p>For information about the Network Nervous System, see <a href="https://medium.com/dfinity/understanding-the-internet-computers-network-nervous-system-neurons-and-icp-utility-tokens-730dab65cae8">Understanding the Internet Computer&#8217;s Network Nervous System, Neurons, and ICP Utility Tokens</a>.</p>
+<div class="literalblock">
+<div class="content">
+<pre>dfx canister --network ic governance manage_neuron \
+"( record {id = opt record { id = &lt;neuron_id&gt;; \
+command = opt variant { Configure = record { operation \
+= opt variant {AddHotKey = record { new_hot_key = \
+principal &lt;new_hot_key_principal_id&gt; }}}}}}"</pre>
 </div>
-<div class="paragraph">
-<p>For additional details about setting the locked period and dissolve delay for a neuron, see <a href="https://medium.com/dfinity/getting-started-on-the-internet-computers-network-nervous-system-app-wallet-61ecf111ea11">Getting Started | The Internet Computer Network Nervous System Application &amp; Wallet</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_了解有关网络神经系统的更多信息"><a class="anchor" href="#_了解有关网络神经系统的更多信息"></a>了解有关网络神经系统的更多信息</h3>
+
 </div>
 </div>
 </div>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Preliminary steps for newcomers :: Motoko documentation</title>
+    <title>新手的初步步骤 :: Motoko documentation</title>
     <meta name="generator" content="Antora 3.0.1">
 <link rel="stylesheet" href="../../_/css/site.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" /><meta property="og:image:width" content="1200" />
@@ -880,92 +880,83 @@
 </div>
 <div class="main-content">
 <article class="doc">
-<h1 class="page">Preliminary steps for newcomers</h1>
+<h1 class="page">新手的初步步骤</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>If this is the first time you are installing developer tools on your computer, you might need to take a few extra steps to prepare your environment.</p>
+<p>如果这是您第一次在计算机上安装开发人员工具，您可能需要采取一些额外的步骤来准备您的环境。</p>
 </div>
 <div class="paragraph">
-<p>However, there are often multiple ways to perform each of these tasks.
-If you need more help than provided here, see the documentation for the operating system you are using.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The instructions here assume that you are using a macOS computer.
-If you have a Linux development environment, the steps to follow depend on the specific Linux distribution and version you use.
-</td>
-</tr>
-</table>
+<p>但是，通常有多种方法可以执行这些任务中的每一个。
+如果您需要比此处提供的更多帮助，请参阅您正在使用的操作系统的文档。</p>
 </div>
 <div class="paragraph">
-<p>Before you install the {sdk-short-name}, you need to know:</p>
+<p>注意：此处的说明假设您使用的是 macOS 计算机。
+如果您有 Linux 开发环境，则要遵循的步骤取决于您使用的特定 Linux 发行版和版本。</p>
+</div>
+<div class="paragraph">
+<p>在安装 {sdk-short-name} 之前，您需要了解：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>How to open and run commands in a terminal</p>
+<p>如何在终端中打开和运行命令</p>
 </li>
 <li>
-<p>How to check for and install packages and dependencies</p>
+<p>如何检查和安装包和依赖项</p>
 </li>
 <li>
-<p>How to create and navigate to new directories</p>
+<p>如何创建和导航到新目录</p>
 </li>
 <li>
-<p>How to view and update your PATH on the platform you use</p>
+<p>如何在您使用的平台上查看和更新您的 PATH</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>The steps in this section describe how to prepare a basic development environment.</p>
+<p>本节中的步骤描述了如何准备基本的开发环境。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="open-terminal"><a class="anchor" href="#open-terminal"></a>Open a terminal</h2>
+<h2 id="open-terminal"><a class="anchor" href="#open-terminal"></a>打开终端</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You need to know how to open a terminal and navigate to directories to install the {sdk-short-name} and to start and stop the Internet Computer running locally when trying any of the <a href="../developers-guide/tutorials-intro.html">tutorials</a>.</p>
+<p>您需要知道如何打开终端并导航到目录以安装 {sdk-short-name} 并在尝试任何链接时启动和停止在本地运行的 Internet Computer：../developers-guide/tutorials- 介绍.html[教程]。</p>
 </div>
 <div class="paragraph">
-<p>To open the Terminal application on macOS:</p>
+<p>在 macOS 上打开终端应用程序：</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Open the Finder.</p>
+<p>打开查找器。</p>
 </li>
 <li>
-<p>Click <strong>Applications</strong>, open <strong>Utilities</strong>, then double-click <strong>Terminal</strong>.</p>
+<p>单击 <strong>Applications</strong>，打开 <strong>Utilities</strong>，然后双击 <strong>Terminal</strong>。</p>
 <div class="paragraph">
-<p>Alternatively, you can press the <span class="keyseq"><kbd>&#8984;</kbd>+<kbd>spacebar</kbd></span> keyboard keys to open Search, then type <code>terminal</code>.</p>
+<p>或者，您可以按 kbd:[&#8984; + 空格键] 键盘键打开搜索，然后键入“终端”。</p>
 </div>
 <div class="paragraph">
-<p>The terminal is where you are going to execute command-line instructions.
-To execute a command, you type or copy and paste an instruction, then press <kbd>Return</kbd>.</p>
+<p>终端是您要执行命令行指令的地方。
+要执行命令，请键入或复制并粘贴指令，然后按 kbd:[Return]。</p>
 </div>
 </li>
 <li>
-<p>Check your current path by running the print working directory–<code>pwd</code>—command, then pressing <kbd>Return</kbd>.</p>
+<p>通过运行打印工作目录-<code>pwd</code>-命令检查当前路径，然后按 kbd:[Return]。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">pwd</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>This command displays your current directory with a path like <code>/Users/&lt;your-user-name&gt;</code>.</p>
+<p>此命令显示您当前的目录，其路径类似于 <code>/Users/&lt;your-user-name&gt;</code>。</p>
 </div>
 <div class="paragraph">
-<p>After you open the Terminal application, you can open new terminal shell at any time by clicking <strong>Shell</strong>, then selecting <strong>New Window</strong> or <strong>New Tab</strong>.</p>
+<p>打开终端应用程序后，您可以通过单击*Shell*，然后选择*New Window* 或*New Tab*，随时打开新的终端shell。</p>
 </div>
 <div class="paragraph">
-<p>By default, a new terminal shell always opens in your home directory with a path like <code>/Users/&lt;your-user-name&gt;</code>.</p>
+<p>默认情况下，一个新的终端 shell 总是在你的主目录中打开，路径类似于 <code>/Users/&lt;your-user-name&gt;</code>。</p>
 </div>
 </li>
 </ol>
@@ -973,42 +964,33 @@ To execute a command, you type or copy and paste an instruction, then press <kbd
 </div>
 </div>
 <div class="sect1">
-<h2 id="check-pkgs"><a class="anchor" href="#check-pkgs"></a>Check for packages</h2>
+<h2 id="check-pkgs"><a class="anchor" href="#check-pkgs"></a>检查软件包</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The Homebrew application is a package manager for macOS that makes it easy to install and update packages—that is, external programs—that you need to have available in a local development environment.</p>
+<p>Homebrew 应用程序是 macOS 的软件包管理器，它可以轻松安装和更新软件包（即外部程序），您需要在本地开发环境中提供这些软件包。</p>
 </div>
 <div class="paragraph">
-<p>The <code>node.js</code> package provides a JavaScript runtime environment and modules for front-end user interface development.
-The <code>node.js</code> package is not required to build programs, but you&#8217;ll probably need it if you want to add a graphical user interface to your program.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If your development environment is Linux, you can use a package manager of your choice instead of Homebrew to install packages and manage dependencies.
-</td>
-</tr>
-</table>
+<p><code>node.js</code> 包为前端用户界面开发提供了 JavaScript 运行时环境和模块。
+<code>node.js</code> 包不是构建程序所必需的，但如果你想为你的程序添加一个图形用户界面，你可能需要它。</p>
 </div>
 <div class="paragraph">
-<p>To check and install packages:</p>
+<p>注意：如果您的开发环境是 Linux，您可以使用您选择的包管理器而不是 Homebrew 来安装软件包和管理依赖项。</p>
+</div>
+<div class="paragraph">
+<p>检查和安装软件包：</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Check whether you have the Homebrew package manager installed by running the following command:</p>
+<p>通过运行以下命令检查您是否安装了 Homebrew 软件包管理器：</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">brew --version</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>If the command returns version information, continue to the next step.
-If Homebrew isn&#8217;t installed, copy and paste the following command in your terminal:</p>
+<p>如果命令返回版本信息，继续下一步。
+如果未安装 Homebrew，请将以下命令复制并粘贴到终端中：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1017,15 +999,15 @@ If Homebrew isn&#8217;t installed, copy and paste the following command in your 
 </div>
 </li>
 <li>
-<p>Check whether you have the <code>node.js</code> package manager installed by running the following command:</p>
+<p>通过运行以下命令检查您是否安装了 <code>node.js</code> 包管理器：</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">node --version</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The minumum version of node.js we support is 12. If the command returns version information and your node version is at least 12, continue to <a href="#working-folder">Create a working folder</a>.
-If <code>node.js</code> isn&#8217;t installed, or if your installation is out of date, copy and paste the following command in your terminal:</p>
+<p>我们支持的node.js的最低版本是12。如果命令返回版本信息并且你的node版本至少是12，继续<a href="#创建工作文件夹">[创建工作文件夹]</a>。
+如果 <code>node.js</code> 未安装，或者您的安装已过期，请将以下命令复制并粘贴到终端中：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1038,26 +1020,26 @@ If <code>node.js</code> isn&#8217;t installed, or if your installation is out of
 </div>
 </div>
 <div class="sect1">
-<h2 id="working-folder"><a class="anchor" href="#working-folder"></a>Create a working folder</h2>
+<h2 id="working-folder"><a class="anchor" href="#working-folder"></a>创建一个工作文件夹</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>By default, a new terminal shell always opens in your home directory with a path like <code>/Users/&lt;your-user-name&gt;</code>.
-To keep your workspace tidy, you can create a separate folder for your Internet Computer projects.</p>
+<p>默认情况下，一个新的终端 shell 总是在你的主目录中打开，路径类似于 <code>/Users/&lt;your-user-name&gt;</code>。
+为了让您的工作空间保持整洁，您可以为您的 Internet Computer 项目创建一个单独的文件夹。</p>
 </div>
 <div class="paragraph">
-<p>Creating a working folder for Internet Computer projects is optional, but can make it easier to find and navigate between projects.
-A separate folder is especially useful if you plan to experiment with any of the <a href="../developers-guide/tutorials-intro.html">tutorials</a> beyond the <a href="quickstart-intro.html">Quick start</a>.</p>
+<p>为 Internet Computer 项目创建工作文件夹是可选的，但可以更轻松地在项目之间查找和导航。
+如果您计划尝试使用以下任何链接：../developers-guide/tutorials-intro.html[tutorials]，则单独的文件夹特别有用：quickstart-intro.html[快速开始]。</p>
 </div>
 <div class="paragraph">
-<p>To create a new working folder:</p>
+<p>要创建一个新的工作文件夹：</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Open a terminal shell on your local computer, if you don’t already have one open.</p>
+<p>如果您还没有打开一个终端外壳，请在您的本地计算机上打开一个终端外壳。</p>
 </li>
 <li>
-<p>Create a new folder called <code>ic-projects</code> in your home directory by running the following command:</p>
+<p>通过运行以下命令在您的主目录中创建一个名为 <code>ic-projects</code> 的新文件夹：</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">mkdir ic-projects</code></pre>
@@ -1065,7 +1047,7 @@ A separate folder is especially useful if you plan to experiment with any of the
 </div>
 </li>
 <li>
-<p>Change to the new working folder by running the following command:</p>
+<p>通过运行以下命令切换到新的工作文件夹：</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">cd ic-projects</code></pre>
@@ -1077,33 +1059,33 @@ A separate folder is especially useful if you plan to experiment with any of the
 </div>
 </div>
 <div class="sect1">
-<h2 id="check-path"><a class="anchor" href="#check-path"></a>View directories in your PATH</h2>
+<h2 id="check-path"><a class="anchor" href="#check-path"></a>查看 PATH 中的目录</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The <code>PATH</code> environment variable is an important setting that your operating system uses to locate
-the set of directories where executable programs are located.
-Because every operating system has its own set of directories where it expects to find programs, you need to know how to view and update the PATH environment variable so that you can verify that the {sdk-short-name} command-line executable—<code>dfx</code>—is in one of the directories listed.</p>
+<p><code>PATH</code> 环境变量是操作系统用来定位的重要设置
+可执行程序所在的目录集。
+因为每个操作系统都有自己的一组希望找到程序的目录，所以您需要知道如何查看和更新​​ PATH 环境变量，以便您可以验证 {sdk-short-name} 命令行可执行文件——` dfx`—位于列出的目录之一中。</p>
 </div>
 <div class="paragraph">
-<p>On macOS computers, the default location for the <code>dfx</code> executable is <code>/usr/local/bin</code> and this directory is typically included in the default set of paths.
-Therefore, updating the <code>PATH</code> variable is usually not necessary for computers running macOS.
-If you are using a Linux distribution, however, you should know how to do the following:</p>
+<p>在 macOS 计算机上，<code>dfx</code> 可执行文件的默认位置是 <code>/usr/local/bin</code>，并且此目录通常包含在默认路径集中。
+因此，运行 macOS 的计算机通常不需要更新 <code>PATH</code> 变量。
+但是，如果您使用的是 Linux 发行版，您应该知道如何执行以下操作：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Verify the location of the <code>dfx</code> executable.</p>
+<p>验证 <code>dfx</code> 可执行文件的位置。</p>
 </li>
 <li>
-<p>View the set of directories in your current <code>PATH</code>.</p>
+<p>查看当前 <code>PATH</code> 中的目录集。</p>
 </li>
 <li>
-<p>Update the <code>PATH</code> environment variable, if necessary.</p>
+<p>如有必要，更新 <code>PATH</code> 环境变量。</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>On most operating systems, you can run a command similar to the following to view the set of directories in your current <code>PATH</code>:</p>
+<p>在大多数操作系统上，您可以运行类似于以下的命令来查看当前 <code>PATH</code> 中的目录集：</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1111,7 +1093,7 @@ If you are using a Linux distribution, however, you should know how to do the fo
 </div>
 </div>
 <div class="paragraph">
-<p>To check the location of the <code>dfx</code> executable after you install the {sdk-short-name}, you might run a command similar to the following:</p>
+<p>要在安装 {sdk-short-name} 后检查 <code>dfx</code> 可执行文件的位置，可以运行类似于以下的命令：</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1119,8 +1101,8 @@ If you are using a Linux distribution, however, you should know how to do the fo
 </div>
 </div>
 <div class="paragraph">
-<p>If the <code>dfx</code> executable is not in one of the directories listed in your current <code>$PATH</code>, you need to move the executable or update the <code>PATH</code> setting.
-The specific steps for updating the <code>PATH</code> depend on your operating system, but, in many cases, you can run a command similar to the following and specifying the appropriate directory, such as <code>~/bin</code>:</p>
+<p>如果 <code>dfx</code> 可执行文件不在当前 <code>$PATH</code> 中列出的目录之一，则需要移动可执行文件或更新 <code>PATH</code> 设置。
+更新 <code>PATH</code> 的具体步骤取决于您的操作系统，但在许多情况下，您可以运行类似于以下的命令并指定适当的目录，例如 <code>~/bin</code>：</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1128,7 +1110,7 @@ The specific steps for updating the <code>PATH</code> depend on your operating s
 </div>
 </div>
 <div class="paragraph">
-<p>Now you&#8217;re ready to <a href="local-quickstart.html#download-and-install">install</a> the {sdk-short-name} and get coding!</p>
+<p>现在您已准备好链接：local-quickstart.html#download-and-install[install] {sdk-short-name} 并开始编程！</p>
 </div>
 </div>
 </div>

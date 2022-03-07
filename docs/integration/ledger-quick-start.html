@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Integrate with the Internet Computer ledger :: Motoko documentation</title>
+    <title>与互联网计算机账本集成 :: Motoko documentation</title>
     <meta name="generator" content="Antora 3.0.1">
 <link rel="stylesheet" href="../../_/css/site.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" /><meta property="og:image:width" content="1200" />
@@ -881,175 +881,175 @@
 </div>
 <div class="main-content">
 <article class="doc">
-<h1 class="page">Integrate with the Internet Computer ledger</h1>
+<h1 class="page">与互联网计算机账本集成</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div id="ledger-intro" class="paragraph">
-<p>This guide is an introduction to the Internet Computer Protocol (ICP) components for token distribution, transaction management, token-based staking, and payments for services.
-The document includes an overview of the design, implementation, security guarantees, system requirements, and the application programming interface (API) that support token management for the Internet Computer Protocol.</p>
+<p>本指南介绍了用于代币分发、交易管理、基于代币的质押和服务支付的互联网计算机协议 (ICP) 组件。
+该文档概述了支持互联网计算机协议代币管理的设计、实施、安全保证、系统要求和应用程序编程接口 (API)。</p>
 </div>
 <div class="paragraph">
-<p><em>Integrate with the Internet Computer ledger</em> is intended as a high-level overview for organizations and developers who need to understand the terminology and overall transaction management flow for Internet Computer Protocol (ICP) utility tokens.</p>
+<p><em>与互联网计算机账本集成</em> 旨在为需要了解互联网计算机协议 (ICP) 实用程序代币的术语和整体事务管理流程的组织和开发人员提供高级概述。</p>
 </div>
 <div class="paragraph">
-<p>While you read this guide, be aware that additional details about specific components or interfaces might be available in subsequent documents to supplement the overview provided in this document.
-In addition, this overview focuses on how to integrate with the Internet Computer using the <a href="https://www.rosetta-api.org/docs/welcome.html">Rosetta API</a>.
-Other options for integration are possible.
-Information about other integration options and procedures might be available in future documentation.</p>
+<p>当你阅读本指南时，请注意在随后的文件中可能会有关于特定组件或接口的额外细节，以补充本文件中提供的概述。
+此外，本概述重点介绍如何使用链接与互联网计算机集成:https://www.rosetta-api.org/docs/welcome.html[Rosetta API].
+其他集成选项也是可能的。
+未来的文档中可能会提供有关其他集成选项和过程的信息。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_basic_terminology"><a class="anchor" href="#_basic_terminology"></a>Basic terminology</h2>
+<h2 id="_基本术语"><a class="anchor" href="#_基本术语"></a>基本术语</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The Internet Computer is a blockchain system comprised of several subnet blockchains for running dapps.
-When you write dapps that run on the Internet Computer, you deploy your program in the form of a conceptual computational unit called a <strong>canister</strong>.
-A canister is a "smart contract" in that it consists of the source code of a program as well as its running state, and is replicated on a subnet blockchain that guarantees security as well as liveness.</p>
+<p>互联网计算机是一个区块链系统，由多个子网区块链组成，用于运行 dapp。
+当您编写在互联网计算机上运行的 dapp 时，您以一种称为 <strong>容器</strong> 的概念计算单元的形式部署您的程序。
+容器是一种“智能合约”，它由程序的源代码及其运行状态组成，并在保证安全性和活性的子网区块链上复制。</p>
 </div>
 <div class="paragraph">
-<p>End-users or other canisters can send messages to canister functions to perform specific operations.
-The messages can be either <strong>query calls</strong> that retrieve information without modifying the state of a canister or <strong>update calls</strong> that may modify the state of canister.
-The order in which updates are executed is agreed upon using a consensus protocol between all nodes in the subnet that runs the canister.</p>
+<p>最终用户或其他容器可以向容器功能发送消息以执行特定操作。
+消息可以是在不修改容器状态的情况下检索信息的<strong>查询调用</strong>，也可以是可能修改容器状态的<strong>更新调用</strong>。
+执行更新的顺序是在运行容器的子网中的所有节点之间使用共识协议商定的。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_ledger_canister_overview"><a class="anchor" href="#_ledger_canister_overview"></a>Ledger canister overview</h2>
+<h2 id="_账本容器概述"><a class="anchor" href="#_账本容器概述"></a>账本容器概述</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The Internet Computer Protocol (ICP) implements management of its utility token (ticker "ICP") using a specialized canister, called the <strong>ledger canister</strong>.
-There is a single ledger canister which runs alongside other canisters on a special subnet of the Internet Computer, viz., the NNS subnet.
-The ledger canister is a smart contract that holds <strong>accounts</strong> and <strong>transactions</strong>.
-These transactions either <strong>mint ICP tokens</strong> for accounts,  <strong>transfer ICP tokens</strong> from one account to another, or <strong>burn ICP tokens</strong>, eliminating them from existence.
-The ledger canister maintains a traceable history of all transactions starting from its genesis state (initial state).</p>
+<p>互联网计算机协议（ICP）使用一个专门的容器，称为<strong>账本容器</strong>，实现对其实用代币（代号 "ICP"）的管理。
+在互联网计算机的一个特殊子网（即 NNS 子网）上，有一个单一的账本容器与其他容器一起运行。
+账本容器是一个智能合约，包含<strong>账户</strong>和<strong>交易</strong>。
+这些交易要么为账户<strong>铸造 ICP 代币</strong>，从一个账户<strong>转移ICP 代币</strong>到另一个账户，要么<strong>燃烧 ICP 代币</strong>，使它们不复存在。
+账本容器维护从其创世状态（初始状态）开始的所有交易的可追溯历史记录。</p>
 </div>
 <div class="sect2">
-<h3 id="_accounts"><a class="anchor" href="#_accounts"></a>Accounts</h3>
+<h3 id="_账户"><a class="anchor" href="#_账户"></a>账户</h3>
 <div class="paragraph">
-<p>An account belongs to and is controlled by the account owner who must be an IC principal. No account can be owned by two or more IC principals (no "joint accounts").</p>
+<p>帐户属于帐户所有者并由其控制，而帐户所有者必须是IC负责人。任何账户都不能由两个或更多的IC负责人拥有（没有 "联合账户"）。</p>
 </div>
 <div class="paragraph">
-<p>An account owner may control more than one account. In this case, each account corresponds to a pair (account_owner, sub_account). The sub-account is an optional bitstring which helps distinguish between the different sub-accounts of the same owner.</p>
+<p>一个账户所有者可以控制一个以上的账户。在这种情况下，每个账户对应一对(account_owner, sub_account)。子账户是一个可选的位串，有助于区分同一所有者的不同子账户。</p>
 </div>
 <div class="paragraph">
-<p>An account on the ledger is identified by its address, which is derived from the principal ID and sub-account identifier.</p>
+<p>分类账上的一个账户由其地址识别，该地址由主账户ID和子账户标识符得出。</p>
 </div>
 <div class="paragraph">
-<p>In this context, you can think of principal identifiers as a rough equivalent to the hash of a user&#8217;s public key for Bitcoin or Ethereum. You use the corresponding secret key to sign messages and therefore authenticate to the ledger canister and operate on the principal&#8217;s account. Canisters can also have accounts in the ledger canister, in which case the address is derived from the canister&#8217;s principal.</p>
+<p>在这种情况下，您可以将主体标识符视为粗略等同于比特币或以太坊的用户公钥的哈希值。 您使用相应的密钥对消息进行签名，从而对分类帐容器进行身份验证并在委托人的帐户上进行操作。 容器也可以在分类帐容器中拥有帐户，在这种情况下，地址来自容器的本金。</p>
 </div>
 <div class="paragraph">
-<p>The ledger canister is initialized using administrative operations that are internal to the Internet Computer.
-As part of the initialization process, the canister is created with the set of accounts and associated ICP token balances.</p>
+<p>分类帐容器使用互联网计算机内部的管理操作进行初始化。
+作为初始化过程的一部分，容器是使用一组帐户和关联的 ICP 代币余额创建的。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_transaction_types"><a class="anchor" href="#_transaction_types"></a>Transaction types</h3>
+<h3 id="_交易类型"><a class="anchor" href="#_交易类型"></a>交易类型</h3>
 <div class="paragraph">
-<p>There are three operations that can change the internal state of the ledger canister:</p>
+<p>有三种操作可以改变账本容器的内部状态：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Minting ICP tokens</strong> for accounts.</p>
+<p><strong>为账户铸造 ICP 代币</strong>。</p>
 </li>
 <li>
-<p><strong>Transferring ICP tokens</strong> between accounts.</p>
+<p><strong>在账户之间转移 ICP 代币</strong>。</p>
 </li>
 <li>
-<p><strong>Burning ICP tokens</strong>.</p>
+<p><strong>燃烧 ICP 代币</strong>。</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>All operations are recorded as transactions in the ledger canister.</p>
+<p>所有操作都记录为账本容器中的事务。</p>
 </div>
 <div class="paragraph">
-<p>The ledger maintains the transactions as a hashed blockchain, i.e., a blockchain running inside a cansiter smart contract (the ledger canister), which in turn is running on the NNS subnet blockchain.</p>
+<p>该账本以哈希区块链的形式维护交易，即在容器智能合约（账本容器）内运行的区块链，而该合约又在NNS子网区块链上运行。</p>
 </div>
 <div class="paragraph">
-<p>As state changes are recorded, each new transaction is placed in a block and assigned a unique index.
-The entire chain is regularly authenticated by signing the latest chain link. The signature used to authenticate the chain can be verified by any third party who has access to the root public key of the Internet Computer.
-Specific transactions can be retrieved by querying the ledger.</p>
+<p>随着状态变化的记录，每个新的交易都被放在一个区块中，并分配一个唯一的索引。
+整个链是通过签署最新的链路来定期认证的。用于认证链的签名可以由任何能够访问互联网计算机根公钥的第三方进行验证。
+具体的交易可以通过查询账本来检索。</p>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_integrate_with_the_internet_computer_ledger_canister_using_the_rosetta_api"><a class="anchor" href="#_integrate_with_the_internet_computer_ledger_canister_using_the_rosetta_api"></a>Integrate with the Internet Computer ledger canister using the Rosetta API</h2>
+<h2 id="_使用_rosetta_api_与_internet_computer_分类帐容器集成"><a class="anchor" href="#_使用_rosetta_api_与_internet_computer_分类帐容器集成"></a>使用 Rosetta API 与 Internet Computer 分类帐容器集成</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>One can interact with the Internet Computer and ledger canister in several ways.
-This document outlines how to integrate with the ledger canister using the <a href="https://www.rosetta-api.org/">Rosetta application programming interface</a>. This is a <a href="https://www.rosetta-api.org/docs/welcome.html">well-documented and open standard</a> designed to support multiple blockchain data formats and structured communication for exchange transactions.</p>
+<p>可以通过多种方式与互联网计算机和分类帐容器进行交互。
+本文档概述了如何使用 <a href="https://www.rosetta-api.org/">Rosetta application programming interface</a>. 这是https://www.rosetta-api.org/docs/welcome.html[well-documented and open standard] 旨在支持多种区块链数据格式和用于交易所交易的结构化通信。</p>
 </div>
 <div class="paragraph">
-<p>The interface is implemented by the integration software—`dfinity/rosetta-api. This piece of software enables you to deploy a passive Rosetta node outside of the Internet Computer blockchain and use the node to communicate with the ledger canister running on the Internet Computer.</p>
+<p>接口由集成软件——`+dfinity/rosetta-api+实现。 该软件使您能够在互联网计算机区块链之外部署一个被动 Rosetta 节点，并使用该节点与互联网计算机上运行的分类帐容器进行通信。</p>
 </div>
 <div class="paragraph">
-<p>The following diagram provides a simplified view of the communication between the Rosetta node and the Internet Computer using the <code>dfinity/rosetta-api</code> integration software.</p>
+<p>下图提供了 Rosetta 节点和互联网计算机之间使用 <code>dfinity/rosetta-api</code> 集成软件进行通信的简化视图。</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="_images/basic-rosetta-api-integration.svg" alt="basic rosetta api integration"></span></p>
 </div>
 <div class="paragraph">
-<p>As this diagram suggests, the Rosetta node maintains a local copy of the Internet Computer ledger canister.
-Periodically, the <code>dfinity/rosetta-api</code> software running on the Rosetta node updates its local view of the ledger by querying the ledger canister for the latest block of the ledger chain, then querying for any missing ledger blocks.
-The Rosetta node uses the root key of the Internet Computer to ensure that the local copy of the ledger is genuine.
-The integration software also allows you to use the Rosetta node to submit transactions to the Internet Computer ledger.</p>
+<p>正如该图所示，Rosetta 节点维护 Internet Computer 帐本容器的本地副本。
+在 Rosetta 节点上运行的“dfinity/rosetta-api”软件会定期更新其本地账本视图，方法是向账本容器查询账本链的最新块，然后查询任何丢失的账本块。
+Rosetta 节点使用互联网计算机的根密钥来确保账本的本地副本是真实的。
+集成软件还允许您使用 Rosetta 节点向 Internet Computer 帐本提交交易。</p>
 </div>
 <div class="sect2">
-<h3 id="_integration_workflow_overview"><a class="anchor" href="#_integration_workflow_overview"></a>Integration workflow overview</h3>
+<h3 id="_集成工作流程概述"><a class="anchor" href="#_集成工作流程概述"></a>集成工作流程概述</h3>
 <div class="paragraph">
-<p>The following summarizes the basic operational workflow for transferring ICP tokens if you&#8217;re using a Rosetta node to communicate with the Internet Computer ledger canister. In this scenario, you must be an Internet Computer principal who authenticates to the Internet Computer using a signing key stored in a wallet.</p>
+<p>下面总结了如果你使用Rosetta节点与Internet Computer账本容器通信，转移ICP代币的基本操作流程。在这种情况下，你必须是一个Internet Computer主体，使用存储在钱包中的签名密钥对Internet Computer进行认证。</p>
 </div>
 <div class="paragraph">
-<p>After a user submits a request to the Rosetta node to make a transaction, the request is passed to the integration software running on that node to interact with the Internet Computer and completes the following operations:</p>
+<p>用户向Rosetta节点提交交易请求后，该请求被传递给该节点上运行的集成软件与Internet Computer交互并完成以下操作：</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>It reads from the local copy of the ledger to determine the state of the latest transaction index and block height identified by the <code>latest_index</code> label.</p>
+<p>它从账本的本地副本中读取，以确定由`latest_index`标签标识的最新交易索引和块高度的状态。</p>
 </li>
 <li>
-<p>It generates a random <code>nonce</code> value&#8201;&#8212;&#8201;used to ensure transactions are unique.</p>
+<p>它生成一个随机的“nonce”值——用于确保交易是唯一的。</p>
 </li>
 <li>
-<p>It creates an ingress message for the ledger canister that invokes the <code>send</code> function and specifies the amount and the destination for the transaction:</p>
+<p>它为调用 <code>send</code> 函数并指定交易金额和目的地的分类帐容器创建一个入口消息：</p>
 <div class="literalblock">
 <div class="content">
-<pre>send(nonce, latest_index, dst, amount)</pre>
+<pre>发送（nonce，latest_index，dst，数量）</pre>
 </div>
 </div>
 </li>
 <li>
-<p>It signs the ingress message using the key stored in the wallet to identify the principal ID for the owner.</p>
+<p>它使用存储在钱包中的密钥对入口消息进行签名，以识别所有者的主体 ID。</p>
 </li>
 <li>
-<p>It forwards the message to the ledger canister on the Internet Computer.</p>
+<p>它将消息转发到互联网计算机上的分类帐容器。</p>
 </li>
 </ol>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_set_up_a_rosetta_node"><a class="anchor" href="#_set_up_a_rosetta_node"></a>Set up a Rosetta node</h3>
+<h3 id="_设置_rosetta_节点"><a class="anchor" href="#_设置_rosetta_节点"></a>设置 Rosetta 节点</h3>
 <div class="paragraph">
-<p>You can set up a Rosetta API-compliant node to interact with the Internet Computer and exchange Internet Computer Protocol (ICP) tokens.
-To keep the instructions simple, we use a Docker image to create the integration with the Rosetta API &#8201;&#8212;&#8201;one can also build and run binary using the source code.
-If you don&#8217;t already have Docker on your local computer, download and install the latest version.</p>
+<p>您可以设置符合 Rosetta API 的节点来与互联网计算机交互并交换互联网计算机协议 (ICP) 代币。
+为了使说明简单，我们使用 Docker 映像来创建与 Rosetta API 的集成——也可以使用源代码构建和运行二进制文件。
+如果您的本地计算机上还没有 Docker，请下载并安装最新版本。</p>
 </div>
 <div class="paragraph">
-<p>To set up a Rosetta node (which connects to a testnet):</p>
+<p>设置 Rosetta 节点（连接到测试网）：</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><a href="https://docs.docker.com/get-docker/">Install Docker</a> and <a href="https://docs.docker.com/config/daemon/">start the Docker daemon</a>.</p>
+<p><a href="https://docs.docker.com/get-docker/">Install Docker</a> 和 <a href="https://docs.docker.com/config/daemon/">start the Docker daemon</a>.</p>
 <div class="paragraph">
-<p>The Docker daemon (<code>dockerd</code>) should automatically start when you reboot your computer. If you start the Docker daemon manually, the instructions vary depending on the local operating system.</p>
+<p>当您重新启动计算机时，Docker 守护进程 (<code>dockerd</code>) 应该会自动启动。 如果您手动启动 Docker 守护程序，则说明因本地操作系统而异。</p>
 </div>
 </li>
 <li>
-<p>Pull the latest <code>dfinity/rosetta-api</code> image from the Docker Hub by running the following command:</p>
+<p>通过运行以下命令从 Docker Hub 中拉取最新的 <code>dfinity/rosetta-api</code> 映像：</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">docker pull dfinity/rosetta-api</code></pre>
@@ -1069,7 +1069,7 @@ If you don&#8217;t already have Docker on your local computer, download and inst
 </div>
 </div>
 <div class="paragraph">
-<p>This command starts the software on the local host and displays output similar to the following:</p>
+<p>此命令在本地主机上启动软件并显示类似于以下内容的输出：</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1078,10 +1078,10 @@ Starting Rosetta API server</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>By default, the software <strong>does not</strong> connect to the ledger canister running on the Internet Computer blockchain mainnet, but rather it connects to a testnets.</p>
+<p>默认情况下，该软件*不*连接到运行在互联网计算机区块链主网上的帐本容器，而是连接到测试网。</p>
 </div>
 <div class="paragraph">
-<p>If you have been assigned a test network and corresponding ledger canister identifier, you can run the command against that network by specifying an additional <code>canister</code> argument. For example, the following command illustrates connecting to the ledger canister on a test network by setting the <code>canister</code> argument to <code>2xh5f-viaaa-aaaab-aae3q-cai</code>.</p>
+<p>如果您已经分配了一个测试网络和相应的帐本容器标识符，您可以通过指定一个额外的 <code>canister</code> 参数来针对该网络运行该命令。 例如，以下命令说明了通过将`canister<code>参数设置为</code>2xh5f-viaaa-aaaab-aae3q-cai`来连接到测试网络上的帐本容器。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1094,105 +1094,96 @@ Starting Rosetta API server</pre>
    --canister 2xh5f-viaaa-aaaab-aae3q-cai</code></pre>
 </div>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The first time you run the command it might take some time for the node to catch up to the current link of the chain.
-When the node is caught up, you should see output similar to the following:
-</td>
-</tr>
-</table>
+<div class="paragraph">
+<p>注释: 第一次运行命令时，节点可能需要一些时间才能赶上链的当前链接。
+当节点被追上时，您应该会看到类似于以下内容的输出：</p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>You are all caught up to block height 109</pre>
+<pre>你们都被追到块高度 109</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>After completing this step, the node continues to run as a <strong>passive</strong> node that does not participate in block making.</p>
+<p>完成此步骤后，节点继续作为不参与出块的<strong>被动</strong>节点运行。</p>
 </div>
 </li>
 <li>
-<p>Open a new terminal window or tab and run the <code>ps</code> command to verify the status of the service.</p>
+<p>打开一个新的终端窗口或选项卡并运行“ps”命令来验证服务的状态。</p>
 <div class="paragraph">
-<p>If you need to stop the service, press CONTROL-C. You might want to do this to change the canister identifier you are using, for example.</p>
+<p>如果您需要停止服务，请按 CONTROL-C。 例如，您可能希望这样做以更改您正在使用的容器标识符。</p>
 </div>
 <div class="paragraph">
-<p>To test the integration after setting up the node, you will need to write a program to simulate a principal submitting a transaction or looking up an account balance.</p>
+<p>要在设置节点后测试集成，您需要编写一个程序来模拟主体提交交易或查找账户余额。</p>
 </div>
 </li>
 </ol>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_run_the_rosetta_node_in_production"><a class="anchor" href="#_run_the_rosetta_node_in_production"></a>Run the Rosetta node in production</h3>
+<h3 id="_在生产中运行rosetta节点"><a class="anchor" href="#_在生产中运行rosetta节点"></a>在生产中运行Rosetta节点</h3>
 <div class="paragraph">
-<p>When you are finished testing, you should run the Docker image in production mode without the <code>--interactive</code>, <code>--tty</code>, and <code>--rm</code> command-line options.
-These command-line options are used to attach an interactive terminal session and remove the container, and are primarily intended for testing purposes.</p>
+<p>完成测试后，您应该在生产模式下运行 Docker 映像，不带 <code>--interactive</code>、<code>--tty</code> 和 <code>--rm</code> 命令行选项。
+这些命令行选项用于附加交互式终端会话和删除容器，主要用于测试目的。</p>
 </div>
 <div class="paragraph">
-<p>To run the software in a production environment, you can start the Docker image using the <code>--detach</code> option to run the container in the background and, optionally, specify the <code>--volume</code> command for storing blocks.</p>
+<p>要在生产环境中运行该软件，您可以使用 <code>--detach</code> 选项启动 Docker 映像以在后台运行容器，并且可以选择指定 <code>--volume</code> 命令来存储块。</p>
 </div>
 <div class="paragraph">
-<p>To connect the Rosetta node instance to the mainnet, add flags:
-<code>--mainnet</code> and <code>--not-whitelisted</code>.</p>
+<p>要将 Rosetta 节点实例连接到主网，请添加标志：
+<code>--mainnet</code> 和 <code>--not-whitelisted</code>。</p>
 </div>
 <div class="paragraph">
-<p>For more information about Docker command-line options, see the <a href="https://docs.docker.com/engine/reference/commandline/run/">Docker reference documentation</a>.</p>
+<p>有关 Docker 命令行选项的更多信息，请参阅链接:https://docs.docker.com/engine/reference/commandline/run/[Docker reference documentation].</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_requirements_and_limitations"><a class="anchor" href="#_requirements_and_limitations"></a>Requirements and limitations</h3>
+<h3 id="_要求和限制"><a class="anchor" href="#_要求和限制"></a>要求和限制</h3>
 <div class="paragraph">
-<p>The integration software provided in the Docker image has one requirement that is not part of the standard Rosetta API specification.</p>
+<p>Docker 映像中提供的集成软件有一项要求，该要求不属于标准 Rosetta API 规范的一部分。</p>
 </div>
 <div class="paragraph">
-<p>For transactions involving ICP tokens, the unsigned transaction must be created less than 24 hours before the network receives the signed transaction. The reason is that the 'created_at' field of each transaction refers to an existing transaction (essentially last_index available locally at the time of transaction creation). Any submitted transaction that refers to a transaction that is too old is rejected to maintain operational efficiency.</p>
+<p>对于涉及 ICP 代币的交易，必须在网络收到签名交易前 24 小时内创建未签名交易。 原因是每个事务的 'created_at' 字段指的是现有事务（本质上是创建事务时本地可用的 last_index）。 任何提交的交易涉及太旧的交易都会被拒绝以维持运营效率。</p>
 </div>
 <div class="paragraph">
-<p>Other than this requirement, the Rosetta API integration software is fully-compliant with all standard Rosetta endpoints and passes all of the <code>rosetta-cli</code> tests.
-The software can accept any valid Rosetta request.
-However, the integration software only prompts for transactions to be signed using Ed25519, rather than <a href="https://www.rosetta-api.org/docs/models/SignatureType.html#values">all the signature schemes listed here</a> and only replies with a small subset of the potential responses that the specification supports. For example, the software doesn&#8217;t implement any of the UTXO features of Rosetta, so you won&#8217;t see any UTXO messages in any of the software responses.</p>
+<p>除此要求外，Rosetta API 集成软件与所有标准 Rosetta 端点完全兼容，并通过了所有 <code>rosetta-cli</code> 测试。
+该软件可以接受任何有效的 Rosetta 请求。
+但是，集成软件仅提示使用 Ed25519 对交易进行签名，而不是 <a href="https://www.rosetta-api.org/docs/models/SignatureType.html#values">all the signature schemes listed here</a> 并且只回复规范支持的一小部分潜在响应。 例如，该软件没有实现 Rosetta 的任何 UTXO 功能，因此您不会在任何软件响应中看到任何 UTXO 消息。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_basic_properties_for_icp_utility_tokens"><a class="anchor" href="#_basic_properties_for_icp_utility_tokens"></a>Basic properties for ICP utility tokens</h3>
+<h3 id="_icp_实用代币的基本属性"><a class="anchor" href="#_icp_实用代币的基本属性"></a>ICP 实用代币的基本属性</h3>
 <div class="paragraph">
-<p>The ICP token is similar to utility tokens governing decentralized networks such as Bitcoin, but also differs in important ways.</p>
+<p>ICP 代币类似于管理去中心化网络（如比特币）的实用代币，但在重要方面也有所不同。</p>
 </div>
 <div class="paragraph">
-<p>The ICP token is similar to Bitcoin in the following ways:</p>
+<p>ICP代币在以下方面与比特币相似：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Each ICP token is divisible 10^8 times.</p>
+<p>每个 ICP 代币可整除 10^8 次。</p>
 </li>
 <li>
-<p>All transactions are stored in the ledger starting with the genesis initial state.</p>
+<p>所有交易都存储在账本中，从创世初始状态开始。</p>
 </li>
 <li>
-<p>Tokens are entirely fungible.</p>
+<p>代币是完全可替代的。</p>
 </li>
 <li>
-<p>Account identifiers are 32 bytes and are roughly the equivalent of the hash of a public key, optionally together with some additional sub-account specifier.</p>
+<p>账户标识符为 32 字节，大致相当于公钥的哈希值，可选地与一些额外的子账户说明符一起使用。</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>The ICP token differs from Bitcoin in the following ways:</p>
+<p>ICP 代币在以下方面与比特币不同：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Rather than using proof of work, staked participant nodes use a variant of threshold BLS signatures to agree on a valid state of the chain.</p>
+<p>质押的参与者节点不使用工作量证明，而是使用阈值 BLS 签名的变体来就链的有效状态达成一致。</p>
 </li>
 <li>
-<p>Any transaction can store an 8-byte memo&#8201;&#8212;&#8201;this memo field is used by the Rosetta API to store the nonce that distinguishes between transactions. However, other uses for the field are possible.</p>
+<p>任何交易都可以存储一个 8 字节的备忘录——Rosetta API 使用这个备忘录字段来存储区分交易的随机数。 然而，该领域的其他用途是可能的。</p>
 </li>
 </ul>
 </div>
@@ -1200,114 +1191,112 @@ However, the integration software only prompts for transactions to be signed usi
 </div>
 </div>
 <div class="sect1">
-<h2 id="_frequently_asked_questions"><a class="anchor" href="#_frequently_asked_questions"></a>Frequently asked questions</h2>
+<h2 id="_常问问题"><a class="anchor" href="#_常问问题"></a>常问问题</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The following questions are taken from the most commonly reported questions and blockers from the developer community regarding Rosetta integration with the Internet Computer.</p>
+<p>以下问题摘自开发者社区最常报告的关于 Rosetta 与 Internet Computer 集成的问题和障碍。</p>
 </div>
 <div class="sect2">
-<h3 id="_the_rosetta_node"><a class="anchor" href="#_the_rosetta_node"></a>The Rosetta node</h3>
+<h3 id="_rosetta节点"><a class="anchor" href="#_rosetta节点"></a>Rosetta节点</h3>
 <div class="sect3">
-<h4 id="_how_do_i_run_an_instance_of_the_rosetta_node"><a class="anchor" href="#_how_do_i_run_an_instance_of_the_rosetta_node"></a>How do I run an instance of the Rosetta node?</h4>
+<h4 id="_如何运行_rosetta_节点的实例"><a class="anchor" href="#_如何运行_rosetta_节点的实例"></a>如何运行 Rosetta 节点的实例？</h4>
 <div class="paragraph">
-<p>An easy way to accomplish this is to use the <a href="https://hub.docker.com/r/dfinity/rosetta-api/tags?page=1&amp;ordering=last_updated"><code>dfinity/rosetta-api</code></a> Docker image. Once the node initializes and syncs all blocks, you can perform queries and submit transactions by invoking the Rosetta API on the node. The node listens on the <code>8080</code> port.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_how_do_i_connect_the_rosetta_node_to_the_mainnet"><a class="anchor" href="#_how_do_i_connect_the_rosetta_node_to_the_mainnet"></a>How do I connect the Rosetta node to the mainnet?</h4>
-<div class="paragraph">
-<p>Use flags <code>--mainnet</code> and <code>--not-whitelisted</code></p>
+<p>一个简单的方法是使用链接:https://hub.docker.com/r/dfinity/rosetta-api/tags?page=1&amp;ordering=last_updated[<code>dfinity/rosetta-api</code>] Docker 镜像. 一旦节点初始化并同步了所有区块，您就可以通过调用节点上的 Rosetta API 来执行查询和提交交易。 该节点侦听“8080”端口。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_how_do_i_connect_the_rosetta_node_to_the_mainnet_2"><a class="anchor" href="#_how_do_i_connect_the_rosetta_node_to_the_mainnet_2"></a>How do I connect the Rosetta node to the mainnet?</h4>
+<h4 id="_如何将_rosetta_节点连接到主网"><a class="anchor" href="#_如何将_rosetta_节点连接到主网"></a>如何将 Rosetta 节点连接到主网？</h4>
 <div class="paragraph">
-<p>Use flags <code>--mainnet</code> and <code>--not-whitelisted</code></p>
+<p>使用 flags <code>--mainnet</code> and <code>--not-whitelisted</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_how_do_i_know_if_the_node_has_caught_up_with_the_test_net"><a class="anchor" href="#_how_do_i_know_if_the_node_has_caught_up_with_the_test_net"></a>How do I know if the node has caught up with the test net?</h4>
+<h4 id="_如何将_rosetta_节点连接到主网_2"><a class="anchor" href="#_如何将_rosetta_节点连接到主网_2"></a>如何将 Rosetta 节点连接到主网？</h4>
 <div class="paragraph">
-<p>Search the <code>Starting Rosetta API server</code> startup log. There will be a log entry that says <code>You are all caught up to block XX</code>. This message confirms that you are caught up with all blocks.</p>
+<p>使用 flags <code>--mainnet</code> and <code>--not-whitelisted</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_how_to_persist_synced_blocks_data"><a class="anchor" href="#_how_to_persist_synced_blocks_data"></a>How to persist synced blocks data?</h4>
+<h4 id="_如何知道节点是否已经赶上了测试网"><a class="anchor" href="#_如何知道节点是否已经赶上了测试网"></a>如何知道节点是否已经赶上了测试网？</h4>
 <div class="paragraph">
-<p>Mount the <code>/data</code> directory elsewhere.</p>
+<p>搜索 <code>Starting Rosetta API server</code> 启动日志。 将会有一个日志条目显示“你们都被阻止了 XX”。 此消息确认您已了解所有块。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_is_the_rosetta_node_versioned"><a class="anchor" href="#_is_the_rosetta_node_versioned"></a>Is the Rosetta node versioned?</h4>
+<h4 id="_如何持久化同步块数据"><a class="anchor" href="#_如何持久化同步块数据"></a>如何持久化同步块数据？</h4>
 <div class="paragraph">
-<p>Not yet. Before launch, when we push to the <code>dfinity/rosetta-api:latest</code> image, it&#8217;s usually a major update that we&#8217;ll announce in our communication channels beforehand.</p>
-</div>
-<div class="paragraph">
-<p>We&#8217;ll soon implement nightly builds of the image, and CI will ensure it works before pushing. Other than <code>latest</code>, those images will also be tagged with the build date, so for more reproducibility, it&#8217;s possible to use the image of a specific date tag rather than <code>latest</code>. We&#8217;ll announce when nightly builds become available.</p>
+<p>将 <code>/data</code> 目录挂载到别处。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_how_do_i_connect_to_the_main_net_instead_of_the_test_net"><a class="anchor" href="#_how_do_i_connect_to_the_main_net_instead_of_the_test_net"></a>How do I connect to the main net instead of the test net?</h4>
+<h4 id="_rosetta_节点是否已版本化"><a class="anchor" href="#_rosetta_节点是否已版本化"></a>Rosetta 节点是否已版本化？</h4>
 <div class="paragraph">
-<p>Start <code>dfinity/rosetta-api</code> with <code>--help</code>, you can see some additional CLI arguments that can be passed. Among those there are <code>--canister-id</code> and <code>--ic-url</code> which can be used to configure the ledger destination. At the moment, they default to the test net.</p>
+<p>还没有。 在发布之前，当我们推送到 <code>dfinity/rosetta-api:latest</code> 镜像时，通常是我们会提前在我们的沟通渠道中宣布的重大更新。
+我们将很快实现映像的每晚构建，CI 将确保它在推送之前工作。 除了 <code>最新</code> 之外，这些映像还将使用构建日期进行标记，因此为了提高可重复性，可以使用特定日期标记的映像而不是 <code>映像</code>。 当每晚构建可用时，我们将宣布。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_如何连接到主网而不是测试网"><a class="anchor" href="#_如何连接到主网而不是测试网"></a>如何连接到主网而不是测试网？</h4>
+<div class="paragraph">
+<p>使用 <code>--help</code> 启动 <code>dfinity/rosetta-api</code>，您可以看到一些可以传递的额外 CLI 参数。 其中有 <code>--canister-id</code> 和 <code>--ic-url</code> 可用于配置分类帐目的地。 目前，他们默认使用测试网。</p>
 </div>
 <div class="paragraph">
-<p><strong>Note</strong>: The main net is not live yet; it will be live some time before the publicly announced date, and we&#8217;ll push the updated image to point to the main net to ensure you can perform testing on the main net beforehand.</p>
+<p><strong>注释</strong>：主网暂未上线； 它会在公示日期前一段时间上线，我们会将更新后的镜像推送到主网上，以确保您可以提前在主网上进行测试。</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_icp_specific_rosetta_api_details"><a class="anchor" href="#_icp_specific_rosetta_api_details"></a>ICP-specific Rosetta API details</h3>
+<h3 id="_icp_特定的_rosetta_api_详细信息"><a class="anchor" href="#_icp_特定的_rosetta_api_详细信息"></a>ICP 特定的 Rosetta API 详细信息</h3>
 <div class="sect3">
-<h4 id="_how_are_accounts_generated_and_verified"><a class="anchor" href="#_how_are_accounts_generated_and_verified"></a>How are accounts generated and verified?</h4>
+<h4 id="_帐户是如何生成和验证的"><a class="anchor" href="#_帐户是如何生成和验证的"></a>帐户是如何生成和验证的？</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>Generate an ED25519 keypair.</p>
+<p>生成 ED25519 密钥对。</p>
 </li>
 <li>
-<p>The secret key is used for signing transactions.</p>
+<p>密钥用于签署交易。</p>
 </li>
 <li>
-<p>The public key is used for generating a self-authenticating Principal ID. For more information, see: <a href="https://sdk.dfinity.org/docs/interface-spec/index.html#_principals" class="bare">https://sdk.dfinity.org/docs/interface-spec/index.html#_principals</a>.</p>
+<p>公钥用于生成自我认证的主体 ID。 有关更多信息，请参阅： <a href="https://sdk.dfinity.org/docs/interface-spec/index.html#_principals" class="bare">https://sdk.dfinity.org/docs/interface-spec/index.html#_principals</a>.</p>
 </li>
 <li>
-<p>The Principal ID is hashed to generate the account address.</p>
+<p>对主体 ID 进行哈希处理以生成帐户地址。</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_how_to_use_the_public_key_to_generate_its_account_address"><a class="anchor" href="#_how_to_use_the_public_key_to_generate_its_account_address"></a>How to use the public key to generate its account address?</h4>
+<h4 id="_如何使用公钥生成其账户地址"><a class="anchor" href="#_如何使用公钥生成其账户地址"></a>如何使用公钥生成其账户地址？</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>Call the <a href="https://www.rosetta-api.org/docs/ConstructionApi.html#constructionderive"><code>/construction/derive</code></a> endpoint with the hex-encoded 32-byte public key.</p>
+<p>调用链接:https://www.rosetta-api.org/docs/ConstructionApi.html#constructionderive[<code>/construction/derive</code>] 具有十六进制编码的 32 字节公钥的端点。</p>
 </li>
 <li>
-<p>Call the <code>pub_key_to_address</code> function in the JavaScript SDK.</p>
+<p>调用 JavaScript SDK 中的 <code>pub_key_to_address</code> 函数。</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_how_to_verify_the_checksum_of_an_account_address"><a class="anchor" href="#_how_to_verify_the_checksum_of_an_account_address"></a>How to verify the checksum of an account address?</h4>
+<h4 id="_如何验证账户地址的校验和"><a class="anchor" href="#_如何验证账户地址的校验和"></a>如何验证账户地址的校验和？</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>After hex decoding, the first 4 bytes is the big-endian CRC32 checksum of the rest of the address.</p>
+<p>十六进制解码后，前 4 个字节是地址其余部分的大端 CRC32 校验和。</p>
 </li>
 <li>
-<p>Call <a href="https://github.com/dfinity/rosetta-client#working-with-account-addresses"><code>address_from_hex</code></a> in the JavaScript SDK. It returns and error if checksum doesn&#8217;t match.</p>
+<p>调用链接:https://github.com/dfinity/rosetta-client#working-with-account-addresses[<code>address_from_hex</code>] 在 JavaScript SDK 中。 如果校验和不匹配，它会返回并出错。</p>
 </li>
 <li>
-<p><a href="https://gist.github.com/TerrorJack/d6c79b33e5b5d0f5d52f3a2c5cdacc60">Here</a> is a Java implementation of address validation logic.</p>
+<p>链接:https://gist.github.com/TerrorJack/d6c79b33e5b5d0f5d52f3a2c5cdacc60[这里] 是地址验证逻辑的 Java 实现。</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_what_are_signature_type_and_curve_type_for_ed25519"><a class="anchor" href="#_what_are_signature_type_and_curve_type_for_ed25519"></a>What are <code>signature_type</code> and <code>curve_type</code> for ED25519?</h4>
+<h4 id="_ed25519_的signature_type和curve_type是什么"><a class="anchor" href="#_ed25519_的signature_type和curve_type是什么"></a>ED25519 的“signature_type”和“curve_type”是什么？</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1320,140 +1309,140 @@ However, the integration software only prompts for transactions to be signed usi
 </div>
 </div>
 <div class="sect3">
-<h4 id="_what_kinds_of_transactions_can_appear_in_a_block_and_what_do_they_mean"><a class="anchor" href="#_what_kinds_of_transactions_can_appear_in_a_block_and_what_do_they_mean"></a>What kinds of transactions can appear in a block, and what do they mean?</h4>
+<h4 id="_什么样的交易可以出现在一个区块中它们是什么意思"><a class="anchor" href="#_什么样的交易可以出现在一个区块中它们是什么意思"></a>什么样的交易可以出现在一个区块中，它们是什么意思？</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>Each block as queried from the <a href="https://www.rosetta-api.org/docs/BlockApi.html#block"><code>/block</code></a> endpoint contains exactly one transaction. Note that some operations, such as <code>burn</code>, are not suppoted in Rosetta API calls.</p>
+<p>从链接查询的每个块:https://www.rosetta-api.org/docs/BlockApi.html#block[<code>/block</code>] 端点只包含一个事务。 请注意，Rosetta API 调用不支持某些操作，例如 <code>burn</code>。</p>
 </li>
 <li>
-<p>Transfer</p>
+<p>转移</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Operation 0: type <code>"TRANSACTION"</code>, subtracts the transfer amount from the source account.</p>
+<p>操作0：输入`"TRANSACTION"`，从源账户中减去转账金额。</p>
 </li>
 <li>
-<p>Operation 1: type <code>"TRANSACTION"</code>, adds the same transfer amount to the destination account.</p>
+<p>操作1：输入`"TRANSACTION"`，向目的账户添加相同的转账金额。</p>
 </li>
 <li>
-<p>Operation 2: type <code>"FEE"</code>, subtracts the fee from the source account.</p>
+<p>操作2：输入`"FEE"`，从源账户中扣除费用。</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>Don&#8217;t rely on the order above, you can rearrange them in the <code>/construction/payloads</code> call, and when parsing transactions in a block, you should check for transaction type and amount sign instead.</p>
+<p>不要依赖上面的顺序，你可以在`/construction/payloads`调用中重新排列它们，当解析一个块中的交易时，你应该检查交易类型和金额符号。</p>
 </li>
 <li>
-<p>Mint</p>
+<p>铸币</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Operation 0: type <code>"MINT"</code>, adds the minted amount to the destination account.</p>
+<p>操作0：输入`"MINT"`，将铸币数量添加到目标账户。</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>Burn</p>
+<p>燃烧</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Operation 0: type <code>"BURN"</code>, subtract the burned amount from the source account.</p>
+<p>操作0：输入`"BURN"`，从源账户中减去燃烧的数量。</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><code>"status"</code> is always <code>"COMPLETED"</code>, failed transactions don&#8217;t show up in the polled blocks</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_what_fee_is_needed_can_i_customize_the_fee"><a class="anchor" href="#_what_fee_is_needed_can_i_customize_the_fee"></a>What fee is needed? Can I customize the fee?</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>By calling <a href="https://www.rosetta-api.org/docs/ConstructionApi.html#constructionmetadata"><code>/construction/metadata</code></a>, you can get <code>suggested_fee</code>.</p>
-</li>
-<li>
-<p>At the moment, <code>suggested_fee</code> is a constant, and the fee specified in a transfer must be equal to it.</p>
-</li>
-<li>
-<p>Fees do not apply to Mint or Burn operations.</p>
+<p><code>"status"</code> 总是 <code>"COMPLETED"</code>，失败的交易不会出现在轮询的区块中</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_how_do_i_know_if_the_submitted_transaction_hit_the_chain"><a class="anchor" href="#_how_do_i_know_if_the_submitted_transaction_hit_the_chain"></a>How do I know if the submitted transaction hit the chain?</h4>
+<h4 id="_需要什么费用_我可以自定义费用吗"><a class="anchor" href="#_需要什么费用_我可以自定义费用吗"></a>需要什么费用？ 我可以自定义费用吗？</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>The Rosetta server will wait for a short period of time after a <code>/construction/submit</code> call, if the transaction hit the chain, it&#8217;ll be returned.</p>
+<p>通过调用链接:https://www.rosetta-api.org/docs/ConstructionApi.html#constructionmetadata[<code>/construction/metadata</code>]，你可以获得`suggested_fee`。</p>
 </li>
 <li>
-<p>In case of an error from the ledger, the error information will be available in the <code>/construction/submit</code> result.</p>
+<p>目前，<code>suggested_fee</code> 是一个常数，转账中指定的费用必须等于它。</p>
 </li>
 <li>
-<p>It&#8217;s still possible that a <code>/construction/submit</code> call has returned successfully, but there&#8217;s still some time before it hits the chain. You can poll latest blocks and search for the transaction hash. We also implemented a subset of the <a href="https://www.rosetta-api.org/docs/SearchApi.html#searchtransactions"><code>/search/transactions</code></a> endpoint which allows searching for a transaction given its hash.</p>
-</li>
-<li>
-<p>5 minutes is a worst case timeout.</p>
-</li>
-<li>
-<p>Don&#8217;t use <code>mempool</code> APIs, our implementation is an empty stub.</p>
+<p>费用不适用于铸币或燃烧操作。</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_what_kinds_of_errors_might_i_get_from_rosetta_api_calls"><a class="anchor" href="#_what_kinds_of_errors_might_i_get_from_rosetta_api_calls"></a>What kinds of errors might I get from Rosetta API calls?</h4>
+<h4 id="_如何知道提交的交易是否到达了链"><a class="anchor" href="#_如何知道提交的交易是否到达了链"></a>如何知道提交的交易是否到达了链？</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>Successful calls always have <code>200</code> response status code.</p>
+<p>Rosetta 服务器会在 <code>/construction/submit</code> 调用后等待一小段时间，如果交易命中链，它将被返回。</p>
 </li>
 <li>
-<p>Failed calls always have <code>500</code> response status code, with a JSON payload containing more information. The possible Rosetta error codes and their text descriptions can be seen in the <code>/network/options</code> call result.</p>
+<p>如果账本出现错误，错误信息将在`/construction/submit`结果中提供。</p>
+</li>
+<li>
+<p><code>/construction/submit</code> 调用仍有可能成功返回，但距离它到达链还有一段时间。您可以轮询最新的区块并搜索交易哈希。 我们还实现了链接的一个子集:https://www.rosetta-api.org/docs/SearchApi.html#searchtransactions[<code>/search/transactions</code>] 允许在给定哈希值的情况下搜索交易的端点。</p>
+</li>
+<li>
+<p>5 分钟是最坏情况下的超时。</p>
+</li>
+<li>
+<p>不要使用 <code>mempool</code> API，我们的实现是一个空存根。</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_how_do_i_send_mint_or_burn_transactions"><a class="anchor" href="#_how_do_i_send_mint_or_burn_transactions"></a>How do I send Mint or Burn transactions?</h4>
+<h4 id="_我可能会从_rosetta_api_调用中得到哪些类型的错误"><a class="anchor" href="#_我可能会从_rosetta_api_调用中得到哪些类型的错误"></a>我可能会从 Rosetta API 调用中得到哪些类型的错误？</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>Mint is a privileged operation; we don&#8217;t support Burn through Rosetta API calls at the moment.</p>
+<p>成功的调用总是有 <code>200</code> 响应状态码。</p>
+</li>
+<li>
+<p>失败的调用总是有“500”响应状态码，带有一个包含更多信息的 JSON 有效负载。 可能的 Rosetta 错误代码及其文本描述可以在 <code>/network/options</code> 调用结果中看到。</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_what_happens_if_the_same_signed_transaction_is_submitted_multiple_times"><a class="anchor" href="#_what_happens_if_the_same_signed_transaction_is_submitted_multiple_times"></a>What happens if the same signed transaction is submitted multiple times?</h4>
+<h4 id="_我如何发送铸币或燃烧交易"><a class="anchor" href="#_我如何发送铸币或燃烧交易"></a>我如何发送铸币或燃烧交易？</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>铸币是一项特权操作； 我们目前不支持通过Rosetta API 调用燃烧。</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_如果多次提交同一个签名交易会发生什么"><a class="anchor" href="#_如果多次提交同一个签名交易会发生什么"></a>如果多次提交同一个签名交易会发生什么？</h4>
 <div class="paragraph">
-<p>The ledger rejects duplicate transactions. Only the first transaction will make it to the chain and for the duplicate submissions the <code>/construction/submit</code> call will fail.</p>
+<p>账本拒绝重复交易。 只有第一笔交易会进入链，对于重复提交，<code>/construction/submit</code> 调用将失败。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_how_to_sign_a_transaction_without_calling_rosetta_api"><a class="anchor" href="#_how_to_sign_a_transaction_without_calling_rosetta_api"></a>How to sign a transaction without calling Rosetta API?</h4>
+<h4 id="_如何在不调用_rosetta_api_的情况下签署交易"><a class="anchor" href="#_如何在不调用_rosetta_api_的情况下签署交易"></a>如何在不调用 Rosetta API 的情况下签署交易？</h4>
 <div class="paragraph">
-<p>The JavaScript SDK contains an <a href="https://github.com/dfinity/rosetta-client/blob/master/lib/construction_combine.js">implementation</a> of the offline signing logic. This is deeply coupled with internal implementation details, so we strongly advise you to call <code>/construction/combine</code> to sign a transaction if possible.</p>
+<p>JavaScript SDK 包含一个链接:https://github.com/dfinity/rosetta-client/blob/master/lib/construction_combine.js[implementation] 离线签名逻辑。 这与内部实现细节密切相关，因此我们强烈建议您尽可能调用`/construction/combine` 来签署交易。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_how_to_configure_the_ingress_time_period"><a class="anchor" href="#_how_to_configure_the_ingress_time_period"></a>How to configure the ingress time period?</h4>
+<h4 id="_如何配置入口时间段"><a class="anchor" href="#_如何配置入口时间段"></a>如何配置入口时间段？</h4>
 <div class="paragraph">
-<p>In the <code>/construction/payloads</code> call, you can add one or all of the <code>ingress_start</code> / <code>ingress_end</code> fields to specify the ingress time period. They are nanoseconds since the Unix epoch, and must be within the next 24 hours. This enables generating &amp; signing a transaction, but delaying the actual submission to a later time.</p>
+<p>在 <code>/construction/payloads</code> 调用中，您可以添加一个或全部 <code>ingress_start</code> / <code>ingress_end</code> 字段来指定入口时间段。 它们是 Unix 纪元以来的纳秒，并且必须在接下来的 24 小时内。 这可以生成和签署交易，但将实际提交延迟到以后。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_how_to_deserialize_a_signed_transaction"><a class="anchor" href="#_how_to_deserialize_a_signed_transaction"></a>How to deserialize a signed transaction?</h4>
+<h4 id="_如何反序列化已签名的交易"><a class="anchor" href="#_如何反序列化已签名的交易"></a>如何反序列化已签名的交易？</h4>
 <div class="paragraph">
-<p>The JavaScript SDK supports <a href="https://github.com/dfinity/rosetta-client/blob/master/lib/signed_transaction_decode.js">deserializing</a> a <code>signed_transaction</code> hex string and recovering some information about the transfer. This may be useful in the case that you&#8217;d like to perform a sanity check.</p>
+<p>JavaScript SDK 支持链接:https://github.com/dfinity/rosetta-client/blob/master/lib/signed_transaction_decode.js[deserializing] 一个`signed_transaction`十六进制字符串并恢复有关转移的一些信息。 这在您想要执行健全性检查的情况下可能很有用。</p>
 </div>
 </div>
 </div>

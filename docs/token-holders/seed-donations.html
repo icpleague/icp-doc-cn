@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>How-To: Claim neurons for seed participants :: Motoko documentation</title>
+    <title>操作方法：为种子参与者声明神经元 :: Motoko documentation</title>
     <meta name="generator" content="Antora 3.0.1">
 <link rel="stylesheet" href="../../_/css/site.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" /><meta property="og:image:width" content="1200" />
@@ -873,84 +873,65 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">Developer Center</a></li>
-    <li><a href="seed-donations.html">How-To: Claim neurons for seed participants</a></li>
+    <li><a href="seed-donations.html">操作方法：为种子参与者声明神经元</a></li>
   </ul>
 </nav>
 </div>
 <div class="main-content">
 <article class="doc">
-<h1 class="page">How-To: Claim neurons for seed participants</h1>
+<h1 class="page">操作方法：为种子参与者声明神经元</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p><em>A guide for seed contributors to claim their ICP utility tokens as NNS
-neurons. For controlling the neurons after claiming see this
+<p><em>种子贡献者将其 ICP 实用程序令牌声明为 NNS 神经元的指南。 对于在声明后控制神经元，请参阅此
 [<a href="https://medium.com/dfinity/integrating-ledger-nano-with-the-nns-front-end-dapp-user-manual-9c5600925e16" class="bare">https://medium.com/dfinity/integrating-ledger-nano-with-the-nns-front-end-dapp-user-manual-9c5600925e16</a>
-tutorial] instead.</em></p>
+tutorial]</em></p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_introduction"><a class="anchor" href="#_introduction"></a>Introduction</h2>
+<h2 id="_简介"><a class="anchor" href="#_简介"></a>简介</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You are a <em>seed participant</em> if you donated to the DFINITY foundation
-in February of 2017 to support the development of the Internet Computer.
-At that time, 30 tokens per Swiss Franc of value donated were allotted
-to your key. These tokens are now called "ICP utility tokens" or "ICP"
-for short.</p>
+<p>如果您在 2017 年 2 月向 DFINITY 基金会捐款支持互联网计算机的发展，您就是种子参与者。
+那时，每捐赠的价值瑞士法郎 30 个代币将分配给您的钥匙。 这些代币现在被称为“ICP 实用代币”或简称“ICP”。</p>
 </div>
 <div class="paragraph">
-<p>At Genesis Unlock, your ICP were disbursed to you in the form of a
-basket of 49 voting neurons. These neurons
-already exist inside the Network Nervous System. Your neurons
-contain the tokens you have been awarded, which are staked inside.</p>
+<p>在 Genesis Unlock，您的 ICP 以一篮子 49 个投票神经元的形式支付给您。这些神经元已经存在于网络神经系统中。您的神经元包含您获得的代币，这些代币被放置在里面。</p>
 </div>
 <div class="paragraph">
-<p>Your neurons have been configured to vote automatically and are already
-earning voting rewards for you. You do not need to do anything to
-initialize your neurons in order to continue earning voting rewards.</p>
+<p>您的神经元已配置为自动投票，并且已经为您赢得投票奖励。你不需要做任何事情来初始化你的神经元来继续获得投票奖励。</p>
 </div>
 <div class="paragraph">
-<p>The 49 neurons created for you have dissolve delays of 0 days, 30 days, 60 days, 90 days and so on. Apart
-from the first neuron which has a dissolve delay of 0 days (which can be
-dissolved immediately), the other dissolve delays may have a small
-random number of days added to it.</p>
+<p>为您创建的 49 个神经元具有 0 天、30 天、60 天、90 天等消除延迟。除了第一个具有 0 天溶解延迟（可以立即溶解）的神经元外，其他溶解延迟可能会添加少量随机天数。</p>
 </div>
 <div class="paragraph">
-<p>Your neurons have also been pre-aged. At the moment of Genesis Unlock,
-their age was already set to 18 months old. This is important, because
-neuron age significantly increases your voting power and the voting
-rewards you receive.</p>
+<p>你的神经元也已经提前老化。在创世解锁的那一刻，他们的年龄已经设定为18个月。这很重要，因为神经元年龄显着增加了您的投票权和您获得的投票奖励。</p>
 </div>
 <div class="paragraph">
-<p>To control your neurons, you must use the same secret key that you
-generated when the donation was made. It was recorded by you as a
-12-word mnemonic phrase. In order to control your neurons you need to
-first <em>claim</em> your basket of neurons. There are two ways to claim
-which are explained below in this article:</p>
+<p>要控制您的神经元，您必须使用捐赠时生成的相同密钥。它被你记录为一个 12 字的助记词。为了控制您的神经元，您需要首先_声明_您的神经元篮。有两种声明方式，本文将在下面进行说明：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Claiming with Ledger Nano device (coming soon)</p>
+<p>使用 Ledger Nano 设备进行声明（即将推出）</p>
 </li>
 <li>
-<p>Claiming with an air-gapped computer + networked computer/smartphone</p>
+<p>使用气隙计算机 + 联网计算机/智能手机进行声明</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>After claiming, there are two ways to control your neurons:</p>
+<p>声明之后，有两种方法可以控制你的神经元：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The NNS dapp (GUI) as described in this
+<p>本文中描述的 NNS dapp (GUI)
 <a href="https://medium.com/dfinity/integrating-ledger-nano-with-the-nns-front-end-dapp-user-manual-9c5600925e16">tutorial</a></p>
 </li>
 <li>
-<p>A command line tool ic-hardware-wallet-cli available on
+<p>命令行工具 ic-hardware-wallet-cli 在
 <a href="https://github.com/dfinity/nns-dapp/tree/main/ic-hardware-wallet-cli">github</a></p>
 </li>
 </ul>
@@ -958,54 +939,38 @@ which are explained below in this article:</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_claiming_with_a_ledger_nano_device_coming_soon"><a class="anchor" href="#_claiming_with_a_ledger_nano_device_coming_soon"></a>Claiming with a Ledger Nano device (coming soon)</h2>
+<h2 id="_使用_ledger_nano_设备声明即将推出"><a class="anchor" href="#_使用_ledger_nano_设备声明即将推出"></a>使用 Ledger Nano 设备声明（即将推出）==</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This will come with one of the next updates of the "ICP" app for the
-Ledger Nano. The current release can manage neurons but cannot yet claim
-them.</p>
+<p>这将与 Ledger Nano 的“ICP”应用程序的下一个更新之一一起提供。 当前版本可以管理神经元，但还不能声明它们。</p>
 </div>
 <div class="paragraph">
-<p>Phase 1 release: The initial Phase 1 release of the "ICP" app for Ledger
-Nano was targeted at all consumers. It allows people to manage neurons,
-such as changing the dissolve delay, dissolving, disbursing, managing
-hotkeys, voting, etc. Of course, it also allows transferring liquid ICP
-in the native ledger.</p>
+<p>第 1 阶段发布：Ledger Nano 的“ICP”应用程序的第 1 阶段初始版本针对所有消费者。 它允许人们管理神经元，例如更改溶解延迟、溶解、支付、管理热键、投票等。当然，它也允许在原生账本中传输液态 ICP。</p>
 </div>
 <div class="paragraph">
-<p>Phase 2 release: The following Phase 2 release includes the
-<code>claim_neurons</code> function for seed round neurons. It is an
-update specifically for seed round folks.</p>
+<p>第 2 阶段版本：接下来的第 2 阶段版本包括用于种子轮神经元的 <code>claim_neurons</code> 函数。 这是专门针对种子轮的人的更新。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_claiming_with_an_air_gapped_computer"><a class="anchor" href="#_claiming_with_an_air_gapped_computer"></a>Claiming with an air-gapped computer</h2>
+<h2 id="_使用气隙计算机进行声明"><a class="anchor" href="#_使用气隙计算机进行声明"></a>使用气隙计算机进行声明</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Claiming requires access to your secret mnemonic phrase and to secret
-keys derived from it. It is highly advised that you use an air-gapped
-computer for the purpose of claiming. If you are not comfortable with
-such a setup or with any of the following steps then you have to wait
-for the next release of the "ICP" app for the Ledger Nano device.</p>
+<p>声明需要访问您的秘密助记词和从中派生的密钥。 强烈建议您使用气隙计算机进行声明。 如果您对这样的设置或以下任何步骤不满意，那么您必须等待 Ledger Nano 设备的“ICP”应用程序的下一个版本。</p>
 </div>
 <div class="paragraph">
-<p>As an air-gapped device you can use a Windows, Linux or MacOS machine.
-Linux includes Raspberry Pi.</p>
+<p>作为气隙设备，您可以使用 Windows、Linux 或 MacOS 机器。
+Linux 包括树莓派。</p>
 </div>
 <div class="sect2">
-<h3 id="_download_the_tools"><a class="anchor" href="#_download_the_tools"></a>Download the tools</h3>
+<h3 id="_下载工具"><a class="anchor" href="#_下载工具"></a>下载工具</h3>
 <div class="paragraph">
-<p>To download the tools you need a second, networked computer. The tools
-are called <code>keysmith</code> and <code>quill</code>. We describe here how to find and
-download a binary for your architecture. Alternatively, you can compile
-the tools yourself from the source code available on github for
-<a href="https://github.com/dfinity/keysmith">keysmith</a> and
+<p>要下载工具，您需要第二台联网的计算机。 这些工具被称为“keysmith”和“quill”。 我们在这里描述了如何为您的架构查找和下载二进制文件。 或者，您可以从 github 上提供的源代码中自己编译工具
+<a href="https://github.com/dfinity/keysmith">keysmith</a> 和
 <a href="https://github.com/dfinity/quill">quill</a>.</p>
 </div>
 <div class="paragraph">
-<p>Binaries are available for the following hardware architectures. Here,
-architecture refers to the air-gapped computer, not the networked computer.</p>
+<p>二进制文件可用于以下硬件架构。 在这里，架构是指气隙计算机，而不是联网计算机。</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1054,37 +1019,29 @@ architecture refers to the air-gapped computer, not the networked computer.</p>
 </tbody>
 </table>
 <div class="sect3">
-<h4 id="_download_keysmith"><a class="anchor" href="#_download_keysmith"></a>Download keysmith</h4>
+<h4 id="_下载keysmith"><a class="anchor" href="#_下载keysmith"></a>下载keysmith</h4>
 <div class="paragraph">
-<p>Go to <a href="https://github.com/dfinity/keysmith/releases/">keysmith</a>, choose
-the latest release (currently v1.6.2) and fetch the <code>.tar.gz</code>
-file that matches the air-gapped machine&#8217;s architecture in the table
-above.</p>
+<p>转到<a href="https://github.com/dfinity/keysmith/releases/">keysmith</a>，选择最新版本（当前为 v1.6.2）并获取与气隙机器架构匹配的 <code>.tar.gz</code> 文件 在上表中。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_download_quill"><a class="anchor" href="#_download_quill"></a>Download quill</h4>
+<h4 id="_下载quill"><a class="anchor" href="#_下载quill"></a>下载quill</h4>
 <div class="paragraph">
-<p>Go to <a href="https://github.com/dfinity/quill/releases">quill</a>, choose the
-latest release (must be &gt;= 0.2.12) and fetch the executable file that
-matches the air-gapped machine&#8217;s architecture in the table above.</p>
+<p>转到l<a href="https://github.com/dfinity/quill/releases">quill</a>, 选择最新版本（必须 &gt;= 0.2.12）并获取与上表中的气隙机架构匹配的可执行文件。</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_copy_to_air_gapped_machine"><a class="anchor" href="#_copy_to_air_gapped_machine"></a>Copy to air-gapped machine</h3>
+<h3 id="_复制到气隙机"><a class="anchor" href="#_复制到气隙机"></a>复制到气隙机</h3>
 <div class="paragraph">
-<p>Copy the keysmith <code>.tar.gz</code> file and the quill executable
-from the networked machine to the air-gapped machine. For example, you
-can do so with a USB drive.</p>
+<p>将 keysmith <code>.tar.gz</code> 文件和 quill 可执行文件从联网机器复制到气隙机。 例如，您可以使用 USB 驱动器执行此操作。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_verify_the_hashes"><a class="anchor" href="#_verify_the_hashes"></a>Verify the hashes</h3>
+<h3 id="_验证哈希"><a class="anchor" href="#_验证哈希"></a>验证哈希</h3>
 <div class="paragraph">
-<p>On the air-gapped machine, go to the terminal. Change the directory to
-the folder where the keysmith .tar.gz files and quill executables are.
-Compute the SHA256 hashes with the commands</p>
+<p>在气隙机上，进入终端。将目录改为存放keysmith .tar.gz文件和quill可执行文件的文件夹。
+用以下命令计算SHA256哈希值</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1100,7 +1057,7 @@ Compute the SHA256 hashes with the commands</p>
 </div>
 </div>
 <div class="paragraph">
-<p>The hashes should match the following entries:</p>
+<p>哈希值应与以下条目匹配：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1119,7 +1076,7 @@ SHA256(keysmith-windows-amd64.tar.gz)=
 </div>
 </div>
 <div class="paragraph">
-<p>and</p>
+<p>和</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1135,7 +1092,7 @@ SHA256(quill-windows-x86_64.exe)=
 </div>
 </div>
 <div class="sect2">
-<h3 id="_unpack_and_install"><a class="anchor" href="#_unpack_and_install"></a>Unpack and install</h3>
+<h3 id="_解压安装"><a class="anchor" href="#_解压安装"></a>解压安装</h3>
 <div class="paragraph">
 <p>For keysmith:</p>
 </div>
@@ -1147,8 +1104,8 @@ sudo install keysmith /usr/local/bin</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>You will be prompted to enter your laptop password.
-The password itself will not appear, simply type it and press enter.</p>
+<p>系统将提示您输入笔记本电脑密码。
+密码本身不会出现，只需输入并按回车即可。</p>
 </div>
 <div class="paragraph">
 <p>For quill:</p>
@@ -1163,12 +1120,12 @@ sudo install quill /usr/local/bin</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_produce_the_private_key_file_with_keysmith"><a class="anchor" href="#_produce_the_private_key_file_with_keysmith"></a>Produce the private key file with keysmith</h2>
+<h2 id="_使用_keysmith_生成私钥文件"><a class="anchor" href="#_使用_keysmith_生成私钥文件"></a>使用 keysmith 生成私钥文件</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_test_the_installation"><a class="anchor" href="#_test_the_installation"></a>Test the installation</h3>
+<h3 id="_测试安装"><a class="anchor" href="#_测试安装"></a>测试安装</h3>
 <div class="paragraph">
-<p>On the air-gapped computer run:</p>
+<p>在气隙计算机上运行：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1183,31 +1140,26 @@ sudo install quill /usr/local/bin</code></pre>
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">usage: keysmith &lt;command&gt; [&lt;args&gt;]
 
 Available Commands:
-    account         Print your account identifier.
-    generate        Generate your mnemonic seed and write it to a file.
-    legacy-address  Print your legacy address.
-    principal       Print your principal identifier.
-    private-key     Derive your private key and write it to a file.
-    public-key      Print your public key.
-    shortlist       Print the available commands.
-    version         Print the version number.
-    x-private-key   Derive your extended private key and write it to a file.
-    x-public-key    Print your extended public key.</code></pre>
+account 打印您的帐户标识符。
+     generate 生成助记符种子并将其写入文件。
+     legacy-address 打印您的旧地址。
+     principal 打印您的主体标识符。
+     private-key 导出您的私钥并将其写入文件。
+     public-key 打印你的公钥。
+     shortlist 打印可用的命令。
+     version 打印版本号。
+     x-private-key 派生您的扩展私钥并将其写入文件。
+     x-public-key 打印您的扩展公钥。</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>If you are using macOS, running <code>keysmith</code>
-for the first time might require you to grant permission under System
-Preferences &gt; Security &amp; Privacy &gt; General.</p>
+<p>如果您使用的是 macOS，第一次运行 <code>keysmith</code> 可能需要您在系统偏好设置 &gt; 安全和隐私 &gt; 常规下授予权限。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_enter_your_mnemonic_phrase_aka_seed"><a class="anchor" href="#_enter_your_mnemonic_phrase_aka_seed"></a>Enter your mnemonic phrase (aka "seed")</h3>
+<h3 id="_输入您的助记词又名种子"><a class="anchor" href="#_输入您的助记词又名种子"></a>输入您的助记词（又名“种子”）===</h3>
 <div class="paragraph">
-<p>If you confident that your environment is secure, then you are ready to
-enter your seed for use with <code>keysmith</code>. For the duration of
-your session, you store your seed phrase in an environment variable. It
-will be eliminated from your system when you turn your computer off.</p>
+<p>如果您确信您的环境是安全的，那么您已经准备好输入您的种子以与“keysmith”一起使用。 在会话期间，您将助记词存储在环境变量中。 当您关闭计算机时，它将从您的系统中删除。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1218,8 +1170,7 @@ will be eliminated from your system when you turn your computer off.</p>
 <p>Enter your seed phrase and finish with Return.</p>
 </div>
 <div class="paragraph">
-<p>If you prefer to not have your seed phrase displayed as you type then
-use this command instead:</p>
+<p>如果您不想在键入时显示助记词，请改用以下命令：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1228,12 +1179,9 @@ use this command instead:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_optional_check_your_legacy_address_and_balance"><a class="anchor" href="#_optional_check_your_legacy_address_and_balance"></a>Optional: check your legacy address and balance</h3>
+<h3 id="_可选检查您的旧地址和余额"><a class="anchor" href="#_可选检查您的旧地址和余额"></a>可选：检查您的旧地址和余额</h3>
 <div class="paragraph">
-<p>At this point you can already verify your legacy address and ICPT
-balance. The legacy address matches to what was formerly called "DFN
-address" in the Dfinity Chrome extension. You may have copied it from
-the Chrome extension for your records back when you used the extension.</p>
+<p>此时，您已经可以验证您的旧地址和 ICPT 余额。 旧地址与 Dfinity Chrome 扩展程序中以前称为“DFN 地址”的地址匹配。 当您使用扩展程序时，您可能已经从 Chrome 扩展程序中复制了它以供记录。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1249,17 +1197,14 @@ the Chrome extension for your records back when you used the extension.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>You can check your ICPT balance as follows: Go to
-<a href="https://ic.rocks/principal/renrk-eyaaa-aaaaa-aaada-cai" class="bare">https://ic.rocks/principal/renrk-eyaaa-aaaaa-aaada-cai</a>, look for
-"Canister interface" and the method "balance". There, paste your DFN
-address in to the field labeled "text" and click the button labeled
-"Query". Your ICP balance will appear below "nat32".</p>
+<p>您可以按如下方式查看您的 ICPT 余额：转到
+<a href="https://ic.rocks/principal/renrk-eyaaa-aaaaa-aaada-cai，寻找“Canister" class="bare">https://ic.rocks/principal/renrk-eyaaa-aaaaa-aaada-cai，寻找“Canister</a> interface”和“balance”方法。 在那里，将您的 DFN 地址粘贴到标有“文本”的字段中，然后单击标有“查询”的按钮。 您的 ICP 余额将显示在“nat32”下方。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_create_your_private_key_pem_file"><a class="anchor" href="#_create_your_private_key_pem_file"></a>Create your private key (.pem file)</h3>
+<h3 id="_创建您的私钥_pem_文件"><a class="anchor" href="#_创建您的私钥_pem_文件"></a>创建您的私钥（.pem 文件）===</h3>
 <div class="paragraph">
-<p>Derive your private key from your seed phrase.</p>
+<p>从您的助记词中导出您的私钥。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1267,21 +1212,18 @@ address in to the field labeled "text" and click the button labeled
 </div>
 </div>
 <div class="paragraph">
-<p>This creates a file <code>identity.pem</code> containing your private
-key.</p>
+<p>这会创建一个文件 <code>identity.pem</code> 包含您的私人
+钥匙。</p>
 </div>
 <div class="sect3">
-<h4 id="_optional_store_pem_file_only_in_ram"><a class="anchor" href="#_optional_store_pem_file_only_in_ram"></a>Optional: Store .pem file only in RAM</h4>
+<h4 id="_可选仅在_ram_中存储_pem_文件"><a class="anchor" href="#_可选仅在_ram_中存储_pem_文件"></a>可选：仅在 RAM 中存储 .pem 文件</h4>
 <div class="paragraph">
-<p>We will later wipe the identity.pem file from the filesystem. There is
-however a remaining risk that the data could survive in the disk and
-later extracted despite it being wiped. It is more secure to create a
-RAM disk and store the .pem file only in the RAM disk.</p>
+<p>稍后我们将从文件系统中擦除 identity.pem 文件。 然而，仍然存在数据可能在磁盘中保留并随后被提取的风险，尽管它已被擦除。 创建 RAM 磁盘并将 .pem 文件仅存储在 RAM 磁盘中更安全。</p>
 </div>
 <div class="sect4">
-<h5 id="_create_ram_disk_on_macos"><a class="anchor" href="#_create_ram_disk_on_macos"></a>Create RAM disk on MacOS</h5>
+<h5 id="_在_macos_上创建_ram_磁盘"><a class="anchor" href="#_在_macos_上创建_ram_磁盘"></a>在 MacOS 上创建 RAM 磁盘</h5>
 <div class="paragraph">
-<p>Run these commands</p>
+<p>运行这些命令</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1300,9 +1242,9 @@ cd /Volumes/RD</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_create_ram_disk_on_linux"><a class="anchor" href="#_create_ram_disk_on_linux"></a>Create RAM disk on Linux</h5>
+<h5 id="_在_linux_上创建_ram_磁盘"><a class="anchor" href="#_在_linux_上创建_ram_磁盘"></a>在 Linux 上创建 RAM 磁盘</h5>
 <div class="paragraph">
-<p>Run these commands</p>
+<p>运行这些命令</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1323,7 +1265,7 @@ cd /mnt/ramdisk/workspace</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_create_ram_disk_on_windows"><a class="anchor" href="#_create_ram_disk_on_windows"></a>Create RAM disk on Windows</h5>
+<h5 id="_在_windows_上创建_ram_磁盘"><a class="anchor" href="#_在_windows_上创建_ram_磁盘"></a>在 Windows 上创建 RAM 磁盘</h5>
 <div class="paragraph">
 <p>Todo</p>
 </div>
@@ -1333,12 +1275,12 @@ cd /mnt/ramdisk/workspace</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_submit_claim_with_quill"><a class="anchor" href="#_submit_claim_with_quill"></a>Submit claim with quill</h2>
+<h2 id="_用quill提交声明"><a class="anchor" href="#_用quill提交声明"></a>用quill提交声明</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_test_the_installation_2"><a class="anchor" href="#_test_the_installation_2"></a>Test the installation</h3>
+<h3 id="_测试安装_2"><a class="anchor" href="#_测试安装_2"></a>测试安装</h3>
 <div class="paragraph">
-<p>On the air-gapped computer run:</p>
+<p>在气隙计算机上运行：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1346,7 +1288,7 @@ cd /mnt/ramdisk/workspace</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>You should see:</p>
+<p>你应该看到：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1363,27 +1305,27 @@ OPTIONS:
     -V, --version Print version information
 
 SUBCOMMANDS:
-    account-balance Queries a ledger account balance
-    claim-neurons   Claim seed neurons from the Genesis Token Canister
+    account-balance 查询总账余额
+    claim-neurons   从创世代币容器中获取种子神经元
     get-proposal-info
-    help            Print this message or the help of the given subcommand(s)
-    list-neurons    Signs the query for all neurons belonging to the signin principal
+    help            打印此消息或给定子命令的帮助(s)
+    list-neurons 对属于signin principal的所有神经元的查询进行签名。
     list-proposals
-    neuron-manage   Signs a neuron configuration change
-    neuron-stake    Signs topping up of a neuron (new or existing)
-    public-ids      Prints the principal id and the account id
-    send            Sends a signed message or a set of messages
-    transfer        Signs an ICP transfer transaction</code></pre>
+    neuron-manage 标志着一个神经元配置的改变
+    neuron-stake 标志着对一个神经元（新的或现有的）进行充值。
+    public-ids 打印委托人ID和账户ID
+    send 发送一个签名的消息或一组消息
+    transfer 签署一个ICP转移交易</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>If you are using macOS, running <code>quill</code> for
-the first time might require you to grant permission under System
-Preferences &gt; Security &amp; Privacy &gt; General.</p>
+<p>如果您使用的是 macOS，请运行 <code>quill</code>
+第一次可能需要您在系统下授予权限
+首选项 &gt; 安全和隐私 &gt; 常规。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_sign_the_claim_request"><a class="anchor" href="#_sign_the_claim_request"></a>Sign the claim request</h3>
+<h3 id="_签署声明请求"><a class="anchor" href="#_签署声明请求"></a>签署声明请求</h3>
 <div class="paragraph">
 <p>On the air-gapped computer run:</p>
 </div>
@@ -1394,13 +1336,11 @@ Preferences &gt; Security &amp; Privacy &gt; General.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_submit_the_claim_to_the_ic"><a class="anchor" href="#_submit_the_claim_to_the_ic"></a>Submit the claim to the IC</h3>
+<h3 id="_向_ic_提交声明"><a class="anchor" href="#_向_ic_提交声明"></a>向 IC 提交声明</h3>
 <div class="sect3">
-<h4 id="_option_1_with_quill_on_the_networked_computer"><a class="anchor" href="#_option_1_with_quill_on_the_networked_computer"></a>Option 1: With quill on the networked computer</h4>
+<h4 id="_选项_1在联网计算机上使用_quill"><a class="anchor" href="#_选项_1在联网计算机上使用_quill"></a>选项 1：在联网计算机上使用 quill</h4>
 <div class="paragraph">
-<p>Copy the resulting file <code>msg.json</code> back to the networked computer. On
-the networked computer, change into the directory where <code>msg.json</code> is
-and run:</p>
+<p>将生成的文件“msg.json”复制回联网的计算机。 在联网的计算机上，切换到 <code>msg.json</code> 所在的目录并运行：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1408,17 +1348,14 @@ and run:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Your neurons should now be claimed.</p>
+<p>你的神经元现在应该被声明了。</p>
 </div>
 <div class="paragraph">
-<p>You can double-check if you claim was successful in the following way:
-Go to <a href="https://ic.rocks/genesis/2d89d96b10f7a9456a9154b2f5309ee70df5bce1" class="bare">https://ic.rocks/genesis/2d89d96b10f7a9456a9154b2f5309ee70df5bce1</a>
-where you replace <code>2d89d96b10f7a9456a9154b2f5309ee70df5bce1</code>
-with your own DFN address. Under "Status" you should see "Claimed".</p>
+<p>您可以通过以下方式仔细检查您声明是否成功：转到 <a href="https://ic.rocks/genesis/2d89d96b10f7a9456a9154b2f5309ee70df5bce1，将" class="bare">https://ic.rocks/genesis/2d89d96b10f7a9456a9154b2f5309ee70df5bce1，将</a> <code>2d89d96b10f7a9456a9154b2f5309ee70df5bce1</code> 替换为您自己的 DFN 地址。 在“状态”下，您应该看到“已声明”。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_option_2_use_the_qr_scanner_app"><a class="anchor" href="#_option_2_use_the_qr_scanner_app"></a>Option 2: Use the QR scanner app</h4>
+<h4 id="_选项_2使用_qr_扫描应用程序"><a class="anchor" href="#_选项_2使用_qr_扫描应用程序"></a>选项 2：使用 QR 扫描应用程序</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1428,28 +1365,27 @@ with your own DFN address. Under "Status" you should see "Claimed".</p>
 <p>Run <code>cat msg.json | gzip -c | base64 | qrencode -o msg.png</code></p>
 </li>
 <li>
-<p>Open <code>msg.png</code> in an image viewer</p>
+<p>在图像查看器中打开 <code>msg.png</code></p>
 </li>
 <li>
-<p>Open scanner app in a browser on a phone:
+<p>在手机浏览器中打开扫描仪应用程序：
 <a href="https://p5deo-6aaaa-aaaab-aaaxq-cai.raw.ic0.app" class="bare">https://p5deo-6aaaa-aaaab-aaaxq-cai.raw.ic0.app</a></p>
 </li>
 <li>
-<p>Scan QR code and submit</p>
+<p>扫描二维码并提交</p>
 </li>
 </ul>
 </div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_clean_up_the_air_gapped_computer"><a class="anchor" href="#_clean_up_the_air_gapped_computer"></a>Clean up the air-gapped computer</h3>
 <div class="paragraph">
-<p>If your claim was successful then do not forget to remove the
-<code>.pem</code> file on the air-gapped computer:</p>
+<p>===清理气隙计算机===</p>
+</div>
+<div class="paragraph">
+<p>如果您的声明成功，请不要忘记删除气隙计算机上的“.pem”文件：</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">rm identity.pem</code></pre>
+</div>
 </div>
 </div>
 </div>

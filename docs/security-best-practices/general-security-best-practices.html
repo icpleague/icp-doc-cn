@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>介绍互联网计算机 :: Motoko documentation</title>
+    <title>一般最佳实践 :: Motoko documentation</title>
     <meta name="generator" content="Antora 3.0.1">
 <link rel="stylesheet" href="../../_/css/site.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" /><meta property="og:image:width" content="1200" />
@@ -116,21 +116,21 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
-  <li class="nav-item is-current-page" data-depth="1">
+  <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="welcome.html"><strong>介绍</strong></a>
+    <a class="nav-link" href="../introduction/welcome.html"><strong>介绍</strong></a>
     
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="#for-first-timers">适合: 初学者</a>
+    <a class="nav-link" href="../introduction/welcome.html#for-first-timers">适合: 初学者</a>
     
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="#for-developers">适合: 开发者</a>
+    <a class="nav-link" href="../introduction/welcome.html#for-developers">适合: 开发者</a>
     
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="#for-protocol-enthusiasts">适合: 协议爱好者</a>
+    <a class="nav-link" href="../introduction/welcome.html#for-protocol-enthusiasts">适合: 协议爱好者</a>
     
   </li>
 </ul>
@@ -873,126 +873,179 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">Developer Center</a></li>
-    <li><a href="welcome.html"><strong>介绍</strong></a></li>
+    <li><a href="general-security-best-practices.html">一般最佳实践</a></li>
   </ul>
 </nav>
 </div>
 <div class="main-content">
 <article class="doc">
-<h1 class="page">介绍互联网计算机</h1>
-<div id="preamble">
+<h1 class="page">一般最佳实践</h1>
+<div class="sect1">
+<h2 id="_验证与安全相关的查询响应"><a class="anchor" href="#_验证与安全相关的查询响应"></a>验证与安全相关的查询响应</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="_安全问题"><a class="anchor" href="#_安全问题"></a>安全问题</h3>
 <div class="paragraph">
-<p>大家好!</p>
+<p>对链接的响应：https://smartcontracts.org/docs/interface-spec/index.html#http-interface[查询调用]（与更新调用相反）不是由容器/子网进行阈值签名的。 因此，单个恶意副本或边界节点可能会更改数据，从而违反其真实性。 如果更新调用依赖于对查询调用的响应，这尤其危险。</p>
 </div>
-<div class="paragraph">
-<p>如果你登陆到这里，有兴趣了解更多关于互联网计算机的信息。那么你来对了地方&#8212;&#8203;看看下面的内容，看看从哪里开始吧！</p>
 </div>
-<div class="paragraph">
-<p>注释: 合格的开发者可以获得价值20美元的免费燃料费，开始向互联网计算机区块链部署容器智能合约。https://faucet.dfinity.org/auth[申请你的免费燃料费]</p>
+<div class="sect2">
+<h3 id="_推荐"><a class="anchor" href="#_推荐"></a>推荐</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>所有需要真实性保证的与安全相关的查询响应数据（这需要针对每个 dApp 进行评估）都应由 IC 使用认证变量进行认证。 考虑使用现有的数据结构，例如链接：https://github.com/dfinity/cdk-rs/tree/main/src/ic-certified-map[certified-map]。 数据认证必须在前端进行验证。</p>
+</li>
+<li>
+<p>或者，这些调用必须由调用者作为更新调用发出（例如在 agent-js 中），但这会影响性能：它需要几秒钟。 请注意，每个查询也可以由调用者作为更新发出。</p>
+</li>
+<li>
+<p>示例是链接中的资产证明:https://github.com/dfinity/internet-identity/blob/b29a6f68bbe5a49d048e12bc7a3263a9f43d080b/src/internet_identity/src/main.rs#L775-L808[Internet Identity], <a href="https://github.com/dfinity/nns-dapp/blob/372c3562127d70c2fde059bc9c268e8ae858583e/rs/src/assets.rs#L121-L145">NNS dApp</a>, or the <a href="https://github.com/dfinity/internet-identity/blob/main/src/internet_identity/src/signature_map.rs">canister signature implementation in Internet Identity</a>.</p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="针对菜鸟"><a class="anchor" href="#针对菜鸟"></a>针对: 菜鸟</h2>
+<h2 id="_非特定于互联网计算机"><a class="anchor" href="#_非特定于互联网计算机"></a>非特定于互联网计算机</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>互联网计算机是一个以网络速度运行的区块链，容量不受限制。</p>
+<p>本节中的最佳实践非常笼统，并不特定于 Internet 计算机。 此列表绝不是完整的，仅列出了过去导致问题的一些非常具体的问题。</p>
+</div>
+<div class="sect2">
+<h3 id="_不要使用有已知漏洞的第三方组件"><a class="anchor" href="#_不要使用有已知漏洞的第三方组件"></a>不要使用有已知漏洞的第三方组件</h3>
+<div class="sect3">
+<h4 id="_安全问题_2"><a class="anchor" href="#_安全问题_2"></a>安全问题</h4>
+<div class="paragraph">
+<p>使用易受攻击和过时的组件是一个链接:https://owasp.org/Top10/A06_2021-Vulnerable_and_Outdated_Components/[big security risk].</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_推荐_2"><a class="anchor" href="#_推荐_2"></a>推荐</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>根据已知漏洞的数据库定期检查您的第三方组件：</p>
+</li>
+<li>
+<p>Rust: use <a href="https://crates.io/crates/cargo-audit">cargo audit</a>.</p>
+</li>
+<li>
+<p>JavaScript / NPM: use <a href="https://docs.npmjs.com/cli/v8/commands/npm-audit">npm audit</a></p>
+</li>
+<li>
+<p>这应该集成到构建过程中，如果存在已知漏洞，构建应该会失败。</p>
+</li>
+<li>
+<p>不要使用未维护且可能不可信的存储库的分叉版本。</p>
+</li>
+<li>
+<p>避免使用未广泛使用且可能没有经过充分（理想情况下是第三方）审查的第三方组件。</p>
+</li>
+<li>
+<p>固定您正在使用的组件的版本，以避免自动切换到损坏的更新。</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_不要自己实现加密"><a class="anchor" href="#_不要自己实现加密"></a>不要自己实现加密</h3>
+<div class="sect3">
+<h4 id="_安全问题_3"><a class="anchor" href="#_安全问题_3"></a>安全问题</h4>
+<div class="paragraph">
+<p>实现加密算法时很容易出错，导致安全漏洞。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_推荐_3"><a class="anchor" href="#_推荐_3"></a>推荐</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>使用可能是开源的并且已经被许多人审查过的知名库。例如，在 JavaScript 中使用 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API">Web Crypto API</a>，使用 crates 如链接：https://crates.io/crates/ Rust 中的 sha256[sha256]</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_使用安全加密方案"><a class="anchor" href="#_使用安全加密方案"></a>使用安全加密方案</h3>
+<div class="sect3">
+<h4 id="_安全问题_4"><a class="anchor" href="#_安全问题_4"></a>安全问题</h4>
+<div class="paragraph">
+<p>一些加密方案已被破坏（旧的 TLS 版本、MD5、SHA1、DES、&#8230;&#8203;），或者它们可能太新以至于尚未得到适当的研究。使用这些会引入安全问题。
+==== 推荐</p>
 </div>
 <div class="paragraph">
-<p>作为区块链历史的速成课程，比特币创造了数字黄金。然后，在下一步的演变中，以太坊开发了智能合约并开创了DeFi和NFT用例。</p>
+<p>如果您需要使用加密，请仅使用尚未破解且没有已知问题的加密方案。 理想情况下使用已经标准化的算法，例如 NIST 或 IETF。</p>
 </div>
 <div class="paragraph">
-<p>互联网计算机是第三大区块链创新&#8212;&#8203;区块链可以扩展智能合约的计算，以网络速度运行它们，有效地处理和存储数据，并为开发者提供强大的软件框架。通过使之成为可能，互联网计算机使系统和应用程序的运行方式得到了完全的重新想象。</p>
-</div>
-<div class="paragraph">
-<p>有兴趣了解更多吗？请查看以下资源：</p>
+<p>参考：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>链接:https://www.youtube.com/watch?v=YWHTNr8RZHg&amp;list=PLuhDt1vhGcrf4DgKZecU3ar_RA1cB0vUT&amp;index=17&amp;ab_channel=DFINITY[互联网计算机入门]， 10分钟的互联网计算机高级概述</p>
-</li>
-<li>
-<p>链接:https://medium.com/dfinity[互联网计算机评测]， 我们的博客涵盖了互联网计算机的更新</p>
-</li>
-<li>
-<p>链接:https://thereboot.com/[重新启动]], 我们的探讨当前互联网的问题的技术性出版物</p>
+<p>链接:https://owasp.org/Top10/A02_2021-Cryptographic_Failures/[OWASP Cryptographic Failures]</p>
 </li>
 </ul>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_测试你的代码"><a class="anchor" href="#_测试你的代码"></a>测试你的代码</h3>
+<div class="sect3">
+<h4 id="_安全问题_5"><a class="anchor" href="#_安全问题_5"></a>安全问题</h4>
 <div class="paragraph">
-<p>在官方链接上关注我们获取最新的更新信息https://twitter.com/dfinity[DFINITY Twitter]。</p>
+<p>测试覆盖率小是有风险的，因为代码更改变得困难并且可能违反正确性和安全属性，从而导致错误。 如果没有相应的测试，就很难在审查（和安全审查）中验证正确性和安全属性。</p>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="针对开发者"><a class="anchor" href="#针对开发者"></a>针对: 开发者</h2>
-<div class="sectionbody">
+<div class="sect3">
+<h4 id="_推荐_4"><a class="anchor" href="#_推荐_4"></a>推荐</h4>
 <div class="paragraph">
-<p>互联网计算机承载着特殊的智能合约，称为 链接:https://medium.com/dfinity/software-canisters-an-evolution-of-smart-contracts-internet-computer-f1f92f1bfffb[canisters]. 容器智能合约是一些 链接:https://webassembly.org/[WebAssembly]字节码逻辑和内存页。互联网计算机上的Dapps是由一个或多个容器创建的。</p>
-</div>
-<div class="paragraph">
-<p>容器智能合约可以直接向终端用户提供网络内容，例如在他们的浏览器中，用户可以与区块链服务互动，而无需持有代币。</p>
-</div>
-<div class="paragraph">
-<p>互联网计算机区块链最终可以承载任何数量的容器智能合约（即代码和状态）。此外，它可以以无限制的链上容量并发运行它们。这意味着你可以创建可以扩展的dapp。</p>
-</div>
-<div class="paragraph">
-<p>容器智能合约是不可阻挡和不可篡改的。想象一下，建设时不必担心数据库、缓存、防火墙、CDN、云供应商、VPN、DNS，甚至用户名和密码&#8212;&#8203;所有这些都是因为互联网计算机将这些需求抽象出来了。</p>
-</div>
-<div class="paragraph">
-<p>跃跃欲试了吗？看看我们的 <a href="../quickstart/quickstart-intro.html" class="xref page">快速入门</a>，开始使用一个简单的hello world dapp。</p>
-</div>
-<div class="paragraph">
-<p>对融入我们的开发者社区感兴趣吗？请查看以下内容：</p>
+<p>为容器实现和前端代码编写测试，尤其是安全相关属性和不变量。</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>链接:https://discord.gg/cA7y6ezyE2[Developer Discord]， 我们为开发者社区提供的官方 Discord</p>
+<p>在链接：https://mmapped.blog/posts/01-effective-rust-canisters.html[Effective Rust Canisters]：链接：https://mmapped.blog/posts/01-effective-rust-canisters.html #test-upgrades[测试升级]，链接：https://mmapped.blog/posts/01-effective-rust-canisters.html#target-independent[make code target-independent]</p>
 </li>
 <li>
-<p>链接:https://forum.dfinity.org/[开发者论坛]， 一个关于在互联网上建立计算机的技术讨论的温馨空间。</p>
+<p>另见链接：rust-canister-development-security-best-practices.adoc#test-your-canister-code[即使在系统 API 调用存在的情况下测试您的容器代码]</p>
+</li>
+<li>
+<p>考虑链接：https://docs.dfinity.systems/dfinity/spec/meta/rust.html#_tests[DFINITY Rust 测试指南]</p>
+</li>
+<li>
+<p>对于 wasm 级别的单元测试，考虑使用链接：https://github.com/kritzcreek/motoko-matchers[Motoko Matchers]</p>
+</li>
+<li>
+<p>对于 Motoko 级别的单元测试，请考虑链接：https://kritzcreek.github.io/motoko-matchers/Canister.html[Canister 模块]。还有一些示例测试链接：https://github.com/dfinity/motoko-base/blob/master/test/resultTest.mo[这里]和链接：https://github.com/dfinity/motoko-base /blob/master/test/textTest.mo[这里]。作为示例，另请参见链接的端到端测试和单元测试：https://github.com/dfinity/invoice-canister[invoice-canister]。</p>
+</li>
+<li>
+<p>对于长时间运行的测试场景，考虑链接：https://github.com/matthewhammer/motoko-bigtest[Motoko BigTest]</p>
 </li>
 </ul>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_避免在生产环境中使用测试和开发代码"><a class="anchor" href="#_避免在生产环境中使用测试和开发代码"></a>避免在生产环境中使用测试和开发代码</h3>
+<div class="sect3">
+<h4 id="_安全问题_6"><a class="anchor" href="#_安全问题_6"></a>安全问题</h4>
 <div class="paragraph">
-<p>您可以通过链接:https://twitter.com/dfinitydev[DFINITY Developer Twitter] 关注我们，了解最新的开发者专用更新。</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="针对协议爱好者"><a class="anchor" href="#针对协议爱好者"></a>针对: 协议爱好者</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>互联网计算机是由互联网计算机协议（"ICP"）创建的，它已经形成了世界上第一个网络速度、网络服务的公共区块链。互联网计算机是自我管理的，可以根据需要增长其容量。它结合了由世界各地的独立数据中心集体运行的特殊节点机器。像所有区块链一样，它是不可阻挡的，它所存储的代码是不可篡改的。</p>
+<p>在仅用于开发或测试设置的生产代码中包含代码路径是有风险的。 如果出现问题（有时确实如此！），这可能会在生产中引入安全漏洞。</p>
 </div>
 <div class="paragraph">
-<p>从我们左边的 "概念 "部分开始，从 <a href="../developers-guide/concepts/what-is-IC.html" class="xref page">什么是互联网计算机</a></p>
+<p>例如，我们已经看到验证证书的公钥是从不受信任的来源获取的问题，因为这是在测试网络上完成的。</p>
 </div>
+</div>
+<div class="sect3">
+<h4 id="_推荐_5"><a class="anchor" href="#_推荐_5"></a>推荐</h4>
 <div class="paragraph">
-<p>要了解更多关于互联网计算机协议的信息，请查看以下资源：</p>
+<p>尽可能避免在生产代码中使用测试和开发代码。</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>链接:https://dfinity.org/technicals/[技术库], 了解我们世界级研发团队解释互联网计算机协议组成部分的深入视频。特别值得注意的是:</p>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://dfinity.org/technicals/chain-key-technology">链式密钥加密法</a>, 是使互联网计算机能够扩展到数百万节点的基本突破之一。链式钥匙加密法最显著的创新是，互联网计算机有一个单一的公钥，这使得任何设备都可以验证互联网计算机产生的人工制品的真实性，甚至是智能手表和手机。</p>
-</li>
-</ul>
 </div>
-</li>
-<li>
-<p><a href="#interface-spec:index.adoc" class="xref unresolved">接口规范</a>, 是一份深入的技术文件，提供了互联网计算机的低级外部接口的概述</p>
-</li>
-<li>
-<p>链接:https://dashboard.internetcomputer.org/[互联网计算机仪表盘], 以监测围绕互联网计算机区块链的实时指标。</p>
-</li>
-</ul>
 </div>
 </div>
 </div>

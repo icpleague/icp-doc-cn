@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Cycles Faucet Quickstart :: Motoko documentation</title>
+    <title>Untitled :: Motoko documentation</title>
     <meta name="generator" content="Antora 3.0.1">
 <link rel="stylesheet" href="../../_/css/site.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" /><meta property="og:image:width" content="1200" />
@@ -880,14 +880,16 @@
 </div>
 <div class="main-content">
 <article class="doc">
-<h1 class="page">Cycles Faucet Quickstart</h1>
-<div id="preamble">
-<div class="sectionbody">
 <div class="paragraph">
-<p>Ready to deploy your first smart contract on the Internet Computer blockchain? You can use our Cycles Faucet to get set up with $20 in free cycles in just a few minutes.</p>
+<p>Cycles Faucet 快速入门</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>准备好在互联网计算机区块链上部署您的第一个智能合约了吗？ 您可以使用我们的 Cycles Faucet 在几分钟内设置 20 美元的免费燃料费。</p>
 </div>
 <div class="paragraph">
-<p>Before you begin, make sure you have the {sdk-short-name} (DFX) installed by running</p>
+<p>在开始之前，请确保您通过运行安装了 {sdk-short-name} (DFX)</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -895,75 +897,71 @@
 </div>
 </div>
 <div class="paragraph">
-<p>or following the instructions at <a href="https://smartcontracts.org" class="bare">https://smartcontracts.org</a>.</p>
+<p>或按照链接中的说明进行操作:https://smartcontracts.org[].</p>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_claim_your_cycles_wallet"><a class="anchor" href="#_claim_your_cycles_wallet"></a>Claim your Cycles Wallet</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_step_1_authenticate"><a class="anchor" href="#_step_1_authenticate"></a>Step 1: Authenticate</h3>
 <div class="paragraph">
-<p>First, you will need to navigate to <a href="https://faucet.dfinity.org" class="bare">https://faucet.dfinity.org</a>. You will need to connect an active GitHub account to continue. If your account is not eligible, please follow the <a href="#quickstart:network-quickstart.html">Network Deployment</a> guide.</p>
+<p>== 领取您的燃料费钱包</p>
+</div>
+<div class="paragraph">
+<p>=== 第 1 步：验证</p>
+</div>
+<div class="paragraph">
+<p>首先，您需要导航到链接:https://faucet.dfinity.org[]。 您需要连接一个活跃的 GitHub 帐户才能继续。 如果您的帐户不符合条件，请遵循 <a href="#quickstart:network-quickstart.html" class="xref unresolved">网络部署</a> 指南。</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="_images/cycles-faucet/faucet_step_1.png" alt="Connecting to GitHub"></span></p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_step_2_principal_id"><a class="anchor" href="#_step_2_principal_id"></a>Step 2: Principal ID</h3>
 <div class="paragraph">
-<p>Once you have logged in, open up a terminal window and run the command <code>dfx identity get-principal</code>. Paste the output into the text input on the Step 2 screen. This Principal will uniquely identify your computer, and will be used to give you access to your Cycles Wallet and any canister smart contracts you deploy with it. Your Principal will look like a long series of numbers and letters separated by hyphens.</p>
+<p>=== 第 2 步：主体 ID</p>
+</div>
+<div class="paragraph">
+<p>登录后，打开终端窗口并运行命令 dfx identity get-principal。 将输出粘贴到第 2 步屏幕上的文本输入中。 该主体将唯一标识您的计算机，并将用于让您访问您的燃料费钱包以及您使用它部署的任何容器智能合约。 您的主体看起来像一长串由连字符分隔的数字和字母。</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="_images/cycles-faucet/faucet_step_2.png" alt="Enter a Principal ID"></span></p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_step_3_deposit_method"><a class="anchor" href="#_step_3_deposit_method"></a>Step 3: Deposit method</h3>
 <div class="paragraph">
-<p>On the third screen, you have a choice to use an existing Cycles Wallet, or to Generate a New Cycles Wallet. If you already have created one, you can select the first option and the faucet will send your existing canister $20 worth of cycles.</p>
+<p>===步骤3：存款方式</p>
 </div>
 <div class="paragraph">
-<p>For any first time user, select <strong>Generate New Cycles Wallet</strong> and then press <strong>Continue​​</strong>.</p>
+<p>在第三个屏幕上，您可以选择使用现有的燃料费钱包或生成新的燃料费钱包。 如果您已经创建了一个，您可以选择第一个选项，Faucet将为您现有的容器发送价值 20 美元的燃料费。</p>
+</div>
+<div class="paragraph">
+<p>对于任何第一次使用的用户，请选择 <strong>Generate New Cycles Wallet</strong>，然后按 *Continue *。</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="_images/cycles-faucet/faucet_step_4.png" alt="Generate New Cycles Wallet"></span></p>
 </div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_configure_your_wallet_in_dfx"><a class="anchor" href="#_configure_your_wallet_in_dfx"></a>Configure your wallet in DFX</h2>
-<div class="sectionbody">
 <div class="paragraph">
-<p>Now that you have claimed your wallet, you should see a screen like the one below:</p>
+<p>== 在 DFX 中配置您的钱包</p>
+</div>
+<div class="paragraph">
+<p>现在您已经认领了您的钱包，您应该会看到如下所示的屏幕：</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="_images/cycles-faucet/faucet_step_6.png" alt="Configure DFX Wallet"></span></p>
 </div>
 <div class="paragraph">
-<p>Your Cycles Wallet is created and ready to use. Now all you need to do is copy the <code>set-wallet</code> command from the final screen and run it in your terminal. It will configure DFX to automatically use the wallet and your free cycles to deploy your first few dapps or websites to the Internet Computer platform!</p>
+<p>您的燃料费钱包已创建并可以使用。 现在您需要做的就是从最终屏幕复制 set-wallet 命令并在终端中运行它。 它将配置 DFX 以自动使用钱包和您的免费燃料费将您的前几个 dapp 或网站部署到 Internet Computer platform！</p>
 </div>
 <div class="paragraph">
-<p>Now you are ready to host a website on the IC or follow one of our dapp tutorials.</p>
+<p>现在您已准备好在 IC 上存储网站或遵循我们的 dapp 教程之一。</p>
 </div>
-<div class="sect2">
-<h3 id="_next_people_often_look_at_these_guides"><a class="anchor" href="#_next_people_often_look_at_these_guides"></a>Next, people often look at these guides:</h3>
+<div class="paragraph">
+<p>=== 接下来，人们经常看这些指南：</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="./host-a-website.html">Host a Static Website</a></p>
+<p>链接:./host-a-website.html[Host a Static Website]</p>
 </li>
 <li>
-<p><a href="./local-quickstart.html">Local Development</a></p>
+<p>链接:./local-quickstart.html[Local Development]</p>
 </li>
 <li>
-<p><a href="./network-quickstart.html">Network Deployment</a></p>
+<p>链接:./network-quickstart.html[Network Deployment]</p>
 </li>
 </ul>
-</div>
 </div>
 </div>
 </div>

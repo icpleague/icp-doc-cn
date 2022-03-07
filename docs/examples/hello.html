@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Hello Example :: Motoko documentation</title>
+    <title>Hello 示例 :: Motoko documentation</title>
     <meta name="generator" content="Antora 3.0.1">
 <link rel="stylesheet" href="../../_/css/site.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" /><meta property="og:image:width" content="1200" />
@@ -880,32 +880,32 @@
 </div>
 <div class="main-content">
 <article class="doc">
-<h1 class="page">Hello Example</h1>
+<h1 class="page">Hello 示例</h1>
 <div class="paragraph">
-<p>This example demonstrates a dead simple dapp consisting of two canister smart contracts:</p>
+<p>这个例子演示了一个由两个容器智能合约组成的简单 dapp：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>a simple backend canister, <code>hello</code>, implementing the logic of the application, and</p>
+<p>一个简单的后端容器，<code>hello</code>，实现应用程序的逻辑，以及</p>
 </li>
 <li>
-<p>a simple frontend asset canister, <code>hello_assets</code>, serving the assets of the dapp&#8217;s web user interface.</p>
+<p>一个简单的前端资产容器“hello_assets”，为 dapp 的 Web 用户界面的资产提供服务。</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>It is the dapp equivalent of the ubiquitous <em>hello world</em> example.</p>
+<p>它是无处不在的 <em>hello world</em> 示例的 dapp 等价物。</p>
 </div>
 <div class="paragraph">
-<p>This example is based on the default project created by running <code>dfx new</code> as described in the
-<a href="../quickstart/local-quickstart.html">Motoko</a> and
-<a href="../rust-guide/rust-quickstart.html">Rust</a> quickstart documents.</p>
+<p>此示例基于通过运行 <code>dfx new</code> 创建的默认项目，如
+链接:../quickstart/local-quickstart.html[Motoko] 和
+链接:../rust-guide/rust-quickstart.html[Rust] 快速入门文档。</p>
 </div>
 <div class="paragraph">
-<p>The example is available from the
+<p>该示例可从
 <a href="https://github.com/dfinity/examples">examples</a>
-repository in both Motoko and Rust versions:</p>
+Motoko 和 Rust 版本中的存储库：</p>
 </div>
 <div class="ulist">
 <ul>
@@ -918,7 +918,7 @@ repository in both Motoko and Rust versions:</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>Canister <code>hello</code>, whether implemented in Motoko or Rust, presents the same Candid interface:</p>
+<p>Canister <code>hello</code>，无论是在 Motoko 还是 Rust 中实现，都呈现相同的 Candid 界面：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -928,18 +928,18 @@ repository in both Motoko and Rust versions:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>The frontend canister, <code>hello_assets</code>, displays an HTML page with a text box for the argument and a button for calling the function greet with that argument.
-The result of the call is displayed in a message box.</p>
+<p>前端容器“hello_assets”显示一个 HTML 页面，其中包含一个用于参数的文本框和一个用于调用该参数的函数 greet 的按钮。
+调用结果显示在消息框中。</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="_images/hello.png" alt="hello frontend"></span></p>
 </div>
 <div class="paragraph">
-<p>The frontend canister is a generic canister provided by <code>dfx</code> but
-the assets it serves to browsers are determined by the dfx project settings and project files.</p>
+<p>前端容器是 dfx 提供的通用容器，但是
+它提供给浏览器的资产由 dfx 项目设置和项目文件决定。</p>
 </div>
 <div class="paragraph">
-<p>The frontend canister and its assets are identical for both projects.</p>
+<p>两个项目的前端容器及其资产是相同的。</p>
 </div>
 </article>
 <aside class="toc sidebar">

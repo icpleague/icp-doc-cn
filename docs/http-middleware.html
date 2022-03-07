@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Introducing a new approach to handling HTTP requests and serving assets :: Motoko documentation</title>
+    <title>引入一种处理 HTTP 请求和服务资产的新方法 :: Motoko documentation</title>
     <meta name="generator" content="Antora 3.0.1">
 <link rel="stylesheet" href="../_/css/site.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" /><meta property="og:image:width" content="1200" />
@@ -873,187 +873,181 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="index.html">Developer Center</a></li>
-    <li><a href="http-middleware.html">Introducing a new approach to handling HTTP requests and serving assets</a></li>
+    <li><a href="http-middleware.html">引入一种处理 HTTP 请求和服务资产的新方法</a></li>
   </ul>
 </nav>
 </div>
 <div class="main-content">
 <article class="doc">
-<h1 class="page">Introducing a new approach to handling HTTP requests and serving assets</h1>
+<h1 class="page">引入一种处理 HTTP 请求和服务资产的新方法</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>If you are installing any 0.7.0 (or later) version of the {sdk-short-name}, you might have noticed that those versions have introduced some major improvements for handling HTTP queries and front-end assets.
-When these changes are officially rolled into the next publicly-available release of the {sdk-short-name}, they will change how you build and deploy applications on the Internet Computer.</p>
+<p>如果您正在安装 {sdk-short-name} 的任何 0.7.0（或更高版本）版本，您可能已经注意到这些版本引入了一些用于处理 HTTP 查询和前端资产的重大改进。
+当这些更改正式发布到 {sdk-short-name} 的下一个公开发布版本中时，它们将改变您在互联网计算机上构建和部署应用程序的方式。</p>
 </div>
 <div class="paragraph">
-<p>If you are creating new projects, the changes to the underlying architecture will have little, if any, effect on your development workflow. In fact, you might find that the new architecture makes building applications that run on the Internet Computer a more familiar experience.</p>
+<p>如果您正在创建新项目，则对底层架构的更改对您的开发工作流程几乎没有影响（如果有的话）。 事实上，您可能会发现新架构使构建在 Internet Computer 上运行的应用程序成为一种更熟悉的体验。</p>
 </div>
 <div class="paragraph">
-<p>If you have any existing projects, however, you’ll need to plan for a one-time migration to the new architecture.
-Migration to the new architecture doesn’t have to be completed immediately, but updating your projects to take advantage of the changes will ultimately make it easier to upload and manage front-end assets.</p>
+<p>但是，如果您有任何现有项目，则需要计划一次性迁移到新架构。
+不必立即完成向新架构的迁移，但更新您的项目以利用这些更改最终将使上传和管理前端资产变得更加容易。
+== 替换引导代码：回顾</p>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_replacing_the_bootstrap_code_a_recap"><a class="anchor" href="#_replacing_the_bootstrap_code_a_recap"></a>Replacing the bootstrap code: a recap</h2>
-<div class="sectionbody">
 <div class="paragraph">
-<p>Before we describe the new architecture, it’s useful to have some context about the old approach that we are replacing and how the code has worked up to this point.
-Previously, developing a front-end on the Internet Computer involved adding a front-end assets canister with a <code>retrieve()</code> function.
-The <code>retrieve()</code> function would take a path and return a blob. The blob returned by the <code>retrieve()</code> function would then have an <code>index.js</code> file that contained some JavaScript and static HTML called the <code>bootstrap</code> code.
-After you deployed an application as smart contract—called a <a href="developers-guide/glossary.html#g-canister">canister</a>—on the Internet Computer, accessing the canister using the <code>&lt;CANISTER_ID&gt;.ic0.app</code> URL executed the <code>bootstrap</code> code, which in turn, performed the following steps:</p>
+<p>在我们描述新架构之前，了解一些关于我们正在替换的旧方法以及代码在这一点上的工作方式的背景信息是很有用的。
+以前，在互联网计算机上开发前端涉及添加具有“retrieve()”函数的前端资产容器。
+<code>retrieve()</code> 函数将采用路径并返回一个 blob。 <code>retrieve()</code> 函数返回的 blob 将有一个 <code>index.js</code> 文件，其中包含一些称为 <code>bootstrap</code> 代码的 JavaScript 和静态 HTML。
+在互联网计算机上将应用程序部署为智能合约（称为链接：developers-guide/glossary.html#g-canister[canister]）后，使用执行的`&lt;CANISTER_ID&gt;.ic0.app` URL 访问容器 <code>bootstrap</code> 代码依次执行以下步骤：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Created a secure worker to contain your private key.</p>
+<p>创建了一个安全的工作人员来包含您的私钥。</p>
 </li>
 <li>
-<p>Polyfilled the <code>window.ic</code> to provide some mechanics to the running application so that it can communicate with the Internet Computer.</p>
+<p>Polyfill <code>window.ic</code> 为正在运行的应用程序提供一些机制，以便它可以与互联网计算机通信。</p>
 </li>
 <li>
-<p>Called the canister’s <code>retrieve()</code> method with <code>index.js</code> as the path, and evaluate it.</p>
+<p>以 <code>index.js</code> 为路径调用容器的 <code>retrieve()</code> 方法，并对其求值。</p>
 </li>
 <li>
-<p>Passed control of the document object model (DOM) and the page to the canister’s JavaScript code.</p>
+<p>将文档对象模型 (DOM) 和页面的控制权传递给容器的 JavaScript 代码。</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>This <code>bootstrap</code> workflow is quite different from how people usually build web applications.
-For example, this approach did not support loading HTML directly or downloading assets like PNG files.
-Asset handling required either loading the assets from another domain (for example, an AWS bucket) or loading the assets in JavaScript, transforming them into data URI, then setting the <code>src</code> attribute accordingly.
-Handling assets in this way led to problems in the browser, such as:</p>
+<p>这种“引导”工作流程与人们通常构建 Web 应用程序的方式完全不同。
+例如，这种方法不支持直接加载 HTML 或下载 PNG 文件等资产。
+资产处理需要从另一个域（例如，AWS 存储桶）加载资产或在 JavaScript 中加载资产，将它们转换为数据 URI，然后相应地设置 <code>src</code> 属性。
+以这种方式处理资产会导致浏览器出现问题，例如：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Not waiting for re-layout of pages.</p>
+<p>不等待重新布局页面。</p>
 </li>
 <li>
-<p>Deferred loading of assets.</p>
+<p>延迟加载资产。</p>
 </li>
 <li>
-<p>Executing JavaScript out of band.</p>
+<p>带外执行 JavaScript。</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>The <code>bootstrap</code> approach provided advantages in terms of security and decentralization, but those advantages were offset by the poor HTTP and asset handling that front-end developers and application users didn&#8217;t expect to experience.</p>
+<p><code>bootstrap</code> 方法在安全性和去中心化方面提供了优势，但这些优势被前端开发人员和应用程序用户没有预料到的糟糕的 HTTP 和资产处理所抵消。</p>
 </div>
 <div class="paragraph">
-<p>Over the last year, the {sdk-short-name} team has been gathering and evaluating feedback from the developer community. Based on that feedback, the team has decided to provide a more flexible developer experience while continuing to provide an equivalent security model.</p>
+<p>去年，{sdk-short-name} 团队一直在收集和评估来自开发者社区的反馈。 基于该反馈，团队决定提供更灵活的开发人员体验，同时继续提供等效的安全模型。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_enabling_canisters_to_respond_to_http_requests"><a class="anchor" href="#_enabling_canisters_to_respond_to_http_requests"></a>Enabling canisters to respond to HTTP requests</h2>
+<h2 id="_使容器能够响应_http_请求"><a class="anchor" href="#_使容器能够响应_http_请求"></a>使容器能够响应 HTTP 请求</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>After considering the advantages and disadvantages of different  proposals, the team decided on an architecture that would allow canisters to answer HTTP requests directly.
-With this new approach, the {sdk-short-name} implements an HTTP middleware server.</p>
+<p>在考虑了不同提案的优缺点后，团队决定采用一种允许容器直接响应 HTTP 请求的架构。
+使用这种新方法，{sdk-short-name} 实现了一个 HTTP 中间件服务器。</p>
 </div>
 <div class="paragraph">
-<p>The HTTP middleware server handles the processing for the HTTP request by doing the following:</p>
+<p>HTTP 中间件服务器通过执行以下操作来处理 HTTP 请求：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Receiving the HTTP request and converting its method, uri, headers and body into a Candid structure.</p>
+<p>接收HTTP请求并将其方法、uri、headers和body转换成Candid结构。</p>
 </li>
 <li>
-<p>Resolving the canister identifier for the request.</p>
+<p>解析请求的容器标识符。</p>
 </li>
 <li>
-<p>Instantiating an agent to talk to the canister.</p>
+<p>实例化一个代理与容器对话。</p>
 </li>
 <li>
-<p>Calling an <code>http_request()</code> query method.</p>
+<p>调用 <code>http_request()</code> 查询方法。</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>If the canister implements the <code>http_request()</code> method, the HTTP middleware decodes the response, takes the headers and body, and constructs an HTTP response.
-If the canister does not implement the <code>http_request()</code> method, for backward compatibility, the middleware returns a bootstrap polyfill that points out the deprecation as a warning.
-For any errors in the process, the HTTP middleware returns the following error codes:</p>
+<p>如果容器实现了 <code>http_request()</code> 方法，HTTP 中间件将解码响应，获取标头和正文，并构造 HTTP 响应。
+如果容器没有实现 <code>http_request()</code> 方法，为了向后兼容，中间件会返回一个引导 polyfill，指出弃用作为警告。
+对于过程中的任何错误，HTTP 中间件返回以下错误代码：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>400 Bad Request for any invalid requests (for example, if the HTTP middleware could not find or decode a canister ID).</p>
+<p>400 Bad Request 用于任何无效请求（例如，如果 HTTP 中间件无法找到或解码容器 ID）。</p>
 </li>
 <li>
-<p>500 Internal Server Error for errors from the HTTP middleware itself (for example, if it could not connect to a replica)</p>
+<p>500 Internal Server Error 来自 HTTP 中间件本身的错误（例如，如果它无法连接到副本）</p>
 </li>
 <li>
-<p>502 Bad Gateway if an error is coming from the replica itself (including canister trapping).</p>
+<p>502 Bad Gateway，如果错误来自副本本身（包括容器陷阱）。</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>If any of these errors occur,  the <code>dfx</code> command-line interface provides additional details in the response body.</p>
+<p>如果发生任何这些错误，“dfx”命令行界面会在响应正文中提供更多详细信息。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_revisiting_the_asset_storage_canister"><a class="anchor" href="#_revisiting_the_asset_storage_canister"></a>Revisiting the asset storage canister</h2>
+<h2 id="_重新审视资产存储容器"><a class="anchor" href="#_重新审视资产存储容器"></a>重新审视资产存储容器</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>To make this transition easier, new and existing projects built with the newer version of <code>dfx</code> will include an improved asset canister that supports the <code>http_request()</code> method by default. This means that assets you upload—including binary assets like images—will be available directly from your browser using their URL.
-For example, in a new project, the <code>sample-asset.txt</code> file would be uploaded and available after publishing to the Internet Computer at <a href="https://&lt;CANISTER_ID&gt;.raw.ic0.app/sample-asset.txt" class="bare">https://&lt;CANISTER_ID&gt;.raw.ic0.app/sample-asset.txt</a>.</p>
+<p>为了使这种过渡更容易，使用较新版本的“dfx”构建的新项目和现有项目将包括一个改进的资产容器，默认情况下支持“http_request()”方法。 这意味着您上传的资产（包括图像等二进制资产）将可以通过浏览器的 URL 直接访问。
+例如，在一个新项目中，<code>sample-asset.txt</code> 文件将在发布到 <a href="https://&lt;CANISTER_ID&gt;.raw.ic0.app/sample-asset.txt" class="bare">https://&lt;CANISTER_ID&gt;.raw.ic0.app/sample-asset.txt</a> 的互联网计算机后上传并可用。</p>
 </div>
 <div class="paragraph">
-<p>In the future, we will also provide additional support for managing the asset canister cache, handling default assets, and providing HTTP-specific features.</p>
+<p>将来，我们还将为管理资产容器缓存、处理默认资产和提供 HTTP 特定功能提供额外的支持。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_routing"><a class="anchor" href="#_routing"></a>Routing</h2>
+<h2 id="_路由"><a class="anchor" href="#_路由"></a>路由</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Both the <code>/api</code> (for replicas) and <code>/_</code> (for tool purposes) routes are reserved by the HTTP request specification.
-All other routes are available for you to use as needed within your application, eliminating the need to rely on a separate hash router.</p>
+<p><code>/api</code>（用于副本）和 <code>/_</code>（用于工具目的）路由均由 HTTP 请求规范保留。
+您可以在应用程序中根据需要使用所有其他路由，从而无需依赖单独的哈希路由器。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_structure_of_a_new_dfx_project"><a class="anchor" href="#_structure_of_a_new_dfx_project"></a>Structure of a new DFX project</h2>
+<h2 id="_新_dfx_项目的结构"><a class="anchor" href="#_新_dfx_项目的结构"></a>新 DFX 项目的结构</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Before going into how to migrate an existing project, let’s take a look at a new project.
-The front-end changes include the following:</p>
+<p>在讨论如何迁移现有项目之前，让我们先来看看一个新项目。
+前端更改包括以下内容：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The <code>dfx.json</code> includes a <code>frontend</code> key for the asset canister that now points to an <code>index.html</code> file instead of the <code>index.js</code> JavaScript entry point.</p>
+<p><code>dfx.json</code> 包含资产容器的 <code>frontend</code> 键，该键现在指向 <code>index.html</code> 文件，而不是 <code>index.js</code> JavaScript 入口点。</p>
 </li>
 <li>
-<p>The <code>package.json</code> file now supports Webpack 5 by default.</p>
+<p><code>package.json</code> 文件现在默认支持 Webpack 5。</p>
 </li>
 <li>
-<p>The <code>webpack.config.js</code> file now generates the list of canister imports for for each canister that has a <code>frontend</code> key in a different way.</p>
+<p><code>webpack.config.js</code> 文件现在以不同的方式为每个具有 <code>frontend</code> 键的容器生成容器导入列表。</p>
 </li>
 <li>
-<p>The <code>src/&lt;project_name&gt;_assets/src/index.html</code> file is a new template file that you can replace with your own <code>index.html</code> file for your front-end. It is served by default by the asset canister when a file isn’t found.</p>
+<p><code>src/&lt;project_name&gt;_assets/src/index.html</code> 文件是一个新的模板文件，你可以用你自己的 <code>index.html</code> 文件替换你的前端。 当找不到文件时，默认情况下它由资产容器提供。</p>
 </li>
 <li>
-<p>The <code>index.js</code> file has been modified to support agent and actor creation.</p>
+<p><code>index.js</code> 文件已被修改以支持agent和 actor的创建。</p>
 </li>
 </ul>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_agent_and_actor_creation"><a class="anchor" href="#_agent_and_actor_creation"></a>Agent and actor creation</h2>
-<div class="sectionbody">
 <div class="paragraph">
-<p>With the new architecture, we explicitly create an agent instance, then create the actor that we’ll use for our canister.
-In the <code>index.js</code> file, this means that where before there was only one <code>import</code> from files generated by <code>dfx</code>, now there are two.</p>
+<p>==agent和actor创建</p>
 </div>
 <div class="paragraph">
-<p>For example, the new <code>index.js</code> file in a project provides code similar to this:</p>
+<p>在新的架构下，我们明确地创建一个agent实例，然后创建我们将用于容器的actor。
+在`index.js`文件中，这意味着以前只有一个`import`来自`dfx`生成的文件，现在则有两个。</p>
+</div>
+<div class="paragraph">
+<p>例如，项目中新的`index.js`文件提供了类似这样的代码。</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1065,41 +1059,39 @@ const example = Actor.createActor(example_idl, { agent, canisterId: example_id }
 </div>
 </div>
 <div class="paragraph">
-<p>Explicitly creating the agent and actor like this example illustrates is better for a couple reasons:</p>
+<p>像这个例子说明的那样显式地创建代理和参与者更好，原因如下：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>First, the agent itself is entirely configurable by the application, and so is the actor. For example, authentication can only be set when the agent is constructed, so if you want to manage a user identity, you’ll need to do it before creating the agent.</p>
+<p>首先，agent本身完全可以由应用程序配置，actor也是如此。 例如，只有在构建agent时才能设置身份验证，因此如果要管理用户身份，则需要在创建agent之前进行。</p>
 </li>
 <li>
-<p>Second, being explicit about creating the agent and actor gives you much more control over when you instantiate those objects. If you want a React hook or an Angular service to create the actor, this approach allows you to do so easily.</p>
+<p>其次，明确创建agent和actor可以让您更好地控制何时实例化这些对象。 如果你想要一个 React 钩子或一个 Angular 服务来创建actor，这种方法可以让你很容易地做到这一点。</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_migrating_an_existing_project"><a class="anchor" href="#_migrating_an_existing_project"></a>Migrating an existing project</h2>
+<h2 id="_迁移现有项目"><a class="anchor" href="#_迁移现有项目"></a>迁移现有项目</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>If you have an existing project, chances are it will not work seamlessly after you update the {sdk-short-name}.
-Unfortunately, a direct migration path isn’t possible in this case.
-The best way to migrate your current front-end is to create a new project and move your code manually to the new structure.</p>
-</div>
-<div class="sect2">
-<h3 id="_certified_and_uncertified_front_end_assets"><a class="anchor" href="#_certified_and_uncertified_front_end_assets"></a>Certified and uncertified front-end assets</h3>
-<div class="paragraph">
-<p>With the launch of the Internet Computer main network Beta, all projects serve front-end assets use the new HTTP query architecture.
-In addition, the Internet Computer launch introduces a new capability to serve front-end assets as certified data that has been signed and can be considered authenticated and secure or as raw, uncertified data.
-Front-end assets that don&#8217;t go through the certification process are served using the <code>raw.ic0.app</code> URL suffix.
-Certified front-end assets use the <code>.ic0.app</code> URL suffix.</p>
+<p>如果您有一个现有项目，那么在您更新 {sdk-short-name} 后它可能无法无缝运行。
+不幸的是，在这种情况下，直接迁移路径是不可能的。
+迁移当前前端的最佳方法是创建一个新项目并将代码手动移动到新结构中。
+=== 认证和未认证的前端资产</p>
 </div>
 <div class="paragraph">
-<p>All of the current tutorials illustrate applications that serve uncertified front-end assets.
-Learning how to build an application that uses certified query results for front-end assets is an advanced development topic.
-For information about how to return certified data in response to queries, see the <a href="interface-spec/index.html">Interface specification</a> and connect with other developers through the <a href="https://forum.dfinity.org/">DFINITY Developer Forum</a>.</p>
+<p>随着 Internet Computer 主网 Beta 的推出，所有服务前端资产的项目都使用新的 HTTP 查询架构。
+此外，Internet Computer 的发布引入了一项新功能，可以将前端资产作为已签名的认证数据提供服务，这些数据可以被视为经过身份验证和安全的数据，也可以作为未经认证的原始数据提供服务。
+未通过认证过程的前端资产使用 <code>raw.ic0.app</code> URL 后缀提供。
+经过认证的前端资产使用 <code>.ic0.app</code> URL 后缀。</p>
 </div>
+<div class="paragraph">
+<p>当前的所有教程都说明了服务于未经认证的前端资产的应用程序。
+学习如何构建一个使用经过认证的前端资产查询结果的应用程序是一个高级开发主题。
+有关如何返回认证数据以响应查询的信息，请参阅链接：interface-spec/index.html[接口规范]并通过链接与其他开发人员联系：https://forum.dfinity.org/[DFINITY开发者论坛]。</p>
 </div>
 </div>
 </div>

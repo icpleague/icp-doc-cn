@@ -3,8 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Motoko at-a-glance :: Motoko documentation</title>
-    <meta name="keywords" content="Motoko,programming language,Internet Computer,developers">
+    <title>Motoko 一览 :: Motoko documentation</title>
     <meta name="generator" content="Antora 3.0.1">
 <link rel="stylesheet" href="../../_/css/site.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" /><meta property="og:image:width" content="1200" />
@@ -874,172 +873,168 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">Developer Center</a></li>
-    <li><a href="motoko-at-a-glance.html">Motoko at-a-glance</a></li>
+    <li><a href="motoko-at-a-glance.html">Motoko 一览</a></li>
   </ul>
 </nav>
 </div>
 <div class="main-content">
 <article class="doc">
-<h1 class="page">Motoko at-a-glance</h1>
+<h1 class="page">Motoko 一览</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>This summary provides a simple but comprehensive overview of Motoko with examples of key features to help you identify operations and patterns that you might know in other languages and what they look like in Motoko.</p>
+<p>本摘要提供了对 Motoko 的简单而全面的概述，并提供了一些关键特性示例，可帮助您识别您在其他语言中可能知道的操作和模式，以及它们在 Motoko 中的样子。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_motoko_motivation_and_goals"><a class="anchor" href="#_motoko_motivation_and_goals"></a>Motoko motivation and goals</h2>
+<h2 id="_motoko_动机和目标"><a class="anchor" href="#_motoko_动机和目标"></a>Motoko 动机和目标</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>A simple, useful language for DFINITY and the Internet Computer platform.</p>
+<p>DFINITY 和 Internet Computer platform 的一种简单、有用的语言。</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Familiar syntax</p>
+<p>熟悉的语法</p>
 </li>
 <li>
-<p>Safe by default</p>
+<p>默认安全</p>
 </li>
 <li>
-<p>Incorporates smart contracts using the <strong>canister</strong> model</p>
+<p>使用 <strong>canister</strong> 模型结合智能合约</p>
 </li>
 <li>
-<p>Provides seamless integration of DFINITY and the Internet Computer platform features</p>
+<p>提供 DFINITY 和 Internet Computer platform 功能的无缝集成</p>
 </li>
 <li>
-<p>Makes the most of present and future WebAssembly</p>
+<p>充分利用现在和未来的 WebAssembly</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_key_design_points"><a class="anchor" href="#_key_design_points"></a>Key design points</h2>
+<h2 id="_关键设计点"><a class="anchor" href="#_关键设计点"></a>关键设计点</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Motoko takes inspiration from several programming languages, including Java, JavaScript, C#, Swift, Pony, ML, Haskell.</p>
+<p>Motoko 从多种编程语言中汲取灵感，包括 Java、JavaScript、C#、Swift、Pony、ML、Haskell。</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Object-oriented, functional, and imperative</p>
+<p>面向对象、函数式和命令式</p>
 </li>
 <li>
-<p>Objects as records of members</p>
+<p>对象作为成员的记录</p>
 </li>
 <li>
-<p><code>async</code>/<code>await</code> for sequential programming of asynchronous messaging</p>
+<p><code>async</code>/<code>await</code> 用于异步消息的顺序编程</p>
 </li>
 <li>
-<p>Structural typing with simple generics and subtyping</p>
+<p>具有简单泛型和子类型的结构类型
+*安全算术（无界和检查）</p>
 </li>
 <li>
-<p>Safe arithmetic (unbounded and checked)</p>
+<p>默认情况下不可为空的类型</p>
 </li>
 <li>
-<p>Non-nullable types by default</p>
-</li>
-<li>
-<p>JavaScript-like syntax but statically typed and sane</p>
+<p>类似 JavaScript 的语法，但静态类型和理智</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_semantics"><a class="anchor" href="#_semantics"></a>Semantics</h2>
+<h2 id="_语义"><a class="anchor" href="#_语义"></a>语义</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p>call-by-value (like Java, C, JS, and ML; unlike Haskell and Nix)</p>
+<p>按值调用（如 Java、C、JS 和 ML；不像 Haskell 和 Nix）</p>
 </li>
 <li>
-<p>declarations are locally mutually recursive</p>
+<p>声明是局部相互递归的</p>
 </li>
 <li>
-<p>parametric, bounded polymorphism</p>
+<p>参数化，有界多态性</p>
 </li>
 <li>
-<p>subtyping as subsumption, not coercion</p>
+<p>子类型作为包含，而不是强制
+*没有动态演员表</p>
 </li>
 <li>
-<p>no dynamic casts</p>
-</li>
-<li>
-<p>no inheritance</p>
+<p>没有继承</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_implementations"><a class="anchor" href="#_implementations"></a>Implementations</h2>
+<h2 id="_实现"><a class="anchor" href="#_实现"></a>实现</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p>implemented in OCaml (leverages <code>wasm</code> library)</p>
+<p>在 OCaml 中实现（利用 <code>wasm</code> 库）</p>
 </li>
 <li>
-<p>simple reference interpreter</p>
+<p>简单的参考解释器</p>
 </li>
 <li>
-<p>less simple compiler to WebAssembly</p>
+<p>WebAssembly 不太简单的编译器</p>
 </li>
 <li>
-<p>multipass with typed IR in each pass</p>
+<p>多通道，每通道输入 IR</p>
 </li>
 <li>
-<p>uniform representation, unboxed arithmetic</p>
+<p>统一表示，未装箱算术</p>
 </li>
 <li>
-<p>two-space gc, gc between messages</p>
+<p>两个空格 gc，消息之间的 gc</p>
 </li>
 <li>
-<p>polymorphism by erasure</p>
+<p>擦除多态性</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_language_features"><a class="anchor" href="#_language_features"></a>Language features</h2>
+<h2 id="_语言特点"><a class="anchor" href="#_语言特点"></a>语言特点</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The next sections highlight Motoko programming language features in simplified form.
-For additional information about using these and other features, see the <a href="../language-guide/language-manual.html">Language quick reference</a> in the ink:../language-guide/motoko.html[<em>Motoko Programming Language Guide</em>].</p>
+<p>接下来的部分以简化的形式重点介绍 Motoko 编程语言功能。
+有关使用这些和其他功能的更多信息，请参阅链接：../language-guide/language-manual.html[Language quick reference] in the ink:../language-guide/motoko.html[<em>Motoko编程语言指南</em>]。</p>
 </div>
 <div class="sect2">
-<h3 id="_expressions"><a class="anchor" href="#_expressions"></a>Expressions</h3>
+<h3 id="_表达式"><a class="anchor" href="#_表达式"></a>表达式</h3>
+<div class="paragraph">
+<p>*标识符，例如`x`，<code>foo_bar</code>，<code>test'</code>，<code>List</code>，<code>Map</code></p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p>identifiers such as <code>x</code>, <code>foo_bar</code>, <code>test'</code>, <code>List</code>, <code>Map</code></p>
+<p>用于分组的括号</p>
 </li>
 <li>
-<p>parentheses for grouping</p>
-</li>
-<li>
-<p>type annotations to help type inference, for example <code>(42 : Int)</code></p>
+<p>类型注释以帮助类型推断，例如 <code>(42 : Int)</code></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_blocks_and_declarations"><a class="anchor" href="#_blocks_and_declarations"></a>Blocks and declarations</h3>
+<h3 id="_块和声明"><a class="anchor" href="#_块和声明"></a>块和声明</h3>
 <div class="ulist">
 <ul>
 <li>
-<p>semi-colons are required after each declaration</p>
+<p>每个声明后都需要分号</p>
 </li>
 <li>
-<p>mutually recursive</p>
+<p>相互递归</p>
 </li>
 <li>
-<p>mutable variables marked explicitly</p>
+<p>明确标记的可变变量</p>
 </li>
 </ul>
 </div>
@@ -1057,7 +1052,7 @@ print();</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_control_flow"><a class="anchor" href="#_control_flow"></a>Control flow</h3>
+<h3 id="_控制流"><a class="anchor" href="#_控制流"></a>控制流</h3>
 <div class="paragraph">
 <p>if and if - else</p>
 </div>
@@ -1098,88 +1093,88 @@ loop … while (b)`</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_primitive_types"><a class="anchor" href="#_primitive_types"></a>Primitive types</h2>
+<h2 id="_原始类型"><a class="anchor" href="#_原始类型"></a>原始类型</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The next sections highlight the primitive types in the Motoko programming language.</p>
+<p>接下来的部分重点介绍 Motoko 编程语言中的原始类型。</p>
 </div>
 <div class="sect2">
-<h3 id="_unbounded_integers"><a class="anchor" href="#_unbounded_integers"></a>Unbounded integers</h3>
+<h3 id="_无界整数"><a class="anchor" href="#_无界整数"></a>无界整数</h3>
 <div class="paragraph">
 <p><code>Int</code></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>inferred by default for negative literals</p>
+<p>默认情况下推断为负文字</p>
 </li>
 <li>
-<p>literals: <code>13</code>, <code>0xf4</code>, <code>-20</code>, <code>+1</code>, <code>1_000_000</code></p>
+<p>文字： <code>13</code>, <code>0xf4</code>, <code>-20</code>, <code>+1</code>, <code>1_000_000</code></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_unbounded_naturals"><a class="anchor" href="#_unbounded_naturals"></a>Unbounded naturals</h3>
+<h3 id="_无限自然数"><a class="anchor" href="#_无限自然数"></a>无限自然数</h3>
 <div class="paragraph">
 <p><code>Nat</code></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>non-negative numbers, trap upon underflow</p>
+<p>非负数，下溢陷阱</p>
 </li>
 <li>
-<p>inferred by default for non-negative literals</p>
+<p>默认为非负文字推断</p>
 </li>
 <li>
-<p>literals: <code>13</code>, <code>0xf4</code>, <code>1_000_000</code></p>
+<p>文字：<code>13</code>、<code>0xf4</code>、<code>1_000_000</code></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_bounded_numbers_trapping"><a class="anchor" href="#_bounded_numbers_trapping"></a>Bounded numbers (trapping)</h3>
+<h3 id="_有界数陷阱"><a class="anchor" href="#_有界数陷阱"></a>有界数（陷阱）</h3>
 <div class="paragraph">
 <p><code>Nat8</code>, <code>Nat16</code>, <code>Nat32</code>, <code>Nat64</code>, <code>Int8</code>, <code>Int16</code>, <code>Int32</code>, <code>Int64</code></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>trap on over- and underflow</p>
+<p>上溢和下溢陷阱</p>
 </li>
 <li>
-<p>need type annotations specified</p>
+<p>需要指定类型注释</p>
 </li>
 <li>
-<p>literals: <code>13</code>, <code>0xf4</code>, <code>-20</code>, <code>1_000_000</code></p>
+<p>文字： <code>13</code>, <code>0xf4</code>, <code>-20</code>, <code>1_000_000</code></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_floating_point_numbers"><a class="anchor" href="#_floating_point_numbers"></a>Floating point numbers</h3>
+<h3 id="_浮点数字"><a class="anchor" href="#_浮点数字"></a>浮点数字</h3>
 <div class="paragraph">
 <p><code>Float</code></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>IEEE 754 double precision (64 bit) semantics, normalized NaN</p>
+<p>IEEE 754 双精度（64 位）语义，归一化 NaN</p>
 </li>
 <li>
-<p>inferred for fractional literals</p>
+<p>推断小数字面量</p>
 </li>
 <li>
-<p>literals: <code>0</code>, <code>-10</code>, <code>2.71</code>, <code>-0.3e+15</code>, <code>3.141_592_653_589_793_12</code></p>
+<p>文字： <code>0</code>, <code>-10</code>, <code>2.71</code>, <code>-0.3e+15</code>, <code>3.141_592_653_589_793_12</code></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_numeric_operations"><a class="anchor" href="#_numeric_operations"></a>Numeric operations</h3>
+<h3 id="_数值运算"><a class="anchor" href="#_数值运算"></a>数值运算</h3>
 <div class="paragraph">
-<p>operators behave as you would expect (no surprises)</p>
+<p>操作符合你的预期（没有意外）。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1188,14 +1183,14 @@ a + b
 a &amp; b</code></pre>
 </div>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_characters_and_text"><a class="anchor" href="#_characters_and_text"></a>Characters and text</h3>
 <div class="paragraph">
-<p><code>Char</code>, <code>Text</code></p>
+<p>===字符和文本</p>
 </div>
 <div class="paragraph">
-<p>Unicode, no random access</p>
+<p>`字符', `文本'</p>
+</div>
+<div class="paragraph">
+<p>Unicode，无随机访问</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1206,12 +1201,12 @@ a &amp; b</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_booleans"><a class="anchor" href="#_booleans"></a>Booleans</h3>
+<h3 id="_布尔值"><a class="anchor" href="#_布尔值"></a>布尔值</h3>
 <div class="paragraph">
 <p><code>Bool</code></p>
 </div>
 <div class="paragraph">
-<p>literals: <code>true</code>, <code>false</code></p>
+<p>文字: <code>true</code>, <code>false</code></p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1225,15 +1220,15 @@ if (b) e1 else e2</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_functions"><a class="anchor" href="#_functions"></a>Functions</h2>
+<h2 id="_函数"><a class="anchor" href="#_函数"></a>函数</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The next sections provide examples for working with functions in the Motoko programming language.</p>
+<p>接下来的部分提供了在 Motoko 编程语言中使用函数的示例。</p>
 </div>
 <div class="sect2">
-<h3 id="_function_types"><a class="anchor" href="#_function_types"></a>Function types</h3>
+<h3 id="_函数类型"><a class="anchor" href="#_函数类型"></a>函数类型</h3>
 <div class="paragraph">
-<p>simple functions</p>
+<p>简单函数</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1241,7 +1236,7 @@ if (b) e1 else e2</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>multiple arguments and return values</p>
+<p>多个参数和返回值</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1249,7 +1244,7 @@ if (b) e1 else e2</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>can be generic/polymorphic</p>
+<p>可以是通用的/多态</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1267,18 +1262,18 @@ let funcs : [&lt;T&gt;(T) -&gt; T] = …</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_function_declarations_and_use"><a class="anchor" href="#_function_declarations_and_use"></a>Function declarations and use</h3>
+<h3 id="_函数声明和使用"><a class="anchor" href="#_函数声明和使用"></a>函数声明和使用</h3>
 <div class="paragraph">
 <p><code>func() { … }</code> short for <code>func() : () = { … }</code></p>
 </div>
 <div class="paragraph">
-<p>parametric functions</p>
+<p>参数函数</p>
 </div>
 <div class="paragraph">
-<p>type instantiations may sometimes be omitted</p>
+<p>类型实例化有时会被省略</p>
 </div>
 <div class="paragraph">
-<p>anonymous functions (a.k.a. lambdas)</p>
+<p>匿名函数 (a.k.a. lambdas)</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1303,18 +1298,18 @@ let funcs : [&lt;T&gt;(T) -&gt; T] = …</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_composite_types"><a class="anchor" href="#_composite_types"></a>Composite types</h2>
+<h2 id="_复合类型"><a class="anchor" href="#_复合类型"></a>复合类型</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The next sections provide examples for working with composite types in the Motoko programming language.</p>
+<p>接下来的章节提供了在Motoko编程语言中使用复合类型的例子。</p>
 </div>
-<div class="sect2">
-<h3 id="_tuples"><a class="anchor" href="#_tuples"></a>Tuples</h3>
+<div class="sect3">
+<h4 id="_元组"><a class="anchor" href="#_元组"></a>元组</h4>
 <div class="paragraph">
 <p><code>(Bool, Float, Text)</code></p>
 </div>
 <div class="paragraph">
-<p>immutable, heterogeneous, fixed size</p>
+<p>不可变、异构、固定大小</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1325,12 +1320,12 @@ let (_,_,t) = tuple;</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_options"><a class="anchor" href="#_options"></a>Options</h3>
+<h3 id="_选项"><a class="anchor" href="#_选项"></a>选项</h3>
 <div class="paragraph">
 <p><code>?Text</code></p>
 </div>
 <div class="paragraph">
-<p>is either a value of that type, or <code>null</code></p>
+<p>要么是该类型的值，要么是“null”</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1346,7 +1341,7 @@ foo(?"Test");</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_arrays_immutable"><a class="anchor" href="#_arrays_immutable"></a>Arrays (immutable)</h3>
+<h3 id="_数组不可变"><a class="anchor" href="#_数组不可变"></a>数组（不可变）</h3>
 <div class="paragraph">
 <p><code>[Text]</code></p>
 </div>
@@ -1361,7 +1356,7 @@ for (d in days.vals()) { Debug.print(d) };</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_arrays_mutable"><a class="anchor" href="#_arrays_mutable"></a>Arrays (mutable)</h3>
+<h3 id="_数组可变"><a class="anchor" href="#_数组可变"></a>数组（可变）</h3>
 <div class="paragraph">
 <p><code>[var Nat]</code></p>
 </div>
@@ -1375,7 +1370,7 @@ counters[1] := counters[1] + 1;
 </div>
 </div>
 <div class="sect2">
-<h3 id="_records"><a class="anchor" href="#_records"></a>Records</h3>
+<h3 id="_记录"><a class="anchor" href="#_记录"></a>记录</h3>
 <div class="paragraph">
 <p><code>{name : Text; points : var Int}</code></p>
 </div>
@@ -1391,12 +1386,12 @@ player.points += 1;</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_objects"><a class="anchor" href="#_objects"></a>Objects</h3>
+<h3 id="_对象"><a class="anchor" href="#_对象"></a>对象</h3>
 <div class="paragraph">
 <p><code>{ get : () &#8594; Int; add : Int &#8594; () }</code></p>
 </div>
 <div class="paragraph">
-<p>different syntax, same type as records</p>
+<p>不同的语法，与记录相同的类型</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1409,12 +1404,12 @@ player.points += 1;</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_variants"><a class="anchor" href="#_variants"></a>Variants</h3>
+<h3 id="_变体"><a class="anchor" href="#_变体"></a>变体</h3>
 <div class="paragraph">
 <p><code>{ #invincible; #alive : Int; #dead }</code></p>
 </div>
 <div class="paragraph">
-<p>similar to enumerated types</p>
+<p>类似于枚举类型</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1434,20 +1429,20 @@ func takeDamage(h : Health, p : Nat) : Health {
 </div>
 </div>
 <div class="sect1">
-<h2 id="_packages_and_modules"><a class="anchor" href="#_packages_and_modules"></a>Packages and modules</h2>
+<h2 id="_包和模块"><a class="anchor" href="#_包和模块"></a>包和模块</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The next sections provide examples for working with packages and modules in the Motoko programming language.</p>
+<p>接下来的部分提供了使用 Motoko 编程语言处理包和模块的示例。</p>
 </div>
 <div class="sect2">
-<h3 id="_modules"><a class="anchor" href="#_modules"></a>Modules</h3>
+<h3 id="_模块"><a class="anchor" href="#_模块"></a>模块</h3>
 <div class="ulist">
 <ul>
 <li>
-<p>types and values like objects</p>
+<p>类型和值，如对象</p>
 </li>
 <li>
-<p>restricted to <em>static</em> content (pure, no state, …)</p>
+<p>仅限于 <em>static</em> 内容（纯，无状态，&#8230;&#8203;）</p>
 </li>
 </ul>
 </div>
@@ -1463,14 +1458,14 @@ module {
 </div>
 </div>
 <div class="sect2">
-<h3 id="_module_imports"><a class="anchor" href="#_module_imports"></a>Module imports</h3>
+<h3 id="_模块导入"><a class="anchor" href="#_模块导入"></a>模块导入</h3>
 <div class="ulist">
 <ul>
 <li>
-<p><code>base</code> package provides basic features</p>
+<p><code>base</code> 包提供基本功能</p>
 </li>
 <li>
-<p>additional libraries evolving with community support</p>
+<p>在社区支持下不断发展的其他库</p>
 </li>
 </ul>
 </div>
@@ -1484,20 +1479,20 @@ import Int "mo:base/Int";</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_platform_features"><a class="anchor" href="#_platform_features"></a>Platform features</h2>
+<h2 id="_平台功能"><a class="anchor" href="#_平台功能"></a>平台功能</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The next sections provide examples of the Motoko programming language platform-specific features.</p>
+<p>接下来的部分提供了 Motoko 编程语言平台特定功能的示例。</p>
 </div>
 <div class="sect2">
-<h3 id="_actor_types"><a class="anchor" href="#_actor_types"></a>Actor types</h3>
+<h3 id="_actor_类型"><a class="anchor" href="#_actor_类型"></a>Actor 类型</h3>
 <div class="ulist">
 <ul>
 <li>
-<p>like object types, but marked as <code>actor</code>:</p>
+<p>类似对象类型，但标记为 <code>actor</code>：</p>
 </li>
 <li>
-<p><em>sharable</em> arguments and <em>no</em> or <em>async</em> result type.</p>
+<p><em>shareable</em> 参数和 <em>no</em> 或 <em>async</em> 结果类型。</p>
 </li>
 <li>
 <p>“canister” ≈ “actor”</p>
@@ -1515,44 +1510,44 @@ type Broadcast = actor {
 </div>
 </div>
 <div class="sect2">
-<h3 id="_sharable_serializable"><a class="anchor" href="#_sharable_serializable"></a>Sharable ≈ serializable</h3>
+<h3 id="_可共享_可序列化"><a class="anchor" href="#_可共享_可序列化"></a>可共享 ≈ 可序列化</h3>
 <div class="ulist">
 <ul>
 <li>
-<p>all primitive types</p>
+<p>所有原始类型</p>
 </li>
 <li>
-<p>records, tuples, arrays, variants, options with immutable sharable components</p>
+<p>记录、元组、数组、变体、具有不可变可共享组件的选项</p>
 </li>
 <li>
-<p><code>actor</code> types</p>
+<p><code>actor</code> 类型</p>
 </li>
 <li>
-<p><code>shared</code> function type</p>
+<p><code>shared</code> 函数类型</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>The following are <strong>not sharable:</strong></p>
+<p>以下是<strong>不可共享的：</strong></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>mutable things</p>
+<p>可变的东西</p>
 </li>
 <li>
-<p>local functions</p>
+<p>局部函数</p>
 </li>
 <li>
-<p>objects (with methods)</p>
+<p>对象（带有方法）</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_complete_actor_example"><a class="anchor" href="#_complete_actor_example"></a>Complete actor example</h3>
+<h3 id="_完整的actor示例"><a class="anchor" href="#_完整的actor示例"></a>完整的actor示例</h3>
 <div class="paragraph">
-<p>typical canister main file</p>
+<p>典型的容器主文件</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1574,26 +1569,26 @@ actor {
 </div>
 </div>
 <div class="sect2">
-<h3 id="_asyncawait"><a class="anchor" href="#_asyncawait"></a>Async/await</h3>
+<h3 id="_异步等待"><a class="anchor" href="#_异步等待"></a>异步/等待</h3>
 <div class="paragraph">
-<p><code>async T</code></p>
+<p><code>异步T</code></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>asynchronous future or promise</p>
+<p>异步未来或承诺</p>
 </li>
 <li>
-<p>introduced by <code>async { … }</code> (implicit in async function declaration)</p>
+<p>由 <code>async { &#8230;&#8203; }</code> 引入（隐含在异步函数声明中）</p>
 </li>
 <li>
-<p><code>await e</code> suspends computation pending `e&#8217;s result</p>
+<p><code>await e</code> 暂停计算等待 <code>e</code> 的结果</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_actor_import"><a class="anchor" href="#_actor_import"></a>Actor import</h3>
+<h3 id="_actor导入"><a class="anchor" href="#_actor导入"></a>Actor导入</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-none hljs">import Broadcast "ic:ABCDEF23";
@@ -1609,9 +1604,9 @@ actor Self {
 </div>
 </div>
 <div class="sect2">
-<h3 id="_principal_and_caller"><a class="anchor" href="#_principal_and_caller"></a>Principal and caller</h3>
+<h3 id="_主体和调用"><a class="anchor" href="#_主体和调用"></a>主体和调用</h3>
 <div class="paragraph">
-<p>a <code>Principal</code> type represents the identity of a user or canister/actor</p>
+<p><code>Principal</code> 类型表示用户或容器/actor的身份</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1631,15 +1626,15 @@ actor Self {
 </div>
 </div>
 <div class="sect1">
-<h2 id="_type_system"><a class="anchor" href="#_type_system"></a>Type system</h2>
+<h2 id="_类型系统"><a class="anchor" href="#_类型系统"></a>类型系统</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The next sections highlight details about type system used in the Motoko programming language.</p>
+<p>下一节重点介绍 Motoko 编程语言中使用的类型系统的详细信息。</p>
 </div>
 <div class="sect2">
-<h3 id="_structural"><a class="anchor" href="#_structural"></a>Structural</h3>
+<h3 id="_结构"><a class="anchor" href="#_结构"></a>结构</h3>
 <div class="paragraph">
-<p>type definitions do not create types, but name existing types</p>
+<p>类型定义不创建类型，而是命名现有类型</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1653,7 +1648,7 @@ let h' = takeDamage(h, 100); // works</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_subtyping"><a class="anchor" href="#_subtyping"></a>Subtyping</h3>
+<h3 id="_子类型"><a class="anchor" href="#_子类型"></a>子类型</h3>
 <div class="paragraph">
 <p><code>Mortal &lt;: Health</code></p>
 </div>
@@ -1668,11 +1663,11 @@ let h' = takeDamage(h, 100); // also works</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p><code>t1 &lt;: t2</code>: <code>t1</code> can be used wherever <code>t2</code> is expected</p>
+<p><code>t1 &lt;: t2</code>：<code>t1</code> 可以在任何需要 <code>t2</code> 的地方使用</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_generic_types"><a class="anchor" href="#_generic_types"></a>Generic types</h3>
+<h3 id="_通用类型"><a class="anchor" href="#_通用类型"></a>通用类型</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-none hljs">type List&lt;T&gt; = ?{head : T; tail : List&lt;T&gt;};
@@ -1684,7 +1679,7 @@ let l : List&lt;Nat&gt; = ?{head = 0; tail = ?{head = 1 ; tail = null }};</code>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_error_handling"><a class="anchor" href="#_error_handling"></a>Error handling</h2>
+<h2 id="_错误处理"><a class="anchor" href="#_错误处理"></a>错误处理</h2>
 <div class="sectionbody">
 <div class="listingblock">
 <div class="content">

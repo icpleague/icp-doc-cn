@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Hosting a Static Website on the Internet Computer :: Motoko documentation</title>
+    <title>Untitled :: Motoko documentation</title>
     <meta name="generator" content="Antora 3.0.1">
 <link rel="stylesheet" href="../../_/css/site.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" /><meta property="og:image:width" content="1200" />
@@ -880,56 +880,54 @@
 </div>
 <div class="main-content">
 <article class="doc">
-<h1 class="page">Hosting a Static Website on the Internet Computer</h1>
-<div id="preamble">
-<div class="sectionbody">
 <div class="paragraph">
-<p>Before you begin, make sure you are set up with our {sdk-short-name} (DFX) and a Cycles Wallet, either from the <a href="cycles-faucet.html">Faucet Quickstart</a> or by purchasing ICP and following our <a href="network-quickstart.html">Network Deployment</a> guide.</p>
+<p>在互联网计算机上存储一个静态网站</p>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_set_up_your_project"><a class="anchor" href="#_set_up_your_project"></a>Set up your project</h2>
-<div class="sectionbody">
+<div class="exampleblock">
+<div class="content">
 <div class="paragraph">
-<p>Let&#8217;s create a simple static website, and then set it up to deploy with dfx.</p>
+<p>在开始之前，请确保您已使用我们的 {sdk-short-name} (DFX) 和燃料费钱包进行设置，可以通过链接：cycles-faucet.html[Faucet快速入门] 或通过购买 ICP 并点击我们的链接 :network-quickstart.html[网络部署]指南。</p>
+</div>
+<div class="paragraph">
+<p>== 设置你的项目</p>
+</div>
+<div class="paragraph">
+<p>让我们创建一个简单的静态网站，然后将其设置为使用 dfx 进行部署。</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Create a folder named <code>static-ic-website</code></p>
+<p>Create a folder named static-ic-website</p>
 </li>
 <li>
-<p>In <code>static-ic-website</code>, create a new folder, named <code>assets</code>.</p>
+<p>In static-ic-website, create a new folder, named assets.</p>
 </li>
 <li>
-<p>Inside your <code>assets</code> folder, create 4 files</p>
+<p>Inside your assets folder, create 4 files</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>index.html</code></p>
+<p>index.html</p>
 </li>
 <li>
-<p><code>page-2.html</code></p>
+<p>page-2.html</p>
 </li>
 <li>
-<p><code>script.js</code></p>
+<p>script.js</p>
 </li>
 <li>
-<p><code>style.css</code></p>
+<p>style.css</p>
 </li>
 </ul>
 </div>
 </li>
 </ol>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_add_some_content"><a class="anchor" href="#_add_some_content"></a>Add some content</h2>
-<div class="sectionbody">
 <div class="paragraph">
-<p>Let&#8217;s start with <code>index.html</code>. Paste the following code into your file:</p>
+<p>== 添加一些内容</p>
+</div>
+<div class="paragraph">
+<p>让我们从 index.html 开始。 将以下代码粘贴到您的文件中:</p>
 </div>
 <div class="listingblock">
 <div class="title">index.html</div>
@@ -954,7 +952,7 @@
 </div>
 </div>
 <div class="paragraph">
-<p>Next, open up <code>page-2.html</code> and add this content.</p>
+<p>接下来，打开 page-2.html 并添加此内容。</p>
 </div>
 <div class="listingblock">
 <div class="title">page-2.html</div>
@@ -976,7 +974,7 @@
 </div>
 </div>
 <div class="paragraph">
-<p>Then, add some simple logic to script.js.</p>
+<p>然后，在 script.js 中添加一些简单的逻辑。</p>
 </div>
 <div class="listingblock">
 <div class="title">script.js</div>
@@ -986,7 +984,7 @@
 </div>
 </div>
 <div class="paragraph">
-<p>And then add some styles to <code>style.css</code>.</p>
+<p>然后在 +style.css 中添加一些样式。</p>
 </div>
 <div class="listingblock">
 <div class="title">style.css</div>
@@ -1001,13 +999,11 @@ p:first-of-type {
 }</code></pre>
 </div>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_configure_dfx_to_deploy"><a class="anchor" href="#_configure_dfx_to_deploy"></a>Configure DFX to deploy</h2>
-<div class="sectionbody">
 <div class="paragraph">
-<p>To host and run this website live on the Internet Computer platform, you will need to configure DFX to upload your files to a certified asset canister. In the root directory of your project, <code>static-ic-website</code>, create a new file, <code>dfx.json</code>. Then, add the following content:</p>
+<p>== 配置 DFX 进行部署</p>
+</div>
+<div class="paragraph">
+<p>要在 Internet Computer platform 上实时托管和运行此网站，您需要配置 DFX 以将文件上传到经过认证的资产容器。 在项目的根目录 static-ic-website 中，创建一个新文件 dfx.json。 然后，添加以下内容：</p>
 </div>
 <div class="listingblock">
 <div class="title">dfx.json</div>
@@ -1023,10 +1019,10 @@ p:first-of-type {
 </div>
 </div>
 <div class="paragraph">
-<p>This tells DFX that you want to create an asset canister, and that it should upload the contents of the <code>asset</code> folder. If you want to upload additional static assets, you can add them to the <code>asset</code> folder or add additional folders to the <code>source</code> configuration.</p>
+<p>这告诉 DFX 您要创建一个资产容器，并且它应该上传 asset 文件夹的内容。 如果要上传额外的静态资产，可以将它们添加到 asset 文件夹或将额外的文件夹添加到 source 配置中。</p>
 </div>
 <div class="paragraph">
-<p>Now, your directory should look something like this:</p>
+<p>现在，您的目录应该如下所示：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1038,13 +1034,11 @@ p:first-of-type {
 └── dfx.json</pre>
 </div>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_deploy_your_website"><a class="anchor" href="#_deploy_your_website"></a>Deploy your website</h2>
-<div class="sectionbody">
 <div class="paragraph">
-<p>To deploy your website, ensure you are in your terminal at the root of the project, and run this command:</p>
+<p>== 部署您的网站</p>
+</div>
+<div class="paragraph">
+<p>要部署您的网站，请确保您位于项目根目录的终端中，然后运行以下命令：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1052,7 +1046,7 @@ p:first-of-type {
 </div>
 </div>
 <div class="paragraph">
-<p>You should see some output in your console, and a success message looking something like this:</p>
+<p>您应该会在控制台中看到一些输出，以及如下所示的成功消息：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1071,13 +1065,11 @@ Committing batch.
 Deployed canisters.</pre>
 </div>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_see_your_live_website"><a class="anchor" href="#_see_your_live_website"></a>See your live website</h2>
-<div class="sectionbody">
 <div class="paragraph">
-<p>Find your new canister&#8217;s ID by running</p>
+<p>== 查看您的实时网站</p>
+</div>
+<div class="paragraph">
+<p>通过运行查找新容器的 ID</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1085,23 +1077,23 @@ Deployed canisters.</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Take that canister ID and visit <code><a href="https://&lt;canister-id&gt;.ic0.app" class="bare">https://&lt;canister-id&gt;.ic0.app</a></code>, inserting your own canister ID as the subdomain in the URL.</p>
+<p>获取该容器 ID 并访问 https://&lt;canister-id&gt;.ic0.app，在 URL 中插入您自己的容器 ID 作为子域。</p>
 </div>
 <div class="paragraph">
-<p>You should see your live, multi-page website, looking like this!</p>
+<p>您应该看到您的实时多页网站，看起来像这样！</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="_images/static-website.png" alt="Static Website"></span></p>
 </div>
-<div class="sect2">
-<h3 id="_next_steps"><a class="anchor" href="#_next_steps"></a>Next steps</h3>
 <div class="paragraph">
-<p>Looking to build a full-stack dapp? Check out the
-<a href="../developers-guide/tutorials/custom-frontend.html">Full-stack React Tutorial</a>!</p>
+<p>=== 下一步</p>
 </div>
 <div class="paragraph">
-<p>Visit our <a href="https://forum.dfinity.org">Developer Forum</a> for inspiration and support from Dfinity Foundation engineers and the developer community.</p>
+<p>想要构建一个全栈 dapp？ 查看
+链接:../developers-guide/tutorials/custom-frontend.html[Full-stack React Tutorial]!</p>
 </div>
+<div class="paragraph">
+<p>访问我们的链接:https://forum.dfinity.org[Developer Forum] 寻求 Dfinity 基金会工程师和开发者社区的灵感和支持。</p>
 </div>
 </div>
 </div>

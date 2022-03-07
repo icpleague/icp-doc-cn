@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>介绍互联网计算机 :: Motoko documentation</title>
+    <title>Rust Canister 开发安全最佳实践 :: Motoko documentation</title>
     <meta name="generator" content="Antora 3.0.1">
 <link rel="stylesheet" href="../../_/css/site.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" /><meta property="og:image:width" content="1200" />
@@ -116,21 +116,21 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
-  <li class="nav-item is-current-page" data-depth="1">
+  <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="welcome.html"><strong>介绍</strong></a>
+    <a class="nav-link" href="../introduction/welcome.html"><strong>介绍</strong></a>
     
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="#for-first-timers">适合: 初学者</a>
+    <a class="nav-link" href="../introduction/welcome.html#for-first-timers">适合: 初学者</a>
     
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="#for-developers">适合: 开发者</a>
+    <a class="nav-link" href="../introduction/welcome.html#for-developers">适合: 开发者</a>
     
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="#for-protocol-enthusiasts">适合: 协议爱好者</a>
+    <a class="nav-link" href="../introduction/welcome.html#for-protocol-enthusiasts">适合: 协议爱好者</a>
     
   </li>
 </ul>
@@ -873,126 +873,767 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">Developer Center</a></li>
-    <li><a href="welcome.html"><strong>介绍</strong></a></li>
+    <li><a href="rust-canister-development-security-best-practices.html">Rust Canister 开发安全最佳实践</a></li>
   </ul>
 </nav>
 </div>
 <div class="main-content">
 <article class="doc">
-<h1 class="page">介绍互联网计算机</h1>
-<div id="preamble">
+<h1 class="page">Rust Canister 开发安全最佳实践</h1>
+<div class="sect1">
+<h2 id="_不可变的智能合约"><a class="anchor" href="#_不可变的智能合约"></a>不可变的智能合约</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="_使用像sns这样的去中心化治理系统让canister拥有去中心化的控制器"><a class="anchor" href="#_使用像sns这样的去中心化治理系统让canister拥有去中心化的控制器"></a>使用像SNS这样的去中心化治理系统，让canister拥有去中心化的控制器</h3>
+<div class="sect3">
+<h4 id="_安全问题"><a class="anchor" href="#_安全问题"></a>安全问题</h4>
 <div class="paragraph">
-<p>大家好!</p>
+<p>容器的控制者可以随时改变/更新容器。如果一个容器储存了ICP等资产，这实际上意味着控制者可以通过更新容器来窃取这些资产，并将燃料费转移到他们的账户。</p>
 </div>
-<div class="paragraph">
-<p>如果你登陆到这里，有兴趣了解更多关于互联网计算机的信息。那么你来对了地方&#8212;&#8203;看看下面的内容，看看从哪里开始吧！</p>
 </div>
+<div class="sect3">
+<h4 id="_建议"><a class="anchor" href="#_建议"></a>建议</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>要实现不可变的容器智能合约，你不能成为容器的控制器。控制权必须传递给服务神经系统（SNS）或一个去中心化的治理系统。</p>
+</li>
+<li>
+<p>创建不可变的容器智能合约的另一个选择是完全删除容器控制器。但请注意，这意味着容器不能被升级，这可能会产生严重的影响，例如发现一个错误。</p>
+</li>
+<li>
+<p>请注意，与其他一些区块链相反，不可变的智能合约也需要燃料费来运行，而且它们可以接收燃料费。</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_验证您所依赖的智能合约的不变性"><a class="anchor" href="#_验证您所依赖的智能合约的不变性"></a>验证您所依赖的智能合约的不变性</h3>
+<div class="sect3">
+<h4 id="_安全问题_2"><a class="anchor" href="#_安全问题_2"></a>安全问题</h4>
 <div class="paragraph">
-<p>注释: 合格的开发者可以获得价值20美元的免费燃料费，开始向互联网计算机区块链部署容器智能合约。https://faucet.dfinity.org/auth[申请你的免费燃料费]</p>
+<p>如果容器依赖容器智能合约（即对其进行容器间调用），容器智能合约必须是不可变的。 否则，即如果它有一个控制器，他们可以随时修改智能合约，例如 窃取容器持有的资产。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_推荐"><a class="anchor" href="#_推荐"></a>推荐</h4>
+<div class="paragraph">
+<p>如果您与必须是不可变智能合约的容器进行交互，请确保它由 NNS、服务神经系统 (SNS) 或去中心化治理系统控制。</p>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="针对菜鸟"><a class="anchor" href="#针对菜鸟"></a>针对: 菜鸟</h2>
+<h2 id="_身份验证"><a class="anchor" href="#_身份验证"></a>身份验证</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="_确保只有特定用户才能执行的任何操作都需要身份验证"><a class="anchor" href="#_确保只有特定用户才能执行的任何操作都需要身份验证"></a>确保只有特定用户才能执行的任何操作都需要身份验证</h3>
+<div class="sect3">
+<h4 id="_安全问题_3"><a class="anchor" href="#_安全问题_3"></a>安全问题</h4>
 <div class="paragraph">
-<p>互联网计算机是一个以网络速度运行的区块链，容量不受限制。</p>
+<p>如果不是这种情况，攻击者可能能够代表用户执行敏感操作，从而危及他们的帐户。</p>
 </div>
-<div class="paragraph">
-<p>作为区块链历史的速成课程，比特币创造了数字黄金。然后，在下一步的演变中，以太坊开发了智能合约并开创了DeFi和NFT用例。</p>
 </div>
-<div class="paragraph">
-<p>互联网计算机是第三大区块链创新&#8212;&#8203;区块链可以扩展智能合约的计算，以网络速度运行它们，有效地处理和存储数据，并为开发者提供强大的软件框架。通过使之成为可能，互联网计算机使系统和应用程序的运行方式得到了完全的重新想象。</p>
+<div class="sect3">
+<h4 id="_推荐_2"><a class="anchor" href="#_推荐_2"></a>推荐</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>根据设计，对于每个容器调用，都可以识别调用者。 调用链接：https://smartcontracts.org/docs/interface-spec/index.html#principal[principal] 可以使用系统API的方法`ic0.msg_caller_size`和`ic0.msg_caller_copy`访问（见链接：https ://docs.dfinity.systems/spec/public/#system-api-imports[这里]）。 如果例如 使用Internet Identity，principal是这个特定来源的用户身份，见链接：https://github.com/dfinity/internet-identity/blob/main/docs/internet-identity-spec.adoc#identity-design -和数据模型[这里]。 如果某些操作（例如访问用户帐户数据或帐户特定操作）应限制为一个主体或一组主体，则必须在容器调用中明确检查，例如 Rust 中的如下：</p>
+</li>
+</ul>
 </div>
-<div class="paragraph">
-<p>有兴趣了解更多吗？请查看以下资源：</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-rust hljs" data-lang="rust">    // Let pk be the public key of a principal that is allowed to perform
+    // this operation. This pk could be stored in the canister's state.
+    if caller() != Principal::self_authenticating(pk) {  ic_cdk::trap(...) }
+
+    // Alternatively, if the canister keeps data for different principals
+    // in e.g. a map such as BTreeMap&lt;Principal, UserData&gt;, then the canister
+    // must ensure that each caller can only access and perform operations
+    // on their own data:
+    if let Some(user_data) = user_data_store.get_mut(&amp;caller()) {
+    	// perform operations on the user's data
+    }</code></pre>
+</div>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>链接:https://www.youtube.com/watch?v=YWHTNr8RZHg&amp;list=PLuhDt1vhGcrf4DgKZecU3ar_RA1cB0vUT&amp;index=17&amp;ab_channel=DFINITY[互联网计算机入门]， 10分钟的互联网计算机高级概述</p>
+<p>在 Rust 中，<code>ic_cdk</code> crate 可用于使用 <code>ic_cdk::api::caller</code> 对调用者进行身份验证。 确保返回的主体是 <code>Principal::self_authenticating</code> 类型，并使用该主体的公钥识别用户帐户，请参见上面的示例代码。</p>
 </li>
 <li>
-<p>链接:https://medium.com/dfinity[互联网计算机评测]， 我们的博客涵盖了互联网计算机的更新</p>
-</li>
-<li>
-<p>链接:https://thereboot.com/[重新启动]], 我们的探讨当前互联网的问题的技术性出版物</p>
+<p>在调用中尽早进行身份验证，以避免在身份验证之前进行未经身份验证的操作和潜在的昂贵操作。 链接：rust-canister-development-security-best-practices.adoc#disallow-the-anonymous-principal[拒绝向匿名用户提供服务] 也是一个好主意。</p>
 </li>
 </ul>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="disallow-the-anonymous-principal"><a class="anchor" href="#disallow-the-anonymous-principal"></a>在经过身份验证的调用中禁止匿名主体</h3>
+<div class="sect3">
+<h4 id="_安全问题_4"><a class="anchor" href="#_安全问题_4"></a>安全问题</h4>
 <div class="paragraph">
-<p>在官方链接上关注我们获取最新的更新信息https://twitter.com/dfinity[DFINITY Twitter]。</p>
+<p><code>ic0::api::caller</code> 也可能返回 <code>Principal::anonymous()</code>。 在经过身份验证的呼叫中，这可能是不希望的（并且可能具有安全隐患），因为对于进行未经身份验证的呼叫的任何人来说，这就像一个共享帐户。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_推荐_3"><a class="anchor" href="#_推荐_3"></a>推荐</h4>
+<div class="paragraph">
+<p>在经过身份验证的调用中，确保调用者不是匿名的，如果是则返回错误或陷阱。 这可以例如 通过使用辅助方法集中完成，例如：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-rust hljs" data-lang="rust">fn caller() -&gt; Result&lt;Principal, String&gt; {
+    let caller = ic0::api::caller();
+    // The anonymous principal is not allowed to interact with canister.
+    if caller == Principal::anonymous() {
+        Err(String::from(
+            "Anonymous principal not allowed to make calls.",
+        ))
+    } else {
+        Ok(caller)
+    }
+}</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="针对开发者"><a class="anchor" href="#针对开发者"></a>针对: 开发者</h2>
+<h2 id="_资产认证"><a class="anchor" href="#_资产认证"></a>资产认证</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="_使用_http_资产认证并避免通过_raw_ic0_app_为您的_dapp_提供服务"><a class="anchor" href="#_使用_http_资产认证并避免通过_raw_ic0_app_为您的_dapp_提供服务"></a>使用 HTTP 资产认证并避免通过 <code>raw.ic0.app</code> 为您的 dApp 提供服务</h3>
+<div class="sect3">
+<h4 id="_安全问题_5"><a class="anchor" href="#_安全问题_5"></a>安全问题</h4>
 <div class="paragraph">
-<p>互联网计算机承载着特殊的智能合约，称为 链接:https://medium.com/dfinity/software-canisters-an-evolution-of-smart-contracts-internet-computer-f1f92f1bfffb[canisters]. 容器智能合约是一些 链接:https://webassembly.org/[WebAssembly]字节码逻辑和内存页。互联网计算机上的Dapps是由一个或多个容器创建的。</p>
+<p>IC 上的 dApp 可以使用链接：https://wiki.internetcomputer.org/wiki/HTTP_asset_certification[资产认证] 来确保交付给浏览器的 HTTP 资产是真实的（即由子网进行阈值签名）。 如果一个应用程序不做资产认证，它只能通过不检查资产认证的 <code>raw.ic0.app</code> 不安全地提供服务。 这是不安全的，因为单个恶意节点或边界节点可以自由修改传递给浏览器的资产。</p>
 </div>
 <div class="paragraph">
-<p>容器智能合约可以直接向终端用户提供网络内容，例如在他们的浏览器中，用户可以与区块链服务互动，而无需持有代币。</p>
+<p>如果除 <code>ic0.app</code> 之外还通过 <code>raw.ic0.app</code> 提供应用程序，则攻击者可能会诱骗用户（网络钓鱼）使用不安全的 raw.ic0.app。</p>
 </div>
-<div class="paragraph">
-<p>互联网计算机区块链最终可以承载任何数量的容器智能合约（即代码和状态）。此外，它可以以无限制的链上容量并发运行它们。这意味着你可以创建可以扩展的dapp。</p>
 </div>
-<div class="paragraph">
-<p>容器智能合约是不可阻挡和不可篡改的。想象一下，建设时不必担心数据库、缓存、防火墙、CDN、云供应商、VPN、DNS，甚至用户名和密码&#8212;&#8203;所有这些都是因为互联网计算机将这些需求抽象出来了。</p>
-</div>
-<div class="paragraph">
-<p>跃跃欲试了吗？看看我们的 <a href="../quickstart/quickstart-intro.html" class="xref page">快速入门</a>，开始使用一个简单的hello world dapp。</p>
-</div>
-<div class="paragraph">
-<p>对融入我们的开发者社区感兴趣吗？请查看以下内容：</p>
-</div>
+<div class="sect3">
+<h4 id="_推荐_4"><a class="anchor" href="#_推荐_4"></a>推荐</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>链接:https://discord.gg/cA7y6ezyE2[Developer Discord]， 我们为开发者社区提供的官方 Discord</p>
+<p>仅通过服务工作者验证资产认证的 <code>&lt;canister-id&gt;.ic0.app</code> 提供资产。 不要通过 <code>&lt;canister-id&gt;.raw.ic0.app</code> 提供服务。</p>
 </li>
 <li>
-<p>链接:https://forum.dfinity.org/[开发者论坛]， 一个关于在互联网上建立计算机的技术讨论的温馨空间。</p>
+<p>使用资产容器（自动创建资产认证）提供资产，或添加包括资产认证的“ic-certificate”标头，例如 在链接中完成：https://github.com/dfinity/nns-dapp[NNS dApp] 或链接：https://github.com/dfinity/internet-identity[Internet Identity]。</p>
+</li>
+<li>
+<p>如果请求来自原始，请检查容器的 <code>http_request</code> 方法。 如果是这样，则返回错误并且不提供任何资产。</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>您可以通过链接:https://twitter.com/dfinitydev[DFINITY Developer Twitter] 关注我们，了解最新的开发者专用更新。</p>
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="针对协议爱好者"><a class="anchor" href="#针对协议爱好者"></a>针对: 协议爱好者</h2>
+<h2 id="_容器存储"><a class="anchor" href="#_容器存储"></a>容器存储</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_使用_thread_local_和_cellrefcell_作为状态变量并将所有全局变量放在一个篮子中"><a class="anchor" href="#_使用_thread_local_和_cellrefcell_作为状态变量并将所有全局变量放在一个篮子中"></a>使用 <code>thread_local!</code> 和 <code>Cell/RefCell</code> 作为状态变量，并将所有全局变量放在一个篮子中。</h3>
+<div class="sect3">
+<h4 id="_安全问题_6"><a class="anchor" href="#_安全问题_6"></a>安全问题</h4>
+<div class="paragraph">
+<p>容器需要全局可变状态。 在 Rust 中，有几种方法可以实现这一点。 但是，某些选项可能会导致，例如 到内存损坏。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_推荐_5"><a class="anchor" href="#_推荐_5"></a>推荐</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>链接:https://mmapped.blog/posts/01-effective-rust-canisters.html#use-threadlocal[Use <code>thread_local!</code> with <code>Cell/RefCell</code> for state variables.] (from <a href="https://mmapped.blog/posts/01-effective-rust-canisters.html">Effective Rust Canisters</a>)</p>
+</li>
+<li>
+<p>链接:https://mmapped.blog/posts/01-effective-rust-canisters.html#clear-state[Put all your globals in one basket.] (from <a href="https://mmapped.blog/posts/01-effective-rust-canisters.html">Effective Rust Canisters</a>)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_限制每个用户可以存储在容器中的数据量"><a class="anchor" href="#_限制每个用户可以存储在容器中的数据量"></a>限制每个用户可以存储在容器中的数据量</h3>
+<div class="sect3">
+<h4 id="_安全问题_7"><a class="anchor" href="#_安全问题_7"></a>安全问题</h4>
+<div class="paragraph">
+<p>如果用户能够在容器上存储大量数据，这可能会被滥用以填满容器存储并使容器无法使用。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_推荐_6"><a class="anchor" href="#_推荐_6"></a>推荐</h4>
+<div class="paragraph">
+<p>限制每个用户可以存储在容器中的数据量。 每当在更新调用中为用户存储数据时，都必须检查此限制。</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_考虑使用稳定的内存版本测试"><a class="anchor" href="#_考虑使用稳定的内存版本测试"></a>考虑使用稳定的内存，版本，测试</h3>
+<div class="sect3">
+<h4 id="_安全问题_8"><a class="anchor" href="#_安全问题_8"></a>安全问题</h4>
+<div class="paragraph">
+<p>容器内存不会在升级过程中保持不变。 如果需要在升级期间保留数据，很自然的做法是在 <code>pre_upgrade</code> 中序列化容器内存，并在 <code>post_upgrade</code> 中对其进行反序列化。 但是，这些方法的可用指令数量是有限的。 如果内存增长过大，则无法再更新容器。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_推荐_7"><a class="anchor" href="#_推荐_7"></a>推荐</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>稳定内存在升级过程中保持不变，可用于解决此问题。</p>
+</li>
+<li>
+<p><a href="https://mmapped.blog/posts/01-effective-rust-canisters.html#stable-memory-main">Consider using stable memory.</a> (from <a href="https://mmapped.blog/posts/01-effective-rust-canisters.html">Effective Rust Canisters</a>). See also the disadvantages discussed there.</p>
+</li>
+<li>
+<p><a href="https://mmapped.blog/posts/01-effective-rust-canisters.html#version-stable-memory">Version stable memory.</a> (from <a href="https://mmapped.blog/posts/01-effective-rust-canisters.html">Effective Rust Canisters</a>)</p>
+</li>
+<li>
+<p><a href="https://mmapped.blog/posts/01-effective-rust-canisters.html#test-upgrades">Test the upgrade hooks.</a> (from <a href="https://mmapped.blog/posts/01-effective-rust-canisters.html">Effective Rust Canisters</a>)</p>
+</li>
+<li>
+<p>See also the section on upgrades in <a href="https://www.joachim-breitner.de/blog/788-How_to_audit_an_Internet_Computer_canister">How to audit an Internet Computer canister</a> (though focused on Motoko)</p>
+</li>
+<li>
+<p>Write tests for stable memory to avoid bugs.</p>
+</li>
+<li>
+<p>Some libraries (mostly work in progress / partly unfinished) that people work on:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/dfinity/stable-structures/">https://github.com/dfinity/stable-structures/</a></p>
+<div class="ulist">
+<ul>
+<li>
+<p>HashMap: <a href="https://github.com/dfinity/stable-structures/pull/1">https://github.com/dfinity/stable-structures/pull/1</a> (currently not prod ready)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><a href="https://github.com/seniorjoinu/ic-stable-memory-allocator">https://github.com/seniorjoinu/ic-stable-memory-allocator</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>请参阅链接：https://wiki.internetcomputer.org/wiki/Current_limitations_of_the_Internet_Computer[Internet 计算机的当前限制]，“长期运行升级”和“需要额外 wasm 内存的 [de]serializer”部分</p>
+</li>
+<li>
+<p>例如链接：https://github.com/dfinity/internet-identity[internet identity] 直接使用稳定内存存储用户数据。</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_考虑加密容器上的敏感数据"><a class="anchor" href="#_考虑加密容器上的敏感数据"></a>考虑加密容器上的敏感数据</h3>
+<div class="sect3">
+<h4 id="_安全问题_9"><a class="anchor" href="#_安全问题_9"></a>安全问题</h4>
+<div class="paragraph">
+<p>默认情况下，容器提供完整性但不提供机密性。 存储在容器上的数据可以被节点/副本读取。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_推荐_8"><a class="anchor" href="#_推荐_8"></a>推荐</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>考虑对容器上的任何私人或个人数据（例如用户的个人或私人信息）进行端到端加密。</p>
+</li>
+<li>
+<p>我们目前正在开发一个示例 dApp（加密笔记）来说明如何进行端到端加密。</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_创建备份"><a class="anchor" href="#_创建备份"></a>创建备份</h3>
+<div class="sect3">
+<h4 id="_安全问题_10"><a class="anchor" href="#_安全问题_10"></a>安全问题</h4>
+<div class="paragraph">
+<p>容器可能会变得不可用，因此它永远无法再次升级，例如 由于以下原因：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>它有一个错误的升级过程（由于 dapp 开发人员的一些错误）。</p>
+</li>
+<li>
+<p>由于持久化数据的代码中的错误，状态变得不一致/损坏。</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_推荐_9"><a class="anchor" href="#_推荐_9"></a>推荐</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>确保升级中使用的方法经过测试，否则容器变得不可变。</p>
+</li>
+<li>
+<p>制定可以重新安装容器的灾难恢复策略可能会很有用。</p>
+</li>
+<li>
+<p>请参阅链接中的“备份和恢复”部分:https://www.joachim-breitner.de/blog/788-How_to_audit_an_Internet_Computer_canister[How to audit an Internet Computer canister]</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_容器间调用和回滚"><a class="anchor" href="#_容器间调用和回滚"></a>容器间调用和回滚</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_不要在等待之后恐慌不要跨等待边界锁定共享资源"><a class="anchor" href="#_不要在等待之后恐慌不要跨等待边界锁定共享资源"></a>不要在等待之后恐慌，不要跨等待边界锁定共享资源</h3>
+<div class="sect3">
+<h4 id="_安全问题_11"><a class="anchor" href="#_安全问题_11"></a>安全问题</h4>
+<div class="paragraph">
+<p>恐慌和陷阱回滚罐状态。因此，任何伴随陷阱或恐慌的状态变化都是值得关注的。当进行容器间调用时，这也是一个重要的问题。如果在容器间调用的“等待”之后发生恐慌/陷阱，则状态将恢复到容器间调用回调调用之前的快照（而不是在整个调用之前！）。</p>
+</div>
+<div class="paragraph">
+<p>这可能是例如导致以下问题：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>如果在容器间调用之前状态更改导致状态不一致，并且在容器间调用之后出现恐慌，则会导致容器状态不一致。</p>
+</li>
+<li>
+<p>特别是，如果在容器间调用之前分配的资源（例如锁或内存）没有被释放，这可以例如导致罐子被永远锁定。</p>
+</li>
+<li>
+<p>通常，当开发人员预期的数据未持久化时，可能会出现错误。</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_推荐_10"><a class="anchor" href="#_推荐_10"></a>推荐</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://mmapped.blog/posts/01-effective-rust-canisters.html#panic-await">Don’t panic after <code>await</code></a> (from <a href="https://mmapped.blog/posts/01-effective-rust-canisters.html">Effective Rust Canisters</a>)</p>
+</li>
+<li>
+<p><a href="https://mmapped.blog/posts/01-effective-rust-canisters.html#dont-lock">Don&#8217;t lock shared resources across await boundaries</a> (from <a href="https://mmapped.blog/posts/01-effective-rust-canisters.html">Effective Rust Canisters</a>)</p>
+</li>
+<li>
+<p>See also: "Inter-canister calls" section in <a href="https://www.joachim-breitner.de/blog/788-How_to_audit_an_Internet_Computer_canister">How to audit an Internet Computer canister</a></p>
+</li>
+<li>
+<p>For context: <a href="https://docs.dfinity.systems/spec/public/#rule-message-execution">IC interface spec on message execution</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_请注意容器间调用期间状态可能会发生变化"><a class="anchor" href="#_请注意容器间调用期间状态可能会发生变化"></a>请注意，容器间调用期间状态可能会发生变化</h3>
+<div class="sect3">
+<h4 id="_安全问题_12"><a class="anchor" href="#_安全问题_12"></a>安全问题</h4>
+<div class="paragraph">
+<p>消息（但不是整个调用）以原子方式处理。 这可能会导致安全问题，例如：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Time-of-check time-of-use：在容器间调用之前检查全局状态的某些条件，并错误地假设它在调用返回时仍然保持。</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_推荐_11"><a class="anchor" href="#_推荐_11"></a>推荐</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>请注意，在容器间调用期间状态可能会发生变化。 仔细检查您的代码，以免出现此类错误。</p>
+</li>
+<li>
+<p>另请参阅：链接中的“容器间调用”部分:https://www.joachim-breitner.de/blog/788-How_to_audit_an_Internet_Computer_canister[How to audit an Internet Computer canister]</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_仅对可信赖的容器进行容器间调用"><a class="anchor" href="#_仅对可信赖的容器进行容器间调用"></a>仅对可信赖的容器进行容器间调用</h3>
+<div class="sect3">
+<h4 id="_安全问题_13"><a class="anchor" href="#_安全问题_13"></a>安全问题</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>如果对潜在的恶意容器进行容器间调用，这可能会导致 DoS 问题，或者可能存在与坦率解码相关的问题。 此外，可以假定从容器调用返回的数据是可信的，但实际上并非如此。</p>
+</li>
+<li>
+<p>如果使用回调调用容器，如果对等方没有响应，接收方可能会无限期停止，从而导致 DoS。 如果容器处于该状态，则无法再升级它。 恢复将涉及重新安装、擦除容器的状态。</p>
+</li>
+<li>
+<p>总之，如果容器的行为取决于容器间调用响应，这可能会拒绝容器、消耗过多的资源或导致逻辑错误。</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_推荐_12"><a class="anchor" href="#_推荐_12"></a>推荐</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>仅对可信赖的容器进行容器间调用。</p>
+</li>
+<li>
+<p>清理从容器间调用返回的数据。</p>
+</li>
+<li>
+<p>请参阅链接中的“与恶意罐交谈”部分:https://www.joachim-breitner.de/blog/788-How_to_audit_an_Internet_Computer_canister[How to audit an Internet Computer canister]</p>
+</li>
+<li>
+<p>See <a href="https://wiki.internetcomputer.org/wiki/Current_limitations_of_the_Internet_Computer">Current limitations of the Internet Computer</a>, section "Calling potentially malicious or buggy canisters can prevent canisters from upgrading"</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_确保调用图中没有循环"><a class="anchor" href="#_确保调用图中没有循环"></a>确保调用图中没有循环</h3>
+<div class="sect3">
+<h4 id="_安全问题_14"><a class="anchor" href="#_安全问题_14"></a>安全问题</h4>
+<div class="paragraph">
+<p>调用图中的循环（例如容器 A 调用 B、B 调用 C、C 调用 A）可能导致容器死锁。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_推荐_13"><a class="anchor" href="#_推荐_13"></a>推荐</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>避免这样的循环！</p>
+</li>
+<li>
+<p>有关更多信息，请参阅链接:https://wiki.internetcomputer.org/wiki/Current_limitations_of_the_Internet_Computer[Current limitations of the Internet Computer], section "Loops in call graphs"</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_罐升级"><a class="anchor" href="#_罐升级"></a>罐升级</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_在升级过程中小心恐慌"><a class="anchor" href="#_在升级过程中小心恐慌"></a>在升级过程中小心恐慌</h3>
+<div class="sect3">
+<h4 id="_安全问题_15"><a class="anchor" href="#_安全问题_15"></a>安全问题</h4>
+<div class="paragraph">
+<p>如果容器在“pre_upgrade”中陷入陷阱或恐慌，这可能会导致容器永久阻塞，从而导致升级失败或根本无法升级的情况。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_推荐_14"><a class="anchor" href="#_推荐_14"></a>推荐</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>避免在 <code>pre_upgrade</code> 挂钩中出现恐慌/陷阱，除非它确实不可恢复，因此任何无效状态都可以通过升级修复。 pre-upgrade hook 中的 panic 会阻止升级，并且由于 pre-upgrade hook 由旧代码控制，它可以永久阻止升级。</p>
+</li>
+<li>
+<p>如果状态无效，则在 <code>post_upgrade</code> 挂钩中出现恐慌，以便可以重试升级并尝试修复无效状态。 升级后挂钩中的恐慌会中止升级，但可以使用新代码重试。</p>
+</li>
+<li>
+<p>链接：https://mmapped.blog/posts/01-effective-rust-canisters.html#test-upgrades[测试升级钩子。]（来自链接：https://mmapped.blog/posts/01-effective -rust-canisters.html[有效的rust容器])</p>
+</li>
+<li>
+<p>另请参阅链接中有关升级的部分：https://www.joachim-breitner.de/blog/788-How_to_audit_an_Internet_Computer_canister[如何审核互联网计算机容器]（尽管侧重于 Motoko）</p>
+</li>
+<li>
+<p>参见链接：https://wiki.internetcomputer.org/wiki/Current_limitations_of_the_Internet_Computer[互联网计算机的当前限制]，“<code>pre_upgrade</code> 挂钩中的错误”部分</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_杂项"><a class="anchor" href="#_杂项"></a>杂项</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="测试您的容器代码"><a class="anchor" href="#测试您的容器代码"></a>即使存在系统 API 调用，也可以测试您的容器代码</h3>
+<div class="sect3">
+<h4 id="_安全问题_16"><a class="anchor" href="#_安全问题_16"></a>安全问题</h4>
+<div class="paragraph">
+<p>由于容器与系统 API 交互，因此很难测试代码，因为单元测试无法调用系统 API。 这可能会导致缺少单元测试。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_推荐_15"><a class="anchor" href="#_推荐_15"></a>推荐</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>创建不依赖于系统 API 的松散耦合模块并对它们进行单元测试。 看到这个链接:https://mmapped.blog/posts/01-effective-rust-canisters.html#target-independent[recommendation] (from <a href="https://mmapped.blog/posts/01-effective-rust-canisters.html">Effective Rust Canisters</a>).</p>
+</li>
+<li>
+<p>对于仍与系统 API 交互的部分：创建在单元测试中伪造的系统 API 的精简抽象。 见链接:https://mmapped.blog/posts/01-effective-rust-canisters.html#target-independent[recommendation] (from <a href="https://mmapped.blog/posts/01-effective-rust-canisters.html">Effective Rust Canisters</a>).例如，可以按如下方式实现“运行时”，然后在测试中使用“模拟运行时”（Dimitris Sarlis 编写的代码）：</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-rust hljs" data-lang="rust">    use ic_cdk::api::{
+        call::call, caller, data_certificate, id, print, time, trap,
+    };
+
+    #[async_trait]
+    pub trait Runtime {
+        fn caller(&amp;self) -&gt; Result&lt;Principal, String&gt;;
+        fn id(&amp;self) -&gt; Principal;
+        fn time(&amp;self) -&gt; u64;
+        fn trap(&amp;self, message: &amp;str) -&gt; !;
+        fn print(&amp;self, message: &amp;str);
+        fn data_certificate(&amp;self) -&gt; Option&lt;Vec&lt;u8&gt;&gt;;
+        (...)
+    }
+
+    #[async_trait]
+    impl Runtime for RuntimeImpl {
+        fn caller(&amp;self) -&gt; Result&lt;Principal, String&gt; {
+            let caller = caller();
+            // The anonymous principal is not allowed to interact with the canister.
+            if caller == Principal::anonymous() {
+                Err(String::from(
+                    "Anonymous principal not allowed to make calls.",
+                ))
+            } else {
+                Ok(caller)
+            }
+        }
+
+        fn id(&amp;self) -&gt; Principal {
+            id()
+        }
+
+        fn time(&amp;self) -&gt; u64 {
+            time()
+        }
+
+        (...)
+
+    }
+
+    pub struct MockRuntime {
+        pub caller: Principal,
+        pub canister_id: Principal,
+        pub time: u64,
+        (...)
+    }
+
+    #[async_trait]
+    impl Runtime for MockRuntime {
+        fn caller(&amp;self) -&gt; Result&lt;Principal, String&gt; {
+            Ok(self.caller)
+        }
+
+        fn id(&amp;self) -&gt; Principal {
+            self.canister_id
+        }
+
+        fn time(&amp;self) -&gt; u64 {
+            self.time
+        }
+
+        (...)
+
+    }</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_使容器构建可重现"><a class="anchor" href="#_使容器构建可重现"></a>使容器构建可重现</h3>
+<div class="sect3">
+<h4 id="_安全问题_17"><a class="anchor" href="#_安全问题_17"></a>安全问题</h4>
+<div class="paragraph">
+<p>应该可以验证容器是否按照它声称的那样做。 IC 提供已部署 WASM 模块的 SHA256 哈希。 为了使其有用，容器构建必须是可重现的。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_推荐_16"><a class="anchor" href="#_推荐_16"></a>推荐</h4>
+<div class="paragraph">
+<p>使容器构建可重现。 看到这个链接:https://mmapped.blog/posts/01-effective-rust-canisters.html#reproducible-builds[recommendation] (from <a href="https://mmapped.blog/posts/01-effective-rust-canisters.html">Effective Rust Canisters</a>). See also <a href="https://smartcontracts.org/docs/developers-guide/tutorials/reproducible-builds.html">Developer docs on this</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_从您的容器中公开指标"><a class="anchor" href="#_从您的容器中公开指标"></a>从您的容器中公开指标</h3>
+<div class="sect3">
+<h4 id="_安全问题_18"><a class="anchor" href="#_安全问题_18"></a>安全问题</h4>
+<div class="paragraph">
+<p>万一受到攻击，能够从容器中获取相关指标是非常棒的，例如账户数量、内部数据结构大小、稳定内存等。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_推荐_17"><a class="anchor" href="#_推荐_17"></a>推荐</h4>
+<div class="paragraph">
+<p><a href="https://mmapped.blog/posts/01-effective-rust-canisters.html#expose-metrics">Expose metrics from your canister.</a> (from <a href="https://mmapped.blog/posts/01-effective-rust-canisters.html">Effective Rust Canisters</a>)</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_不要依赖时间是严格单调的"><a class="anchor" href="#_不要依赖时间是严格单调的"></a>不要依赖时间是严格单调的</h3>
+<div class="sect3">
+<h4 id="_安全问题_19"><a class="anchor" href="#_安全问题_19"></a>安全问题</h4>
+<div class="paragraph">
+<p>从 System API 读取的时间是单调的，但不是严格单调的。因此，两个后续调用可能会返回相同的时间，这可能会在使用时间 API 时导致安全漏洞。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_推荐_18"><a class="anchor" href="#_推荐_18"></a>推荐</h4>
+<div class="paragraph">
+<p>请参阅链接中的“时间不是严格单调的”部分：https://www.joachim-breitner.de/blog/788-How_to_audit_an_Internet_Computer_canister[如何审核 Internet 计算机容器]</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="保护-反对-排水-循环-平衡"><a class="anchor" href="#保护-反对-排水-循环-平衡"></a>防止耗尽循环余额</h3>
+<div class="sect3">
+<h4 id="_安全问题_20"><a class="anchor" href="#_安全问题_20"></a>安全问题</h4>
+<div class="paragraph">
+<p>容器为它们的燃料费，这使得它们天生就容易受到消耗所有燃料费的攻击。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_推荐_19"><a class="anchor" href="#_推荐_19"></a>推荐</h4>
+<div class="paragraph">
+<p>考虑监控、早期身份验证、容器级别的速率限制以减轻这种情况。另外，请注意，攻击者的目标是消耗大多数燃料费的调用。请参阅链接中的“循环平衡消耗攻击部分”：https://www.joachim-breitner.de/blog/788-How_to_audit_an_Internet_Computer_canister[如何审核 Internet 计算机容器]。</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_非特定于_internet_计算机"><a class="anchor" href="#_非特定于_internet_计算机"></a>非特定于 Internet 计算机</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>互联网计算机是由互联网计算机协议（"ICP"）创建的，它已经形成了世界上第一个网络速度、网络服务的公共区块链。互联网计算机是自我管理的，可以根据需要增长其容量。它结合了由世界各地的独立数据中心集体运行的特殊节点机器。像所有区块链一样，它是不可阻挡的，它所存储的代码是不可篡改的。</p>
+<p>本节中的最佳实践非常笼统，并不特定于 Internet 计算机。此列表绝不是完整的，仅列出了过去导致问题的一些非常具体的问题。</p>
 </div>
+<div class="sect2">
+<h3 id="_验证输入"><a class="anchor" href="#_验证输入"></a>验证输入</h3>
+<div class="sect3">
+<h4 id="_安全问题_21"><a class="anchor" href="#_安全问题_21"></a>安全问题</h4>
 <div class="paragraph">
-<p>从我们左边的 "概念 "部分开始，从 <a href="../developers-guide/concepts/what-is-IC.html" class="xref page">什么是互联网计算机</a></p>
-</div>
-<div class="paragraph">
-<p>要了解更多关于互联网计算机协议的信息，请查看以下资源：</p>
+<p>链接中发送的数据：https://smartcontracts.org/docs/interface-spec/index.html#http-interface[查询和更新调用]一般是不可信的。消息大小限制为几 MB。这可以例如引导以下问题：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>链接:https://dfinity.org/technicals/[技术库], 了解我们世界级研发团队解释互联网计算机协议组成部分的深入视频。特别值得注意的是:</p>
-<div class="ulist">
-<ul>
+<p>如果未经验证的数据在 Web UI 中呈现或显示在其他系统中，这可能导致注入攻击（例如 XSS）。</p>
+</li>
 <li>
-<p><a href="https://dfinity.org/technicals/chain-key-technology">链式密钥加密法</a>, 是使互联网计算机能够扩展到数百万节点的基本突破之一。链式钥匙加密法最显著的创新是，互联网计算机有一个单一的公钥，这使得任何设备都可以验证互联网计算机产生的人工制品的真实性，甚至是智能手表和手机。</p>
+<p>大尺寸的消息可能会被发送并可能存储在容器中，从而消耗过多的存储空间。</p>
+</li>
+<li>
+<p>大输入（例如大列表或字符串）可能会触发过多的计算，导致 DoS 并消耗许多燃料费。另见链接：rust-canister-development-security-best-practices.adoc#protect-against-draining-the-cycles-balance[防止耗尽燃料费余额]</p>
 </li>
 </ul>
 </div>
+</div>
+<div class="sect3">
+<h4 id="_推荐_20"><a class="anchor" href="#_推荐_20"></a>推荐</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>执行输入验证，参见例如链接：https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html[OWASP备忘单]。</p>
 </li>
 <li>
-<p><a href="#interface-spec:index.adoc" class="xref unresolved">接口规范</a>, 是一份深入的技术文件，提供了互联网计算机的低级外部接口的概述</p>
+<p>链接中的“大数据攻击”部分：https://www.joachim-breitner.de/blog/788-How_to_audit_an_Internet_Computer_canister[如何审核 Internet 计算机容器]（注意坦率的太空炸弹）</p>
 </li>
 <li>
-<p>链接:https://dashboard.internetcomputer.org/[互联网计算机仪表盘], 以监测围绕互联网计算机区块链的实时指标。</p>
+<p>链接：https://owasp.org/www-project-application-security-verification-standard/[ASVS] 5.1.4：验证结构化数据是强类型的，并针对定义的模式进行验证，包括允许的字符、长度和模式（例如信用卡号码或电话，或验证两个相关字段是否合理，例如检查郊区和邮政编码匹配）。</p>
 </li>
 </ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_rust不要使用不安全的_rust_代码"><a class="anchor" href="#_rust不要使用不安全的_rust_代码"></a>Rust：不要使用不安全的 Rust 代码</h3>
+<div class="sect3">
+<h4 id="_安全问题_22"><a class="anchor" href="#_安全问题_22"></a>安全问题</h4>
+<div class="paragraph">
+<p>不安全的 Rust 代码是有风险的，因为它可能会引入内存损坏问题。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_推荐_21"><a class="anchor" href="#_推荐_21"></a>推荐</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>尽可能避免不安全的代码。</p>
+</li>
+<li>
+<p>见链接：https://anssi-fr.github.io/rust-guide/04_language.html#unsafe-code[Rust安全指南]</p>
+</li>
+<li>
+<p>考虑链接：https://docs.dfinity.systems/dfinity/spec/meta/rust.html#_avoid_unsafe_code[Dfinity Rust Guidelines]。</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_rust避免整数溢出"><a class="anchor" href="#_rust避免整数溢出"></a>Rust：避免整数溢出</h3>
+<div class="sect3">
+<h4 id="_安全问题_23"><a class="anchor" href="#_安全问题_23"></a>安全问题</h4>
+<div class="paragraph">
+<p>Rust 中的整数可能会溢出。虽然这样的溢出会导致调试配置出现恐慌，但这些值只是在发布编译中默默地包裹起来。这可能会导致重大的安全问题，例如当整数用作索引、唯一 ID 或计算燃料费期或 ICP 量时。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_推荐_22"><a class="anchor" href="#_推荐_22"></a>推荐</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>仔细检查您的代码是否存在任何可能环绕的整数运算。</p>
+</li>
+<li>
+<p>使用这些操作的“饱和”或“已检查”变体，例如“饱和添加”、“饱和订阅”、“检查添加”、“检查订阅”等。参见例如链接：https://doc.rust-lang.org/std/primitive.u32.html#method.saturating_add[Rust docs] for <code>u32</code>。</p>
+</li>
+<li>
+<p>另见链接：https://anssi-fr.github.io/rust-guide/04_language.html#integer-overflows[Rust security Guidelines on integer overflows]。</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_对于昂贵的通话考虑使用验证码或工作证明"><a class="anchor" href="#_对于昂贵的通话考虑使用验证码或工作证明"></a>对于昂贵的通话，考虑使用验证码或工作证明</h3>
+<div class="sect3">
+<h4 id="_安全问题_24"><a class="anchor" href="#_安全问题_24"></a>安全问题</h4>
+<div class="paragraph">
+<p>如果更新或查询调用很昂贵，例如就使用的内存或消耗的燃料费而言，这可能使机器人很容易使容器不可用（例如，通过填满它的存储空间）。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_推荐_23"><a class="anchor" href="#_推荐_23"></a>推荐</h4>
+<div class="paragraph">
+<p>如果 dApp 提供此类操作，请考虑使用 bot 预防技术，例如添加验证码或工作量证明。有例如链接中的验证码实现：https://github.com/dfinity/internet-identity[internet identity]。</p>
+</div>
+</div>
 </div>
 </div>
 </div>
