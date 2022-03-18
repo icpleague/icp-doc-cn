@@ -141,23 +141,11 @@
     
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../quickstart/newcomers.html">对于新人</a>
+    <a class="nav-link" href="../quickstart/how-to-deploy-hello-world-smart-contract.html">20分钟部署第一个DAPP</a>
     
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../quickstart/cycles-faucet.html">获取免费的Cycles</a>
-    
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../quickstart/host-a-website.html">托管静态网站</a>
-    
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../quickstart/local-quickstart.html">本地开发</a>
-    
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../quickstart/network-quickstart.html">网络部署</a>
     
   </li>
 </ul>
@@ -172,19 +160,27 @@
     
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="https://github.com/dfinity/examples">官方示例仓库</a>
+    <a class="nav-link" href="../examples/host-a-website.html">静态网站</a>
     
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="https://github.com/dfinity/awesome-dfinity">开源社区项目</a>
+    <a class="nav-link" href="../examples/dex.html">Basic DEX</a>
     
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../examples/hackathon-projects.html">黑客松项目</a>
+    <a class="nav-link" href="../examples/nft.html">NFT Minting</a>
     
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../examples/codelabs.html">Codlabs</a>
+    <a class="nav-link" href="../examples/dao.html">Basic DAO</a>
+    
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../examples/encrypted-notes.html">Encrypted Note-taking</a>
+    
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../examples/tokentransfer.html">Token Transfer</a>
     
   </li>
 </ul>
@@ -213,6 +209,10 @@
     <a class="nav-link" href="../release-notes/sdk-release-notes.html">Release notes</a>
     
 <ul class="nav-list">
+  <li class="nav-item" data-depth="5">
+    <a class="nav-link" href="../release-notes/0.9.2-rn.html">0.9.2</a>
+    
+  </li>
   <li class="nav-item" data-depth="5">
     <a class="nav-link" href="../release-notes/0.9.0-rn.html">0.9.0</a>
     
@@ -550,12 +550,8 @@
     
   </li>
   <li class="nav-item" data-depth="5">
-    <a class="nav-link" href="#candid-guide:candid-howto.adoc">如何使用</a>
-    
-  </li>
-  <li class="nav-item" data-depth="5">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="#candid-guide:candid-ref.adoc">参考</a>
+    <a class="nav-link" href="#candid-guide:candid-howto.adoc">如何使用</a>
     
 <ul class="nav-list">
   <li class="nav-item" data-depth="6">
@@ -610,6 +606,29 @@
   </li>
   <li class="nav-item" data-depth="4">
     <a class="nav-link" href="../developers-guide/tutorials/my-contacts.html">添加CSS样式</a>
+    
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Security Best Practices</span>
+    
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="4">
+    <a class="nav-link" href="introduction.html">Introduction</a>
+    
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="general-security-best-practices.html">General Security Best Practices</a>
+    
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="web-app-development-security-best-practices.html">Web App Development Security Best Practices</a>
+    
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="rust-canister-development-security-best-practices.html">Rust Canister Development Security Best Practices</a>
     
   </li>
 </ul>
@@ -873,7 +892,10 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">Developer Center</a></li>
-    <li><a href="introduction.html">介绍</a></li>
+    <li>开发者文档</li>
+    <li>在互联网计算机上构建</li>
+    <li>Security Best Practices</li>
+    <li><a href="introduction.html">Introduction</a></li>
   </ul>
 </nav>
 </div>
@@ -883,13 +905,13 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>本文档提供了在 Internet 计算机上开发 Rust 容器和容器服务的 Web 应用程序的安全最佳实践。 这些最佳实践主要受到安全审查中发现的问题的启发。</p>
+<p>本文档提供了在 互联网计算机上开发 Rust 容器和容器服务的 Web 应用程序的安全最佳实践。 这些最佳实践主要受到安全审查中发现的问题的启发。</p>
 </div>
 <div class="paragraph">
 <p>我们希望向开发人员宣传这些最佳实践，以便在新 dApp 开发过程中尽早解决潜在问题，而不仅仅是在最后（如果有的话）进行安全审查时解决。 理想情况下，这将使安全 dApp 的开发更加高效。</p>
 </div>
 <div class="paragraph">
-<p>此处链接的一些优秀的罐最佳实践来自链接：https://mmapped.blog/posts/01-effective-rust-canisters.html[Effective Rust Canisters] 和链接：https://www.joachim-breitner.de/ blog/788-How_to_audit_an_Internet_Computer_canister[如何审核互联网计算机容器]。 相关部分链接在各个最佳实践中。</p>
+<p>一些优秀的容器最佳实践link：https://mmapped.blog/posts/01-effective-rust-canisters.html[Effective Rust Canisters] 和link：https://www.joachim-breitner.de/ blog/788-How_to_audit_an_Internet_Computer_canister[如何审核互联网计算机容器]。 相关部分链接在各个最佳实践中。</p>
 </div>
 </div>
 </div>
@@ -902,13 +924,13 @@
 <div class="ulist">
 <ul>
 <li>
-<p>链接：general-security-best-practices.adoc[一般安全最佳实践]</p>
+<p>link：general-security-best-practices.adoc[一般安全最佳实践]</p>
 </li>
 <li>
-<p>链接：web-app-development-security-best-practices.adoc[Web App Specific Security Best Practices],</p>
+<p>link：web-app-development-security-best-practices.adoc[Web App Specific Security Best Practices],</p>
 </li>
 <li>
-<p>链接：rust-canister-development-security-best-practices.adoc[Rust Canister 开发安全最佳实践]</p>
+<p>link：rust-canister-development-security-best-practices.adoc[Rust Canister 开发安全最佳实践]</p>
 </li>
 </ul>
 </div>
@@ -926,7 +948,7 @@
 <h2 id="_免责声明和限制"><a class="anchor" href="#_免责声明和限制"></a>免责声明和限制</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>我们提供了一系列最佳实践，这些实践可能会随着时间的推移而增长。虽然我们认为这有助于提高互联网计算机上 dApp 的安全性，但我们想指出，这样的列表永远不会完整，也永远不会涵盖所有潜在的安全问题。例如，总会有特定于 dApp 用例的攻击向量，一般最佳实践无法涵盖这些用例。因此，遵循最佳实践可以补充但不能替代安全审查。特别是对于安全关键的 dApp，我们建议执行安全审查/审计。此外，请注意，最佳实践目前未根据风险或优先级排序。</p>
+<p>我们提供了一系列最佳实践，且可能会随着时间而增多。虽然我们认为这有助于提高互联网计算机上 dApp 的安全性，但我们想指出，这些列表永远不会完整，也永远不会涵盖所有潜在的安全问题。例如，总会有特定于 dApp 用例的攻击向量，一般最佳实践无法涵盖这些用例。因此，遵循最佳实践可以用作补充，但不能替代安全审查。特别是对于着重于安全的 dApp，我们建议执行安全审查/审计。此外，请注意，最佳实践目前未根据风险或优先级排序。</p>
 </div>
 <div class="paragraph">
 <p>目前，容器最佳实践集中在 Rust。我们也将努力纳入针对 Motoko 的最佳实践。</p>

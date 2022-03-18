@@ -141,23 +141,11 @@
     
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../quickstart/newcomers.html">对于新人</a>
+    <a class="nav-link" href="../quickstart/how-to-deploy-hello-world-smart-contract.html">20分钟部署第一个DAPP</a>
     
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../quickstart/cycles-faucet.html">获取免费的Cycles</a>
-    
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../quickstart/host-a-website.html">托管静态网站</a>
-    
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../quickstart/local-quickstart.html">本地开发</a>
-    
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../quickstart/network-quickstart.html">网络部署</a>
     
   </li>
 </ul>
@@ -172,19 +160,27 @@
     
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="https://github.com/dfinity/examples">官方示例仓库</a>
+    <a class="nav-link" href="../examples/host-a-website.html">静态网站</a>
     
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="https://github.com/dfinity/awesome-dfinity">开源社区项目</a>
+    <a class="nav-link" href="../examples/dex.html">Basic DEX</a>
     
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../examples/hackathon-projects.html">黑客松项目</a>
+    <a class="nav-link" href="../examples/nft.html">NFT Minting</a>
     
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../examples/codelabs.html">Codlabs</a>
+    <a class="nav-link" href="../examples/dao.html">Basic DAO</a>
+    
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../examples/encrypted-notes.html">Encrypted Note-taking</a>
+    
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../examples/tokentransfer.html">Token Transfer</a>
     
   </li>
 </ul>
@@ -213,6 +209,10 @@
     <a class="nav-link" href="../release-notes/sdk-release-notes.html">Release notes</a>
     
 <ul class="nav-list">
+  <li class="nav-item" data-depth="5">
+    <a class="nav-link" href="../release-notes/0.9.2-rn.html">0.9.2</a>
+    
+  </li>
   <li class="nav-item" data-depth="5">
     <a class="nav-link" href="../release-notes/0.9.0-rn.html">0.9.0</a>
     
@@ -550,12 +550,8 @@
     
   </li>
   <li class="nav-item" data-depth="5">
-    <a class="nav-link" href="#candid-guide:candid-howto.adoc">如何使用</a>
-    
-  </li>
-  <li class="nav-item" data-depth="5">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="#candid-guide:candid-ref.adoc">参考</a>
+    <a class="nav-link" href="#candid-guide:candid-howto.adoc">如何使用</a>
     
 <ul class="nav-list">
   <li class="nav-item" data-depth="6">
@@ -610,6 +606,29 @@
   </li>
   <li class="nav-item" data-depth="4">
     <a class="nav-link" href="../developers-guide/tutorials/my-contacts.html">添加CSS样式</a>
+    
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Security Best Practices</span>
+    
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../security-best-practices/introduction.html">Introduction</a>
+    
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../security-best-practices/general-security-best-practices.html">General Security Best Practices</a>
+    
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../security-best-practices/web-app-development-security-best-practices.html">Web App Development Security Best Practices</a>
+    
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../security-best-practices/rust-canister-development-security-best-practices.html">Rust Canister Development Security Best Practices</a>
     
   </li>
 </ul>
@@ -895,7 +914,7 @@
 <p>本指南简要介绍了作为您保管策略的一部分的 <strong>冷存储</strong> 的概念以及目前可用的最常见的冷存储类型。</p>
 </div>
 <div class="paragraph">
-<p>有关冷存储和其他保管选项的更多信息，您应该进行自己的研究，并确保在继续之前彻底了解您的选择的后果。</p>
+<p>有关冷存储和其他保管选项的更多信息，您应该自己研究，并确保在彻底了解各种选项后再做选择。</p>
 </div>
 </div>
 </div>
@@ -904,7 +923,7 @@
 <div class="sectionbody">
 <div class="paragraph">
 <p>冷存储意味着您将私钥离线存储在未连接到互联网的设备中。
-冷存储是一种流行的数字资产自我保管解决方案，因为如果存在软件安全漏洞或冷存储解决方案丢失或被盗，它会使您的密钥更难被泄露。</p>
+冷存储是一种流行的数字资产自我保管解决方案，即使存在软件安全漏洞或冷存储解决方案丢失或被盗，您的密钥也很难被泄露。</p>
 </div>
 <div class="paragraph">
 <p>有关冷存储方法和保护私钥的最佳实践的更多信息，请参阅以下附加资源：</p>
@@ -912,13 +931,13 @@
 <div class="ulist">
 <ul>
 <li>
-<p>链接：https://www.investopedia.com/terms/c/cold-storage.asp【冷存储】</p>
+<p><a href="https://www.investopedia.com/terms/c/cold-storage.asp">冷存储</a></p>
 </li>
 <li>
-<p>链接：https://www.ledger.com/academy/hardwarewallet/best-practices-when-using-a-hardware-wallet#:~:text=%E2%80%93%20Keep%20your%20Recovery%20sheet %20physically,or%20smartphone%20screen%20with%20caution[使用硬件钱包时的最佳实践]</p>
+<p><a href="https://www.ledger.com/academy/hardwarewallet/best-practices-when-using-a-hardware-wallet#:~:text=%E2%80%93%20Keep%20your%20Recovery%20sheet%20physically,or%20smartphone%20screen%20with%20caution">使用硬件钱包时的最佳实践</a></p>
 </li>
 <li>
-<p>链接：https://blog.trailofbits.com/2018/11/27/10-rules-for-the-secure-use-of-cryptocurrency-hardware-wallets/【加密货币硬件钱包安全使用10条规则 ]</p>
+<p><a href="https://blog.trailofbits.com/2018/11/27/10-rules-for-the-secure-use-of-cryptocurrency-hardware-wallets/">加密货币硬件钱包安全使用10条规则 </a></p>
 </li>
 </ul>
 </div>
@@ -957,7 +976,7 @@
 </div>
 <div class="paragraph">
 <p>有关详细信息，请参阅
-链接：https://cointelegraph.com/explained/crypto-wallets-explained[加密钱包，解释]。</p>
+<a href="https://cointelegraph.com/explained/crypto-wallets-explained">加密钱包，解释</a>。</p>
 </div>
 </div>
 <div class="sect2">
@@ -970,8 +989,8 @@
 </div>
 <div class="paragraph">
 <p>根据您希望气隙计算机的安全程度，一种选择是使用可启动映像，该映像提供最小的操作系统来收集您的数字资产，然后从该过程中删除任何工件，并在完成任何事务后正常重新启动计算机。
-有关更多信息，请参阅链接：https://www.wired.com/story/extreme-security-measures/[Extreme Security Measures for the Extra Paranoid] 和
-链接：https://www.howtogeek.com/687792the-ultimate-defense-what-is-an-air-gapped-computer/[终极防御：什么是气隙计算机？]。</p>
+有关更多信息，请参阅<a href="https://www.wired.com/story/extreme-security-measures/">Extreme Security Measures for the Extra Paranoid</a> 和
+<a href="https://www.howtogeek.com/687792the-ultimate-defense-what-is-an-air-gapped-computer/">终极防御：什么是气隙计算机？</a>。</p>
 </div>
 </div>
 <div class="sect2">
@@ -981,10 +1000,10 @@
 通常不推荐使用纸钱包，因为它们容易退化，并且可能不安全、容易丢失或被盗。</p>
 </div>
 <div class="paragraph">
-<p>但是，作为硬件钱包的备份，您可能希望创建一个纸钱包并将其存储在安全的位置，例如保险箱。</p>
+<p>但是，作为硬件钱包的备份，您可能希望准备一个纸钱包并将其存储在安全的位置，例如保险箱。</p>
 </div>
 <div class="paragraph">
-<p>更多信息见链接：https://blockgeeks.com/guides/paper-wallet-guide/#Paper_wallets[纸钱包]。</p>
+<p>更多信息见<a href="https://blockgeeks.com/guides/paper-wallet-guide/#Paper_wallets">纸钱包</a>。</p>
 </div>
 </div>
 </div>

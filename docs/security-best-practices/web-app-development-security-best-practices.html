@@ -141,23 +141,11 @@
     
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../quickstart/newcomers.html">对于新人</a>
+    <a class="nav-link" href="../quickstart/how-to-deploy-hello-world-smart-contract.html">20分钟部署第一个DAPP</a>
     
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../quickstart/cycles-faucet.html">获取免费的Cycles</a>
-    
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../quickstart/host-a-website.html">托管静态网站</a>
-    
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../quickstart/local-quickstart.html">本地开发</a>
-    
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../quickstart/network-quickstart.html">网络部署</a>
     
   </li>
 </ul>
@@ -172,19 +160,27 @@
     
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="https://github.com/dfinity/examples">官方示例仓库</a>
+    <a class="nav-link" href="../examples/host-a-website.html">静态网站</a>
     
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="https://github.com/dfinity/awesome-dfinity">开源社区项目</a>
+    <a class="nav-link" href="../examples/dex.html">Basic DEX</a>
     
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../examples/hackathon-projects.html">黑客松项目</a>
+    <a class="nav-link" href="../examples/nft.html">NFT Minting</a>
     
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../examples/codelabs.html">Codlabs</a>
+    <a class="nav-link" href="../examples/dao.html">Basic DAO</a>
+    
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../examples/encrypted-notes.html">Encrypted Note-taking</a>
+    
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../examples/tokentransfer.html">Token Transfer</a>
     
   </li>
 </ul>
@@ -213,6 +209,10 @@
     <a class="nav-link" href="../release-notes/sdk-release-notes.html">Release notes</a>
     
 <ul class="nav-list">
+  <li class="nav-item" data-depth="5">
+    <a class="nav-link" href="../release-notes/0.9.2-rn.html">0.9.2</a>
+    
+  </li>
   <li class="nav-item" data-depth="5">
     <a class="nav-link" href="../release-notes/0.9.0-rn.html">0.9.0</a>
     
@@ -550,12 +550,8 @@
     
   </li>
   <li class="nav-item" data-depth="5">
-    <a class="nav-link" href="#candid-guide:candid-howto.adoc">如何使用</a>
-    
-  </li>
-  <li class="nav-item" data-depth="5">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="#candid-guide:candid-ref.adoc">参考</a>
+    <a class="nav-link" href="#candid-guide:candid-howto.adoc">如何使用</a>
     
 <ul class="nav-list">
   <li class="nav-item" data-depth="6">
@@ -610,6 +606,29 @@
   </li>
   <li class="nav-item" data-depth="4">
     <a class="nav-link" href="../developers-guide/tutorials/my-contacts.html">添加CSS样式</a>
+    
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Security Best Practices</span>
+    
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="introduction.html">Introduction</a>
+    
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="general-security-best-practices.html">General Security Best Practices</a>
+    
+  </li>
+  <li class="nav-item is-current-page" data-depth="4">
+    <a class="nav-link" href="web-app-development-security-best-practices.html">Web App Development Security Best Practices</a>
+    
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="rust-canister-development-security-best-practices.html">Rust Canister Development Security Best Practices</a>
     
   </li>
 </ul>
@@ -873,7 +892,10 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">Developer Center</a></li>
-    <li><a href="web-app-development-security-best-practices.html">Web 应用程序开发安全最佳实践</a></li>
+    <li>开发者文档</li>
+    <li>在互联网计算机上构建</li>
+    <li>Security Best Practices</li>
+    <li><a href="web-app-development-security-best-practices.html">Web App Development Security Best Practices</a></li>
   </ul>
 </nav>
 </div>
@@ -896,7 +918,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>考虑使用例如 链接：https://github.com/dfinity/internet-identity[Internet Identity] 进行身份验证，使用链接：https://github.com/dfinity/agent-js[agent-js] 进行容器调用，以及 链接：https://github.com/dfinity/agent-js/tree/main/packages/auth-client[auth-client] 用于与您的 dApp 中的互联网身份进行交互。</p>
+<p>考虑使用例如 link：https://github.com/dfinity/internet-identity[Internet Identity] 进行身份验证，使用link：https://github.com/dfinity/agent-js[agent-js] 进行容器调用，以及 link：https://github.com/dfinity/agent-js/tree/main/packages/auth-client[auth-client] 用于与您的 dApp 中的互联网身份进行交互。</p>
 </li>
 <li>
 <p>当然，考虑在 IC 上使用替代认证框架进行认证也是一种选择。</p>
@@ -910,16 +932,16 @@
 <div class="sect3">
 <h4 id="_安全问题_2"><a class="anchor" href="#_安全问题_2"></a>安全问题</h4>
 <div class="paragraph">
-<p>目前，互联网身份向授权发出到期时间。 这个过期时间可以在链接中设置：https://github.com/dfinity/agent-js/tree/main/packages/auth-client[auth-client]。 委托到期后，用户必须重新进行身份验证。 设置一个好的值是安全性和可用性之间的权衡。</p>
+<p>目前，互联网身份向授权发出到期时间。 这个过期时间可以设置link：https://github.com/dfinity/agent-js/tree/main/packages/auth-client[auth-client]。 委托到期后，用户必须重新进行身份验证。 设置一个好的值是安全性和可用性之间的权衡。</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_推荐_2"><a class="anchor" href="#_推荐_2"></a>推荐</h4>
 <div class="paragraph">
-<p>见链接：https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#session-expiration[OWASP Recommendations]。 应为安全敏感的应用程序设置 30 分钟的超时。</p>
+<p>见link：https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#session-expiration[OWASP Recommendations]。 应为安全敏感的应用程序设置 30 分钟的超时。</p>
 </div>
 <div class="paragraph">
-<p>注意：空闲超时可能很快就会引入，请参见链接：https://forum.dfinity.org/t/authclient-update-idle-timeouts/10464[this]。</p>
+<p>注意：空闲超时可能很快就会引入，请参见link：https://forum.dfinity.org/t/authclient-update-idle-timeouts/10464[this]。</p>
 </div>
 </div>
 </div>
@@ -928,7 +950,7 @@
 <div class="sect3">
 <h4 id="_安全问题_3"><a class="anchor" href="#_安全问题_3"></a>安全问题</h4>
 <div class="paragraph">
-<p><code>agent.fetchRootKey()</code> 可以在链接中使用：https://github.com/dfinity/agent-js[agent-js] 从测试环境中的状态调用中​​获取根子网阈值公钥。此密钥用于验证通过容器更新调用接收的认证数据的阈值签名。在生产 Web 应用程序中使用此方法使攻击者可以选择提供自己的公钥，从而使更新响应的所有真实性保证无效。</p>
+<p><code>agent.fetchRootKey()</code> 可以使用link：https://github.com/dfinity/agent-js[agent-js] 从测试环境中的状态调用中​​获取根子网阈值公钥。此密钥用于验证通过容器更新调用接收的认证数据的阈值签名。在生产 Web 应用程序中使用此方法使攻击者可以选择提供自己的公钥，从而使更新响应的所有真实性保证无效。</p>
 </div>
 </div>
 <div class="sect3">
@@ -962,7 +984,7 @@
 <p>除了容器中的数据验证之外，已经在前端执行数据验证。数据验证应尽早进行。</p>
 </li>
 <li>
-<p>见链接：https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html#goals-of-input-validation[OWASP Input Validation Cheat Sheet]</p>
+<p>见link：https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html#goals-of-input-validation[OWASP Input Validation Cheat Sheet]</p>
 </li>
 </ul>
 </div>
@@ -979,7 +1001,7 @@
 <p>如果他们提供恶意 JavaScript，他们可以接管网络应用程序/帐户，例如从 LocalStorage 读取由 agent-js 管理的私钥。</p>
 </div>
 <div class="paragraph">
-<p>请注意，从不受信任的域中加载其他资产（例如 CSS）也存在安全风险，请参见例如链接：https://xsleaks.dev/docs/attacks/css-injection/[这里]。</p>
+<p>请注意，从不受信任的域中加载其他资产（例如 CSS）也存在安全风险，请参见例如link：https://xsleaks.dev/docs/attacks/css-injection/[这里]。</p>
 </div>
 </div>
 <div class="sect3">
@@ -993,7 +1015,7 @@
 <p>确保交付给浏览器的所有内容都由容器使用资产认证提供和认证。这尤其适用于任何 JavaScript，也适用于字体、CSS 等。</p>
 </li>
 <li>
-<p>使用链接：https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP[Content Security Policy] 来防止脚本和其他来源的其他内容被加载。另请参阅链接：web-app-development-security-best-practices.adoc#define-security-headers[定义安全标头，包括内容安全策略 (CSP)]。</p>
+<p>使用link：https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP[Content Security Policy] 来防止脚本和其他来源的其他内容被加载。另请参阅link：web-app-development-security-best-practices.adoc#define-security-headers[定义安全标头，包括内容安全策略 (CSP)]。</p>
 </li>
 </ul>
 </div>
@@ -1004,7 +1026,7 @@
 <div class="sect3">
 <h4 id="_安全问题_6"><a class="anchor" href="#_安全问题_6"></a>安全问题</h4>
 <div class="paragraph">
-<p>安全标头可用于涵盖许多安全问题，例如禁止链接：https://owasp.org/www-community/attacks/Clickjacking[clickjacking]，链接：https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html[harden TLS]，确保链接：https： //developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/script-src[无法在浏览器中执行来自不受信任域的JavaScript或其他内容]等 不配置这些适当的标头可能会导致具体的安全问题和缺少深度防御。</p>
+<p>安全标头可用于涵盖许多安全问题，例如禁止link：https://owasp.org/www-community/attacks/Clickjacking[clickjacking]，link：https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html[harden TLS]，确保link：https： //developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/script-src[无法在浏览器中执行来自不受信任域的JavaScript或其他内容]等 不配置这些适当的标头可能会导致具体的安全问题和缺少深度防御。</p>
 </div>
 </div>
 <div class="sect3">
@@ -1012,19 +1034,19 @@
 <div class="ulist">
 <ul>
 <li>
-<p>使用链接检查您的网站：https://securityheaders.com/[<a href="https://securityheaders.com/" class="bare">https://securityheaders.com/</a>]</p>
+<p>使用检查您的网站link：https://securityheaders.com/[<a href="https://securityheaders.com/" class="bare">https://securityheaders.com/</a>]</p>
 </li>
 <li>
-<p>使用链接：https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html[HSTS]，链接：https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP[CSP]，链接：https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options[X-Frame-Options]，链接：https://developer.mozilla.org/en -US/docs/Web/HTTP/Headers/Referrer-Policy[Referrer-Policy]，Permissions-Policy（链接：https://www.permissionspolicy.com/[generator]）</p>
+<p>使用link：https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html[HSTS]，link：https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP[CSP]，link：https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options[X-Frame-Options]，link：https://developer.mozilla.org/en -US/docs/Web/HTTP/Headers/Referrer-Policy[Referrer-Policy]，Permissions-Policy（link：https://www.permissionspolicy.com/[generator]）</p>
 </li>
 <li>
-<p>这些标头（包括 CSP）已成功集成，例如在链接：https://github.com/dfinity/internet-identity[互联网身份]。</p>
+<p>这些标头（包括 CSP）已成功集成，例如在link：https://github.com/dfinity/internet-identity[互联网身份]。</p>
 </li>
 <li>
-<p>根据链接检查您的 CSP：https://csp-evaluator.withgoogle.com/[CSP evaluator]</p>
+<p>根据检查您的 CSP link：https://csp-evaluator.withgoogle.com/[CSP evaluator]</p>
 </li>
 <li>
-<p>另见链接：https://owasp.org/www-project-secure-headers/[OWASP 安全标头项目]</p>
+<p>另见link：https://owasp.org/www-project-secure-headers/[OWASP 安全标头项目]</p>
 </li>
 </ul>
 </div>
@@ -1035,13 +1057,13 @@
 <div class="sect3">
 <h4 id="_安全问题_7"><a class="anchor" href="#_安全问题_7"></a>安全问题</h4>
 <div class="paragraph">
-<p>在浏览器存储中存储密钥材料（例如链接：https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API[sessionStorage] 或链接：https://developer.mozilla.org/en- US/docs/Web/API/Web_Storage_API[localStorage]) 被认为是不安全的，因为这些密钥可以被 JavaScript 代码访问。这可能通过 XSS 攻击或从其他域加载不受信任的脚本时发生（另请参阅链接：web-app-development-security-best-practices.adoc#dont-load-untrusted-content [不要从不受信任的域加载 JavaScript ]。</p>
+<p>在浏览器存储中存储密钥材料（例如link：https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API[sessionStorage] 或link：https://developer.mozilla.org/en- US/docs/Web/API/Web_Storage_API[localStorage]) 被认为是不安全的，因为这些密钥可以被 JavaScript 代码访问。这可能通过 XSS 攻击或从其他域加载不受信任的脚本时发生（另请参阅link：web-app-development-security-best-practices.adoc#dont-load-untrusted-content [不要从不受信任的域加载 JavaScript ]。</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_推荐_7"><a class="anchor" href="#_推荐_7"></a>推荐</h4>
 <div class="paragraph">
-<p>使用链接：https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API[WebCrypto API] 通过在 <code>generateKey</code> 中使用 <code>extractable=false</code> 来隐藏 JavaScript 中的密钥材料，请参阅链接： <a href="https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/generateKey">this</a>。可以在人员聚会项目中找到一个示例，请参见链接：https://github.com/dfinity/people-parties/blob/06208183a2679189d02bc5e64dcbd71c5f5dfbed/frontend/src/services/auth.ts#L111-L120[这里] .这使得无法从 JavaScript 访问私钥。</p>
+<p>使用link：https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API[WebCrypto API] 通过在 <code>generateKey</code> 中使用 <code>extractable=false</code> 来隐藏 JavaScript 中的密钥材料，请参阅link： <a href="https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/generateKey">this</a>。可以在人员聚会项目中找到一个示例，请参见link：https://github.com/dfinity/people-parties/blob/06208183a2679189d02bc5e64dcbd71c5f5dfbed/frontend/src/services/auth.ts#L111-L120[这里] .这使得无法从 JavaScript 访问私钥。</p>
 </div>
 </div>
 </div>
@@ -1058,10 +1080,10 @@
 <div class="ulist">
 <ul>
 <li>
-<p>使用具有安全模板机制的 Web 框架，例如链接：https://github.com/dfinity/nns-dapp<a href="https://svelte.dev/">Svelte</a> 以避免 XSS。这用于例如在 [NNS dApp] 项目中。</p>
+<p>使用具有安全模板机制的 Web 框架，例如link：https://github.com/dfinity/nns-dapp<a href="https://svelte.dev/">Svelte</a> 以避免 XSS。这用于例如在 [NNS dApp] 项目中。</p>
 </li>
 <li>
-<p>不要使用框架的不安全功能，例如链接：https://svelte.dev/docs#template-syntax-html[@html in Svelte]。</p>
+<p>不要使用框架的不安全功能，例如link：https://svelte.dev/docs#template-syntax-html[@html in Svelte]。</p>
 </li>
 </ul>
 </div>
@@ -1080,7 +1102,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>清除所有会话数据（特别是链接：https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage[sessionStorage] 和链接：https://developer.mozilla.org/en- US/docs/Web/API/Window/localStorage[localStorage]），清除链接：https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API[IndexedDB]等注销。</p>
+<p>清除所有会话数据（特别是link：https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage[sessionStorage] 和link：https://developer.mozilla.org/en- US/docs/Web/API/Window/localStorage[localStorage]），清除link：https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API[IndexedDB]等注销。</p>
 </li>
 <li>
 <p>如果在一个选项卡中触发注销，请确保其他显示相同来源的浏览器选项卡也被注销。这不会在使用 agent-js 时自动发生，因为 agent-js 在初始化后会将私钥保存在内存中。</p>
@@ -1105,7 +1127,7 @@
 <p>向用户显示带有安全警告的提示，描述操作的确切后果，并让他们明确确认。</p>
 </li>
 <li>
-<p>对于安全性要求高的应用程序，考虑使用事务批准，即使用例如一个 WebAuthn 设备，让用户确认某些关键操作或交易。这是推荐的，例如涉及代币或循环转账时。例如，使用链接中的硬件钱包：https://github.com/dfinity/nns-dapp[NNS dApp] 实现了这一点。</p>
+<p>对于安全性要求高的应用程序，考虑使用事务批准，即使用例如一个 WebAuthn 设备，让用户确认某些关键操作或交易。这是推荐的，例如涉及代币或循环（燃料费）转账时。例如，使用硬件钱包link：https://github.com/dfinity/nns-dapp[NNS dApp] 实现了这一点。</p>
 </li>
 </ul>
 </div>

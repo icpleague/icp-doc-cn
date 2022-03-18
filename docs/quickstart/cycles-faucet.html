@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Untitled :: Motoko documentation</title>
+    <title>Cycles Faucet 快速入门 :: Motoko documentation</title>
     <meta name="generator" content="Antora 3.0.1">
 <link rel="stylesheet" href="../../_/css/site.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" /><meta property="og:image:width" content="1200" />
@@ -141,23 +141,11 @@
     
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="newcomers.html">对于新人</a>
+    <a class="nav-link" href="how-to-deploy-hello-world-smart-contract.html">20分钟部署第一个DAPP</a>
     
   </li>
   <li class="nav-item is-current-page" data-depth="2">
     <a class="nav-link" href="cycles-faucet.html">获取免费的Cycles</a>
-    
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="host-a-website.html">托管静态网站</a>
-    
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="local-quickstart.html">本地开发</a>
-    
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="network-quickstart.html">网络部署</a>
     
   </li>
 </ul>
@@ -172,19 +160,27 @@
     
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="https://github.com/dfinity/examples">官方示例仓库</a>
+    <a class="nav-link" href="../examples/host-a-website.html">静态网站</a>
     
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="https://github.com/dfinity/awesome-dfinity">开源社区项目</a>
+    <a class="nav-link" href="../examples/dex.html">Basic DEX</a>
     
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../examples/hackathon-projects.html">黑客松项目</a>
+    <a class="nav-link" href="../examples/nft.html">NFT Minting</a>
     
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../examples/codelabs.html">Codlabs</a>
+    <a class="nav-link" href="../examples/dao.html">Basic DAO</a>
+    
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../examples/encrypted-notes.html">Encrypted Note-taking</a>
+    
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../examples/tokentransfer.html">Token Transfer</a>
     
   </li>
 </ul>
@@ -213,6 +209,10 @@
     <a class="nav-link" href="../release-notes/sdk-release-notes.html">Release notes</a>
     
 <ul class="nav-list">
+  <li class="nav-item" data-depth="5">
+    <a class="nav-link" href="../release-notes/0.9.2-rn.html">0.9.2</a>
+    
+  </li>
   <li class="nav-item" data-depth="5">
     <a class="nav-link" href="../release-notes/0.9.0-rn.html">0.9.0</a>
     
@@ -550,12 +550,8 @@
     
   </li>
   <li class="nav-item" data-depth="5">
-    <a class="nav-link" href="#candid-guide:candid-howto.adoc">如何使用</a>
-    
-  </li>
-  <li class="nav-item" data-depth="5">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="#candid-guide:candid-ref.adoc">参考</a>
+    <a class="nav-link" href="#candid-guide:candid-howto.adoc">如何使用</a>
     
 <ul class="nav-list">
   <li class="nav-item" data-depth="6">
@@ -610,6 +606,29 @@
   </li>
   <li class="nav-item" data-depth="4">
     <a class="nav-link" href="../developers-guide/tutorials/my-contacts.html">添加CSS样式</a>
+    
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Security Best Practices</span>
+    
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../security-best-practices/introduction.html">Introduction</a>
+    
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../security-best-practices/general-security-best-practices.html">General Security Best Practices</a>
+    
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../security-best-practices/web-app-development-security-best-practices.html">Web App Development Security Best Practices</a>
+    
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../security-best-practices/rust-canister-development-security-best-practices.html">Rust Canister Development Security Best Practices</a>
     
   </li>
 </ul>
@@ -880,16 +899,14 @@
 </div>
 <div class="main-content">
 <article class="doc">
-<div class="paragraph">
-<p>Cycles Faucet 快速入门</p>
-</div>
-<div class="exampleblock">
-<div class="content">
+<h1 class="page">Cycles Faucet 快速入门</h1>
+<div id="preamble">
+<div class="sectionbody">
 <div class="paragraph">
 <p>准备好在互联网计算机区块链上部署您的第一个智能合约了吗？ 您可以使用我们的 Cycles Faucet 在几分钟内设置 20 美元的免费燃料费。</p>
 </div>
 <div class="paragraph">
-<p>在开始之前，请确保您通过运行安装了 {sdk-short-name} (DFX)</p>
+<p>在开始之前，请确保您安装运行了 {sdk-short-name} (DFX)</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -897,23 +914,24 @@
 </div>
 </div>
 <div class="paragraph">
-<p>或按照链接中的说明进行操作:https://smartcontracts.org[].</p>
+<p>或按照链接中的说明进行操作link:https://smartcontracts.org.</p>
 </div>
-<div class="paragraph">
-<p>== 领取您的燃料费钱包</p>
 </div>
-<div class="paragraph">
-<p>=== 第 1 步：验证</p>
 </div>
+<div class="sect1">
+<h2 id="_领取您的燃料费钱包"><a class="anchor" href="#_领取您的燃料费钱包"></a>领取您的燃料费钱包</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_第_1_步验证"><a class="anchor" href="#_第_1_步验证"></a>第 1 步：验证</h3>
 <div class="paragraph">
-<p>首先，您需要导航到链接:https://faucet.dfinity.org[]。 您需要连接一个活跃的 GitHub 帐户才能继续。 如果您的帐户不符合条件，请遵循 <a href="#quickstart:network-quickstart.html" class="xref unresolved">网络部署</a> 指南。</p>
+<p>首先，您需要导航到:https://faucet.dfinity.org[]。</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="_images/cycles-faucet/faucet_step_1.png" alt="Connecting to GitHub"></span></p>
 </div>
-<div class="paragraph">
-<p>=== 第 2 步：主体 ID</p>
 </div>
+<div class="sect2">
+<h3 id="_第_2_步主体_id"><a class="anchor" href="#_第_2_步主体_id"></a>第 2 步：主体 ID</h3>
 <div class="paragraph">
 <p>登录后，打开终端窗口并运行命令 dfx identity get-principal。 将输出粘贴到第 2 步屏幕上的文本输入中。 该主体将唯一标识您的计算机，并将用于让您访问您的燃料费钱包以及您使用它部署的任何容器智能合约。 您的主体看起来像一长串由连字符分隔的数字和字母。</p>
 </div>
@@ -932,9 +950,12 @@
 <div class="paragraph">
 <p><span class="image"><img src="_images/cycles-faucet/faucet_step_4.png" alt="Generate New Cycles Wallet"></span></p>
 </div>
-<div class="paragraph">
-<p>== 在 DFX 中配置您的钱包</p>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_在_dfx_中配置您的钱包"><a class="anchor" href="#_在_dfx_中配置您的钱包"></a>在 DFX 中配置您的钱包</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>现在您已经认领了您的钱包，您应该会看到如下所示的屏幕：</p>
 </div>
@@ -947,21 +968,21 @@
 <div class="paragraph">
 <p>现在您已准备好在 IC 上存储网站或遵循我们的 dapp 教程之一。</p>
 </div>
-<div class="paragraph">
-<p>=== 接下来，人们经常看这些指南：</p>
-</div>
+<div class="sect2">
+<h3 id="_接下来人们经常看这些指南"><a class="anchor" href="#_接下来人们经常看这些指南"></a>接下来，人们经常看这些指南：</h3>
 <div class="ulist">
 <ul>
 <li>
-<p>链接:./host-a-website.html[Host a Static Website]</p>
+<p><a href="./host-a-website.html">Host a Static Website</a></p>
 </li>
 <li>
-<p>链接:./local-quickstart.html[Local Development]</p>
+<p><a href="./local-quickstart.html">Local Development</a></p>
 </li>
 <li>
-<p>链接:./network-quickstart.html[Network Deployment]</p>
+<p><a href="./network-quickstart.html">Network Deployment</a></p>
 </li>
 </ul>
+</div>
 </div>
 </div>
 </div>

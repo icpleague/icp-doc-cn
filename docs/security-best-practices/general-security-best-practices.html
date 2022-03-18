@@ -141,23 +141,11 @@
     
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../quickstart/newcomers.html">对于新人</a>
+    <a class="nav-link" href="../quickstart/how-to-deploy-hello-world-smart-contract.html">20分钟部署第一个DAPP</a>
     
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../quickstart/cycles-faucet.html">获取免费的Cycles</a>
-    
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../quickstart/host-a-website.html">托管静态网站</a>
-    
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../quickstart/local-quickstart.html">本地开发</a>
-    
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../quickstart/network-quickstart.html">网络部署</a>
     
   </li>
 </ul>
@@ -172,19 +160,27 @@
     
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="https://github.com/dfinity/examples">官方示例仓库</a>
+    <a class="nav-link" href="../examples/host-a-website.html">静态网站</a>
     
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="https://github.com/dfinity/awesome-dfinity">开源社区项目</a>
+    <a class="nav-link" href="../examples/dex.html">Basic DEX</a>
     
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../examples/hackathon-projects.html">黑客松项目</a>
+    <a class="nav-link" href="../examples/nft.html">NFT Minting</a>
     
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../examples/codelabs.html">Codlabs</a>
+    <a class="nav-link" href="../examples/dao.html">Basic DAO</a>
+    
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../examples/encrypted-notes.html">Encrypted Note-taking</a>
+    
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../examples/tokentransfer.html">Token Transfer</a>
     
   </li>
 </ul>
@@ -213,6 +209,10 @@
     <a class="nav-link" href="../release-notes/sdk-release-notes.html">Release notes</a>
     
 <ul class="nav-list">
+  <li class="nav-item" data-depth="5">
+    <a class="nav-link" href="../release-notes/0.9.2-rn.html">0.9.2</a>
+    
+  </li>
   <li class="nav-item" data-depth="5">
     <a class="nav-link" href="../release-notes/0.9.0-rn.html">0.9.0</a>
     
@@ -550,12 +550,8 @@
     
   </li>
   <li class="nav-item" data-depth="5">
-    <a class="nav-link" href="#candid-guide:candid-howto.adoc">如何使用</a>
-    
-  </li>
-  <li class="nav-item" data-depth="5">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="#candid-guide:candid-ref.adoc">参考</a>
+    <a class="nav-link" href="#candid-guide:candid-howto.adoc">如何使用</a>
     
 <ul class="nav-list">
   <li class="nav-item" data-depth="6">
@@ -610,6 +606,29 @@
   </li>
   <li class="nav-item" data-depth="4">
     <a class="nav-link" href="../developers-guide/tutorials/my-contacts.html">添加CSS样式</a>
+    
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Security Best Practices</span>
+    
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="introduction.html">Introduction</a>
+    
+  </li>
+  <li class="nav-item is-current-page" data-depth="4">
+    <a class="nav-link" href="general-security-best-practices.html">General Security Best Practices</a>
+    
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="web-app-development-security-best-practices.html">Web App Development Security Best Practices</a>
+    
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="rust-canister-development-security-best-practices.html">Rust Canister Development Security Best Practices</a>
     
   </li>
 </ul>
@@ -873,7 +892,10 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">Developer Center</a></li>
-    <li><a href="general-security-best-practices.html">一般最佳实践</a></li>
+    <li>开发者文档</li>
+    <li>在互联网计算机上构建</li>
+    <li>Security Best Practices</li>
+    <li><a href="general-security-best-practices.html">General Security Best Practices</a></li>
   </ul>
 </nav>
 </div>
@@ -886,7 +908,7 @@
 <div class="sect2">
 <h3 id="_安全问题"><a class="anchor" href="#_安全问题"></a>安全问题</h3>
 <div class="paragraph">
-<p>对链接的响应：https://smartcontracts.org/docs/interface-spec/index.html#http-interface[查询调用]（与更新调用相反）不是由容器/子网进行阈值签名的。 因此，单个恶意副本或边界节点可能会更改数据，从而违反其真实性。 如果更新调用依赖于对查询调用的响应，这尤其危险。</p>
+<p>对响应link：https://smartcontracts.org/docs/interface-spec/index.html#http-interface[查询调用]（与更新调用相反）不是由容器/子网进行阈值签名的。 因此，单个恶意副本或边界节点可能会更改数据，从而违反其真实性。 如果更新调用依赖于对查询调用的响应，这尤其危险。</p>
 </div>
 </div>
 <div class="sect2">
@@ -894,13 +916,13 @@
 <div class="ulist">
 <ul>
 <li>
-<p>所有需要真实性保证的与安全相关的查询响应数据（这需要针对每个 dApp 进行评估）都应由 IC 使用认证变量进行认证。 考虑使用现有的数据结构，例如链接：https://github.com/dfinity/cdk-rs/tree/main/src/ic-certified-map[certified-map]。 数据认证必须在前端进行验证。</p>
+<p>所有需要真实性保证的与安全相关的查询响应数据（这需要针对每个 dApp 进行评估）都应由 IC 使用认证变量进行认证。 考虑使用现有的数据结构，例如<a href="https://github.com/dfinity/cdk-rs/tree/main/src/ic-certified-map">certified-map</a>。 数据认证必须在前端进行验证。</p>
 </li>
 <li>
 <p>或者，这些调用必须由调用者作为更新调用发出（例如在 agent-js 中），但这会影响性能：它需要几秒钟。 请注意，每个查询也可以由调用者作为更新发出。</p>
 </li>
 <li>
-<p>示例是链接中的资产证明:https://github.com/dfinity/internet-identity/blob/b29a6f68bbe5a49d048e12bc7a3263a9f43d080b/src/internet_identity/src/main.rs#L775-L808[Internet Identity], <a href="https://github.com/dfinity/nns-dapp/blob/372c3562127d70c2fde059bc9c268e8ae858583e/rs/src/assets.rs#L121-L145">NNS dApp</a>, or the <a href="https://github.com/dfinity/internet-identity/blob/main/src/internet_identity/src/signature_map.rs">canister signature implementation in Internet Identity</a>.</p>
+<p>示例是财产证明<a href="https://github.com/dfinity/internet-identity/blob/b29a6f68bbe5a49d048e12bc7a3263a9f43d080b/src/internet_identity/src/main.rs#L775-L808">Internet Identity</a>, <a href="https://github.com/dfinity/nns-dapp/blob/372c3562127d70c2fde059bc9c268e8ae858583e/rs/src/assets.rs#L121-L145">NNS dApp</a>, or the <a href="https://github.com/dfinity/internet-identity/blob/main/src/internet_identity/src/signature_map.rs">canister signature implementation in Internet Identity</a>.</p>
 </li>
 </ul>
 </div>
@@ -918,7 +940,7 @@
 <div class="sect3">
 <h4 id="_安全问题_2"><a class="anchor" href="#_安全问题_2"></a>安全问题</h4>
 <div class="paragraph">
-<p>使用易受攻击和过时的组件是一个链接:https://owasp.org/Top10/A06_2021-Vulnerable_and_Outdated_Components/[big security risk].</p>
+<p>使用易受攻击和过时的组件是一个<a href="https://owasp.org/Top10/A06_2021-Vulnerable_and_Outdated_Components/">big security risk</a>.</p>
 </div>
 </div>
 <div class="sect3">
@@ -963,7 +985,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>使用可能是开源的并且已经被许多人审查过的知名库。例如，在 JavaScript 中使用 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API">Web Crypto API</a>，使用 crates 如链接：https://crates.io/crates/ Rust 中的 sha256[sha256]</p>
+<p>使用可能是开源的并且已经被许多人审查过的知名库。例如，在 JavaScript 中使用 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API">Web Crypto API</a>，使用 crates 如link:https://crates.io/crates/ Rust 中的 sha256[sha256]</p>
 </li>
 </ul>
 </div>
@@ -986,7 +1008,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>链接:https://owasp.org/Top10/A02_2021-Cryptographic_Failures/[OWASP Cryptographic Failures]</p>
+<p><a href="https://owasp.org/Top10/A02_2021-Cryptographic_Failures/">OWASP Cryptographic Failures</a></p>
 </li>
 </ul>
 </div>
@@ -1008,22 +1030,22 @@
 <div class="ulist">
 <ul>
 <li>
-<p>在链接：https://mmapped.blog/posts/01-effective-rust-canisters.html[Effective Rust Canisters]：链接：https://mmapped.blog/posts/01-effective-rust-canisters.html #test-upgrades[测试升级]，链接：https://mmapped.blog/posts/01-effective-rust-canisters.html#target-independent[make code target-independent]</p>
+<p>在<a href="https://mmapped.blog/posts/01-effective-rust-canisters.html">Effective Rust Canisters</a>：link:https://mmapped.blog/posts/01-effective-rust-canisters.html #test-upgrades[测试升级]，<a href="https://mmapped.blog/posts/01-effective-rust-canisters.html#target-independent">make code target-independent</a></p>
 </li>
 <li>
-<p>另见链接：rust-canister-development-security-best-practices.adoc#test-your-canister-code[即使在系统 API 调用存在的情况下测试您的容器代码]</p>
+<p>另见<a href="rust-canister-development-security-best-practices.adoc#test-your-canister-code">即使在系统 API 调用存在的情况下测试您的容器代码</a></p>
 </li>
 <li>
-<p>考虑链接：https://docs.dfinity.systems/dfinity/spec/meta/rust.html#_tests[DFINITY Rust 测试指南]</p>
+<p>考虑<a href="https://docs.dfinity.systems/dfinity/spec/meta/rust.html#_tests">DFINITY Rust 测试指南</a></p>
 </li>
 <li>
-<p>对于 wasm 级别的单元测试，考虑使用链接：https://github.com/kritzcreek/motoko-matchers[Motoko Matchers]</p>
+<p>对于 wasm 级别的单元测试，考虑使用<a href="https://github.com/kritzcreek/motoko-matchers">Motoko Matchers</a></p>
 </li>
 <li>
-<p>对于 Motoko 级别的单元测试，请考虑链接：https://kritzcreek.github.io/motoko-matchers/Canister.html[Canister 模块]。还有一些示例测试链接：https://github.com/dfinity/motoko-base/blob/master/test/resultTest.mo[这里]和链接：https://github.com/dfinity/motoko-base /blob/master/test/textTest.mo[这里]。作为示例，另请参见链接的端到端测试和单元测试：https://github.com/dfinity/invoice-canister[invoice-canister]。</p>
+<p>对于 Motoko 级别的单元测试，请考虑<a href="https://kritzcreek.github.io/motoko-matchers/Canister.html">Canister 模块</a>。还有一些示例测试<a href="https://github.com/dfinity/motoko-base/blob/master/test/resultTest.mo">这里</a>和link:https://github.com/dfinity/motoko-base /blob/master/test/textTest.mo[这里]。作为示例，另请参见端到端测试和单元测试link：https://github.com/dfinity/invoice-canister[invoice-canister]。</p>
 </li>
 <li>
-<p>对于长时间运行的测试场景，考虑链接：https://github.com/matthewhammer/motoko-bigtest[Motoko BigTest]</p>
+<p>对于长时间运行的测试场景，考虑<a href="https://github.com/matthewhammer/motoko-bigtest">Motoko BigTest</a></p>
 </li>
 </ul>
 </div>
@@ -1037,7 +1059,7 @@
 <p>在仅用于开发或测试设置的生产代码中包含代码路径是有风险的。 如果出现问题（有时确实如此！），这可能会在生产中引入安全漏洞。</p>
 </div>
 <div class="paragraph">
-<p>例如，我们已经看到验证证书的公钥是从不受信任的来源获取的问题，因为这是在测试网络上完成的。</p>
+<p>例如，我们有遇到“验证证书的公钥”是从不受信任的来源获取的问题，因为这是在测试网络上完成的。</p>
 </div>
 </div>
 <div class="sect3">

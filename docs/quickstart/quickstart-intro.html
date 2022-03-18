@@ -141,23 +141,11 @@
     
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="newcomers.html">对于新人</a>
+    <a class="nav-link" href="how-to-deploy-hello-world-smart-contract.html">20分钟部署第一个DAPP</a>
     
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="cycles-faucet.html">获取免费的Cycles</a>
-    
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="host-a-website.html">托管静态网站</a>
-    
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="local-quickstart.html">本地开发</a>
-    
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="network-quickstart.html">网络部署</a>
     
   </li>
 </ul>
@@ -172,19 +160,27 @@
     
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="https://github.com/dfinity/examples">官方示例仓库</a>
+    <a class="nav-link" href="../examples/host-a-website.html">静态网站</a>
     
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="https://github.com/dfinity/awesome-dfinity">开源社区项目</a>
+    <a class="nav-link" href="../examples/dex.html">Basic DEX</a>
     
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../examples/hackathon-projects.html">黑客松项目</a>
+    <a class="nav-link" href="../examples/nft.html">NFT Minting</a>
     
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../examples/codelabs.html">Codlabs</a>
+    <a class="nav-link" href="../examples/dao.html">Basic DAO</a>
+    
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../examples/encrypted-notes.html">Encrypted Note-taking</a>
+    
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../examples/tokentransfer.html">Token Transfer</a>
     
   </li>
 </ul>
@@ -213,6 +209,10 @@
     <a class="nav-link" href="../release-notes/sdk-release-notes.html">Release notes</a>
     
 <ul class="nav-list">
+  <li class="nav-item" data-depth="5">
+    <a class="nav-link" href="../release-notes/0.9.2-rn.html">0.9.2</a>
+    
+  </li>
   <li class="nav-item" data-depth="5">
     <a class="nav-link" href="../release-notes/0.9.0-rn.html">0.9.0</a>
     
@@ -550,12 +550,8 @@
     
   </li>
   <li class="nav-item" data-depth="5">
-    <a class="nav-link" href="#candid-guide:candid-howto.adoc">如何使用</a>
-    
-  </li>
-  <li class="nav-item" data-depth="5">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="#candid-guide:candid-ref.adoc">参考</a>
+    <a class="nav-link" href="#candid-guide:candid-howto.adoc">如何使用</a>
     
 <ul class="nav-list">
   <li class="nav-item" data-depth="6">
@@ -610,6 +606,29 @@
   </li>
   <li class="nav-item" data-depth="4">
     <a class="nav-link" href="../developers-guide/tutorials/my-contacts.html">添加CSS样式</a>
+    
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Security Best Practices</span>
+    
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../security-best-practices/introduction.html">Introduction</a>
+    
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../security-best-practices/general-security-best-practices.html">General Security Best Practices</a>
+    
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../security-best-practices/web-app-development-security-best-practices.html">Web App Development Security Best Practices</a>
+    
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../security-best-practices/rust-canister-development-security-best-practices.html">Rust Canister Development Security Best Practices</a>
     
   </li>
 </ul>
@@ -886,57 +905,24 @@
 <p>T此 DFINITY Canister Software Development Kit (SDK) 提供工具、示例代码和文档，以帮助您创建罐式智能合约 dapp 并将它们部署在 Internet Computer 区块链主网上。
 <em>快速入门</em> 教程假设您是第一次安装 {sdk-short-name}，并说明如何创建、构建和部署您的第一个 dapp。</p>
 </div>
-<div class="paragraph">
-<p>为了使说明简单并专注于手头的任务，_快速入门_分为两个场景：</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>在链接:local-quickstart.html[本地开发] 场景中，您创建和部署示例 dapp，其进程在_本地容器执行环境_中运行。</p>
-</li>
-<li>
-<p>在链接:network-quickstart.html[链上部署] 场景中，您在本地创建示例 dapp，但_连接到在独立数据中心的节点机器上运行的 Internet Computer platform_ 并在那里部署 dapp。</p>
-</li>
-</ul>
+</div>
+<div class="sect1">
+<h2 id="_getting_started"><a class="anchor" href="#_getting_started"></a>Getting Started</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To keep the instructions simple and focused on the task at hand, the <em>Quick start</em> is deliberately hyper-focused in helping you deploy your first smart contract or dapp in 20 minutes or less.</p>
 </div>
 <div class="paragraph">
-<p>如果您在设置开发环境时需要一些帮助（例如，如果您不确定如何打开新终端、安装软件包或创建文件夹以及在目录之间导航），您可能希望从链接开始：newcomers{outfilesuffix }[新手的初步步骤]。</p>
+<p>See <a href="how-to-deploy-hello-world-smart-contract.html">How to deploy hello world smart contract in 20 minutes</a>.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="default-app"><a class="anchor" href="#default-app"></a>默认 dapp</h2>
+<h2 id="_more_sample_code"><a class="anchor" href="#_more_sample_code"></a>More Sample Code</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>这两种场景都构建和部署了一个简单的 Hello canister 智能合约，它只有一个功能——称为 <code>greet</code>。 <code>greet</code> 函数接受一个文本参数并在终端中返回类似于 <strong>Hello,&#160;everyone!</strong> 的问候语（如果您使用命令行或在警报弹出窗口中运行容器） 如果您在浏览器中访问 dapp，则窗口。</p>
-</div>
-<div class="paragraph">
-<p>默认的 dapp 包含用 Motoko 编写的后端代码，这是一种专门为与 Internet Computer 交互而设计的编程语言，以及一个简单的基于 webpack 的前端。</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_获取_icp_代币和燃料费"><a class="anchor" href="#_获取_icp_代币和燃料费"></a>获取 ICP 代币和燃料费</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>如链接中所讨论的：../developers-guide/concepts/tokens-cycles.html[Tokens and Cycles]，<strong>cycles</strong> 需要为在 Internet Computer platform 上运行的 dapps 提供智能合约操作。
-作为开发人员，您有几个不同的选项来获取和管理 dapp 的周期：</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>通过列出可交易 ICP 代币的交易所购买或领取 ICP 代币，然后使用链接将您的代币转换为燃料费：network-quickstart.html#convert-tokens[{sdk-short-name} 命令行界面]或链接：https://nns.ic0.app/#/auth[网络神经系统应用]。</p>
-</li>
-<li>
-<p>通过注册帐户或链接来注册燃料费：../developers-guide/default-wallet.html#wallet-create-wallets[cycles wallet] 通过提供这些服务的提供商。</p>
-</li>
-<li>
-<p>与其他开发者协调链接：../developers-guide/default-wallet.html#wallet-send[send] 和链接：../developers-guide/default-wallet.html#wallet-receive[receive ] 通过燃料费钱包或另一个容器直接往返于容器。</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>B因为只有容器需要和消耗燃料费——执行操作并为其使用的资源付费——周期总是在容器之间传输，而不是传递给用户或开发人员。 但是，您可以通过为您创建的燃料费钱包或使用类似的 dapp 来管理燃料费的分配。</p>
+<p>Once you finish your first dap, you can see more robust examples (e.g. DAOs, NFTs, etc&#8230;&#8203;) in <a href="../examples/index.html">Sample code and dapps</a>.</p>
 </div>
 </div>
 </div>
@@ -949,16 +935,16 @@
 <div class="ulist">
 <ul>
 <li>
-<p>链接:../developers-guide/concepts/tokens-cycles.html#using-tokens[How you can use ICP tokens (overview)]</p>
+<p><a href="../developers-guide/concepts/tokens-cycles.html#using-tokens">How you can use ICP tokens (overview)</a></p>
 </li>
 <li>
-<p>链接:https://www.youtube.com/watch?v=jduSMHxdYD8[Building on the Internet Computer: Fundamentals (video)]</p>
+<p><a href="https://www.youtube.com/watch?v=jduSMHxdYD8">Building on the Internet Computer: Fundamentals (video)</a></p>
 </li>
 <li>
-<p>链接:https://www.youtube.com/watch?v=60uHQfoA8Dk[What is the DFINITY Canister SDK (video)]</p>
+<p><a href="https://www.youtube.com/watch?v=60uHQfoA8Dk">What is the DFINITY Canister SDK (video)</a></p>
 </li>
 <li>
-<p>链接:https://www.youtube.com/watch?v=yqIoiyuGYNA[Deploying your first dapp (video)]</p>
+<p><a href="https://www.youtube.com/watch?v=yqIoiyuGYNA">Deploying your first dapp (video)</a></p>
 </li>
 </ul>
 </div>

@@ -141,23 +141,11 @@
     
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../quickstart/newcomers.html">对于新人</a>
+    <a class="nav-link" href="../quickstart/how-to-deploy-hello-world-smart-contract.html">20分钟部署第一个DAPP</a>
     
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../quickstart/cycles-faucet.html">获取免费的Cycles</a>
-    
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../quickstart/host-a-website.html">托管静态网站</a>
-    
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../quickstart/local-quickstart.html">本地开发</a>
-    
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../quickstart/network-quickstart.html">网络部署</a>
     
   </li>
 </ul>
@@ -172,19 +160,27 @@
     
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="https://github.com/dfinity/examples">官方示例仓库</a>
+    <a class="nav-link" href="host-a-website.html">静态网站</a>
     
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="https://github.com/dfinity/awesome-dfinity">开源社区项目</a>
-    
-  </li>
-  <li class="nav-item is-current-page" data-depth="2">
-    <a class="nav-link" href="hackathon-projects.html">黑客松项目</a>
+    <a class="nav-link" href="dex.html">Basic DEX</a>
     
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="codelabs.html">Codlabs</a>
+    <a class="nav-link" href="nft.html">NFT Minting</a>
+    
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="dao.html">Basic DAO</a>
+    
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="encrypted-notes.html">Encrypted Note-taking</a>
+    
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="tokentransfer.html">Token Transfer</a>
     
   </li>
 </ul>
@@ -213,6 +209,10 @@
     <a class="nav-link" href="../release-notes/sdk-release-notes.html">Release notes</a>
     
 <ul class="nav-list">
+  <li class="nav-item" data-depth="5">
+    <a class="nav-link" href="../release-notes/0.9.2-rn.html">0.9.2</a>
+    
+  </li>
   <li class="nav-item" data-depth="5">
     <a class="nav-link" href="../release-notes/0.9.0-rn.html">0.9.0</a>
     
@@ -550,12 +550,8 @@
     
   </li>
   <li class="nav-item" data-depth="5">
-    <a class="nav-link" href="#candid-guide:candid-howto.adoc">如何使用</a>
-    
-  </li>
-  <li class="nav-item" data-depth="5">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="#candid-guide:candid-ref.adoc">参考</a>
+    <a class="nav-link" href="#candid-guide:candid-howto.adoc">如何使用</a>
     
 <ul class="nav-list">
   <li class="nav-item" data-depth="6">
@@ -610,6 +606,29 @@
   </li>
   <li class="nav-item" data-depth="4">
     <a class="nav-link" href="../developers-guide/tutorials/my-contacts.html">添加CSS样式</a>
+    
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Security Best Practices</span>
+    
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../security-best-practices/introduction.html">Introduction</a>
+    
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../security-best-practices/general-security-best-practices.html">General Security Best Practices</a>
+    
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../security-best-practices/web-app-development-security-best-practices.html">Web App Development Security Best Practices</a>
+    
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../security-best-practices/rust-canister-development-security-best-practices.html">Rust Canister Development Security Best Practices</a>
     
   </li>
 </ul>
@@ -873,7 +892,6 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">Developer Center</a></li>
-    <li><a href="index.html">示例代码</a></li>
     <li><a href="hackathon-projects.html">黑客松项目</a></li>
   </ul>
 </nav>
@@ -884,7 +902,7 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>来自世界各地的开发者正在参加黑客松，在IC上构建dapp、工具和其他类型的项目。获取灵感，并查看一些获奖项目的源代码。</p>
+<p>来自世界各地的开发者正在参加黑客松，在IC上构建dapp、工具和其他类型的项目。来找找灵感，并查看一些获奖项目的源代码。</p>
 </div>
 </div>
 </div>
@@ -892,7 +910,7 @@
 <h2 id="dfinihack"><a class="anchor" href="#dfinihack"></a>DFINIHack</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>黑客松是一种很好的学习方式，这就是为什么除了外部黑客松之外，我们还在 DFINITY 举办内部黑客松。 来自所有部门的每个人都可以参与，无论是否有编码经验。 目标是探索新的用例，评估我们为开发人员提供的文档和工具，并在内部推广建设者的文化。</p>
+<p>黑客松是一种很好的学习方式，这就是为什么除了外部黑客松之外，我们还在 DFINITY 举办内部黑客松。 来自所有部门的每个人都可以参与，无论是否有编码经验。 目标是探索新的用例，评估我们为开发人员提供的文档和工具，并在内部推广开发者文化。</p>
 </div>
 <div class="sect2">
 <h3 id="_sidekick"><a class="anchor" href="#_sidekick"></a>Sidekick</h3>

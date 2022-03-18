@@ -140,24 +140,12 @@
     <a class="nav-link" href="quickstart-intro.html">快速开始</a>
     
 <ul class="nav-list">
-  <li class="nav-item is-current-page" data-depth="2">
-    <a class="nav-link" href="newcomers.html">对于新人</a>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="how-to-deploy-hello-world-smart-contract.html">20分钟部署第一个DAPP</a>
     
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="cycles-faucet.html">获取免费的Cycles</a>
-    
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="host-a-website.html">托管静态网站</a>
-    
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="local-quickstart.html">本地开发</a>
-    
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="network-quickstart.html">网络部署</a>
     
   </li>
 </ul>
@@ -172,19 +160,27 @@
     
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="https://github.com/dfinity/examples">官方示例仓库</a>
+    <a class="nav-link" href="../examples/host-a-website.html">静态网站</a>
     
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="https://github.com/dfinity/awesome-dfinity">开源社区项目</a>
+    <a class="nav-link" href="../examples/dex.html">Basic DEX</a>
     
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../examples/hackathon-projects.html">黑客松项目</a>
+    <a class="nav-link" href="../examples/nft.html">NFT Minting</a>
     
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../examples/codelabs.html">Codlabs</a>
+    <a class="nav-link" href="../examples/dao.html">Basic DAO</a>
+    
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../examples/encrypted-notes.html">Encrypted Note-taking</a>
+    
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../examples/tokentransfer.html">Token Transfer</a>
     
   </li>
 </ul>
@@ -213,6 +209,10 @@
     <a class="nav-link" href="../release-notes/sdk-release-notes.html">Release notes</a>
     
 <ul class="nav-list">
+  <li class="nav-item" data-depth="5">
+    <a class="nav-link" href="../release-notes/0.9.2-rn.html">0.9.2</a>
+    
+  </li>
   <li class="nav-item" data-depth="5">
     <a class="nav-link" href="../release-notes/0.9.0-rn.html">0.9.0</a>
     
@@ -550,12 +550,8 @@
     
   </li>
   <li class="nav-item" data-depth="5">
-    <a class="nav-link" href="#candid-guide:candid-howto.adoc">如何使用</a>
-    
-  </li>
-  <li class="nav-item" data-depth="5">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="#candid-guide:candid-ref.adoc">参考</a>
+    <a class="nav-link" href="#candid-guide:candid-howto.adoc">如何使用</a>
     
 <ul class="nav-list">
   <li class="nav-item" data-depth="6">
@@ -610,6 +606,29 @@
   </li>
   <li class="nav-item" data-depth="4">
     <a class="nav-link" href="../developers-guide/tutorials/my-contacts.html">添加CSS样式</a>
+    
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Security Best Practices</span>
+    
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../security-best-practices/introduction.html">Introduction</a>
+    
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../security-best-practices/general-security-best-practices.html">General Security Best Practices</a>
+    
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../security-best-practices/web-app-development-security-best-practices.html">Web App Development Security Best Practices</a>
+    
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../security-best-practices/rust-canister-development-security-best-practices.html">Rust Canister Development Security Best Practices</a>
     
   </li>
 </ul>
@@ -873,8 +892,7 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">Developer Center</a></li>
-    <li><a href="quickstart-intro.html">快速开始</a></li>
-    <li><a href="newcomers.html">对于新人</a></li>
+    <li><a href="newcomers.html">新手的初步步骤</a></li>
   </ul>
 </nav>
 </div>
@@ -922,7 +940,7 @@
 <h2 id="open-terminal"><a class="anchor" href="#open-terminal"></a>打开终端</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>您需要知道如何打开终端并导航到目录以安装 {sdk-short-name} 并在尝试任何链接时启动和停止在本地运行的 Internet Computer：../developers-guide/tutorials- 介绍.html[教程]。</p>
+<p>您需要知道如何打开终端并导航到目录以安装 {sdk-short-name} 并在尝试任何启动和停止在本地运行的 Internet Computerlink：../developers-guide/tutorials- 介绍.html[教程]。</p>
 </div>
 <div class="paragraph">
 <p>在 macOS 上打开终端应用程序：</p>
@@ -1011,7 +1029,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">brew install node</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">brew install node@16</code></pre>
 </div>
 </div>
 </li>
@@ -1028,7 +1046,7 @@
 </div>
 <div class="paragraph">
 <p>为 Internet Computer 项目创建工作文件夹是可选的，但可以更轻松地在项目之间查找和导航。
-如果您计划尝试使用以下任何链接：../developers-guide/tutorials-intro.html[tutorials]，则单独的文件夹特别有用：quickstart-intro.html[快速开始]。</p>
+如果您计划尝试使用以下任何<a href="../developers-guide/tutorials-intro.html">tutorials</a>，则单独的文件夹特别有用：quickstart-intro.html[快速开始]。</p>
 </div>
 <div class="paragraph">
 <p>要创建一个新的工作文件夹：</p>
@@ -1110,7 +1128,7 @@
 </div>
 </div>
 <div class="paragraph">
-<p>现在您已准备好链接：local-quickstart.html#download-and-install[install] {sdk-short-name} 并开始编程！</p>
+<p>现在您已准备好<a href="local-quickstart.html#download-and-install">install</a> {sdk-short-name} 并开始编程！</p>
 </div>
 </div>
 </div>

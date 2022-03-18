@@ -141,23 +141,11 @@
     
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../quickstart/newcomers.html">对于新人</a>
+    <a class="nav-link" href="../quickstart/how-to-deploy-hello-world-smart-contract.html">20分钟部署第一个DAPP</a>
     
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../quickstart/cycles-faucet.html">获取免费的Cycles</a>
-    
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../quickstart/host-a-website.html">托管静态网站</a>
-    
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../quickstart/local-quickstart.html">本地开发</a>
-    
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../quickstart/network-quickstart.html">网络部署</a>
     
   </li>
 </ul>
@@ -172,19 +160,27 @@
     
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="https://github.com/dfinity/examples">官方示例仓库</a>
+    <a class="nav-link" href="../examples/host-a-website.html">静态网站</a>
     
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="https://github.com/dfinity/awesome-dfinity">开源社区项目</a>
+    <a class="nav-link" href="../examples/dex.html">Basic DEX</a>
     
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../examples/hackathon-projects.html">黑客松项目</a>
+    <a class="nav-link" href="../examples/nft.html">NFT Minting</a>
     
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../examples/codelabs.html">Codlabs</a>
+    <a class="nav-link" href="../examples/dao.html">Basic DAO</a>
+    
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../examples/encrypted-notes.html">Encrypted Note-taking</a>
+    
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../examples/tokentransfer.html">Token Transfer</a>
     
   </li>
 </ul>
@@ -213,6 +209,10 @@
     <a class="nav-link" href="../release-notes/sdk-release-notes.html">Release notes</a>
     
 <ul class="nav-list">
+  <li class="nav-item" data-depth="5">
+    <a class="nav-link" href="../release-notes/0.9.2-rn.html">0.9.2</a>
+    
+  </li>
   <li class="nav-item" data-depth="5">
     <a class="nav-link" href="../release-notes/0.9.0-rn.html">0.9.0</a>
     
@@ -550,12 +550,8 @@
     
   </li>
   <li class="nav-item" data-depth="5">
-    <a class="nav-link" href="#candid-guide:candid-howto.adoc">如何使用</a>
-    
-  </li>
-  <li class="nav-item" data-depth="5">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="#candid-guide:candid-ref.adoc">参考</a>
+    <a class="nav-link" href="#candid-guide:candid-howto.adoc">如何使用</a>
     
 <ul class="nav-list">
   <li class="nav-item" data-depth="6">
@@ -610,6 +606,29 @@
   </li>
   <li class="nav-item" data-depth="4">
     <a class="nav-link" href="../developers-guide/tutorials/my-contacts.html">添加CSS样式</a>
+    
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Security Best Practices</span>
+    
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="introduction.html">Introduction</a>
+    
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="general-security-best-practices.html">General Security Best Practices</a>
+    
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="web-app-development-security-best-practices.html">Web App Development Security Best Practices</a>
+    
+  </li>
+  <li class="nav-item is-current-page" data-depth="4">
+    <a class="nav-link" href="rust-canister-development-security-best-practices.html">Rust Canister Development Security Best Practices</a>
     
   </li>
 </ul>
@@ -873,7 +892,10 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">Developer Center</a></li>
-    <li><a href="rust-canister-development-security-best-practices.html">Rust Canister 开发安全最佳实践</a></li>
+    <li>开发者文档</li>
+    <li>在互联网计算机上构建</li>
+    <li>Security Best Practices</li>
+    <li><a href="rust-canister-development-security-best-practices.html">Rust Canister Development Security Best Practices</a></li>
   </ul>
 </nav>
 </div>
@@ -896,10 +918,10 @@
 <div class="ulist">
 <ul>
 <li>
-<p>要实现不可变的容器智能合约，你不能成为容器的控制器。控制权必须传递给服务神经系统（SNS）或一个去中心化的治理系统。</p>
+<p>要实现不可变的容器智能合约，你不能成为容器的控制者。控制权必须传递给服务神经系统（SNS）或一个去中心化的治理系统。</p>
 </li>
 <li>
-<p>创建不可变的容器智能合约的另一个选择是完全删除容器控制器。但请注意，这意味着容器不能被升级，这可能会产生严重的影响，例如发现一个错误。</p>
+<p>创建不可变的容器智能合约的另一个选择，是完全删除容器控制器。但请注意，这意味着容器不能被升级，这可能会产生严重的影响，例如发现一个错误。</p>
 </li>
 <li>
 <p>请注意，与其他一些区块链相反，不可变的智能合约也需要燃料费来运行，而且它们可以接收燃料费。</p>
@@ -919,7 +941,7 @@
 <div class="sect3">
 <h4 id="_推荐"><a class="anchor" href="#_推荐"></a>推荐</h4>
 <div class="paragraph">
-<p>如果您与必须是不可变智能合约的容器进行交互，请确保它由 NNS、服务神经系统 (SNS) 或去中心化治理系统控制。</p>
+<p>如果您与必须不可变智能合约的容器进行交互，请确保它由 NNS、服务神经系统 (SNS) 或去中心化治理系统控制。</p>
 </div>
 </div>
 </div>
@@ -941,7 +963,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>根据设计，对于每个容器调用，都可以识别调用者。 调用链接：https://smartcontracts.org/docs/interface-spec/index.html#principal[principal] 可以使用系统API的方法`ic0.msg_caller_size`和`ic0.msg_caller_copy`访问（见链接：https ://docs.dfinity.systems/spec/public/#system-api-imports[这里]）。 如果例如 使用Internet Identity，principal是这个特定来源的用户身份，见链接：https://github.com/dfinity/internet-identity/blob/main/docs/internet-identity-spec.adoc#identity-design -和数据模型[这里]。 如果某些操作（例如访问用户帐户数据或帐户特定操作）应限制为一个主体或一组主体，则必须在容器调用中明确检查，例如 Rust 中的如下：</p>
+<p>根据设计，对于每个容器调用，都可以识别调用者。 调用link：https://smartcontracts.org/docs/interface-spec/index.html#principal[principal] 可以使用系统API的方法`ic0.msg_caller_size`和`ic0.msg_caller_copy`访问（见link：https ://docs.dfinity.systems/spec/public/#system-api-imports[这里]）。 如果例如 使用Internet Identity，principal是这个特定来源的用户身份，见link：https://github.com/dfinity/internet-identity/blob/main/docs/internet-identity-spec.adoc#identity-design -和数据模型[这里]。 如果某些操作（例如访问用户帐户数据或帐户特定操作）应限制为一个主体或一组主体，则必须在容器调用中明确检查，例如 Rust 中的如下：</p>
 </li>
 </ul>
 </div>
@@ -966,7 +988,7 @@
 <p>在 Rust 中，<code>ic_cdk</code> crate 可用于使用 <code>ic_cdk::api::caller</code> 对调用者进行身份验证。 确保返回的主体是 <code>Principal::self_authenticating</code> 类型，并使用该主体的公钥识别用户帐户，请参见上面的示例代码。</p>
 </li>
 <li>
-<p>在调用中尽早进行身份验证，以避免在身份验证之前进行未经身份验证的操作和潜在的昂贵操作。 链接：rust-canister-development-security-best-practices.adoc#disallow-the-anonymous-principal[拒绝向匿名用户提供服务] 也是一个好主意。</p>
+<p>在调用中尽早进行身份验证，以避免在身份验证之前进行未经身份验证的操作和潜在的昂贵操作。 link：rust-canister-development-security-best-practices.adoc#disallow-the-anonymous-principal[拒绝向匿名用户提供服务] 也是一个好主意。</p>
 </li>
 </ul>
 </div>
@@ -1012,7 +1034,7 @@
 <div class="sect3">
 <h4 id="_安全问题_5"><a class="anchor" href="#_安全问题_5"></a>安全问题</h4>
 <div class="paragraph">
-<p>IC 上的 dApp 可以使用链接：https://wiki.internetcomputer.org/wiki/HTTP_asset_certification[资产认证] 来确保交付给浏览器的 HTTP 资产是真实的（即由子网进行阈值签名）。 如果一个应用程序不做资产认证，它只能通过不检查资产认证的 <code>raw.ic0.app</code> 不安全地提供服务。 这是不安全的，因为单个恶意节点或边界节点可以自由修改传递给浏览器的资产。</p>
+<p>IC 上的 dApp 可以使用link：https://wiki.internetcomputer.org/wiki/HTTP_asset_certification[资产认证] 来确保交付给浏览器的 HTTP 资产是真实的（即由子网进行阈值签名）。 如果一个应用程序不做资产认证，它只能通过不检查资产认证的 <code>raw.ic0.app</code> 不安全地提供服务。 这是不安全的，因为单个恶意节点或边界节点可以自由修改传递给浏览器的资产。</p>
 </div>
 <div class="paragraph">
 <p>如果除 <code>ic0.app</code> 之外还通过 <code>raw.ic0.app</code> 提供应用程序，则攻击者可能会诱骗用户（网络钓鱼）使用不安全的 raw.ic0.app。</p>
@@ -1026,7 +1048,7 @@
 <p>仅通过服务工作者验证资产认证的 <code>&lt;canister-id&gt;.ic0.app</code> 提供资产。 不要通过 <code>&lt;canister-id&gt;.raw.ic0.app</code> 提供服务。</p>
 </li>
 <li>
-<p>使用资产容器（自动创建资产认证）提供资产，或添加包括资产认证的“ic-certificate”标头，例如 在链接中完成：https://github.com/dfinity/nns-dapp[NNS dApp] 或链接：https://github.com/dfinity/internet-identity[Internet Identity]。</p>
+<p>使用资产容器（自动创建资产认证）提供资产，或添加包括资产认证的“ic-certificate”标头，例如 完成link：https://github.com/dfinity/nns-dapp[NNS dApp] 或link：https://github.com/dfinity/internet-identity[Internet Identity]。</p>
 </li>
 <li>
 <p>如果请求来自原始，请检查容器的 <code>http_request</code> 方法。 如果是这样，则返回错误并且不提供任何资产。</p>
@@ -1053,10 +1075,10 @@
 <div class="ulist">
 <ul>
 <li>
-<p>链接:https://mmapped.blog/posts/01-effective-rust-canisters.html#use-threadlocal[Use <code>thread_local!</code> with <code>Cell/RefCell</code> for state variables.] (from <a href="https://mmapped.blog/posts/01-effective-rust-canisters.html">Effective Rust Canisters</a>)</p>
+<p><a href="https://mmapped.blog/posts/01-effective-rust-canisters.html#use-threadlocal">Use <code>thread_local!</code> with <code>Cell/RefCell</code> for state variables.</a> (from <a href="https://mmapped.blog/posts/01-effective-rust-canisters.html">Effective Rust Canisters</a>)</p>
 </li>
 <li>
-<p>链接:https://mmapped.blog/posts/01-effective-rust-canisters.html#clear-state[Put all your globals in one basket.] (from <a href="https://mmapped.blog/posts/01-effective-rust-canisters.html">Effective Rust Canisters</a>)</p>
+<p><a href="https://mmapped.blog/posts/01-effective-rust-canisters.html#clear-state">Put all your globals in one basket.</a> (from <a href="https://mmapped.blog/posts/01-effective-rust-canisters.html">Effective Rust Canisters</a>)</p>
 </li>
 </ul>
 </div>
@@ -1128,10 +1150,10 @@
 </div>
 </li>
 <li>
-<p>请参阅链接：https://wiki.internetcomputer.org/wiki/Current_limitations_of_the_Internet_Computer[Internet 计算机的当前限制]，“长期运行升级”和“需要额外 wasm 内存的 [de]serializer”部分</p>
+<p>请参阅link：https://wiki.internetcomputer.org/wiki/Current_limitations_of_the_Internet_Computer[Internet 计算机的当前限制]，“长期运行升级”和“需要额外 wasm 内存的 [de]serializer”部分</p>
 </li>
 <li>
-<p>例如链接：https://github.com/dfinity/internet-identity[internet identity] 直接使用稳定内存存储用户数据。</p>
+<p>例如link：https://github.com/dfinity/internet-identity[internet identity] 直接使用稳定内存存储用户数据。</p>
 </li>
 </ul>
 </div>
@@ -1188,7 +1210,7 @@
 <p>制定可以重新安装容器的灾难恢复策略可能会很有用。</p>
 </li>
 <li>
-<p>请参阅链接中的“备份和恢复”部分:https://www.joachim-breitner.de/blog/788-How_to_audit_an_Internet_Computer_canister[How to audit an Internet Computer canister]</p>
+<p>请参阅“备份和恢复”部分<a href="https://www.joachim-breitner.de/blog/788-How_to_audit_an_Internet_Computer_canister">How to audit an Internet Computer canister</a></p>
 </li>
 </ul>
 </div>
@@ -1266,7 +1288,7 @@
 <p>请注意，在容器间调用期间状态可能会发生变化。 仔细检查您的代码，以免出现此类错误。</p>
 </li>
 <li>
-<p>另请参阅：链接中的“容器间调用”部分:https://www.joachim-breitner.de/blog/788-How_to_audit_an_Internet_Computer_canister[How to audit an Internet Computer canister]</p>
+<p>另请参阅：“容器间调用”部分<a href="https://www.joachim-breitner.de/blog/788-How_to_audit_an_Internet_Computer_canister">How to audit an Internet Computer canister</a></p>
 </li>
 </ul>
 </div>
@@ -1301,7 +1323,7 @@
 <p>清理从容器间调用返回的数据。</p>
 </li>
 <li>
-<p>请参阅链接中的“与恶意罐交谈”部分:https://www.joachim-breitner.de/blog/788-How_to_audit_an_Internet_Computer_canister[How to audit an Internet Computer canister]</p>
+<p>请参阅“与恶意罐交谈”部分:linkhttps://www.joachim-breitner.de/blog/788-How_to_audit_an_Internet_Computer_canister[How to audit an Internet Computer canister]</p>
 </li>
 <li>
 <p>See <a href="https://wiki.internetcomputer.org/wiki/Current_limitations_of_the_Internet_Computer">Current limitations of the Internet Computer</a>, section "Calling potentially malicious or buggy canisters can prevent canisters from upgrading"</p>
@@ -1326,7 +1348,7 @@
 <p>避免这样的循环！</p>
 </li>
 <li>
-<p>有关更多信息，请参阅链接:https://wiki.internetcomputer.org/wiki/Current_limitations_of_the_Internet_Computer[Current limitations of the Internet Computer], section "Loops in call graphs"</p>
+<p>有关更多信息，请参阅<a href="https://wiki.internetcomputer.org/wiki/Current_limitations_of_the_Internet_Computer">Current limitations of the Internet Computer</a>, section "Loops in call graphs"</p>
 </li>
 </ul>
 </div>
@@ -1356,13 +1378,13 @@
 <p>如果状态无效，则在 <code>post_upgrade</code> 挂钩中出现恐慌，以便可以重试升级并尝试修复无效状态。 升级后挂钩中的恐慌会中止升级，但可以使用新代码重试。</p>
 </li>
 <li>
-<p>链接：https://mmapped.blog/posts/01-effective-rust-canisters.html#test-upgrades[测试升级钩子。]（来自链接：https://mmapped.blog/posts/01-effective -rust-canisters.html[有效的rust容器])</p>
+<p>link：https://mmapped.blog/posts/01-effective-rust-canisters.html#test-upgrades[测试升级钩子。]（来自link：https://mmapped.blog/posts/01-effective -rust-canisters.html[有效的rust容器])</p>
 </li>
 <li>
-<p>另请参阅链接中有关升级的部分：https://www.joachim-breitner.de/blog/788-How_to_audit_an_Internet_Computer_canister[如何审核互联网计算机容器]（尽管侧重于 Motoko）</p>
+<p>另请参阅有关升级的部分link：https://www.joachim-breitner.de/blog/788-How_to_audit_an_Internet_Computer_canister[如何审核互联网计算机容器]（尽管侧重于 Motoko）</p>
 </li>
 <li>
-<p>参见链接：https://wiki.internetcomputer.org/wiki/Current_limitations_of_the_Internet_Computer[互联网计算机的当前限制]，“<code>pre_upgrade</code> 挂钩中的错误”部分</p>
+<p>参见link：https://wiki.internetcomputer.org/wiki/Current_limitations_of_the_Internet_Computer[互联网计算机的当前限制]，“<code>pre_upgrade</code> 挂钩中的错误”部分</p>
 </li>
 </ul>
 </div>
@@ -1386,10 +1408,10 @@
 <div class="ulist">
 <ul>
 <li>
-<p>创建不依赖于系统 API 的松散耦合模块并对它们进行单元测试。 看到这个链接:https://mmapped.blog/posts/01-effective-rust-canisters.html#target-independent[recommendation] (from <a href="https://mmapped.blog/posts/01-effective-rust-canisters.html">Effective Rust Canisters</a>).</p>
+<p>创建不依赖于系统 API 的松散耦合模块并对它们进行单元测试。 看到这个<a href="https://mmapped.blog/posts/01-effective-rust-canisters.html#target-independent">recommendation</a> (from <a href="https://mmapped.blog/posts/01-effective-rust-canisters.html">Effective Rust Canisters</a>).</p>
 </li>
 <li>
-<p>对于仍与系统 API 交互的部分：创建在单元测试中伪造的系统 API 的精简抽象。 见链接:https://mmapped.blog/posts/01-effective-rust-canisters.html#target-independent[recommendation] (from <a href="https://mmapped.blog/posts/01-effective-rust-canisters.html">Effective Rust Canisters</a>).例如，可以按如下方式实现“运行时”，然后在测试中使用“模拟运行时”（Dimitris Sarlis 编写的代码）：</p>
+<p>对于仍与系统 API 交互的部分：创建在单元测试中伪造的系统 API 的精简抽象。 见<a href="https://mmapped.blog/posts/01-effective-rust-canisters.html#target-independent">recommendation</a> (from <a href="https://mmapped.blog/posts/01-effective-rust-canisters.html">Effective Rust Canisters</a>).例如，可以按如下方式实现“运行时”，然后在测试中使用“模拟运行时”（Dimitris Sarlis 编写的代码）：</p>
 </li>
 </ul>
 </div>
@@ -1475,7 +1497,7 @@
 <div class="sect3">
 <h4 id="_推荐_16"><a class="anchor" href="#_推荐_16"></a>推荐</h4>
 <div class="paragraph">
-<p>使容器构建可重现。 看到这个链接:https://mmapped.blog/posts/01-effective-rust-canisters.html#reproducible-builds[recommendation] (from <a href="https://mmapped.blog/posts/01-effective-rust-canisters.html">Effective Rust Canisters</a>). See also <a href="https://smartcontracts.org/docs/developers-guide/tutorials/reproducible-builds.html">Developer docs on this</a>.</p>
+<p>使容器构建可重现。 看到这个<a href="https://mmapped.blog/posts/01-effective-rust-canisters.html#reproducible-builds">recommendation</a> (from <a href="https://mmapped.blog/posts/01-effective-rust-canisters.html">Effective Rust Canisters</a>). See also <a href="https://smartcontracts.org/docs/developers-guide/tutorials/reproducible-builds.html">Developer docs on this</a>.</p>
 </div>
 </div>
 </div>
@@ -1484,7 +1506,7 @@
 <div class="sect3">
 <h4 id="_安全问题_18"><a class="anchor" href="#_安全问题_18"></a>安全问题</h4>
 <div class="paragraph">
-<p>万一受到攻击，能够从容器中获取相关指标是非常棒的，例如账户数量、内部数据结构大小、稳定内存等。</p>
+<p>万一受到攻击，至少能从容器中获取相关指标是一件很好的事情，例如账户数量、内部数据结构大小、稳定内存等。</p>
 </div>
 </div>
 <div class="sect3">
@@ -1505,7 +1527,7 @@
 <div class="sect3">
 <h4 id="_推荐_18"><a class="anchor" href="#_推荐_18"></a>推荐</h4>
 <div class="paragraph">
-<p>请参阅链接中的“时间不是严格单调的”部分：https://www.joachim-breitner.de/blog/788-How_to_audit_an_Internet_Computer_canister[如何审核 Internet 计算机容器]</p>
+<p>请参阅“时间不是严格单调的”部分link：https://www.joachim-breitner.de/blog/788-How_to_audit_an_Internet_Computer_canister[如何审核 Internet 计算机容器]</p>
 </div>
 </div>
 </div>
@@ -1520,7 +1542,7 @@
 <div class="sect3">
 <h4 id="_推荐_19"><a class="anchor" href="#_推荐_19"></a>推荐</h4>
 <div class="paragraph">
-<p>考虑监控、早期身份验证、容器级别的速率限制以减轻这种情况。另外，请注意，攻击者的目标是消耗大多数燃料费的调用。请参阅链接中的“循环平衡消耗攻击部分”：https://www.joachim-breitner.de/blog/788-How_to_audit_an_Internet_Computer_canister[如何审核 Internet 计算机容器]。</p>
+<p>考虑监控、早期身份验证、容器级别的速率限制以减轻这种情况。另外，请注意，攻击者的目标是消耗大多数燃料费的调用。请参阅“循环平衡消耗攻击部分”link：https://www.joachim-breitner.de/blog/788-How_to_audit_an_Internet_Computer_canister[如何审核 Internet 计算机容器]。</p>
 </div>
 </div>
 </div>
@@ -1537,7 +1559,7 @@
 <div class="sect3">
 <h4 id="_安全问题_21"><a class="anchor" href="#_安全问题_21"></a>安全问题</h4>
 <div class="paragraph">
-<p>链接中发送的数据：https://smartcontracts.org/docs/interface-spec/index.html#http-interface[查询和更新调用]一般是不可信的。消息大小限制为几 MB。这可以例如引导以下问题：</p>
+<p>发送的数据link：https://smartcontracts.org/docs/interface-spec/index.html#http-interface[查询和更新调用]一般是不可信的。消息大小限制为几 MB。这可以例如引导以下问题：</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1548,7 +1570,7 @@
 <p>大尺寸的消息可能会被发送并可能存储在容器中，从而消耗过多的存储空间。</p>
 </li>
 <li>
-<p>大输入（例如大列表或字符串）可能会触发过多的计算，导致 DoS 并消耗许多燃料费。另见链接：rust-canister-development-security-best-practices.adoc#protect-against-draining-the-cycles-balance[防止耗尽燃料费余额]</p>
+<p>大输入（例如大列表或字符串）可能会触发过多的计算，导致 DoS 并消耗许多燃料费。另见link：rust-canister-development-security-best-practices.adoc#protect-against-draining-the-cycles-balance[防止耗尽燃料费余额]</p>
 </li>
 </ul>
 </div>
@@ -1558,13 +1580,13 @@
 <div class="ulist">
 <ul>
 <li>
-<p>执行输入验证，参见例如链接：https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html[OWASP备忘单]。</p>
+<p>执行输入验证，参见例如link：https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html[OWASP备忘单]。</p>
 </li>
 <li>
-<p>链接中的“大数据攻击”部分：https://www.joachim-breitner.de/blog/788-How_to_audit_an_Internet_Computer_canister[如何审核 Internet 计算机容器]（注意坦率的太空炸弹）</p>
+<p>“大数据攻击”部分link：https://www.joachim-breitner.de/blog/788-How_to_audit_an_Internet_Computer_canister[如何审核 Internet 计算机容器]（注意坦率的太空炸弹）</p>
 </li>
 <li>
-<p>链接：https://owasp.org/www-project-application-security-verification-standard/[ASVS] 5.1.4：验证结构化数据是强类型的，并针对定义的模式进行验证，包括允许的字符、长度和模式（例如信用卡号码或电话，或验证两个相关字段是否合理，例如检查郊区和邮政编码匹配）。</p>
+<p>link：https://owasp.org/www-project-application-security-verification-standard/[ASVS] 5.1.4：验证结构化数据是强类型的，并针对定义的模式进行验证，包括允许的字符、长度和模式（例如信用卡号码或电话，或验证两个相关字段是否合理，例如检查郊区和邮政编码匹配）。</p>
 </li>
 </ul>
 </div>
@@ -1586,10 +1608,10 @@
 <p>尽可能避免不安全的代码。</p>
 </li>
 <li>
-<p>见链接：https://anssi-fr.github.io/rust-guide/04_language.html#unsafe-code[Rust安全指南]</p>
+<p>见link：https://anssi-fr.github.io/rust-guide/04_language.html#unsafe-code[Rust安全指南]</p>
 </li>
 <li>
-<p>考虑链接：https://docs.dfinity.systems/dfinity/spec/meta/rust.html#_avoid_unsafe_code[Dfinity Rust Guidelines]。</p>
+<p>考虑link：https://docs.dfinity.systems/dfinity/spec/meta/rust.html#_avoid_unsafe_code[Dfinity Rust Guidelines]。</p>
 </li>
 </ul>
 </div>
@@ -1611,17 +1633,17 @@
 <p>仔细检查您的代码是否存在任何可能环绕的整数运算。</p>
 </li>
 <li>
-<p>使用这些操作的“饱和”或“已检查”变体，例如“饱和添加”、“饱和订阅”、“检查添加”、“检查订阅”等。参见例如链接：https://doc.rust-lang.org/std/primitive.u32.html#method.saturating_add[Rust docs] for <code>u32</code>。</p>
+<p>使用这些操作的“饱和”或“已检查”变体，例如“饱和添加”、“饱和订阅”、“检查添加”、“检查订阅”等。参见例如link：https://doc.rust-lang.org/std/primitive.u32.html#method.saturating_add[Rust docs] for <code>u32</code>。</p>
 </li>
 <li>
-<p>另见链接：https://anssi-fr.github.io/rust-guide/04_language.html#integer-overflows[Rust security Guidelines on integer overflows]。</p>
+<p>另见link：https://anssi-fr.github.io/rust-guide/04_language.html#integer-overflows[Rust security Guidelines on integer overflows]。</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_对于昂贵的通话考虑使用验证码或工作证明"><a class="anchor" href="#_对于昂贵的通话考虑使用验证码或工作证明"></a>对于昂贵的通话，考虑使用验证码或工作证明</h3>
+<h3 id="_对于昂贵的调用考虑使用验证码或工作证明"><a class="anchor" href="#_对于昂贵的调用考虑使用验证码或工作证明"></a>对于昂贵的调用，考虑使用验证码或工作证明</h3>
 <div class="sect3">
 <h4 id="_安全问题_24"><a class="anchor" href="#_安全问题_24"></a>安全问题</h4>
 <div class="paragraph">
@@ -1631,7 +1653,7 @@
 <div class="sect3">
 <h4 id="_推荐_23"><a class="anchor" href="#_推荐_23"></a>推荐</h4>
 <div class="paragraph">
-<p>如果 dApp 提供此类操作，请考虑使用 bot 预防技术，例如添加验证码或工作量证明。有例如链接中的验证码实现：https://github.com/dfinity/internet-identity[internet identity]。</p>
+<p>如果 dApp 提供此类操作，请考虑使用 bot 预防技术，例如添加验证码或工作量证明。有例如link中的验证码实现：https://github.com/dfinity/internet-identity[internet identity]。</p>
 </div>
 </div>
 </div>

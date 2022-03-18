@@ -141,23 +141,11 @@
     
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../quickstart/newcomers.html">对于新人</a>
+    <a class="nav-link" href="../quickstart/how-to-deploy-hello-world-smart-contract.html">20分钟部署第一个DAPP</a>
     
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../quickstart/cycles-faucet.html">获取免费的Cycles</a>
-    
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../quickstart/host-a-website.html">托管静态网站</a>
-    
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../quickstart/local-quickstart.html">本地开发</a>
-    
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../quickstart/network-quickstart.html">网络部署</a>
     
   </li>
 </ul>
@@ -172,19 +160,27 @@
     
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="https://github.com/dfinity/examples">官方示例仓库</a>
+    <a class="nav-link" href="../examples/host-a-website.html">静态网站</a>
     
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="https://github.com/dfinity/awesome-dfinity">开源社区项目</a>
+    <a class="nav-link" href="../examples/dex.html">Basic DEX</a>
     
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../examples/hackathon-projects.html">黑客松项目</a>
+    <a class="nav-link" href="../examples/nft.html">NFT Minting</a>
     
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../examples/codelabs.html">Codlabs</a>
+    <a class="nav-link" href="../examples/dao.html">Basic DAO</a>
+    
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../examples/encrypted-notes.html">Encrypted Note-taking</a>
+    
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../examples/tokentransfer.html">Token Transfer</a>
     
   </li>
 </ul>
@@ -213,6 +209,10 @@
     <a class="nav-link" href="../release-notes/sdk-release-notes.html">Release notes</a>
     
 <ul class="nav-list">
+  <li class="nav-item" data-depth="5">
+    <a class="nav-link" href="../release-notes/0.9.2-rn.html">0.9.2</a>
+    
+  </li>
   <li class="nav-item" data-depth="5">
     <a class="nav-link" href="../release-notes/0.9.0-rn.html">0.9.0</a>
     
@@ -550,12 +550,8 @@
     
   </li>
   <li class="nav-item" data-depth="5">
-    <a class="nav-link" href="#candid-guide:candid-howto.adoc">如何使用</a>
-    
-  </li>
-  <li class="nav-item" data-depth="5">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="#candid-guide:candid-ref.adoc">参考</a>
+    <a class="nav-link" href="#candid-guide:candid-howto.adoc">如何使用</a>
     
 <ul class="nav-list">
   <li class="nav-item" data-depth="6">
@@ -610,6 +606,29 @@
   </li>
   <li class="nav-item" data-depth="4">
     <a class="nav-link" href="../developers-guide/tutorials/my-contacts.html">添加CSS样式</a>
+    
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Security Best Practices</span>
+    
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../security-best-practices/introduction.html">Introduction</a>
+    
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../security-best-practices/general-security-best-practices.html">General Security Best Practices</a>
+    
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../security-best-practices/web-app-development-security-best-practices.html">Web App Development Security Best Practices</a>
+    
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../security-best-practices/rust-canister-development-security-best-practices.html">Rust Canister Development Security Best Practices</a>
     
   </li>
 </ul>
@@ -900,18 +919,18 @@ ICP 代币在 Internet Computer 的治理和经济方面都发挥着关键作用
 <p>您想了解您可以使用 ICP 代币做什么。</p>
 </li>
 <li>
-<p>您想知道如何使用 {sdk-short-name} 命令行界面 DFX 转换、转移或锁定您的 ICP 令牌。</p>
+<p>您想知道如何使用 {sdk-short-name} 命令行界面 DFX 转换、转移或锁定您的 ICP 代币。</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>如果您还不是代币持有者，您需要从交易所购买 ICP 代币或获得代币授权，然后才能进行托管。有关如何获取 ICP 代币和托管选项的概述，请参见link：../developers-guide/concepts/tokens-cycles.html#get-cycles[如何获取 ICP 代币] 和链接：托管选项- intro.html【选择数字资产自托管】。</p>
+<p>如果您还不是代币持有者，您需要从交易所购买 ICP 代币或获得代币授权，然后才能进行托管。有关如何获取 ICP 代币和托管选项的概述，请参见 link：../developers-guide/concepts/tokens-cycles.html#get-cycles[如何获取 ICP 代币] 和link：托管选项- intro.html【选择数字资产自托管】。</p>
 </div>
 <div class="paragraph">
-<p>如果您正在使用其他应用程序（例如链接：https://nns.ic0.app[Network Nervous System (NNS) application] 或硬件钱包提供的用户界面）与您的 ICP 代币进行交互，您应该参考到该应用程序的文档。</p>
+<p>如果您正在使用其他应用程序（例如link：https://nns.ic0.app[Network Nervous System (NNS) application] 或硬件钱包提供的用户界面）与您的 ICP 代币进行交互，您应该参考到该应用程序的文档。</p>
 </div>
 <div class="paragraph">
-<p>这个 <em>自托管快速入门</em> 只专注于使用 {sdk-short-name} 命令行界面 DFX 与 ICP 令牌进行交互。</p>
+<p>这个 <em>自托管快速入门</em> 只专注于使用 {sdk-short-name} 命令行界面 DFX 与 ICP 代币进行交互。</p>
 </div>
 </div>
 </div>
@@ -968,9 +987,9 @@ ICP 代币在 Internet Computer 的治理和经济方面都发挥着关键作用
 </div>
 </li>
 <li>
-<p>您有一个安全的环境来执行涉及 ICP 令牌的操作。</p>
+<p>您有一个安全的环境来执行涉及 ICP 代币的操作。</p>
 <div class="paragraph">
-<p>作为安全最佳实践，任何涉及 ICP 令牌传输的操作都需要一台具有最少硬件和软件的气隙计算机以及一台连接到网络的计算机。
+<p>作为安全最佳实践，任何涉及 ICP 代币传输的操作都需要一台具有最少硬件和软件的气隙计算机以及一台连接到网络的计算机。
 实际上，这需要在两台计算机之间移动文件并采取其他预防措施以最大程度地降低风险。</p>
 </div>
 <div class="paragraph">
@@ -1109,7 +1128,7 @@ ICP 代币在 Internet Computer 的治理和经济方面都发挥着关键作用
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>通过运行类似于以下的命令从您的帐本帐户转移 ICP 令牌，创建一个具有燃料费的新容器：</p>
+<p>通过运行类似于以下的命令从您的帐本帐户转移 ICP 代币，创建一个具有燃料费的新容器：</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx ledger --network ic create-canister &lt;controller-principal-identifier&gt; --amount &lt;icp-tokens&gt;</code></pre>
@@ -1183,7 +1202,7 @@ dfx identity whoami
 dfx ledger --network ic balance
 ----
 
-. 通过运行类似于以下的命令将 ICP 令牌转移到另一个帐户：
+. 通过运行类似于以下的命令将 ICP 代币转移到另一个帐户：
 +
 [source,bash]
 ----
@@ -1200,11 +1219,11 @@ For example:
 <div class="literalblock">
 <div class="content">
 <pre>+
-此示例说明如何使用带有 `+--icp+` 命令行选项的整数将 ICP 令牌转移到指定帐户。
+此示例说明如何使用带有 `+--icp+` 命令行选项的整数将 ICP 代币转移到指定帐户。
 +
 --
 
-* 您还可以使用 `+--e8s+` 选项单独或与 `+--icp+` 选项一起指定 ICP 令牌的小数单位 - 称为 *e8s*。
+* 您还可以使用 `+--e8s+` 选项单独或与 `+--icp+` 选项一起指定 ICP 代币的小数单位 - 称为 *e8s*。
 
 * 或者，您可以使用 `+--amount+` 指定要传输的 ICP 代币数量，小数点后最多 8 位，例如，`+5.00000025+`。
 --
@@ -1265,7 +1284,7 @@ For example:
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>. 通过运行类似于以下的命令，将 ICP 令牌从分类帐帐户转移到上一步中返回的目标帐户标识符：
+<pre>. 通过运行类似于以下的命令，将 ICP 代币从分类帐帐户转移到上一步中返回的目标帐户标识符：
 +
 [source,bash]
 ----

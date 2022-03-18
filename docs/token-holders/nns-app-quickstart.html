@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Untitled :: Motoko documentation</title>
+    <title>网络神经系统dapp快速入门 :: Motoko documentation</title>
     <meta name="generator" content="Antora 3.0.1">
 <link rel="stylesheet" href="../../_/css/site.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" /><meta property="og:image:width" content="1200" />
@@ -141,23 +141,11 @@
     
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../quickstart/newcomers.html">对于新人</a>
+    <a class="nav-link" href="../quickstart/how-to-deploy-hello-world-smart-contract.html">20分钟部署第一个DAPP</a>
     
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../quickstart/cycles-faucet.html">获取免费的Cycles</a>
-    
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../quickstart/host-a-website.html">托管静态网站</a>
-    
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../quickstart/local-quickstart.html">本地开发</a>
-    
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../quickstart/network-quickstart.html">网络部署</a>
     
   </li>
 </ul>
@@ -172,19 +160,27 @@
     
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="https://github.com/dfinity/examples">官方示例仓库</a>
+    <a class="nav-link" href="../examples/host-a-website.html">静态网站</a>
     
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="https://github.com/dfinity/awesome-dfinity">开源社区项目</a>
+    <a class="nav-link" href="../examples/dex.html">Basic DEX</a>
     
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../examples/hackathon-projects.html">黑客松项目</a>
+    <a class="nav-link" href="../examples/nft.html">NFT Minting</a>
     
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../examples/codelabs.html">Codlabs</a>
+    <a class="nav-link" href="../examples/dao.html">Basic DAO</a>
+    
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../examples/encrypted-notes.html">Encrypted Note-taking</a>
+    
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../examples/tokentransfer.html">Token Transfer</a>
     
   </li>
 </ul>
@@ -213,6 +209,10 @@
     <a class="nav-link" href="../release-notes/sdk-release-notes.html">Release notes</a>
     
 <ul class="nav-list">
+  <li class="nav-item" data-depth="5">
+    <a class="nav-link" href="../release-notes/0.9.2-rn.html">0.9.2</a>
+    
+  </li>
   <li class="nav-item" data-depth="5">
     <a class="nav-link" href="../release-notes/0.9.0-rn.html">0.9.0</a>
     
@@ -550,12 +550,8 @@
     
   </li>
   <li class="nav-item" data-depth="5">
-    <a class="nav-link" href="#candid-guide:candid-howto.adoc">如何使用</a>
-    
-  </li>
-  <li class="nav-item" data-depth="5">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="#candid-guide:candid-ref.adoc">参考</a>
+    <a class="nav-link" href="#candid-guide:candid-howto.adoc">如何使用</a>
     
 <ul class="nav-list">
   <li class="nav-item" data-depth="6">
@@ -610,6 +606,29 @@
   </li>
   <li class="nav-item" data-depth="4">
     <a class="nav-link" href="../developers-guide/tutorials/my-contacts.html">添加CSS样式</a>
+    
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Security Best Practices</span>
+    
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../security-best-practices/introduction.html">Introduction</a>
+    
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../security-best-practices/general-security-best-practices.html">General Security Best Practices</a>
+    
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../security-best-practices/web-app-development-security-best-practices.html">Web App Development Security Best Practices</a>
+    
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../security-best-practices/rust-canister-development-security-best-practices.html">Rust Canister Development Security Best Practices</a>
     
   </li>
 </ul>
@@ -881,16 +900,9 @@
 </div>
 <div class="main-content">
 <article class="doc">
-<div class="paragraph">
-<p>=网络神经系统dapp快速入门
-:描述: 如何创建和管理质押的 ICP 实用代币。
-:k关键词: 互联网计算机,神经元,区块链,治理,加密货币,ICP代币,智能合约,燃料费,钱包,软件,智能合约,容器,开发者入职
-:实验性:
-:commandkey: &#8984;
-:proglang: Motoko
-:IC: Internet Computer
-:company-id: DFINITY</p>
-</div>
+<h1 class="page">网络神经系统dapp快速入门</h1>
+<div id="preamble">
+<div class="sectionbody">
 <div class="paragraph">
 <p>互联网计算机的配置和行为的所有更改都由称为网络神经系统 (NNS) 的算法治理系统控制。
 NNS 控制 Internet Computer 区块链配置的所有方面，并负责执行许多网络管理操作。例如，网络神经系统 (NNS) 负责：</p>
@@ -923,6 +935,8 @@ NNS 控制 Internet Computer 区块链配置的所有方面，并负责执行许
 <p>对网络的更改和更新请求以<strong>提案</strong>的形式提交给 NNS。
 NNS 根据神经元持有者的投票活动决定采纳或拒绝提案。</p>
 </div>
+</div>
+</div>
 <div class="sect1">
 <h2 id="_什么是神经元"><a class="anchor" href="#_什么是神经元"></a>什么是神经元？</h2>
 <div class="sectionbody">
@@ -945,7 +959,7 @@ NNS 根据神经元持有者的投票活动决定采纳或拒绝提案。</p>
 <h3 id="_治理和投票奖励"><a class="anchor" href="#_治理和投票奖励"></a>治理和投票奖励</h3>
 <div class="paragraph">
 <p>当个人或组织将 ICP 实用代币锁定在神经元中时，神经元持有者可以就治理问题提出建议和投票。
-为了鼓励参与，神经元持有者还根据他们锁定的 ICP 实用代币的数量以及最长 8 年的锁定期长度按比例获得奖励。</p>
+为了鼓励参与，神经元持有者还能根据他们锁定的 ICP 实用代币的数量以及锁定期长度（最长8年）按比例获得奖励。</p>
 </div>
 </div>
 <div class="sect2">
@@ -1061,7 +1075,7 @@ NNS 根据神经元持有者的投票活动决定采纳或拒绝提案。</p>
 <h2 id="_在账户之间转移_icp_实用代币"><a class="anchor" href="#_在账户之间转移_icp_实用代币"></a>在账户之间转移 ICP 实用代币</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>如果您选择自托管持有您的 ICP 实用代币，并且这些代币与您的开发者身份相关联，而不是您注册的互联网身份，您需要使用以下链接将 ICP 实用代币转移到您的帐户：https ://nns.ic0.app[网络神经系统（NNS）] dapp。</p>
+<p>如果您选择自托管持有您的 ICP 实用代币，并且这些代币与您的开发者身份相关联，而不是您注册的互联网身份，您需要将 ICP 实用代币转移到您的帐户link：https ://nns.ic0.app[网络神经系统（NNS）] dapp。</p>
 </div>
 <div class="paragraph">
 <p>要转移由您的开发者身份控制的 ICP 实用程序代币：</p>
@@ -1159,10 +1173,10 @@ NNS 根据神经元持有者的投票活动决定采纳或拒绝提案。</p>
 </div>
 </div>
 <div class="paragraph">
-<p>目标地址可以是在 Internet Computer 网络上运行的账本容器中的地址，您使用链接添加的帐户：https://nns.ic0.app[Network Nervous System dapp]，或钱包地址 你有一个交换。</p>
+<p>目标地址可以是在 Internet Computer 网络上运行的账本容器中的地址，您添加的帐户link：https://nns.ic0.app[Network Nervous System dapp]，或钱包地址 你有一个交换。</p>
 </div>
 <div class="paragraph">
-<p>如果您将 ICP 实用程序代币转移到链接中的帐户：https://nns.ic0.app[Network Nervous System dapp]，您可能需要刷新浏览器才能看到交易反映。</p>
+<p>如果您将 ICP 实用程序代币转移到帐户link：https://nns.ic0.app[Network Nervous System dapp]，您可能需要刷新浏览器才能看到交易反映。</p>
 </div>
 <div class="paragraph">
 <p>有关使用 <code>dfx ledger</code> 命令行选项的更多信息，请参阅<a href="../developers-guide/cli-reference/dfx-ledger.html">dfx ledger</a>。</p>
@@ -1205,7 +1219,7 @@ NNS 根据神经元持有者的投票活动决定采纳或拒绝提案。</p>
 <p><span class="image"><img src="_images/neuron-properties.png" alt="neuron properties"></span></p>
 </div>
 <div class="sect2">
-<h3 id="_what_you_can_do_after_creating_a_neuron"><a class="anchor" href="#_what_you_can_do_after_creating_a_neuron"></a>What you can do after creating a neuron</h3>
+<h3 id="_在创建神经元后你可以做什么"><a class="anchor" href="#_在创建神经元后你可以做什么"></a>在创建神经元后你可以做什么</h3>
 <div class="paragraph">
 <p>锁定赌注并创建神经元后，您可以：</p>
 </div>
@@ -1244,7 +1258,7 @@ NNS 根据神经元持有者的投票活动决定采纳或拒绝提案。</p>
 <p>按照<a href="#stake-icp">Stake ICP utility tokens in a neuron</a>中的步骤使用<a href="https://nns.ic0.app">Network Nervous System (NNS)</a> dapp 质押原始神经元。</p>
 </li>
 <li>
-<p>在 Internet Computer 关联链接中查找交易：https://dashboard.internetcomputer.org/transactions[transaction dashboard] 获取神经元地址。</p>
+<p>在 Internet Computer 关联查找交易link：https://dashboard.internetcomputer.org/transactions[transaction dashboard] 获取神经元地址。</p>
 <div class="paragraph">
 <p>您可以使用您的主要 ICP 分类帐帐户的帐户标识符来搜索您的交易。</p>
 </div>
@@ -1384,41 +1398,34 @@ NNS 根据神经元持有者的投票活动决定采纳或拒绝提案。</p>
 </li>
 </ol>
 </div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>验证交易信息，然后点击<strong>确认并发送</strong>。</p>
 <div class="paragraph">
-<p><span class="image unresolved"><img src="select-account.png" alt="select account"></span>
-. 验证交易信息，然后点击<strong>确认并发送</strong>。</p>
+<p>例如，检查目标地址是否与 <code>dev-projects</code> 链接帐户的预期地址匹配：</p>
 </div>
 <div class="paragraph">
-<p>+
-例如，检查目标地址是否与 <code>dev-projects</code> 链接帐户的预期地址匹配：</p>
+<p><span class="image"><img src="_images/confirm-send.png" alt="confirm send"></span></p>
 </div>
+</li>
+<li>
+<p>验证完成的交易，然后点击<strong>关闭</strong>。</p>
 <div class="paragraph">
-<p>+</p>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="_images/confirm-send.png" alt="confirm send"></span>
-. 验证完成的交易，然后点击<strong>关闭</strong>。</p>
-</div>
-<div class="paragraph">
-<p>+
-例如：</p>
-</div>
-<div class="paragraph">
-<p>+</p>
+<p>例如：</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="_images/confirmation.png" alt="confirmation"></span></p>
 </div>
 <div class="paragraph">
-<p>+
-如果您将 ICP 实用程序代币转移到 Internet Computer 分类帐容器中的一个帐户，您可以单击 ICP 选项卡并查看反映的新余额。
+<p>如果您将 ICP 实用程序代币转移到 Internet Computer 分类帐容器中的一个帐户，您可以单击 ICP 选项卡并查看反映的新余额。
 例如：</p>
 </div>
 <div class="paragraph">
-<p>+</p>
-</div>
-<div class="paragraph">
 <p><span class="image"><img src="_images/updated-icp.png" alt="updated icp"></span></p>
+</div>
+</li>
+</ol>
 </div>
 </div>
 </div>
@@ -1467,13 +1474,13 @@ spawn 操作创建了一个新的神经元，该神经元将新的 ICP 余额锁
 <div class="ulist">
 <ul>
 <li>
-<p>链接:https://medium.com/dfinity/earn-substantial-voting-rewards-by-staking-in-the-network-nervous-system-7eb5cf988182[Earn Substantial Voting Rewards by Staking in the Network Nervous System]</p>
+<p><a href="https://medium.com/dfinity/earn-substantial-voting-rewards-by-staking-in-the-network-nervous-system-7eb5cf988182">Earn Substantial Voting Rewards by Staking in the Network Nervous System</a></p>
 </li>
 <li>
-<p>链接:https://medium.com/dfinity/understanding-the-internet-computers-network-nervous-system-neurons-and-icp-utility-tokens-730dab65cae8[Understanding the Internet Computer’s Network Nervous System, Neurons, and ICP Utility Tokens]</p>
+<p><a href="https://medium.com/dfinity/understanding-the-internet-computers-network-nervous-system-neurons-and-icp-utility-tokens-730dab65cae8">Understanding the Internet Computer’s Network Nervous System, Neurons, and ICP Utility Tokens</a></p>
 </li>
 <li>
-<p>链接:https://medium.com/dfinity/getting-started-on-the-internet-computers-network-nervous-system-app-wallet-61ecf111ea11[Getting Started on the Internet Computer’s Network Nervous System App &amp; Wallet]</p>
+<p><a href="https://medium.com/dfinity/getting-started-on-the-internet-computers-network-nervous-system-app-wallet-61ecf111ea11">Getting Started on the Internet Computer’s Network Nervous System App &amp; Wallet</a></p>
 </li>
 </ul>
 </div>
@@ -1509,7 +1516,7 @@ spawn 操作创建了一个新的神经元，该神经元将新的 ICP 余额锁
 <li>
 <p>点击<strong>投票</strong>。</p>
 <div class="paragraph">
-<p>您可以单击列出的任何提案以查看有关提案的信息，包括提案的简要说明、用于查看有关提案的其他信息的链接、通过或拒绝提案的投票数以及投票数 由你的神经元投射。</p>
+<p>您可以单击列出的任何提案以查看有关提案的信息，包括提案的简要说明、用于查看有关提案的其他信息的link、通过或拒绝提案的投票数以及投票数 由你的神经元投射。</p>
 </div>
 </li>
 <li>
@@ -1532,13 +1539,13 @@ spawn 操作创建了一个新的神经元，该神经元将新的 ICP 余额锁
 <div class="ulist">
 <ul>
 <li>
-<p>链接:https://medium.com/dfinity/earn-substantial-voting-rewards-by-staking-in-the-network-nervous-system-7eb5cf988182[Earn Substantial Voting Rewards by Staking in the Network Nervous System]</p>
+<p><a href="https://medium.com/dfinity/earn-substantial-voting-rewards-by-staking-in-the-network-nervous-system-7eb5cf988182">Earn Substantial Voting Rewards by Staking in the Network Nervous System</a></p>
 </li>
 <li>
-<p>链接:https://medium.com/dfinity/understanding-the-internet-computers-network-nervous-system-neurons-and-icp-utility-tokens-730dab65cae8[Understanding the Internet Computer’s Network Nervous System, Neurons, and ICP Utility Tokens]</p>
+<p><a href="https://medium.com/dfinity/understanding-the-internet-computers-network-nervous-system-neurons-and-icp-utility-tokens-730dab65cae8">Understanding the Internet Computer’s Network Nervous System, Neurons, and ICP Utility Tokens</a></p>
 </li>
 <li>
-<p>链接:https://medium.com/dfinity/getting-started-on-the-internet-computers-network-nervous-system-app-wallet-61ecf111ea11[Getting Started on the Internet Computer’s Network Nervous System App &amp; Wallet]</p>
+<p><a href="https://medium.com/dfinity/getting-started-on-the-internet-computers-network-nervous-system-app-wallet-61ecf111ea11">Getting Started on the Internet Computer’s Network Nervous System App &amp; Wallet</a></p>
 </li>
 </ul>
 </div>
@@ -1554,10 +1561,10 @@ spawn 操作创建了一个新的神经元，该神经元将新的 ICP 余额锁
 <p>目前，您只能使用 {sdk-short-name} 命令行界面 (<code>dfx</code>) 通过调用`governance` 容器向网络神经系统提交提案。</p>
 </div>
 <div class="paragraph">
-<p>用于处理 <code>governance</code> 容器的单独命令行工具 (<code>icx-nns</code>) 正在开发中，此功能也将在链接中提供：https://nns.ic0.app[Network Nervous System (NNS)] dapp 很快。</p>
+<p>用于处理 <code>governance</code> 容器的单独命令行工具 (<code>icx-nns</code>) 正在开发中，此功能也将提供link：https://nns.ic0.app[Network Nervous System (NNS)] dapp 很快。</p>
 </div>
 <div class="paragraph">
-<p>但是，如果您想立即开始提交提案，您可以通过从以下链接下载版本来访问 <code>icx-nns</code> 命令行工具的初步版本：https://github.com/dfinity/icx- nns/releases[icx-nns] 存储库。</p>
+<p>但是，如果您想立即开始提交提案，您可以下载版本来访问 <code>icx-nns</code> 命令行工具的初步版本link：https://github.com/dfinity/icx- nns/releases[icx-nns] 存储库。</p>
 </div>
 </div>
 </div>
@@ -1574,7 +1581,7 @@ spawn 操作创建了一个新的神经元，该神经元将新的 ICP 余额锁
 <div class="paragraph">
 <div class="title">单击 <strong>Create New Canister</strong> 以创建新的 Cycles 钱包容器。</div>
 <p>+
-如果你已经有一个cycles wallet canister，你可以点击<strong>Link Canister to Account</strong>在链接中将一个现有的canister标识符链接到你的账户：https://nns.ic0.app[Network Nervous System (NNS)]应用程序。
+如果你已经有一个cycles wallet canister，你可以点击<strong>Link Canister to Account</strong>中将一个现有的canister标识符链接到你的账户link：https://nns.ic0.app[Network Nervous System (NNS)]应用程序。
 .选择您持有 ICP 实用代币的账户之一作为源账户。</p>
 </div>
 <div class="paragraph">

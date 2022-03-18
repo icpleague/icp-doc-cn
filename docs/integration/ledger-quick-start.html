@@ -141,23 +141,11 @@
     
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../quickstart/newcomers.html">对于新人</a>
+    <a class="nav-link" href="../quickstart/how-to-deploy-hello-world-smart-contract.html">20分钟部署第一个DAPP</a>
     
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../quickstart/cycles-faucet.html">获取免费的Cycles</a>
-    
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../quickstart/host-a-website.html">托管静态网站</a>
-    
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../quickstart/local-quickstart.html">本地开发</a>
-    
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../quickstart/network-quickstart.html">网络部署</a>
     
   </li>
 </ul>
@@ -172,19 +160,27 @@
     
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="https://github.com/dfinity/examples">官方示例仓库</a>
+    <a class="nav-link" href="../examples/host-a-website.html">静态网站</a>
     
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="https://github.com/dfinity/awesome-dfinity">开源社区项目</a>
+    <a class="nav-link" href="../examples/dex.html">Basic DEX</a>
     
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../examples/hackathon-projects.html">黑客松项目</a>
+    <a class="nav-link" href="../examples/nft.html">NFT Minting</a>
     
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../examples/codelabs.html">Codlabs</a>
+    <a class="nav-link" href="../examples/dao.html">Basic DAO</a>
+    
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../examples/encrypted-notes.html">Encrypted Note-taking</a>
+    
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../examples/tokentransfer.html">Token Transfer</a>
     
   </li>
 </ul>
@@ -213,6 +209,10 @@
     <a class="nav-link" href="../release-notes/sdk-release-notes.html">Release notes</a>
     
 <ul class="nav-list">
+  <li class="nav-item" data-depth="5">
+    <a class="nav-link" href="../release-notes/0.9.2-rn.html">0.9.2</a>
+    
+  </li>
   <li class="nav-item" data-depth="5">
     <a class="nav-link" href="../release-notes/0.9.0-rn.html">0.9.0</a>
     
@@ -550,12 +550,8 @@
     
   </li>
   <li class="nav-item" data-depth="5">
-    <a class="nav-link" href="#candid-guide:candid-howto.adoc">如何使用</a>
-    
-  </li>
-  <li class="nav-item" data-depth="5">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="#candid-guide:candid-ref.adoc">参考</a>
+    <a class="nav-link" href="#candid-guide:candid-howto.adoc">如何使用</a>
     
 <ul class="nav-list">
   <li class="nav-item" data-depth="6">
@@ -610,6 +606,29 @@
   </li>
   <li class="nav-item" data-depth="4">
     <a class="nav-link" href="../developers-guide/tutorials/my-contacts.html">添加CSS样式</a>
+    
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Security Best Practices</span>
+    
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../security-best-practices/introduction.html">Introduction</a>
+    
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../security-best-practices/general-security-best-practices.html">General Security Best Practices</a>
+    
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../security-best-practices/web-app-development-security-best-practices.html">Web App Development Security Best Practices</a>
+    
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../security-best-practices/rust-canister-development-security-best-practices.html">Rust Canister Development Security Best Practices</a>
     
   </li>
 </ul>
@@ -893,7 +912,7 @@
 </div>
 <div class="paragraph">
 <p>当你阅读本指南时，请注意在随后的文件中可能会有关于特定组件或接口的额外细节，以补充本文件中提供的概述。
-此外，本概述重点介绍如何使用链接与互联网计算机集成:https://www.rosetta-api.org/docs/welcome.html[Rosetta API].
+此外，本概述重点介绍如何与互联网计算机集成<a href="https://www.rosetta-api.org/docs/welcome.html">Rosetta API</a>.
 其他集成选项也是可能的。
 未来的文档中可能会提供有关其他集成选项和过程的信息。</p>
 </div>
@@ -1133,7 +1152,7 @@ Starting Rosetta API server</pre>
 <code>--mainnet</code> 和 <code>--not-whitelisted</code>。</p>
 </div>
 <div class="paragraph">
-<p>有关 Docker 命令行选项的更多信息，请参阅链接:https://docs.docker.com/engine/reference/commandline/run/[Docker reference documentation].</p>
+<p>有关 Docker 命令行选项的更多信息，请参阅<a href="https://docs.docker.com/engine/reference/commandline/run/">Docker reference documentation</a>.</p>
 </div>
 </div>
 <div class="sect2">
@@ -1164,7 +1183,7 @@ Starting Rosetta API server</pre>
 <p>每个 ICP 代币可整除 10^8 次。</p>
 </li>
 <li>
-<p>所有交易都存储在账本中，从创世初始状态开始。</p>
+<p>所有交易都存储在账本中，从创建初始状态开始。</p>
 </li>
 <li>
 <p>代币是完全可替代的。</p>
@@ -1183,7 +1202,7 @@ Starting Rosetta API server</pre>
 <p>质押的参与者节点不使用工作量证明，而是使用阈值 BLS 签名的变体来就链的有效状态达成一致。</p>
 </li>
 <li>
-<p>任何交易都可以存储一个 8 字节的备忘录——Rosetta API 使用这个备忘录字段来存储区分交易的随机数。 然而，该领域的其他用途是可能的。</p>
+<p>任何交易都可以存储一个 8 字节的备忘录——Rosetta API 使用这个备忘录字段来存储区分交易的随机数。 不过，其他用途是可能的。</p>
 </li>
 </ul>
 </div>
@@ -1201,7 +1220,7 @@ Starting Rosetta API server</pre>
 <div class="sect3">
 <h4 id="_如何运行_rosetta_节点的实例"><a class="anchor" href="#_如何运行_rosetta_节点的实例"></a>如何运行 Rosetta 节点的实例？</h4>
 <div class="paragraph">
-<p>一个简单的方法是使用链接:https://hub.docker.com/r/dfinity/rosetta-api/tags?page=1&amp;ordering=last_updated[<code>dfinity/rosetta-api</code>] Docker 镜像. 一旦节点初始化并同步了所有区块，您就可以通过调用节点上的 Rosetta API 来执行查询和提交交易。 该节点侦听“8080”端口。</p>
+<p>一个简单的方法是使用<a href="https://hub.docker.com/r/dfinity/rosetta-api/tags?page=1&amp;ordering=last_updated"><code>dfinity/rosetta-api</code></a> Docker 镜像. 一旦节点初始化并同步了所有区块，您就可以通过调用节点上的 Rosetta API 来执行查询和提交交易。 该节点侦听“8080”端口。</p>
 </div>
 </div>
 <div class="sect3">
@@ -1258,7 +1277,7 @@ Starting Rosetta API server</pre>
 <p>密钥用于签署交易。</p>
 </li>
 <li>
-<p>公钥用于生成自我认证的主体 ID。 有关更多信息，请参阅： <a href="https://sdk.dfinity.org/docs/interface-spec/index.html#_principals" class="bare">https://sdk.dfinity.org/docs/interface-spec/index.html#_principals</a>.</p>
+<p>公钥用于生成自我认证的主体 ID。 有关更多信息，请参阅link： <a href="https://sdk.dfinity.org/docs/interface-spec/index.html#_principals" class="bare">https://sdk.dfinity.org/docs/interface-spec/index.html#_principals</a>.</p>
 </li>
 <li>
 <p>对主体 ID 进行哈希处理以生成帐户地址。</p>
@@ -1271,7 +1290,7 @@ Starting Rosetta API server</pre>
 <div class="ulist">
 <ul>
 <li>
-<p>调用链接:https://www.rosetta-api.org/docs/ConstructionApi.html#constructionderive[<code>/construction/derive</code>] 具有十六进制编码的 32 字节公钥的端点。</p>
+<p>调用<a href="https://www.rosetta-api.org/docs/ConstructionApi.html#constructionderive"><code>/construction/derive</code></a> 具有十六进制编码的 32 字节公钥的端点。</p>
 </li>
 <li>
 <p>调用 JavaScript SDK 中的 <code>pub_key_to_address</code> 函数。</p>
@@ -1287,10 +1306,10 @@ Starting Rosetta API server</pre>
 <p>十六进制解码后，前 4 个字节是地址其余部分的大端 CRC32 校验和。</p>
 </li>
 <li>
-<p>调用链接:https://github.com/dfinity/rosetta-client#working-with-account-addresses[<code>address_from_hex</code>] 在 JavaScript SDK 中。 如果校验和不匹配，它会返回并出错。</p>
+<p>调用<a href="https://github.com/dfinity/rosetta-client#working-with-account-addresses"><code>address_from_hex</code></a> 在 JavaScript SDK 中。 如果校验和不匹配，它会返回并出错。</p>
 </li>
 <li>
-<p>链接:https://gist.github.com/TerrorJack/d6c79b33e5b5d0f5d52f3a2c5cdacc60[这里] 是地址验证逻辑的 Java 实现。</p>
+<p><a href="https://gist.github.com/TerrorJack/d6c79b33e5b5d0f5d52f3a2c5cdacc60">这里</a> 是地址验证逻辑的 Java 实现。</p>
 </li>
 </ul>
 </div>
@@ -1313,7 +1332,7 @@ Starting Rosetta API server</pre>
 <div class="ulist">
 <ul>
 <li>
-<p>从链接查询的每个块:https://www.rosetta-api.org/docs/BlockApi.html#block[<code>/block</code>] 端点只包含一个事务。 请注意，Rosetta API 调用不支持某些操作，例如 <code>burn</code>。</p>
+<p>查询的每个块<a href="https://www.rosetta-api.org/docs/BlockApi.html#block"><code>/block</code></a> 端点只包含一个事务。 请注意，Rosetta API 调用不支持某些操作，例如 <code>burn</code>。</p>
 </li>
 <li>
 <p>转移</p>
@@ -1365,7 +1384,7 @@ Starting Rosetta API server</pre>
 <div class="ulist">
 <ul>
 <li>
-<p>通过调用链接:https://www.rosetta-api.org/docs/ConstructionApi.html#constructionmetadata[<code>/construction/metadata</code>]，你可以获得`suggested_fee`。</p>
+<p>通过调用<a href="https://www.rosetta-api.org/docs/ConstructionApi.html#constructionmetadata"><code>/construction/metadata</code></a>，你可以获得`suggested_fee`。</p>
 </li>
 <li>
 <p>目前，<code>suggested_fee</code> 是一个常数，转账中指定的费用必须等于它。</p>
@@ -1387,7 +1406,7 @@ Starting Rosetta API server</pre>
 <p>如果账本出现错误，错误信息将在`/construction/submit`结果中提供。</p>
 </li>
 <li>
-<p><code>/construction/submit</code> 调用仍有可能成功返回，但距离它到达链还有一段时间。您可以轮询最新的区块并搜索交易哈希。 我们还实现了链接的一个子集:https://www.rosetta-api.org/docs/SearchApi.html#searchtransactions[<code>/search/transactions</code>] 允许在给定哈希值的情况下搜索交易的端点。</p>
+<p><code>/construction/submit</code> 调用仍有可能成功返回，但距离它到达链还有一段时间。您可以轮询最新的区块并搜索交易哈希。 我们还实现了一个子集:linkhttps://www.rosetta-api.org/docs/SearchApi.html#searchtransactions[<code>/search/transactions</code>] 允许在给定哈希值的情况下搜索交易的端点。</p>
 </li>
 <li>
 <p>5 分钟是最坏情况下的超时。</p>
@@ -1430,7 +1449,7 @@ Starting Rosetta API server</pre>
 <div class="sect3">
 <h4 id="_如何在不调用_rosetta_api_的情况下签署交易"><a class="anchor" href="#_如何在不调用_rosetta_api_的情况下签署交易"></a>如何在不调用 Rosetta API 的情况下签署交易？</h4>
 <div class="paragraph">
-<p>JavaScript SDK 包含一个链接:https://github.com/dfinity/rosetta-client/blob/master/lib/construction_combine.js[implementation] 离线签名逻辑。 这与内部实现细节密切相关，因此我们强烈建议您尽可能调用`/construction/combine` 来签署交易。</p>
+<p>JavaScript SDK 包含一个<a href="https://github.com/dfinity/rosetta-client/blob/master/lib/construction_combine.js">implementation</a> 离线签名逻辑。 这与内部实现细节密切相关，因此我们强烈建议您尽可能调用`/construction/combine` 来签署交易。</p>
 </div>
 </div>
 <div class="sect3">
@@ -1442,7 +1461,7 @@ Starting Rosetta API server</pre>
 <div class="sect3">
 <h4 id="_如何反序列化已签名的交易"><a class="anchor" href="#_如何反序列化已签名的交易"></a>如何反序列化已签名的交易？</h4>
 <div class="paragraph">
-<p>JavaScript SDK 支持链接:https://github.com/dfinity/rosetta-client/blob/master/lib/signed_transaction_decode.js[deserializing] 一个`signed_transaction`十六进制字符串并恢复有关转移的一些信息。 这在您想要执行健全性检查的情况下可能很有用。</p>
+<p>JavaScript SDK 支持<a href="https://github.com/dfinity/rosetta-client/blob/master/lib/signed_transaction_decode.js">deserializing</a> 一个`signed_transaction`十六进制字符串并恢复有关转移的一些信息。 这在您想要执行健全性检查的情况下可能很有用。</p>
 </div>
 </div>
 </div>
