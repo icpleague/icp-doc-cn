@@ -909,9 +909,11 @@
 <div class="paragraph">
 <p>示例交换在 <a href="https://github.com/dfinity/examples/tree/master/motoko/defi">Motoko</a> 和 <a href="https://github.com/dfinity/examples/tree/master/rust/defi">Rust </a>并且可以看到https://gzz56-daaaa-aaaal-qai2a-cai.ic0.app/[在IC上运行]。</p>
 </div>
-<div class="paragraph">
-<p>＃＃ 体系</p>
 </div>
+</div>
+<div class="sect1">
+<h2 id="_体系"><a class="anchor" href="#_体系"></a>体系</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>IC 的设计允许更复杂的链上计算。 结合廉价存储，可以拥有链上订单簿。 此示例代码利用这些功能并将用户余额和订单存储在交换容器中。 样本交换功能可以浓缩为以下步骤:</p>
 </div>
@@ -931,9 +933,8 @@
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>＃＃＃ 界面</p>
-</div>
+<div class="sect2">
+<h3 id="_界面"><a class="anchor" href="#_界面"></a>界面</h3>
 <div class="paragraph">
 <p>从交易所请求用户特定的分类帐帐户标识符。 这个唯一的账户标识符代表了交易所总账账户中用户特定的子账户，允许它区分用户存款。</p>
 </div>
@@ -982,9 +983,12 @@
 <pre class="highlightjs highlight"><code class="language-candid hljs" data-lang="candid">getBalance: (Token) -&gt; (nat) query;</code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>＃＃＃ 费用</p>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_费用"><a class="anchor" href="#_费用"></a>费用</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>交易所有责任从交易中扣除费用。这很重要，因为交易所必须为取款和内部转账支付费用。</p>
 </div>

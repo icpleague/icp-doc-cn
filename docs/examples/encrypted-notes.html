@@ -909,18 +909,22 @@
 <div class="paragraph">
 <p>你可以试一下链接<a href="https://cvhrw-2yaaa-aaaaj-aaiqa-cai.ic0.app/">dapp部署在IC上</a>。</p>
 </div>
-<div class="paragraph">
-<p>＃＃ 主意</p>
 </div>
+</div>
+<div class="sect1">
+<h2 id="_主意"><a class="anchor" href="#_主意"></a>主意</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>我们想构建一个纯粹在 IC 上运行的简单（但不是太简单）dapp 的示例。 此示例依赖于 IC 的_web-serving_ 和_storage capabilities_。 我们专注于示例 dapp 的以下两个关键特性:(1) 客户端，_端到端加密_和 (2) _多用户_和_多设备_支持。</p>
 </div>
 <div class="paragraph">
 <p>为了展示 IC 作为开发此类 dapp 的平台的潜力，我们使用两个不同的容器开发套件 (CDK) 实现了这个示例。 Motoko CDK 允许开发人员使用以下链接实现基于参与者的 dapp:https://smartcontracts.org/docs/language-guide/motoko.html[Motoko] 语言。 Rust CDK 允许在链接中实现 dapp:https://smartcontracts.org/docs/rust-guide/rust-intro.html[Rust]。 在这两种情况下，容器都被编译成 WebAssembly 文件，然后部署到 IC 上。</p>
 </div>
-<div class="paragraph">
-<p>＃＃ 方法</p>
 </div>
+</div>
+<div class="sect1">
+<h2 id="_方法"><a class="anchor" href="#_方法"></a>方法</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Encrypted Notes 的基本功能包括两个主要组件。</p>
 </div>
@@ -974,23 +978,39 @@
 <div class="sect1">
 <h2 id="_密码学"><a class="anchor" href="#_密码学"></a>密码学</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p><strong>笔记的加密完全是客户端的。但是，我们的示例 dapp 仍然无法抵御可能是恶意节点提供商的潜在数据泄露攻击。例如，攻击者可以推断出特定用户有多少笔记，用户活动统计等。因此，请仔细阅读link:https://github.com/dfinity/examples/blob/master/motoko/encrypted-notes -dapp/README.md#disclaimer-please-read-carefully[disclaimer] 在使用此 dapp 中的任何代码或模式之前。
-* 回想一下，在我们的定义中，设备不一定是单独的物理设备，而只是具有独立本地存储的 Web 浏览器实例。
-* dapp 使用三种不同的密钥:
-<strong> 对称 AES-GCM <em>secret key</em>:用于加密给定主体的注释。主体的注释存储在使用此密钥加密的 Encrypted Notes 容器中。因此，dapp 的前端需要知道这个密钥才能解密来自该用户的笔记，并发送加密的笔记以存储在 Encrypted Notes 容器中。
-</strong> 设备 RSA-OAEP_public key_:用于加密主体的对称 AES_secret key_。加密的密钥存储在容器中，用于注册到主体的每个设备。相同的密钥用于使用该设备的不同主体。
-*</strong> 设备 RSA-OAEP <em>private key</em>:用于解密存储在 Encrypted Notes 容器中给定主体的对称 AES <em>secret key</em>。一旦前端解密了密钥，它就可以使用这个密钥来解密存储在加密笔记容器中的笔记。
-* 我们存储一张地图的形式:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>笔记的加密完全是客户端的。但是，我们的示例 dapp 仍然无法抵御可能是恶意节点提供商的潜在数据泄露攻击。例如，攻击者可以推断出特定用户有多少笔记，用户活动统计等。因此，请仔细阅读<a href="https://github.com/dfinity/examples/blob/master/motoko/encrypted-notes-dapp/README.md#disclaimer-please-read-carefully">disclaimer</a> 在使用此 dapp 中的任何代码或模式之前。</p>
+</li>
+<li>
+<p>回想一下，在我们的定义中，设备不一定是单独的物理设备，而只是具有独立本地存储的 Web 浏览器实例。</p>
+</li>
+<li>
+<p>dapp 使用三种不同的密钥:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>对称 AES-GCM <em>secret key</em>:用于加密给定主体的注释。主体的注释存储在使用此密钥加密的 Encrypted Notes 容器中。因此，dapp 的前端需要知道这个密钥才能解密来自该用户的笔记，并发送加密的笔记以存储在 Encrypted Notes 容器中。</p>
+</li>
+<li>
+<p>设备 RSA-OAEP_public key_:用于加密主体的对称 AES_secret key_。加密的密钥存储在容器中，用于注册到主体的每个设备。相同的密钥用于使用该设备的不同主体。</p>
+</li>
+<li>
+<p>设备 RSA-OAEP <em>private key</em>:用于解密存储在 Encrypted Notes 容器中给定主体的对称 AES <em>secret key</em>。一旦前端解密了密钥，它就可以使用这个密钥来解密存储在加密笔记容器中的笔记。</p>
+</li>
+</ul>
 </div>
+</li>
+<li>
+<p>我们存储一张地图的形式:</p>
 <div class="literalblock">
 <div class="content">
 <pre>Principal → (DeviceAlias → PublicKey,
              DeviceAlias → CipherText)</pre>
 </div>
 </div>
-<div class="ulist">
-<ul>
+</li>
 <li>
 <p>此地图用于管理用户设备，如下所述。</p>
 </li>
@@ -1005,7 +1025,7 @@
 <p>*设备注册:*如果这个身份是已知的，一个新的设备将首先保持不同步；此时，只有此设备的 <code>alias</code> 和 <code>publickey</code> 将添加到 Encrypted Notes 容器中。</p>
 </li>
 <li>
-<p><strong>设备同步:</strong> 未同步设备获得本II所有未同步设备列表后，将在每个未同步设备的公钥下加密对称AES_secret key_。之后，未同步设备获得加密的对称 AES <em>secret key</em>，对其进行解密，然后使用它来解密存储在 Encrypted Notes 容器中的现有笔记。</p>
+<p><strong>设备同步:</strong> 未同步设备获得本II所有未同步设备列表后，将在每个未同步设备的公钥下加密对称AES_secret key。之后，未同步设备获得加密的对称 AES_secret key，对其进行解密，然后使用它来解密存储在 Encrypted Notes 容器中的现有笔记。</p>
 </li>
 </ul>
 </div>
@@ -1015,10 +1035,10 @@
 <div class="ulist">
 <ul>
 <li>
-<p>如果此身份未知，则前端会生成一个对称的 AES <em>secret key</em> 并使用自己的公钥对其进行加密。然后前端调用“seed(publickey, ciphertext)”，将该密文及其关联的“publickey”添加到地图中。</p>
+<p>如果此身份未知，则前端会生成一个对称的 AES_secret key并使用自己的公钥对其进行加密。然后前端调用 <code>seed(publickey, ciphertext)</code>，将该密文及其关联的“publickey”添加到地图中。</p>
 </li>
 <li>
-<p>如果用户想注册后续设备，前端调用`register_device`，传入该设备的`alias`和`publickey`。然后前端为它需要注册的所有设备调用`submit_ciphertexts([publickey, ciphertext])`。这允许注册设备提取和解密 AES 密钥以加密和解密用户笔记。</p>
+<p>如果用户想注册后续设备，前端调用 <code>register_device</code>，传入该设备的 <code>alias</code> 和 <code>publickey</code>。然后前端为它需要注册的所有设备调用 <code>submit_ciphertexts([publickey, ciphertext])</code>。这允许注册设备提取和解密 AES 密钥以加密和解密用户笔记。</p>
 </li>
 </ul>
 </div>

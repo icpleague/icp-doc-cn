@@ -909,7 +909,7 @@
 <div class="sect2">
 <h3 id="_安全问题"><a class="anchor" href="#_安全问题"></a>安全问题</h3>
 <div class="paragraph">
-<p>对响应link：https://smartcontracts.org/docs/interface-spec/index.html#http-interface[查询调用]（与更新调用相反）不是由容器/子网进行阈值签名的。 因此，单个恶意副本或边界节点可能会更改数据，从而违反其真实性。 如果更新调用依赖于对查询调用的响应，这尤其危险。</p>
+<p>对响应 <a href="https://smartcontracts.org/docs/interface-spec/index.html#http-interface">query calls</a>（与更新调用相反）不是由容器/子网进行阈值签名的。 因此，单个恶意副本或边界节点可能会更改数据，从而违反其真实性。 如果更新调用依赖于对查询调用的响应，这尤其危险。</p>
 </div>
 </div>
 <div class="sect2">
@@ -986,7 +986,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>使用可能是开源的并且已经被许多人审查过的知名库。例如，在 JavaScript 中使用 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API">Web Crypto API</a>，使用 crates 如link:https://crates.io/crates/ Rust 中的 sha256[sha256]</p>
+<p>使用可能是开源的并且已经被许多人审查过的知名库。例如，在 JavaScript 中使用 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API">Web Crypto API</a>，使用 crates 如rust实现的<a href="https://crates.io/crates/sha256">sha256</a></p>
 </li>
 </ul>
 </div>
@@ -997,9 +997,11 @@
 <div class="sect3">
 <h4 id="_安全问题_4"><a class="anchor" href="#_安全问题_4"></a>安全问题</h4>
 <div class="paragraph">
-<p>一些加密方案已被破坏（旧的 TLS 版本、MD5、SHA1、DES、&#8230;&#8203;），或者它们可能太新以至于尚未得到适当的研究。使用这些会引入安全问题。
-==== 推荐</p>
+<p>一些加密方案已被破坏（旧的 TLS 版本、MD5、SHA1、DES、&#8230;&#8203;），或者它们可能太新以至于尚未得到适当的研究。使用这些会引入安全问题。</p>
 </div>
+</div>
+<div class="sect3">
+<h4 id="_推荐_4"><a class="anchor" href="#_推荐_4"></a>推荐</h4>
 <div class="paragraph">
 <p>如果您需要使用加密，请仅使用尚未破解且没有已知问题的加密方案。 理想情况下使用已经标准化的算法，例如 NIST 或 IETF。</p>
 </div>
@@ -1024,14 +1026,14 @@
 </div>
 </div>
 <div class="sect3">
-<h4 id="_推荐_4"><a class="anchor" href="#_推荐_4"></a>推荐</h4>
+<h4 id="_推荐_5"><a class="anchor" href="#_推荐_5"></a>推荐</h4>
 <div class="paragraph">
 <p>为容器实现和前端代码编写测试，尤其是安全相关属性和不变量。</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>在<a href="https://mmapped.blog/posts/01-effective-rust-canisters.html">Effective Rust Canisters</a>：link:https://mmapped.blog/posts/01-effective-rust-canisters.html #test-upgrades[测试升级]，<a href="https://mmapped.blog/posts/01-effective-rust-canisters.html#target-independent">make code target-independent</a></p>
+<p>在<a href="https://mmapped.blog/posts/01-effective-rust-canisters.html">Effective Rust Canisters</a>： <a href="https://mmapped.blog/posts/01-effective-rust-canisters.html#test-upgrades">测试升级</a>，<a href="https://mmapped.blog/posts/01-effective-rust-canisters.html#target-independent">make code target-independent</a></p>
 </li>
 <li>
 <p>另见<a href="rust-canister-development-security-best-practices.adoc#test-your-canister-code">即使在系统 API 调用存在的情况下测试您的容器代码</a></p>
@@ -1043,7 +1045,7 @@
 <p>对于 wasm 级别的单元测试，考虑使用<a href="https://github.com/kritzcreek/motoko-matchers">Motoko Matchers</a></p>
 </li>
 <li>
-<p>对于 Motoko 级别的单元测试，请考虑<a href="https://kritzcreek.github.io/motoko-matchers/Canister.html">Canister 模块</a>。还有一些示例测试<a href="https://github.com/dfinity/motoko-base/blob/master/test/resultTest.mo">这里</a>和link:https://github.com/dfinity/motoko-base /blob/master/test/textTest.mo[这里]。作为示例，另请参见端到端测试和单元测试link：https://github.com/dfinity/invoice-canister[invoice-canister]。</p>
+<p>对于 Motoko 级别的单元测试，请考虑<a href="https://kritzcreek.github.io/motoko-matchers/Canister.html">Canister 模块</a>。还有一些示例测试<a href="https://github.com/dfinity/motoko-base/blob/master/test/resultTest.mo">这里</a>和 <a href="https://github.com/dfinity/motoko-base/blob/master/test/textTest.mo">这里</a>。作为示例，另请参见端到端测试和单元测试<a href="https://github.com/dfinity/invoice-canister">invoice-canister</a>。</p>
 </li>
 <li>
 <p>对于长时间运行的测试场景，考虑<a href="https://github.com/matthewhammer/motoko-bigtest">Motoko BigTest</a></p>
@@ -1064,7 +1066,7 @@
 </div>
 </div>
 <div class="sect3">
-<h4 id="_推荐_5"><a class="anchor" href="#_推荐_5"></a>推荐</h4>
+<h4 id="_推荐_6"><a class="anchor" href="#_推荐_6"></a>推荐</h4>
 <div class="paragraph">
 <p>尽可能避免在生产代码中使用测试和开发代码。</p>
 </div>

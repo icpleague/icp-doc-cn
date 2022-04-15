@@ -1000,10 +1000,10 @@
 <div class="sectionbody">
 <div class="paragraph">
 <p>可以通过多种方式与互联网计算机和分类帐容器进行交互。
-本文档概述了如何使用 <a href="https://www.rosetta-api.org/">Rosetta application programming interface</a>. 这是https://www.rosetta-api.org/docs/welcome.html[well-documented and open standard] 旨在支持多种区块链数据格式和用于交易所交易的结构化通信。</p>
+本文档概述了如何使用 <a href="https://www.rosetta-api.org/">Rosetta application programming interface</a>. <a href="https://www.rosetta-api.org/docs/welcome.html">Rosetta API</a> 旨在支持多种区块链数据格式和用于交易所交易的结构化通信。</p>
 </div>
 <div class="paragraph">
-<p>接口由集成软件——`+dfinity/rosetta-api+实现。 该软件使您能够在互联网计算机区块链之外部署一个被动 Rosetta 节点，并使用该节点与互联网计算机上运行的分类帐容器进行通信。</p>
+<p>接口由集成软件—— <code>dfinity/rosetta-api</code> 实现。 该软件使您能够在互联网计算机区块链之外部署一个被动 Rosetta 节点，并使用该节点与互联网计算机上运行的分类帐容器进行通信。</p>
 </div>
 <div class="paragraph">
 <p>下图提供了 Rosetta 节点和互联网计算机之间使用 <code>dfinity/rosetta-api</code> 集成软件进行通信的简化视图。</p>
@@ -1013,7 +1013,7 @@
 </div>
 <div class="paragraph">
 <p>正如该图所示，Rosetta 节点维护 Internet Computer 帐本容器的本地副本。
-在 Rosetta 节点上运行的“dfinity/rosetta-api”软件会定期更新其本地账本视图，方法是向账本容器查询账本链的最新块，然后查询任何丢失的账本块。
+在 Rosetta 节点上运行的 <code>dfinity/rosetta-api</code> 软件会定期更新其本地账本视图，方法是向账本容器查询账本链的最新块，然后查询任何丢失的账本块。
 Rosetta 节点使用互联网计算机的根密钥来确保账本的本地副本是真实的。
 集成软件还允许您使用 Rosetta 节点向 Internet Computer 帐本提交交易。</p>
 </div>
@@ -1028,10 +1028,10 @@ Rosetta 节点使用互联网计算机的根密钥来确保账本的本地副本
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>它从账本的本地副本中读取，以确定由`latest_index`标签标识的最新交易索引和块高度的状态。</p>
+<p>它从账本的本地副本中读取，以确定由 <code>latest_index</code> 标签标识的最新交易索引和块高度的状态。</p>
 </li>
 <li>
-<p>它生成一个随机的“nonce”值——用于确保交易是唯一的。</p>
+<p>它生成一个随机的 <code>nonce</code> 值——用于确保交易是唯一的。</p>
 </li>
 <li>
 <p>它为调用 <code>send</code> 函数并指定交易金额和目的地的分类帐容器创建一个入口消息：</p>
@@ -1101,7 +1101,8 @@ Starting Rosetta API server</pre>
 <p>默认情况下，该软件*不*连接到运行在互联网计算机区块链主网上的帐本容器，而是连接到测试网。</p>
 </div>
 <div class="paragraph">
-<p>如果您已经分配了一个测试网络和相应的帐本容器标识符，您可以通过指定一个额外的 <code>canister</code> 参数来针对该网络运行该命令。 例如，以下命令说明了通过将`canister<code>参数设置为</code>2xh5f-viaaa-aaaab-aae3q-cai`来连接到测试网络上的帐本容器。</p>
+<p>如果您已经分配了一个测试网络和相应的帐本容器标识符，您可以通过指定一个额外的 <code>canister</code> 参数来针对该网络运行该命令。 例如，以下命令说明了通过将 <code>canister</code> 参数设置为
+<code>2xh5f-viaaa-aaaab-aae3q-cai</code> 来连接到测试网络上的帐本容器。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1128,7 +1129,7 @@ Starting Rosetta API server</pre>
 </div>
 </li>
 <li>
-<p>打开一个新的终端窗口或选项卡并运行“ps”命令来验证服务的状态。</p>
+<p>打开一个新的终端窗口或选项卡并运行 <code>ps</code> 命令来验证服务的状态。</p>
 <div class="paragraph">
 <p>如果您需要停止服务，请按 CONTROL-C。 例如，您可能希望这样做以更改您正在使用的容器标识符。</p>
 </div>
@@ -1162,12 +1163,12 @@ Starting Rosetta API server</pre>
 <p>Docker 映像中提供的集成软件有一项要求，该要求不属于标准 Rosetta API 规范的一部分。</p>
 </div>
 <div class="paragraph">
-<p>对于涉及 ICP 代币的交易，必须在网络收到签名交易前 24 小时内创建未签名交易。 原因是每个事务的 'created_at' 字段指的是现有事务（本质上是创建事务时本地可用的 last_index）。 任何提交的交易涉及太旧的交易都会被拒绝以维持运营效率。</p>
+<p>对于涉及 ICP 代币的交易，必须在网络收到签名交易前 24 小时内创建未签名交易。 原因是每个事务的 <code>created_at</code> 字段指的是现有事务（本质上是创建事务时本地可用的 last_index）。 任何提交的交易涉及太旧的交易都会被拒绝以维持运营效率。</p>
 </div>
 <div class="paragraph">
 <p>除此要求外，Rosetta API 集成软件与所有标准 Rosetta 端点完全兼容，并通过了所有 <code>rosetta-cli</code> 测试。
 该软件可以接受任何有效的 Rosetta 请求。
-但是，集成软件仅提示使用 Ed25519 对交易进行签名，而不是 <a href="https://www.rosetta-api.org/docs/models/SignatureType.html#values">all the signature schemes listed here</a> 并且只回复规范支持的一小部分潜在响应。 例如，该软件没有实现 Rosetta 的任何 UTXO 功能，因此您不会在任何软件响应中看到任何 UTXO 消息。</p>
+但是，集成软件仅提示使用 Ed25519 对交易进行签名，而不是 <a href="https://www.rosetta-api.org/docs/models/SignatureType.html#values">对所有数据签名</a> 并且只回复规范支持的一小部分潜在响应。 例如，该软件没有实现 Rosetta 的任何 UTXO 功能，因此您不会在任何软件响应中看到任何 UTXO 消息。</p>
 </div>
 </div>
 <div class="sect2">
@@ -1239,7 +1240,7 @@ Starting Rosetta API server</pre>
 <div class="sect3">
 <h4 id="_如何知道节点是否已经赶上了测试网"><a class="anchor" href="#_如何知道节点是否已经赶上了测试网"></a>如何知道节点是否已经赶上了测试网？</h4>
 <div class="paragraph">
-<p>搜索 <code>Starting Rosetta API server</code> 启动日志。 将会有一个日志条目显示“你们都被阻止了 XX”。 此消息确认您已了解所有块。</p>
+<p>搜索 <code>Starting Rosetta API server</code> 启动日志。 将会有一个日志条目显示 <code>You are all caught up to block XX</code>。 此消息确认您已了解所有块。</p>
 </div>
 </div>
 <div class="sect3">
@@ -1340,26 +1341,26 @@ Starting Rosetta API server</pre>
 <div class="ulist">
 <ul>
 <li>
-<p>操作0：输入`"TRANSACTION"`，从源账户中减去转账金额。</p>
+<p>操作0：输入 <code>"TRANSACTION"</code> ，从源账户中减去转账金额。</p>
 </li>
 <li>
-<p>操作1：输入`"TRANSACTION"`，向目的账户添加相同的转账金额。</p>
+<p>操作1：输入 <code>"TRANSACTION"</code> ，向目的账户添加相同的转账金额。</p>
 </li>
 <li>
-<p>操作2：输入`"FEE"`，从源账户中扣除费用。</p>
+<p>操作2：输入 <code>"FEE"</code>，从源账户中扣除费用。</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>不要依赖上面的顺序，你可以在`/construction/payloads`调用中重新排列它们，当解析一个块中的交易时，你应该检查交易类型和金额符号。</p>
+<p>不要依赖上面的顺序，你可以在 <code>/construction/payloads</code> 调用中重新排列它们，当解析一个块中的交易时，你应该检查交易类型和金额符号。</p>
 </li>
 <li>
 <p>铸币</p>
 <div class="ulist">
 <ul>
 <li>
-<p>操作0：输入`"MINT"`，将铸币数量添加到目标账户。</p>
+<p>操作0：输入 <code>"MINT"</code>，将铸币数量添加到目标账户。</p>
 </li>
 </ul>
 </div>
@@ -1369,7 +1370,7 @@ Starting Rosetta API server</pre>
 <div class="ulist">
 <ul>
 <li>
-<p>操作0：输入`"BURN"`，从源账户中减去燃烧的数量。</p>
+<p>操作0：输入 <code>"BURN"</code>，从源账户中减去燃烧的数量。</p>
 </li>
 </ul>
 </div>
@@ -1404,10 +1405,10 @@ Starting Rosetta API server</pre>
 <p>Rosetta 服务器会在 <code>/construction/submit</code> 调用后等待一小段时间，如果交易命中链，它将被返回。</p>
 </li>
 <li>
-<p>如果账本出现错误，错误信息将在`/construction/submit`结果中提供。</p>
+<p>如果账本出现错误，错误信息将在 <code>/construction/submit</code> 结果中提供。</p>
 </li>
 <li>
-<p><code>/construction/submit</code> 调用仍有可能成功返回，但距离它到达链还有一段时间。您可以轮询最新的区块并搜索交易哈希。 我们还实现了一个子集:linkhttps://www.rosetta-api.org/docs/SearchApi.html#searchtransactions[<code>/search/transactions</code>] 允许在给定哈希值的情况下搜索交易的端点。</p>
+<p><code>/construction/submit</code> 调用仍有可能成功返回，但距离它到达链还有一段时间。您可以轮询最新的区块并搜索交易哈希。 我们还实现了一个子集<a href="https://www.rosetta-api.org/docs/SearchApi.html#searchtransactions"><code>/search/transactions</code></a> 允许在给定哈希值的情况下搜索交易的端点。</p>
 </li>
 <li>
 <p>5 分钟是最坏情况下的超时。</p>
@@ -1450,19 +1451,19 @@ Starting Rosetta API server</pre>
 <div class="sect3">
 <h4 id="_如何在不调用_rosetta_api_的情况下签署交易"><a class="anchor" href="#_如何在不调用_rosetta_api_的情况下签署交易"></a>如何在不调用 Rosetta API 的情况下签署交易？</h4>
 <div class="paragraph">
-<p>JavaScript SDK 包含一个<a href="https://github.com/dfinity/rosetta-client/blob/master/lib/construction_combine.js">implementation</a> 离线签名逻辑。 这与内部实现细节密切相关，因此我们强烈建议您尽可能调用`/construction/combine` 来签署交易。</p>
+<p>JavaScript SDK 包含一个<a href="https://github.com/dfinity/rosetta-client/blob/master/lib/construction_combine.js">implementation</a> 离线签名逻辑。 这与内部实现细节密切相关，因此我们强烈建议您尽可能调用 <code>/construction/combine</code> 来签署交易。</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_如何配置入口时间段"><a class="anchor" href="#_如何配置入口时间段"></a>如何配置入口时间段？</h4>
 <div class="paragraph">
-<p>在 <code>/construction/payloads</code> 调用中，您可以添加一个或全部 <code>ingress_start</code> / <code>ingress_end</code> 字段来指定入口时间段。 它们是 Unix 纪元以来的纳秒，并且必须在接下来的 24 小时内。 这可以生成和签署交易，但将实际提交延迟到以后。</p>
+<p>在 <code>/construction/payloads</code> 调用中，您可以添加一个或全部 <code>ingress_start/ ingress_end</code> 字段来指定入口时间段。 它们是 Unix 纪元以来的纳秒，并且必须在接下来的 24 小时内。 这可以生成和签署交易，但将实际提交延迟到以后。</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_如何反序列化已签名的交易"><a class="anchor" href="#_如何反序列化已签名的交易"></a>如何反序列化已签名的交易？</h4>
 <div class="paragraph">
-<p>JavaScript SDK 支持<a href="https://github.com/dfinity/rosetta-client/blob/master/lib/signed_transaction_decode.js">deserializing</a> 一个`signed_transaction`十六进制字符串并恢复有关转移的一些信息。 这在您想要执行健全性检查的情况下可能很有用。</p>
+<p>JavaScript SDK 支持<a href="https://github.com/dfinity/rosetta-client/blob/master/lib/signed_transaction_decode.js">deserializing</a> 一个 <code>signed_transaction</code> 十六进制字符串并恢复有关转移的一些信息。 这在您想要执行健全性检查的情况下可能很有用。</p>
 </div>
 </div>
 </div>

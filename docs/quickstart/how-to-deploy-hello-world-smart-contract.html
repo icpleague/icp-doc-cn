@@ -915,10 +915,10 @@
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>如果您通过命令行调用它，dapp 将在终端中返回“Hello，Alice！”。</p>
+<p>如果您通过命令行调用它，dapp 将在终端中返回 <code>Hello,Alice!</code>。</p>
 </li>
 <li>
-<p>如果你在浏览器中访问 dapp，它会弹出警告窗口，上面写着“你好，爱丽丝！”</p>
+<p>如果你在浏览器中访问 dapp，它会弹出警告窗口，上面写着 <code>Hello,Alice!</code></p>
 </li>
 </ol>
 </div>
@@ -933,7 +933,7 @@
 <p><strong>canister smart contract/dapp</strong> 是一种捆绑代码和状态的智能合约。 容器可以作为智能合约部署在互联网计算机上并通过 Internet 访问。</p>
 </li>
 <li>
-<p>*燃料费*是以处理、内存、存储和网络带宽的形式消耗的资源的计量单位。 就本教程而言，这类似于以太坊的 gas:这是运行 dapp 所需要的，但对于开发人员来说，它更稳定、更便宜。 每个容器都有一个燃料费帐户，对容器消耗的资源进行收费。 互联网计算机的实用程序令牌 (ICP) 可以转换为燃料费并转移到容器中。 ICP 始终可以使用测量的 ICP 当前价格转换为燃料费<a href="https://en.wikipedia.org/wiki/Special_drawing_rights">SDR</a> 使用一万亿燃料费对应一个 SDR 的约定。 <strong>在本教程中，您将从cycles faucet获得免费燃料费。</strong></p>
+<p><strong>燃料费</strong> 是以处理、内存、存储和网络带宽的形式消耗的资源的计量单位。 就本教程而言，这类似于以太坊的 gas:这是运行 dapp 所需要的，但对于开发人员来说，它更稳定、更便宜。 每个容器都有一个燃料费帐户，对容器消耗的资源进行收费。 互联网计算机的实用程序令牌 (ICP) 可以转换为燃料费并转移到容器中。 ICP 始终可以使用测量的 ICP 当前价格转换为燃料费<a href="https://en.wikipedia.org/wiki/Special_drawing_rights">SDR</a> 使用一万亿燃料费对应一个 SDR 的约定。 <strong>在本教程中，您将从cycles faucet获得免费燃料费。</strong></p>
 </li>
 </ul>
 </div>
@@ -966,7 +966,7 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="_1_安装工具"><a class="anchor" href="#_1_安装工具"></a>1. 安装工具</h2>
+<h2 id="installing"><a class="anchor" href="#installing"></a>1. 安装工具</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>要构建 dapp，用户需要安装以下内容:</p>
@@ -974,21 +974,29 @@
 <div class="sect2">
 <h3 id="_1_1_node_js"><a class="anchor" href="#_1_1_node_js"></a>1.1 node.js</h3>
 <div class="paragraph">
-<p>本教程最适合使用高于 <code>16.<strong>.</strong></code> 的 node.js 版本。</p>
+<p>本教程最适合使用高于 <code>16.*</code> 的 node.js 版本。</p>
 </div>
 <div class="paragraph">
 <p>安装 node.js 的方法有很多，包括来自链接:https://nodejs.org/en/download[nodejs.org网页]。</p>
 </div>
 <div class="paragraph">
-<p>除了安装 node.js，用户还需要安装:
-* 节点包管理器（NPM）。
-* 节点版本管理器（NVM），见<a href="https://github.com/nvm-sh/nvm#installing-and-updating">installing NVM</a>。</p>
+<p>除了安装 node.js，用户还需要安装</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>节点包管理器（NPM）。</p>
+</li>
+<li>
+<p>节点版本管理器（NVM），见<a href="https://github.com/nvm-sh/nvm#installing-and-updating">installing NVM</a>。</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_1_2_canister_sdk又名dfx"><a class="anchor" href="#_1_2_canister_sdk又名dfx"></a>1.2 Canister SDK（又名“dfx”）</h3>
+<h3 id="_1_2_canister_sdk又名_dfx"><a class="anchor" href="#_1_2_canister_sdk又名_dfx"></a>1.2 Canister SDK（又名 <code>dfx</code> ）</h3>
 <div class="paragraph">
-<p>本教程中使用的 Canister SDK 称为“dfx”，由 DFINITY 基金会维护。 SDK 有很多，这只是其中之一。</p>
+<p>本教程中使用的 Canister SDK 称为 <code>dfx</code>，由 DFINITY 基金会维护。 SDK 有很多，这只是其中之一。</p>
 </div>
 <div class="paragraph">
 <p>要安装，需要运行:</p>
@@ -1016,7 +1024,7 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="_2_创建一个默认项目1_分钟"><a class="anchor" href="#_2_创建一个默认项目1_分钟"></a>2. 创建一个默认项目（1 分钟）</h2>
+<h2 id="create-default"><a class="anchor" href="#create-default"></a>2. 创建一个默认项目（1 分钟）</h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="_2_1_启动一个新项目"><a class="anchor" href="#_2_1_启动一个新项目"></a>2.1 启动一个新项目</h3>
@@ -1061,7 +1069,7 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="_3_将_dapp_部署到本地机器3_分钟"><a class="anchor" href="#_3_将_dapp_部署到本地机器3_分钟"></a>3. 将 dapp 部署到本地机器（3 分钟）</h2>
+<h2 id="deploy-local"><a class="anchor" href="#deploy-local"></a>3. 将 dapp 部署到本地机器（3 分钟）</h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="_使用两个终端窗口选项卡"><a class="anchor" href="#_使用两个终端窗口选项卡"></a>使用两个终端窗口/选项卡</h3>
@@ -1148,7 +1156,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_3_2_将hellodapp部署到本地版ic终端b"><a class="anchor" href="#_3_2_将hellodapp部署到本地版ic终端b"></a>3.2 将“hello”dapp部署到本地版IC（终端B）</h3>
+<h3 id="_3_2_将_hello_dapp部署到本地版ic终端b"><a class="anchor" href="#_3_2_将_hello_dapp部署到本地版ic终端b"></a>3.2 将 <code>hello</code> dapp部署到本地版IC（终端B）</h3>
 <div class="paragraph">
 <p>注意:由于这是 IC 的本地版本，因此与部署到主网（需要燃料费）相比，本节的步骤更少。</p>
 </div>
@@ -1184,8 +1192,8 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">使用 canister_id rrkah-fqaaa-aaaaa-aaaaq-cai 安装容器 hello 的代码
-使用 canister_id ryjl3-tyaaa-aaaaa-aaaba-cai 安装容器 hello_assets 的代码</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">Installing code for canister hello, with canister_id rrkah-fqaaa-aaaaa-aaaaq-cai
+Installing code for canister hello_assets, with canister_id ryjl3-tyaaa-aaaaa-aaaba-cai</code></pre>
 </div>
 </div>
 <div class="olist loweralpha">
@@ -1293,7 +1301,7 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="_4_获取部署链上的周期10_15_分钟"><a class="anchor" href="#_4_获取部署链上的周期10_15_分钟"></a>4. 获取部署链上的周期（10-15 分钟）</h2>
+<h2 id="cycles"><a class="anchor" href="#cycles"></a>4. 获取部署链上的周期（10-15 分钟）</h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="_4_1_燃料费简介"><a class="anchor" href="#_4_1_燃料费简介"></a>4.1 燃料费:简介</h3>
@@ -1399,7 +1407,7 @@
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>将 ICP 转移到 <strong>由您本地版本的 <code>dfx</code></strong> 控制的`account id`。</p>
+<p>将 ICP 转移到 <strong>由您本地版本的 <code>dfx</code></strong> 控制的 <code>account id</code>。</p>
 <div class="ulist">
 <ul>
 <li>
@@ -1425,9 +1433,9 @@
 </div>
 </div>
 <div class="sect3">
-<h4 id="_4_4_1_将_icp_转移到_由您本地版本的_dfx_控制的account_id终端_b"><a class="anchor" href="#_4_4_1_将_icp_转移到_由您本地版本的_dfx_控制的account_id终端_b"></a>4.4.1 将 ICP 转移到 <strong>由您本地版本的 <code>dfx</code></strong> 控制的`account id`*（终端 B）</h4>
+<h4 id="_4_4_1_将_icp_转移到_由您本地版本的_dfx_控制的_account_id终端_b"><a class="anchor" href="#_4_4_1_将_icp_转移到_由您本地版本的_dfx_控制的_account_id终端_b"></a>4.4.1 将 ICP 转移到 <strong>由您本地版本的 <code>dfx</code></strong> 控制的 <code>account id</code>*（终端 B）</h4>
 <div class="paragraph">
-<p>当您第一次安装“dfx”时，它会在本地创建并保存“开发者身份”，其中包括:</p>
+<p>当您第一次安装 <code>dfx</code> 时，它会在本地创建并保存“开发者身份”，其中包括:</p>
 </div>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
@@ -1439,7 +1447,7 @@
 <p>这是由 <code>dfx</code> 控制的 ICP 的存储位置。</p>
 </li>
 <li>
-<p>例子:`03e3d86f29a069c6f2c5c48e01bc084e4ea18ad02b0eec8fccadf4487183c223`.</p>
+<p>例如: <code>03e3d86f29a069c6f2c5c48e01bc084e4ea18ad02b0eec8fccadf4487183c223</code>.</p>
 </li>
 </ul>
 </div>
@@ -1452,7 +1460,7 @@
 <p>IC 上实体的标识符，例如用户、容器（dapps/智能合约）或子网。 在这种情况下，“dfx”有一个主体，即它如何向 IC 标识自己。</p>
 </li>
 <li>
-<p>例子:`tsqwz-udeik-5migd-ehrev-pvoqv-szx2g-akh5s-fkyqc-zy6q7-snav6-uqe`.</p>
+<p>例如: <code>tsqwz-udeik-5migd-ehrev-pvoqv-szx2g-akh5s-fkyqc-zy6q7-snav6-uqe</code>.</p>
 </li>
 </ul>
 </div>
@@ -1460,7 +1468,7 @@
 </ol>
 </div>
 <div class="paragraph">
-<p><strong>1. 查找由 dfx 控制的 Ledger <code>account id</code></strong></p>
+<p><strong>1. 查找由 dfx 控制的 Ledger <code>account id</code> </strong></p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1471,7 +1479,7 @@
 <p><strong>2. 将 ICP 转移到您的 Ledger <code>account id</code></strong></p>
 </div>
 <div class="paragraph">
-<p>您可以从任何交易所、钱包或 NNS 前端 dapp 转移 ICP 代币到上面第 1 步中的“account id”。 就本教程而言，向其发送 2 个 ICP代币就足以部署。</p>
+<p>您可以从任何交易所、钱包或 NNS 前端 dapp 转移 ICP 代币到上面第 1 步中的 <code>account id</code>。 就本教程而言，向其发送 2 个 ICP代币就足以部署。</p>
 </div>
 <div class="paragraph">
 <p><strong>3. 确认账户有ICP</strong></p>
@@ -1488,10 +1496,10 @@
 <div class="sect3">
 <h4 id="_4_4_2_使用_dfx_告诉_ledger_canister_将你的_icp_转换为燃料费终端_b"><a class="anchor" href="#_4_4_2_使用_dfx_告诉_ledger_canister_将你的_icp_转换为燃料费终端_b"></a>4.4.2 使用 <code>dfx</code> 告诉 Ledger canister 将你的 ICP 转换为燃料费（终端 B）</h4>
 <div class="paragraph">
-<p>现在您的“帐户 ID”有 ICP 代币，我们需要告诉 Ledger Canister 将其转换为我们的燃料费。 Ledger canister 需要知道哪个 PRINCIPAL 将控制创建的燃料费，因此我们会将 dfx 在本地创建的principal 作为开发者身份的一部分发送给它。</p>
+<p>现在您的 `account id`有 ICP 代币，我们需要告诉 Ledger Canister 将其转换为我们的燃料费。 Ledger canister 需要知道哪个 PRINCIPAL 将控制创建的燃料费，因此我们会将 dfx 在本地创建的principal 作为开发者身份的一部分发送给它。</p>
 </div>
 <div class="paragraph">
-<p>注意:精明的读者可能想知道为什么 Ledger Canister 需要知道 <code>principal</code>，因为 <code>principal</code> 控制着 <code>account id</code>。 答案是“dfx”实际上可以设置一个*不同的*主体，以防它希望另一个实体控制在此步骤中创建的燃料费。</p>
+<p>注意:精明的读者可能想知道为什么 Ledger Canister 需要知道 <code>principal</code>，因为 <code>principal</code> 控制着 <code>account id</code>。 答案是 <code>dfx</code> 实际上可以设置一个*不同的*principal，以防它希望另一个实体控制在此步骤中创建的燃料费。</p>
 </div>
 <div class="paragraph">
 <p><strong>1. 查找您的 dfx 使用的 <code>principal</code></strong></p>
@@ -1568,8 +1576,8 @@ $ dfx ledger --network ic create-canister tsqwz-udeik-5migd-ehrev-pvoqv-szx2g-ak
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">在 BlockHeight 发送的转账:20
-使用 id 创建的容器:"gastn-uqaaa-aaaae-aaafq-cai"</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">Transfer sent at BlockHeight: 20
+Canister created with id: "gastn-uqaaa-aaaae-aaafq-cai"</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1607,8 +1615,8 @@ $ dfx identity --network ic deploy-wallet gastn-uqaaa-aaaae-aaafq-cai</code></pr
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">在 ic 网络上创建钱包容器。
-用户“default”在“ic”网络上的钱包容器是“gastn-uqaaa-aaaae-aaafq-cai”</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">Creating a wallet canister on the ic network.
+The wallet canister on the "ic" network for user "default" is "gastn-uqaaa-aaaae-aaafq-cai"</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1645,12 +1653,12 @@ $ dfx identity --network ic deploy-wallet gastn-uqaaa-aaaae-aaafq-cai</code></pr
 </div>
 </div>
 <div class="paragraph">
-<p>此命令将额外的 1.005 ICP 代币转换为在 4.3.2 的步骤 2 中创建的“gastn-uqaaa-aaaae-aaafq-cai”燃料费钱包的燃料费。 该命令返回类似于以下内容的输出:</p>
+<p>此命令将额外的 1.005 ICP 代币转换为在 4.3.2 的步骤 2 中创建的   <code>gastn-uqaaa-aaaae-aaafq-cai</code> 燃料费钱包的燃料费。 该命令返回类似于以下内容的输出:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">在 BlockHeight 发送的转账:81520
-容器被加满了！</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">Transfer sent at BlockHeight: 81520
+Canister was topped up!</code></pre>
 </div>
 </div>
 </div>
@@ -1658,7 +1666,7 @@ $ dfx identity --network ic deploy-wallet gastn-uqaaa-aaaae-aaafq-cai</code></pr
 </div>
 </div>
 <div class="sect1">
-<h2 id="_5_部署链上1_分钟"><a class="anchor" href="#_5_部署链上1_分钟"></a>5. 部署链上（1 分钟）</h2>
+<h2 id="deploy-on-chain"><a class="anchor" href="#deploy-on-chain"></a>5. 部署链上（1 分钟）</h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="_5_1_通过dfx终端b在链上部署dapp"><a class="anchor" href="#_5_1_通过dfx终端b在链上部署dapp"></a>5.1 通过dfx（终端B）在链上部署dapp</h3>
@@ -1766,13 +1774,13 @@ Deployed canisters.</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>带上那个容器ID 并访问 https://&lt;canister-id&gt;.ic0.app, 在 URL 中插入 <code>hello_assets</code> 容器 ID 作为子域。 在本教程中，它是`5h5yf-eiaaa-aaaaa-qaada-cai` so it would be <a href="https://5h5yf-eiaaa-aaaaa-qaada-cai.ic0.app+" class="bare">https://5h5yf-eiaaa-aaaaa-qaada-cai.ic0.app+</a>.</p>
+<p>带上那个容器ID 并访问 https://&lt;canister-id&gt;.ic0.app , 在 URL 中插入 <code>hello_assets</code> 容器 ID 作为子域。 在本教程中，它是 <code>5h5yf-eiaaa-aaaaa-qaada-cai</code> 所以地址应该是 <a href="https://5h5yf-eiaaa-aaaaa-qaada-cai.ic0.app" class="bare">https://5h5yf-eiaaa-aaaaa-qaada-cai.ic0.app</a>.</p>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_6_结论"><a class="anchor" href="#_6_结论"></a>6. 结论</h2>
+<h2 id="result"><a class="anchor" href="#result"></a>6. 结论</h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="_6_1_总结你做了什么"><a class="anchor" href="#_6_1_总结你做了什么"></a>6.1 总结:你做了什么</h3>
@@ -1808,7 +1816,7 @@ Deployed canisters.</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_7_故障排除"><a class="anchor" href="#_7_故障排除"></a>7. 故障排除</h2>
+<h2 id="question"><a class="anchor" href="#question"></a>7. 故障排除</h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="_资源"><a class="anchor" href="#_资源"></a>资源</h3>
@@ -1817,10 +1825,10 @@ Deployed canisters.</code></pre>
 <li>
 <p>鼓励遇到任何区块的开发者搜索或发帖<a href="https://forum.dfinity.org">互联网计算机开发者论坛</a>。</p>
 </li>
+<li>
+<p><a href="https://wiki.internetcomputer.org/wiki/Internet_Computer_wiki">互联网计算机维基</a>。</p>
+</li>
 </ul>
-</div>
-<div class="paragraph">
-<p>*<a href="https://wiki.internetcomputer.org/wiki/Internet_Computer_wiki">互联网计算机维基</a>。</p>
 </div>
 </div>
 </div>
