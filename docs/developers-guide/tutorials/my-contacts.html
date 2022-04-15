@@ -910,9 +910,18 @@
 本教程通过逐步构建联系人 dapp 来说明如何配置 webpack 以导入样式表。
 如果您已经知道如何将级联样式表 (CSS) 添加到基于 webpack 的项目中，则可以跳过本教程。</p>
 </div>
-<div class="paragraph">
-<p>注意:本教程说明了使用 React 框架来管理前端的文档对象模型 (DOM)。
-因为 React 有自己的自定义 DOM 语法，所以需要修改 webpack 配置来编译前端代码，前端代码是用 JSX 编写的。 有关学习使用 React 和 JSX 的更多信息，请参见 <a href="https://reactjs.org/">React 网站</a> 上的<a href="https://reactjs.org/docs/getting-started.html">Getting started</a>。</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+本教程说明了使用 React 框架来管理前端的文档对象模型 (DOM)。
+因为 React 有自己的自定义 DOM 语法，所以需要修改 webpack 配置来编译前端代码，前端代码是用 JSX 编写的。 有关学习使用 React 和 JSX 的更多信息，请参见 <a href="https://reactjs.org/">React 网站</a> 上的<a href="https://reactjs.org/docs/getting-started.html">Getting started</a>。
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -925,7 +934,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>你已经为前端开发安装了`node.js<code>，并且可以在你的项目中使用</code>npm install`来安装包。
+<p>你已经为前端开发安装了 <code>node.js</code>，并且可以在你的项目中使用 <code>npm install</code> 来安装包。
 有关为本地操作系统和包管理器安装节点的信息，请参阅<a href="https://nodejs.org/en/">Node</a> 网站。</p>
 </li>
 <li>
@@ -940,8 +949,17 @@
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>注意:本教程要求您使用 {sdk-short-name} 版本 <code>0.8.0</code> 或更高版本。</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+本教程要求您使用 {sdk-short-name} 版本 <code>0.8.0</code> 或更高版本。
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -1019,8 +1037,17 @@
 <div class="paragraph">
 <p>如果 <code>npm install</code> 命令报告了漏洞，您可能还需要运行 <code>npm audit fix</code> 命令来尝试修复报告的漏洞，然后再继续。</p>
 </div>
-<div class="paragraph">
-<p>注意:作为安装这些模块的替代方法，您可以编辑默认的 <code>package.json</code> 文件来为您的项目添加依赖项。</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+作为安装这些模块的替代方法，您可以编辑默认的 <code>package.json</code> 文件来为您的项目添加依赖项。
+</td>
+</tr>
+</table>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -1178,8 +1205,17 @@ actor Contact {
 </li>
 <li>
 <p>这些设置使您的程序能够使用 <code>ts-loader</code> 编译器并导入 CSS 文件。</p>
-<div class="paragraph">
-<p>注意:如果你想添加对 <code>.scss</code> 或 <code>.sass</code> 文件的支持，你应该安装 <code>sass-loader</code> :</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+如果你想添加对 <code>.scss</code> 或 <code>.sass</code> 文件的支持，你应该安装 <code>sass-loader</code> :
+</td>
+</tr>
+</table>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1456,17 +1492,14 @@ render(&lt;Contact /&gt;, document.getElementById("contacts"));</code></pre>
 </div>
 </li>
 <li>
-<p>Navigate back to the root of your project directory.</p>
-<div class="paragraph">
-<p>For example:</p>
+<p>返回项目根目录,如:</p>
+</li>
+</ol>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">cd ../../..</code></pre>
 </div>
-</div>
-</li>
-</ol>
 </div>
 </div>
 </div>
@@ -1559,7 +1592,7 @@ render(&lt;Contact /&gt;, document.getElementById("contacts"));</code></pre>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>打开浏览器并导航到“http://localhost:8080”。</p>
+<p>打开浏览器访问“http://localhost:8080”。</p>
 </li>
 <li>
 <p>验证是否使用 <strong>My Contacts</strong> 表单提示您。</p>

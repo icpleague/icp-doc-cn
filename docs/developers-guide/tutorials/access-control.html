@@ -1260,10 +1260,10 @@ shared({ caller = initializer }) actor class() {
 <div class="paragraph">
 <p>该命令显示类似于以下内容的输出:</p>
 </div>
-<div class="paragraph">
-<p>……
-默认
-……</p>
+<div class="literalblock">
+<div class="content">
+<pre>default</pre>
+</div>
 </div>
 </li>
 <li>
@@ -1328,284 +1328,355 @@ shared({ caller = initializer }) actor class() {
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>创建身份:“ic_admin”。
-创建身份:“ic_admin”。
-……
-. 调用 `+my_role+` 函数查看您的新用户身份尚未分配给任何角色。
-+
-[source,bash]
-----
-dfx --identity ic_admin canister call access_hello my_role
-----
-+
-该命令显示类似于以下内容的输出:
-+</pre>
+<pre>Creating identity: "ic_admin".
+Created identity: "ic_admin".</pre>
+</div>
+</div>
+</li>
+<li>
+<p>调用 <code>my_role</code> 函数查看您的新用户身份尚未分配给任何角色。</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx --identity ic_admin canister call access_hello my_role</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>在本地网络上创建钱包容器。
-用户“ic_admin”的“本地”网络上的钱包容器是“ryjl3-tyaaa-aaaaa-aaaba-cai”
-（空值）</p>
+<p>该命令显示类似于以下内容的输出:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Creating a wallet canister on the local network.
+The wallet canister on the "local" network for user "ic_admin" is "ryjl3-tyaaa-aaaaa-aaaba-cai"
+(null)</pre>
+</div>
+</div>
+</li>
+<li>
+<p>切换当前活动的身份上下文以使用新的 <code>ic_admin</code> 用户身份，并通过运行以下命令显示与 <code>ic_admin</code> 用户关联的主体:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx identity use ic_admin &amp;&amp; dfx identity get-principal</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>该命令显示类似于以下内容的输出:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Using identity: "ic_admin".
+c5wa6-3irl7-tuxuo-4vtyw-xsnhw-rv2a6-vcmdz-bzkca-vejmd-327zo-wae</pre>
+</div>
+</div>
+</li>
+<li>
+<p>通过运行以下命令检查用于调用 <code>access_hello</code> 容器智能合约的主体:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx canister call access_hello callerPrincipal</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>该命令显示类似于以下内容的输出:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>(principal "ryjl3-tyaaa-aaaaa-aaaba-cai")</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>默认情况下，燃料费钱包标识符是用于调用`access_hello<code>容器智能合约中的方法的主体。
+然而，为了说明访问控制，我们希望使用与用户上下文相关联的主体，而不是燃料费钱包。
+不过，在我们开始这一步之前，让我们为“ic_admin”用户分配一个角色。 为此，我们需要切换到具有 `owner</code> 角色的 <code>default</code> 用户身份。</p>
 </div>
 </li>
 </ol>
 </div>
-<div class="literalblock">
+</div>
+</div>
+<div class="sect1">
+<h2 id="_为身份分配角色"><a class="anchor" href="#_为身份分配角色"></a>为身份分配角色</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>要将管理员角色分配给 ic_admin 身份:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>通过运行以下命令，将当前活动的身份上下文切换为使用 <code>default</code> 用户身份:</p>
+<div class="listingblock">
 <div class="content">
-<pre>. 切换当前活动的身份上下文以使用新的 `+ic_admin+` 用户身份，并通过运行以下命令显示与 `+ic_admin+` 用户关联的主体:
-+
-[source,bash]
-----
-dfx identity use ic_admin &amp;&amp; dfx identity get-principal
-----
-+
-该命令显示类似于以下内容的输出:
-+</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx identity use default</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>使用 Candid 语法运行类似于以下的命令，为 <code>ic_admin</code> 主体分配 <code>admin</code> 角色:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx canister --wallet=$(dfx identity get-wallet) call access_hello assign_role '((principal "c5wa6-3irl7-tuxuo-4vtyw-xsnhw-rv2a6-vcmdz-bzkca-vejmd-327zo-wae"),opt variant{admin})'</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+确保将 <code>principal</code> 哈希替换为 <code>dfx identity get-principal</code> 命令为 <code>ic_admin</code> 身份返回的哈希。
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>+
+或者，您可以重新运行命令以调用 <code>my_role</code> 函数来验证角色分配。</p>
+</div>
+<div class="paragraph">
+<p>+</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx --identity ic_admin canister call access_hello my_role</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Using identity: "ic_admin".
-c5wa6-3irl7-tuxuo-4vtyw-xsnhw-rv2a6-vcmdz-bzkca-vejmd-327zo-wae</p>
+<p>+
+该命令显示类似于以下内容的输出:</p>
+</div>
+<div class="paragraph">
+<p>+</p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>. 通过运行以下命令检查用于调用 `+access_hello+` 容器智能合约的主体:
-+
-[source,bash]
-----
-dfx canister call access_hello callerPrincipal
-----
-+
-该命令显示类似于以下内容的输出:
-+</pre>
+<pre>(opt variant { admin })</pre>
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>通过运行以下命令，使用您刚刚分配了 <code>admin</code> 角色的 <code>ic_admin</code> 用户身份调用 <code>greet</code> 函数:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx --identity ic_admin canister call access_hello greet "Internet Computer Admin"</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>(principal "ryjl3-tyaaa-aaaaa-aaaba-cai")</p>
+<p>该命令显示类似于以下内容的输出:</p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>+
-默认情况下，燃料费钱包标识符是用于调用`+access_hello+`容器智能合约中的方法的主体。
-然而，为了说明访问控制，我们希望使用与用户上下文相关联的主体，而不是燃料费钱包。
-不过，在我们开始这一步之前，让我们为“+ic_admin+”用户分配一个角色。 为此，我们需要切换到具有 `+owner+` 角色的 `+default+` 用户身份。
-
-== 为身份分配角色
-
-要将管理员角色分配给 ic_admin 身份:
-
-. 通过运行以下命令，将当前活动的身份上下文切换为使用 `+default+` 用户身份:
-+
-[source,bash]
-----
-dfx identity use default
-----
-. 使用 Candid 语法运行类似于以下的命令，为 `+ic_admin+` 主体分配 `+admin+` 角色:
-+
-[source,bash]
-----
-dfx canister --wallet=$(dfx identity get-wallet) call access_hello assign_role '((principal "c5wa6-3irl7-tuxuo-4vtyw-xsnhw-rv2a6-vcmdz-bzkca-vejmd-327zo-wae"),opt variant{admin})'
-----
-
-注意:确保将 `+principal+` 哈希替换为 `+dfx identity get-principal+` 命令为 `+ic_admin+` 身份返回的哈希。
-
-+
-或者，您可以重新运行命令以调用 `+my_role+` 函数来验证角色分配。
-+
-[source,bash]
-----
-dfx --identity ic_admin canister call access_hello my_role
-----
-+
-该命令显示类似于以下内容的输出:
-+</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>(opt variant { admin })</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>. 通过运行以下命令，使用您刚刚分配了 `+admin+` 角色的 `+ic_admin+` 用户身份调用 `+greet+` 函数:
-+
-[source,bash]
-----
-dfx --identity ic_admin canister call access_hello greet "Internet Computer Admin"
-----
-+
-该命令显示类似于以下内容的输出:
-+</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>(
+<pre>(
   "Hello, Internet Computer Admin. You have a role with administrative privileges.",
-)</p>
+)</pre>
 </div>
-<div class="literalblock">
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_添加授权用户身份"><a class="anchor" href="#_添加授权用户身份"></a>添加授权用户身份</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>此时，您拥有一个具有 <code>owner</code> 角色的 <code>default</code> 用户身份和一个具有 <code>admin</code> 角色的 <code>ic_admin</code> 用户身份。
+让我们添加另一个用户身份并将其分配给 <code>authorized</code> 角色。
+但是，对于本示例，我们将使用环境变量来存储用户的主体。</p>
+</div>
+<div class="paragraph">
+<p>添加新的授权用户身份:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>如果需要，请检查您是否仍在项目目录中。</p>
+</li>
+<li>
+<p>通过运行以下命令创建新的授权用户身份:</p>
+<div class="listingblock">
 <div class="content">
-<pre>== 添加授权用户身份
-
-此时，您拥有一个具有 `+owner+` 角色的 `+default+` 用户身份和一个具有 `+admin+` 角色的 `+ic_admin+` 用户身份。
-让我们添加另一个用户身份并将其分配给 `+authorized+` 角色。
-但是，对于本示例，我们将使用环境变量来存储用户的主体。
-
-添加新的授权用户身份:
-
-. 如果需要，请检查您是否仍在项目目录中。
-. 通过运行以下命令创建新的授权用户身份:
-+
-[source,bash]
-----
-dfx identity new alice_auth
-----
-+
-该命令显示类似于以下内容的输出:
-+</pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx identity new alice_auth</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Creating identity: "alice_auth".
-Created identity: "alice_auth".</p>
+<p>该命令显示类似于以下内容的输出:</p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>. 通过运行以下命令，切换当前活动的身份上下文以使用新的 `+alice_auth+` 用户身份:
-+
-[source,bash]
-----
-dfx identity use alice_auth
-----
-. 通过运行以下命令将 `+alice_auth+` 用户的主体存储在环境变量中:
-+
-[source,bash]
-----
-ALICE_ID=$(dfx identity get-principal)
-----
-+
-您可以通过运行以下命令来验证存储的主体:
-+
-[source,bash]
-----
-echo $ALICE_ID
-----
-+
-该命令显示类似于以下内容的输出:
-+</pre>
+<pre>Creating identity: "alice_auth".
+Created identity: "alice_auth".</pre>
+</div>
+</div>
+</li>
+<li>
+<p>通过运行以下命令，切换当前活动的身份上下文以使用新的 <code>alice_auth</code> 用户身份:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx identity use alice_auth</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>通过运行以下命令将 <code>alice_auth</code> 用户的主体存储在环境变量中:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">ALICE_ID=$(dfx identity get-principal)</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>b5quc-npdph-l6qp4-kur4u-oxljq-7uddl-vfdo6-x2uo5-6y4a6-4pt6v-7qe</p>
+<p>您可以通过运行以下命令来验证存储的主体:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">echo $ALICE_ID</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>该命令显示类似于以下内容的输出:</p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>+
-. 通过运行以下命令，使用 `+ic_admin+` 身份将 `+authorized+` 角色分配给 `+alice_auth+`:
-+
-[source,bash]
-----
-dfx --identity ic_admin canister call access_hello assign_role "(principal \"$ALICE_ID\", opt variant{authorized})"
-----
-. 调用 `+my_role+` 函数来验证角色分配。
-+
-[source,bash]
-----
-dfx --identity alice_auth canister call access_hello my_role
-----
-该命令显示类似于以下内容的输出:
-+</pre>
+<pre>b5quc-npdph-l6qp4-kur4u-oxljq-7uddl-vfdo6-x2uo5-6y4a6-4pt6v-7qe</pre>
+</div>
+</div>
+</li>
+<li>
+<p>通过运行以下命令，使用 <code>ic_admin</code> 身份将 <code>authorized</code> 角色分配给 <code>alice_auth</code>:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx --identity ic_admin canister call access_hello assign_role "(principal \"$ALICE_ID\", opt variant{authorized})"</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>调用 <code>my_role</code> 函数来验证角色分配。</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx --identity alice_auth canister call access_hello my_role</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>(opt variant { authorized })</p>
+<p>该命令显示类似于以下内容的输出:</p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>. 通过运行以下命令，使用您刚刚分配了 `+authorized+` 角色的 `+alice_auth+` 用户身份调用 `+greet+` 函数:
-+
-[source,bash]
-----
-dfx canister call access_hello greet "Alice"
-----
-+
-该命令显示类似于以下内容的输出:
-+</pre>
+<pre>(opt variant { authorized })</pre>
+</div>
+</div>
+</li>
+<li>
+<p>通过运行以下命令，使用您刚刚分配了 <code>authorized</code> 角色的 <code>alice_auth</code> 用户身份调用 <code>greet</code> 函数:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx canister call access_hello greet "Alice"</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>(
-“欢迎，爱丽丝。你有一个授权帐户。你想玩游戏吗？”，
-)</p>
+<p>该命令显示类似于以下内容的输出:</p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>== 添加未经授权的用户身份
-
-您现在已经看到了一个创建具有特定角色和权限的用户的简单示例。
-下一步是创建未分配给角色或未授予任何特殊权限的用户身份。
-
-添加未经授权的用户身份:
-
-. 如果需要，请检查您是否仍在项目目录中。
-. 如果需要，通过运行以下命令检查您当前活动的身份:
-+
-[source,bash]
-----
-dfx identity whoami
-----
-. 通过运行以下命令创建新的用户身份:
-+
-[source,bash]
-----
-dfx identity new bob_standard
-----
-+
-该命令显示类似于以下内容的输出:
-+</pre>
+<pre>(
+  "Welcome, Alice. You have an authorized account. Would you like to play a game?",
+)</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_添加未经授权的用户身份"><a class="anchor" href="#_添加未经授权的用户身份"></a>添加未经授权的用户身份</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>您现在已经看到了一个创建具有特定角色和权限的用户的简单示例。
+下一步是创建未分配给角色或未授予任何特殊权限的用户身份。</p>
+</div>
+<div class="paragraph">
+<p>添加未经授权的用户身份:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>如果需要，请检查您是否仍在项目目录中。</p>
+</li>
+<li>
+<p>如果需要，通过运行以下命令检查您当前活动的身份:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx identity whoami</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>通过运行以下命令创建新的用户身份:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx identity new bob_standard</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Creating identity: "bob_standard".
-Created identity: "bob_standard".</p>
+<p>该命令显示类似于以下内容的输出:</p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>. 通过运行以下命令将 `+bob_standard+` 用户的主体存储在环境变量中:
-+
-[source,bash]
-----
-BOB_ID=$(dfx --identity bob_standard identity get-principal)
-----
-. 尝试使用 `+bob_standard+` 身份来分配角色。
-+
-[source,bash]
-----
-dfx --identity bob_standard canister call access_hello assign_role "(principal \"$BOB_ID\", opt variant{authorized})"
-----
-+
-此命令返回一个 `+unauthorized+` 错误。
-. 通过运行以下命令，尝试使用 `+default+` 用户身份为 `+bob_standard+` 分配 `+owner+` 角色:
-+
-[source,bash]
-----
-dfx --identity default canister --wallet=$(dfx --identity default identity get-wallet) call access_hello assign_role "(principal \"$BOB_ID\", opt variant{owner})"
-----
-+
-此命令失败，因为无法为用户分配 `+owner+` 角色。
-. 通过运行以下命令，使用 `+bob_standard+` 用户身份调用 `+greet+` 函数:
-+
-[source,bash]
-----
-dfx --identity bob_standard canister call access_hello greet "Bob"
-----
-+
-该命令显示类似于以下内容的输出:
-+</pre>
+<pre>Creating identity: "bob_standard".
+Created identity: "bob_standard".</pre>
+</div>
+</div>
+</li>
+<li>
+<p>通过运行以下命令将 <code>bob_standard</code> 用户的主体存储在环境变量中:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">BOB_ID=$(dfx --identity bob_standard identity get-principal)</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>尝试使用 <code>bob_standard</code> 身份来分配角色。</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx --identity bob_standard canister call access_hello assign_role "(principal \"$BOB_ID\", opt variant{authorized})"</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>（“你好，鲍勃。很高兴认识你！”）
-……</p>
+<p>此命令返回一个 <code>unauthorized</code> 错误。</p>
+</div>
+</li>
+<li>
+<p>通过运行以下命令，尝试使用 <code>default</code> 用户身份为 <code>bob_standard</code> 分配 <code>owner</code> 角色:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx --identity default canister --wallet=$(dfx --identity default identity get-wallet) call access_hello assign_role "(principal \"$BOB_ID\", opt variant{owner})"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>此命令失败，因为无法为用户分配 <code>owner</code> 角色。</p>
+</div>
+</li>
+<li>
+<p>通过运行以下命令，使用 <code>bob_standard</code> 用户身份调用 <code>greet</code> 函数:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx --identity bob_standard canister call access_hello greet "Bob"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>该命令显示类似于以下内容的输出:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>("Greetings, Bob. Nice to meet you!")</pre>
+</div>
+</div>
+</li>
+</ol>
 </div>
 </div>
 </div>

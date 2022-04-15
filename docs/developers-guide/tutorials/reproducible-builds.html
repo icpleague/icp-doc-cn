@@ -944,8 +944,8 @@
 但是，Internet Computer 确实允许您访问容器 Wasm 代码的 SHA-256。</p>
 </div>
 <div class="paragraph">
-<p>要获取此哈希，您必须首先记下要检查其代码的 Internet Computer 容器的主体。
-例如，假设我们对 Internet Identity 容器的代码感兴趣，其主体是“rdmx6-jaaaa-aaaaa-aaadq-cai”。
+<p>要获取此哈希，您必须首先记下要检查其代码的 Internet Computer 容器的principal。
+例如，假设我们对 Internet Identity 容器的代码感兴趣，其principal是“rdmx6-jaaaa-aaaaa-aaadq-cai”。
 然后，访问此服务的最简单方法是从终端使用 <a href="https://dfinity.org/developers/"><code>dfx</code></a> 工具。
 打开你的终端，然后运行:</p>
 </div>
@@ -956,15 +956,33 @@ Controller: r7inp-6aaaa-aaaaa-aaabq-cai
 Module hash: 0xda8d1bdd93fbf1edddeb2a423fa3c528c2e4877d39beed2277a12e60227e44d4</pre>
 </div>
 </div>
-<div class="paragraph">
-<p>注意:如果您正在运行旧版本的“dfx”，则需要从包含有效“dfx.json”文件的目录中运行此命令。
-如果您没有这样的目录，您可以使用 <code>dfx new</code> 创建它。</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+如果您正在运行旧版本的“dfx”，则需要从包含有效“dfx.json”文件的目录中运行此命令。
+如果您没有这样的目录，您可以使用 <code>dfx new</code> 创建它。
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>在这里，Internet Computer 告诉我们“rdmx6-jaaaa-aaaaa-aaadq-cai”容器（恰好是 Internet 身份容器）的 Wasm 模块的哈希是“0xda8d1bdd93fbf1edddeb2a423fa3c528c2e4877d39beed2277a12e60227e44d4”。</p>
 </div>
-<div class="paragraph">
-<p>注意:上面的检查为您提供了容器 Wasm 模块的 <em>current</em> 哈希值，但 Internet Computer 容器的 <em>controllers</em> 可能随时更改代码（例如，升级容器）。 但是，如果控制器列表为空，则您知道容器是不可变的，因为没有人有权更改代码。</p>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+上面的检查为您提供了容器 Wasm 模块的 <em>current</em> 哈希值，但 Internet Computer 容器的 <em>controllers</em> 可能随时更改代码（例如，升级容器）。 但是，如果控制器列表为空，则您知道容器是不可变的，因为没有人有权更改代码。
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>有了这个散列，您接下来可以检查它是否对应于某些给定的源代码。
@@ -1125,7 +1143,7 @@ WORKDIR /canister</pre>
 </div>
 <div class="paragraph">
 <p>从这里，您可以尝试构建您的容器所需的步骤。
-一旦你确信这些步骤是确定性的，你也可以把它们放在`Dockerfile`中，
+一旦你确信这些步骤是确定性的，你也可以把它们放在 <code>Dockerfile</code> 中，
 允许用户在创建容器时自动复制您的构建。
 您可以在 <a href="https://github.com/dfinity/internet-identity/blob/397d0087a29855564c47f0fd3323f60b5b67a8fa/Dockerfile">互联网身份容器的 Dockerfile</a> 中查看示例。
 接下来，我们将研究使构建具有确定性所需的条件。</p>
@@ -1172,7 +1190,7 @@ WORKDIR /canister</pre>
 此外，依赖第三方构建插件会使您暴露于这些引入的任何不确定性。</p>
 </li>
 <li>
-<p>给定相同的依赖关系和确定性构建脚本，构建工具本身（Motoko 的`moc`，Rust 的`cargo`，webpack`
+<p>给定相同的依赖关系和确定性构建脚本，构建工具本身（Motoko 的 <code>moc</code> ，Rust 的 <code>cargo</code> ，webpack`
 默认情况下用于前端开发）也必须是确定性的。
 好消息是所有这些工具都旨在确定性。
 但是，它们是复杂的软件，确保确定性并非易事。

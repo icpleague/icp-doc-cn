@@ -1281,122 +1281,146 @@ dfx canister install --all</code></pre>
 <div class="paragraph">
 <p>……
 容器 status_check 的状态为 Running。
-容器 status_check_assets 的状态为 Running。</p>
+容器 status_check_assets 的状态为 Running。
+……</p>
+</div>
+<div class="paragraph">
+<p>您可以通过运行 <code>dfx canister stop</code> 命令停止当前正在运行的容器。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx canister stop --all</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>此命令显示类似于以下内容的输出:</p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>// end::check-status[]
-
-// tag::stop-status[]
-您可以通过运行 `+dfx canister stop+` 命令停止当前正在运行的容器。
-
-[source,bash]
-----
-dfx canister stop --all
-----
-
-此命令显示类似于以下内容的输出:
-
-……
-容器状态检查的停止代码，容器 ID 为 75hes-oqbaa-aaaaa-aaaaa-aaaaa-aaaaaa-aaaaa-q
-容器 status_check_assets 的停止代码，带有 canister_id cxeji-wacaa-aaaaa-aaaaa-aaaaa-aaaaa-aaaaa-q
-……
-
-如果您要重新运行 `+dfx canister status+` 命令，您可能会看到状态为 `+Stopped+` 表示没有待处理的消息需要处理，或者状态为 `+Stopping+` 表示有消息在- 需要解决的航班。
-// end::stop-status[]
-
-// tag::restart-status[]
-要重新启动容器（例如，在容器升级成功后），您可以运行 `+dfx canister start+` 命令。
-例如，要重新启动所有容器，您将运行以下命令:
-
-[source,bash]
-----
-dfx canister start --all
-----
-
-此命令显示类似于以下内容的输出:
-
-……
-容器状态检查的起始代码，容器 ID 为 75hes-oqbaa-aaaaa-aaaaa-aaaaa-aaaaa-aaaaa-q
-容器 status_check_assets 的起始代码，带有 canister_id cxeji-wacaa-aaaaa-aaaaa-aaaaa-aaaaaa-aaaaa-q
-……
-// tag::restart-status[]
-
-[[upgrade-canister]]
-== 升级容器智能合约
-
-与保留容器标识符但不保留状态的容器重新安装不同，容器升级使您能够保留已部署容器的状态并更改代码。
-
-例如，假设您有一个管理专业资料和社交关系的 dapp。
-如果您想向 dapp 添加新功能，您需要能够更新容器代码而不会丢失任何先前存储的数据。
-容器升级使您能够使用程序更改更新现有容器标识符，而不会丢失程序状态。
-
-注意:要在升级用 {proglang} 编写的容器时保留状态，请务必使用 `+stable+` 关键字来标识要保留的变量。有关在 {proglang} 中保留变量状态的更多信息，请参阅link:../language-guide/upgrades{outfilesuffix}[稳定变量和升级方法]。
-如果你正在升级一个用 Rust 编写的容器，你应该使用 `+pre_upgrade+` 和 `+post_upgrade+` 函数，如链接所示link:https://github.com/dfinity/cdk-rs/blob/master/examples/asset_storage /src/asset_storage_rs/lib.rs[Rust CDK 资产存储] 示例，以确保在容器升级后正确保留数据。
-
-要升级容器:
-
-.打开一个新终端并导航到您的项目目录。
-.如有必要，启动本地容器执行环境。
-+
-在大多数情况下，仅当您在本地运行容器时才需要此步骤。
-+
-如果您正在注册容器以在远程执行环境中运行，例如{IC} 区块链，您将包括 `+--network+` 命令行选项以在此参数下指定的环境中执行任务。
-.验证您具有要升级的所有容器的容器标识符。
-+
-请注意，您的程序必须通过在变量声明中使用 `+stable+` 关键字来标识要为其维护状态的变量。
-+
-有关声明稳定变量的更多信息，请参阅_{proglang} 编程语言指南_。
-.通过运行以下命令升级所有容器:
-+
-[source,bash]
-----
-dfx canister install --all --mode upgrade
-----
-
-[[delete-canister]]
-== 删除容器智能合约
-
-如果要永久删除给定部署（本地或远程）上特定项目的特定容器或所有容器，可以通过运行`+dfx canister delete+` 命令来实现。
-
-删除容器会移除容器标识符、代码和状态。
-但是，在您可以删除容器之前，您必须先停止容器以清除任何待处理的消息请求或回复。
-
-要删除项目的所有容器:
-
-.打开一个新终端并导航到您的项目目录。
-.如有必要，启动本地容器执行环境。
-+
-在大多数情况下，仅当您在本地运行容器时才需要此步骤。
-+
-如果您要删除容器以在远程执行环境中运行，例如{IC} 区块链，您将包括 `+--network+` 命令行选项以在此参数下指定的环境中执行任务。
-.通过运行以下命令检查在本地容器执行环境中运行的项目容器的状态:
-+
-[source,bash]
-----
-dfx canister status --all
-----
-. 通过运行以下命令停止所有项目容器:
-+
-[source,bash]
-----
-dfx canister stop --all
-----
-. 通过运行以下命令删除所有项目容器:
-+
-[source,bash]
-----
-dfx canister delete --all
-----
-
-////
-== Fork a canister
-&lt;待定 - 不在此版本中&gt;
-
-== 设置容器的控制器
-&lt;待定 - 不在此版本中&gt;
-////</pre>
+<pre>容器状态检查的停止代码，容器 ID 为 75hes-oqbaa-aaaaa-aaaaa-aaaaa-aaaaaa-aaaaa-q
+容器 status_check_assets 的停止代码，带有 canister_id cxeji-wacaa-aaaaa-aaaaa-aaaaa-aaaaa-aaaaa-q</pre>
 </div>
+</div>
+<div class="paragraph">
+<p>如果您要重新运行 <code>dfx canister status</code> 命令，您可能会看到状态为 <code>Stopped</code> 表示没有待处理的消息需要处理，或者状态为 <code>Stopping</code> 表示有消息在- 需要解决的航班。</p>
+</div>
+<div class="paragraph">
+<p>要重新启动容器（例如，在容器升级成功后），您可以运行 <code>dfx canister start</code> 命令。
+例如，要重新启动所有容器，您将运行以下命令:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx canister start --all</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>此命令显示类似于以下内容的输出:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>容器状态检查的起始代码，容器 ID 为 75hes-oqbaa-aaaaa-aaaaa-aaaaa-aaaaa-aaaaa-q
+容器 status_check_assets 的起始代码，带有 canister_id cxeji-wacaa-aaaaa-aaaaa-aaaaa-aaaaaa-aaaaa-q</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="upgrade-canister"><a class="anchor" href="#upgrade-canister"></a>升级容器智能合约</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>与保留容器标识符但不保留状态的容器重新安装不同，容器升级使您能够保留已部署容器的状态并更改代码。</p>
+</div>
+<div class="paragraph">
+<p>例如，假设您有一个管理专业资料和社交关系的 dapp。
+如果您想向 dapp 添加新功能，您需要能够更新容器代码而不会丢失任何先前存储的数据。
+容器升级使您能够使用程序更改更新现有容器标识符，而不会丢失程序状态。</p>
+</div>
+<div class="paragraph">
+<p>注意:要在升级用 Motoko 编写的容器时保留状态，请务必使用 <code>stable</code> 关键字来标识要保留的变量。有关在 Motoko 中保留变量状态的更多信息，请参阅<a href="../language-guide/upgrades.html">稳定变量和升级方法</a>。
+如果你正在升级一个用 Rust 编写的容器，你应该使用 <code>pre_upgrade</code> 和 <code>post_upgrade</code> 函数，如链接所示link:https://github.com/dfinity/cdk-rs/blob/master/examples/asset_storage /src/asset_storage_rs/lib.rs[Rust CDK 资产存储] 示例，以确保在容器升级后正确保留数据。</p>
+</div>
+<div class="paragraph">
+<p>要升级容器:</p>
+</div>
+<div class="paragraph">
+<div class="title">如有必要，启动本地容器执行环境。</div>
+<p>+
+在大多数情况下，仅当您在本地运行容器时才需要此步骤。</p>
+</div>
+<div class="paragraph">
+<p>+
+如果您正在注册容器以在远程执行环境中运行，例如Internet Computer 区块链，您将包括 <code>--network</code> 命令行选项以在此参数下指定的环境中执行任务。
+.验证您具有要升级的所有容器的容器标识符。</p>
+</div>
+<div class="paragraph">
+<p>+
+请注意，您的程序必须通过在变量声明中使用 <code>stable</code> 关键字来标识要为其维护状态的变量。</p>
+</div>
+<div class="paragraph">
+<p>+
+有关声明稳定变量的更多信息，请参阅_Motoko 编程语言指南_。
+.通过运行以下命令升级所有容器:</p>
+</div>
+<div class="paragraph">
+<p>+</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx canister install --all --mode upgrade</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="delete-canister"><a class="anchor" href="#delete-canister"></a>删除容器智能合约</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>如果要永久删除给定部署（本地或远程）上特定项目的特定容器或所有容器，可以通过运行`dfx canister delete` 命令来实现。</p>
+</div>
+<div class="paragraph">
+<p>删除容器会移除容器标识符、代码和状态。
+但是，在您可以删除容器之前，您必须先停止容器以清除任何待处理的消息请求或回复。</p>
+</div>
+<div class="paragraph">
+<p>要删除项目的所有容器:</p>
+</div>
+<div class="paragraph">
+<div class="title">如有必要，启动本地容器执行环境。</div>
+<p>+
+在大多数情况下，仅当您在本地运行容器时才需要此步骤。</p>
+</div>
+<div class="paragraph">
+<p>+
+如果您要删除容器以在远程执行环境中运行，例如Internet Computer 区块链，您将包括 <code>--network</code> 命令行选项以在此参数下指定的环境中执行任务。
+.通过运行以下命令检查在本地容器执行环境中运行的项目容器的状态:</p>
+</div>
+<div class="paragraph">
+<p>+</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx canister status --all</code></pre>
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>通过运行以下命令停止所有项目容器:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx canister stop --all</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>通过运行以下命令删除所有项目容器:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx canister delete --all</code></pre>
+</div>
+</div>
+</li>
+</ol>
 </div>
 </div>
 </div>

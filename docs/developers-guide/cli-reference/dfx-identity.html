@@ -916,8 +916,8 @@
 </div>
 <div class="paragraph">
 <p>根据您指定的 <code>dfx identity</code> 子命令，可能会应用或需要其他参数、选项和标志。
-要查看特定 <code>dfx identity</code> 子命令的使用信息，请指定子命令和 <code>--help</code> 标志。
-例如，要查看 <code>dfx identity new</code> 的使用信息，可以运行以下命令:</p>
+要查看特定 <code>dfx identity</code> 子命令的帮助信息，请指定子命令和 <code>--help</code> 标志。
+例如，要查看 <code>dfx identity new</code> 的帮助信息，可以运行以下命令:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -941,11 +941,11 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#dfx 身份 get-principal"><code>get-principal</code></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">显示与当前身份关联的主体的文本表示。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">显示与当前身份关联的principal的文本表示。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#dfx 身份get-wallet"><code>get-wallet</code></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">显示与您当前身份主体关联的钱包的容器标识符。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">显示与您当前身份principal关联的钱包的容器标识符。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>help</code></p></td>
@@ -953,7 +953,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_dfx_身份导入"><code>import</code></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">通过导入包含主体的密钥信息或安全证书的 PEM 文件来创建新身份。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">通过导入包含principal的密钥信息或安全证书的 PEM 文件来创建新身份。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_dfx_身份列表"><code>list</code></a></p></td>
@@ -973,10 +973,10 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#dfx 身份设置-钱包"><code>设置-钱包</code></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">设置用于您当前身份主体的钱包容器标识符。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">设置用于您当前身份principal的钱包容器标识符。</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#dfx 身份使用"><code>use</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_dfx_身份使用"><code>use</code></a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">指定要使用的身份。</p></td>
 </tr>
 <tr>
@@ -1009,14 +1009,14 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="_dfx_身份获取主体"><a class="anchor" href="#_dfx_身份获取主体"></a>dfx 身份获取主体</h2>
+<h2 id="_dfx_身份获取principal"><a class="anchor" href="#_dfx_身份获取principal"></a>dfx 身份获取principal</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>使用 <code>dfx identity get-principal</code> 命令显示与当前用户身份上下文关联的主体的文本表示。</p>
+<p>使用 <code>dfx identity get-principal</code> 命令显示与当前用户身份上下文关联的principal的文本表示。</p>
 </div>
 <div class="paragraph">
-<p>如果您尚未创建任何用户身份，则可以使用此命令显示 <code>default</code> 用户的主体。
-主体的文本表示对于建立和测试基于角色的授权方案很有用。</p>
+<p>如果您尚未创建任何用户身份，则可以使用此命令显示 <code>default</code> 用户的principal。
+principal的文本表示对于建立和测试基于角色的授权方案很有用。</p>
 </div>
 <div class="sect2">
 <h3 id="_基本用法"><a class="anchor" href="#_基本用法"></a>基本用法</h3>
@@ -1045,7 +1045,7 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-h</code>, <code>--help</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">显示使用信息。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">显示帮助信息。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-V</code>, <code>--version</code></p></td>
@@ -1057,7 +1057,7 @@
 <div class="sect2">
 <h3 id="_示例"><a class="anchor" href="#_示例"></a>示例</h3>
 <div class="paragraph">
-<p>如果要显示与特定用户身份上下文关联的主体的文本表示，可以运行类似于以下的命令:</p>
+<p>如果要显示与特定用户身份上下文关联的principal的文本表示，可以运行类似于以下的命令:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1066,7 +1066,7 @@ dfx identity get-principal</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>在此示例中，第一个命令将用户上下文设置为使用 <code>ic_admin</code> 身份。 然后第二个命令返回与 <code>ic_admin</code> 身份关联的主体。</p>
+<p>在此示例中，第一个命令将用户上下文设置为使用 <code>ic_admin</code> 身份。 然后第二个命令返回与 <code>ic_admin</code> 身份关联的principal。</p>
 </div>
 </div>
 </div>
@@ -1075,7 +1075,7 @@ dfx identity get-principal</code></pre>
 <h2 id="_dfx_身份获取钱包"><a class="anchor" href="#_dfx_身份获取钱包"></a>dfx 身份获取钱包</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>使用 <code>dfx identity get-wallet</code> 命令显示与您当前身份主体关联的钱包的容器标识符。</p>
+<p>使用 <code>dfx identity get-wallet</code> 命令显示与您当前身份principal关联的钱包的容器标识符。</p>
 </div>
 <div class="paragraph">
 <p>请注意，您必须连接到 Internet Computer platform 或本地容器执行环境才能运行此命令。
@@ -1109,7 +1109,7 @@ dfx identity get-principal</code></pre>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-h</code>, <code>--help</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">显示使用信息。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">显示帮助信息。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-V</code>, <code>--version</code></p></td>
@@ -1172,7 +1172,7 @@ dfx identity get-principal</code></pre>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-h</code>, <code>--help</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">显示使用信息。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">显示帮助信息。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-V</code>, <code>--version</code></p></td>
@@ -1234,7 +1234,7 @@ dfx identity get-principal</code></pre>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-h</code>, <code>--help</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">显示使用信息。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">显示帮助信息。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-V</code>, <code>--version</code></p></td>
@@ -1268,7 +1268,7 @@ ic_admin</code></pre>
 </div>
 <div class="paragraph">
 <p>在此示例中，<code>bob_standard</code> 身份是当前活动的用户上下文。
-运行此命令以确定活动用户后，您知道您运行的任何其他 <code>dfx</code> 命令都是使用与 <code>bob_standard</code> 身份关联的主体执行的。</p>
+运行此命令以确定活动用户后，您知道您运行的任何其他 <code>dfx</code> 命令都是使用与 <code>bob_standard</code> 身份关联的principal执行的。</p>
 </div>
 </div>
 </div>
@@ -1308,7 +1308,7 @@ ic_admin</code></pre>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-h</code>, <code>--help</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">显示使用信息。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">显示帮助信息。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-V</code>, <code>--version</code></p></td>
@@ -1403,7 +1403,7 @@ Created identity: "ic_admin".</pre>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-h</code>, <code>--help</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">显示使用信息。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">显示帮助信息。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-V</code>, <code>--version</code></p></td>
@@ -1451,202 +1451,322 @@ Created identity: "ic_admin".</pre>
 <div class="paragraph">
 <p>该命令显示确认身份已被删除:</p>
 </div>
-<div class="paragraph">
-<p>……
-删除身份“默认”。
-删除身份“默认”。</p>
-</div>
 <div class="literalblock">
 <div class="content">
-<pre>虽然如果您创建了其他身份来替换它，您可以删除`+default+` 身份，但您必须始终至少有一个身份可用。
-如果您尝试删除最后剩余的用户上下文，`+dfx identity remove+` 命令会显示类似于以下内容的错误:</pre>
+<pre>Removing identity "default".
+Removed identity "default".</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>身份错误:
-   无法删除默认身份</p>
+<p>虽然如果您创建了其他身份来替换它，您可以删除`default` 身份，但您必须始终至少有一个身份可用。
+如果您尝试删除最后剩余的用户上下文，<code>dfx identity remove</code> 命令会显示类似于以下内容的错误:</p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>== dfx 身份重命名
-
-使用 `+dfx identity rename+` 命令重命名现有用户身份。
+<pre>Identity error:
+  Cannot delete the default identity</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_dfx_身份重命名"><a class="anchor" href="#_dfx_身份重命名"></a>dfx 身份重命名</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>使用 <code>dfx identity rename</code> 命令重命名现有用户身份。
 您应该注意，您添加的身份是全局的。 它们并不局限于特定的项目环境。
-因此，您使用 `+dfx identity rename+` 命令重命名的任何身份都可以在任何项目中使用新名称。
-
-=== 基本用法
-
-[source,bash]
-----
-dfx identity rename [flag] _from_identity-name_ _to_identity-name_
-----
-
-=== 标志
-
-您可以在 `+dfx identity rename+` 命令中使用以下可选标志。
-
-[width="100%",cols="&lt;32%,&lt;68%",options="header"]
-|===
-|标志 |说明
-|`+-h+`, `+--help+` |显示使用信息。
-|`+-V+`, `+--version+` |显示版本信息。
-|===
-
-=== 参数
-
-您必须为 `+dfx identity rename+` 命令指定以下参数。
-
-[width="100%",cols="&lt;32%,&lt;68%",options="header"]
-|===
-|参数 |描述
-
-|`+&lt;from_identity_name&gt;+` |指定要重命名的身份的当前名称。
-该参数是必需的。
-
-|`+&lt;to_identity_name&gt;+` |指定要重命名的身份的新名称。
-该参数是必需的。
-
-|===
-
-=== 示例
-
-您可以重命名 `+default+` 用户或您之前使用 `+dfx identity rename+` 命令创建的任何身份。
-例如，如果您想重命名您之前创建的 `+test_admin+` 身份，您可以通过运行指定要更改的当前身份名称 **from** 和要更改为 **to** 的新名称 类似于以下的命令:</pre>
+因此，您使用 <code>dfx identity rename</code> 命令重命名的任何身份都可以在任何项目中使用新名称。</p>
+</div>
+<div class="sect2">
+<h3 id="_基本用法_7"><a class="anchor" href="#_基本用法_7"></a>基本用法</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx identity rename [flag] _from_identity-name_ _to_identity-name_</code></pre>
 </div>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_标志_7"><a class="anchor" href="#_标志_7"></a>标志</h3>
 <div class="paragraph">
-<p>dfx identity rename test_admin devops</p>
+<p>您可以在 <code>dfx identity rename</code> 命令中使用以下可选标志。</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 32%;">
+<col style="width: 68%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">标志</th>
+<th class="tableblock halign-left valign-top">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-h</code>, <code>--help</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">显示帮助信息。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-V</code>, <code>--version</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">显示版本信息。</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_参数_3"><a class="anchor" href="#_参数_3"></a>参数</h3>
+<div class="paragraph">
+<p>您必须为 <code>dfx identity rename</code> 命令指定以下参数。</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 32%;">
+<col style="width: 68%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">参数</th>
+<th class="tableblock halign-left valign-top">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;from_identity_name&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">指定要重命名的身份的当前名称。
+该参数是必需的。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;to_identity_name&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">指定要重命名的身份的新名称。
+该参数是必需的。</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_示例_3"><a class="anchor" href="#_示例_3"></a>示例</h3>
+<div class="paragraph">
+<p>您可以重命名 <code>default</code> 用户或您之前使用 <code>dfx identity rename</code> 命令创建的任何身份。
+例如，如果您想重命名您之前创建的 <code>test_admin</code> 身份，您可以通过运行指定要更改的当前身份名称 <strong>from</strong> 和要更改为 <strong>to</strong> 的新名称 类似于以下的命令:</p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>== dfx identity set-wallet
-
-使用 `+dfx identity set-wallet+` 命令指定用于您的身份的钱包容器标识符。
-
-=== 基本用法
-
-[source,bash]
-----
-dfx identity set-wallet [flag] [--canister-name canister-name]
-----
-
-=== 标志
-
-您可以在 `+dfx identity set-wallet+` 命令中使用以下可选标志。
-
-[width="100%",cols="&lt;32%,&lt;68%",options="header"]
-|===
-|标志 |说明
-|`+force+` |跳过验证您指定的容器是有效的钱包容器。
-仅当您连接到本地运行的 {IC} 时，此选项才有用。
-|`+-h+`, `+--help+` |显示使用信息。
-|`+-V+`, `+--version+` |显示版本信息。
-|===
-
-=== 示例
-
-如果您使用多个主体作为您的身份，您可能有权访问多个钱包容器标识符。
-您可以使用 `+dfx identity set-wallet+` 命令指定用于给定身份的钱包容器标识符。
-
-例如，您可以将钱包容器标识符存储在环境变量中，然后调用 `+dfx identity set-wallet+` 命令通过运行以下命令将该钱包容器用于其他操作:</pre>
+<pre>dfx identity rename test_admin devops</pre>
 </div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_dfx_identity_set_wallet"><a class="anchor" href="#_dfx_identity_set_wallet"></a>dfx identity set-wallet</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>使用 <code>dfx identity set-wallet</code> 命令指定用于您的身份的钱包容器标识符。</p>
+</div>
+<div class="sect2">
+<h3 id="_基本用法_8"><a class="anchor" href="#_基本用法_8"></a>基本用法</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx identity set-wallet [flag] [--canister-name canister-name]</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_标志_8"><a class="anchor" href="#_标志_8"></a>标志</h3>
+<div class="paragraph">
+<p>您可以在 <code>dfx identity set-wallet</code> 命令中使用以下可选标志。</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 32%;">
+<col style="width: 68%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">标志</th>
+<th class="tableblock halign-left valign-top">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>force</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">跳过验证您指定的容器是有效的钱包容器。
+仅当您连接到本地运行的 Internet Computer 时，此选项才有用。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-h</code>, <code>--help</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">显示帮助信息。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-V</code>, <code>--version</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">显示版本信息。</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_示例_4"><a class="anchor" href="#_示例_4"></a>示例</h3>
+<div class="paragraph">
+<p>如果您使用多个principal作为您的身份，您可能有权访问多个钱包容器标识符。
+您可以使用 <code>dfx identity set-wallet</code> 命令指定用于给定身份的钱包容器标识符。</p>
 </div>
 <div class="paragraph">
-<p>export WALLET_CANISTER_ID=$(dfx identity get-wallet)
-dfx identity --network=https://192.168.74.4 set-wallet --canister-name ${WALLET_CANISTER_ID}</p>
+<p>例如，您可以将钱包容器标识符存储在环境变量中，然后调用 <code>dfx identity set-wallet</code> 命令通过运行以下命令将该钱包容器用于其他操作:</p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>== dfx 身份使用
-
-使用 `+dfx identity use+` 命令指定要激活的用户身份。
+<pre>export WALLET_CANISTER_ID=$(dfx identity get-wallet)
+dfx identity --network=https://192.168.74.4 set-wallet --canister-name ${WALLET_CANISTER_ID}</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_dfx_身份使用"><a class="anchor" href="#_dfx_身份使用"></a>dfx 身份使用</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>使用 <code>dfx identity use</code> 命令指定要激活的用户身份。
 您应该注意，您可以使用的身份是全局的。 它们并不局限于特定的项目环境。
-因此，您可以使用之前在任何项目中创建的任何身份。
-
-=== 基本用法
-
-[source,bash]
-----
-dfx identity use [flag] _identity-name_
-----
-
-=== 标志
-
-您可以在 `+dfx identity use+` 命令中使用以下可选标志。
-
-[width="100%",cols="&lt;32%,&lt;68%",options="header"]
-|===
-|标志 |说明
-|`+-h+`, `+--help+` |显示使用信息。
-|`+-V+`, `+--version+` |显示版本信息。
-|===
-
-=== 参数
-
-您必须为 `+dfx identity use+` 命令指定以下参数。
-
-[width="100%",cols="&lt;32%,&lt;68%",options="header"]
-|===
-|参数 |描述
-
-|`+&lt;identity_name&gt;+` |指定要为后续命令激活的身份的名称。
-该参数是必需的。
-
-|===
-
-=== 例子
-
-如果要使用相同的用户身份上下文运行多个命令，可以运行类似于以下的命令:</pre>
+因此，您可以使用之前在任何项目中创建的任何身份。</p>
+</div>
+<div class="sect2">
+<h3 id="_基本用法_9"><a class="anchor" href="#_基本用法_9"></a>基本用法</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx identity use [flag] _identity-name_</code></pre>
 </div>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_标志_9"><a class="anchor" href="#_标志_9"></a>标志</h3>
 <div class="paragraph">
-<p>dfx identity use ops</p>
+<p>您可以在 <code>dfx identity use</code> 命令中使用以下可选标志。</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 32%;">
+<col style="width: 68%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">标志</th>
+<th class="tableblock halign-left valign-top">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-h</code>, <code>--help</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">显示帮助信息。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-V</code>, <code>--version</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">显示版本信息。</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_参数_4"><a class="anchor" href="#_参数_4"></a>参数</h3>
+<div class="paragraph">
+<p>您必须为 <code>dfx identity use</code> 命令指定以下参数。</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 32%;">
+<col style="width: 68%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">参数</th>
+<th class="tableblock halign-left valign-top">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;identity_name&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">指定要为后续命令激活的身份的名称。
+该参数是必需的。</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_例子_5"><a class="anchor" href="#_例子_5"></a>例子</h3>
+<div class="paragraph">
+<p>如果要使用相同的用户身份上下文运行多个命令，可以运行类似于以下的命令:</p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>运行此命令后，后续命令将使用与 `+ops+` 用户关联的凭据和访问控制。
-
-== dfx 身份 whoami
-
-使用 `+dfx identity whoami+` 命令显示当前活动的用户身份上下文的名称。
-
-=== 基本用法
-
-[source,bash]
-----
-dfx identity whoami [flag]
-----
-
-=== 标志
-
-您可以在 `+dfx identity whoami+` 命令中使用以下可选标志。
-
-[width="100%",cols="&lt;32%,&lt;68%",options="header"]
-|===
-|标志 |说明
-|`+-h+`, `+--help+` |显示使用信息。
-|`+-V+`, `+--version+` |显示版本信息。
-|===
-
-=== 示例
-
-如果要显示当前活动用户身份的名称，可以运行以下命令:
-
-[source,bash]
-----
-dfx 身份 whoami
-----
-
-该命令显示用户身份的名称。
-例如，您之前运行过命令 `+dfx identity use bob_standard+`，该命令将显示:</pre>
+<pre>dfx identity use ops</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>bob_standard</p>
+<p>运行此命令后，后续命令将使用与 <code>ops</code> 用户关联的凭据和访问控制。</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_dfx_身份_whoami"><a class="anchor" href="#_dfx_身份_whoami"></a>dfx 身份 whoami</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>使用 <code>dfx identity whoami</code> 命令显示当前活动的用户身份上下文的名称。</p>
+</div>
+<div class="sect2">
+<h3 id="_基本用法_10"><a class="anchor" href="#_基本用法_10"></a>基本用法</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx identity whoami [flag]</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_标志_10"><a class="anchor" href="#_标志_10"></a>标志</h3>
+<div class="paragraph">
+<p>您可以在 <code>dfx identity whoami</code> 命令中使用以下可选标志。</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 32%;">
+<col style="width: 68%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">标志</th>
+<th class="tableblock halign-left valign-top">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-h</code>, <code>--help</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">显示帮助信息。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-V</code>, <code>--version</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">显示版本信息。</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_示例_5"><a class="anchor" href="#_示例_5"></a>示例</h3>
+<div class="paragraph">
+<p>如果要显示当前活动用户身份的名称，可以运行以下命令:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx identity whoami</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>该命令显示用户身份的名称。
+例如，您之前运行过命令 <code>dfx identity use bob_standard</code>，该命令将显示:</p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre></pre>
+<pre>bob_standard</pre>
 </div>
 </div>
 </div>

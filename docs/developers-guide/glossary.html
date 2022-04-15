@@ -913,7 +913,7 @@
 </div>
 <div id="g-canister" class="dlist">
 <dl>
-<dt class="hdlist1">容器智能合约</dt>
+<dt class="hdlist1">Canister smart contract</dt>
 <dd>
 <p>容器智能合约，有时也简称为容器，是智能合约的扩展形式。 它们是革命性的，因为它们可以确定地并行运行。 这是通过依赖actor模型和确定性消息传递来实现的。 容器智能合约具有通用唯一标识符和定义特定 dapp 边界的所有者。
  容器封装了所有编程逻辑、公共入口方法、所提供消息类型的接口描述以及它所描述的 dapp 的状态信息。</p>
@@ -924,37 +924,37 @@
 <dl>
 <dt class="hdlist1">principal</dt>
 <dd>
-<p>principal是可以通过 Internet Computer 区块链进行身份验证的实体。 与 Internet Computer 区块链交互的principal通常通过身份进行交互。 例如，第一次使用 {sdk-short-name} 时，<code>dfx</code> 命令行工具会使用 PEM 文件中的公钥/私钥对为您创建一个 <code>default</code> 开发者身份。 这个开发者身份决定了一个<strong>principal</strong>。 有一个主体的文本表示，通常称为您的<strong>主体标识符</strong>。
+<p>principal是可以通过 Internet Computer 区块链进行身份验证的实体。 与 Internet Computer 区块链交互的principal通常通过身份进行交互。 例如，第一次使用 {sdk-short-name} 时，<code>dfx</code> 命令行工具会使用 PEM 文件中的公钥/私钥对为您创建一个 <code>default</code> 开发者身份。 这个开发者身份决定了一个<strong>principal</strong>。 有一个principal的文本表示，通常称为您的<strong>principal标识符</strong>。
  请注意，开发人员身份还可用于派生<strong>帐户标识符</strong>（类似于比特币或以太坊地址），以代表身份将 ICP 令牌保存在帐本容器中。</p>
 </dd>
 </dl>
 </div>
 <div id="g-controller" class="dlist">
 <dl>
-<dt class="hdlist1">控制器</dt>
+<dt class="hdlist1">controller</dt>
 <dd>
-<p>控制器是具有特殊权限来管理其控制的容器智能合约的主体。
-例如，只有控制主体可用于安装、升级或删除其控制下的容器。
-您可以使用与用户或容器相关联的主体（通常称为主体标识符）的文本表示来指定控制器主体。</p>
+<p>控制器是具有特殊权限来管理其控制的容器智能合约的principal。
+例如，只有控制principal可用于安装、升级或删除其控制下的容器。
+您可以使用与用户或容器相关联的principal（通常称为principal标识符）的文本表示来指定控制器principal。</p>
 </dd>
 </dl>
 </div>
 <div id="g-ledger" class="dlist">
 <dl>
-<dt class="hdlist1">账本</dt>
+<dt class="hdlist1">ledger</dt>
 <dd>
 <p>Internet Computer 区块链将所有涉及 ICP 代币的交易记录在一个专门的管理容器智能合约中，称为 <strong>ledger canister</strong>。
 账本容器实现了一个智能合约，该合约维护<strong>帐户</strong>和<strong>余额</strong>，并保留影响帐户和余额的*交易*的历史记录。 记录交易以跟踪以下特定事件:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Mint ICP 代币</strong> 用于帐户。</p>
+<p><strong>Mint ICP tokens</strong> 用于帐户。</p>
 </li>
 <li>
-<p><strong>将 ICP 代币</strong>从一个账户转移到另一个账户。</p>
+<p><strong>Transfer ICP tokens</strong>  一个账户转账给另一个账户。</p>
 </li>
 <li>
-<p><strong>燃烧 ICP 代币</strong>以消除它们的存在。</p>
+<p><strong>Burn ICP tokens</strong> 销毁代币。</p>
 </li>
 </ul>
 </div>
@@ -971,7 +971,7 @@
 </div>
 <div id="g-node" class="dlist">
 <dl>
-<dt class="hdlist1">节点</dt>
+<dt class="hdlist1">node</dt>
 <dd>
 <p>托管参与 Internet Computer 区块链所需的所有硬件、副本软件和配置设置的物理机或虚拟机。</p>
 </dd>
@@ -979,7 +979,7 @@
 </div>
 <div id="g-replica" class="dlist">
 <dl>
-<dt class="hdlist1">副本</dt>
+<dt class="hdlist1">replica</dt>
 <dd>
 <p>在 Internet Computer 区块链的上下文中，副本是指在节点上运行的 Internet Computer 协议进程。</p>
 </dd>

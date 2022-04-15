@@ -925,7 +925,7 @@
 <p><code>greet</code> 函数接受文本参数并在终端中显示问候语。</p>
 </li>
 <li>
-<p><code>owner</code> 函数返回消息调用者使用的主体。</p>
+<p><code>owner</code> 函数返回消息调用者使用的principal。</p>
 </li>
 </ul>
 </div>
@@ -1063,7 +1063,7 @@ shared(msg) actor class HelloCycles (
 <p><code>capacity</code> 作为参数传递给actor类。</p>
 </li>
 <li>
-<p><code>msg.caller</code> 标识与调用关联的主体。</p>
+<p><code>msg.caller</code> 标识与调用关联的principal。</p>
 </li>
 </ul>
 </div>
@@ -1176,7 +1176,7 @@ Deployed canisters.</pre>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>通过运行以下命令检查主体的“default”用户身份:</p>
+<p>通过运行以下命令检查“default”用户身份的principal:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx canister call cycles_hello owner</code></pre>
@@ -1191,7 +1191,7 @@ Deployed canisters.</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>如果您没有更改用于运行 <code>dfx deploy</code> 命令的身份，则应该通过运行 <code>dfx identity get-principal</code> 命令获得相同的主体。
+<p>如果您没有更改用于运行 <code>dfx deploy</code> 命令的身份，则应该通过运行 <code>dfx identity get-principal</code> 命令获得相同的principal。
 这很重要，因为您必须是钱包容器的所有者才能执行某些任务，例如发送燃料费或授予其他 <strong>保管人</strong> 身份发送周期的权限。</p>
 </div>
 </li>
@@ -1212,7 +1212,7 @@ Deployed canisters.</pre>
 </div>
 </li>
 <li>
-<p>通过运行类似于以下的命令，使用容器主体将一些周期从您的默认钱包容器发送到 <code>cycles_hello</code> 容器:</p>
+<p>通过运行类似于以下的命令，使用容器的principal将一些周期从您的默认钱包容器发送到 <code>cycles_hello</code> 容器:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx canister call rwlgt-iiaaa-aaaaa-aaaaa-cai wallet_send '(record { canister = principal "rrkah-fqaaa-aaaaa-aaaaq-cai"; amount = (256000000000:nat64); } )'</code></pre>

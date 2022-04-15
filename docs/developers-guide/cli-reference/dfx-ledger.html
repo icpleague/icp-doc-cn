@@ -945,7 +945,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>help</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">显示指定子命令的使用信息消息。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">显示指定子命令的帮助信息消息。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#dfx ledger notify"><code>notify</code></a></p></td>
@@ -962,8 +962,8 @@
 </tbody>
 </table>
 <div class="paragraph">
-<p>要查看特定子命令的使用信息，请指定子命令和 <code>--help</code> 标志。
-例如，要查看`dfx ledger transfer`的使用信息，可以运行以下命令:</p>
+<p>要查看特定子命令的帮助信息，请指定子命令和 <code>--help</code> 标志。
+例如，要查看`dfx ledger transfer`的帮助信息，可以运行以下命令:</p>
 </div>
 <div class="paragraph">
 <p><code>dfx ledger transfer --help</code></p>
@@ -975,7 +975,7 @@
 <div class="sectionbody">
 <div class="paragraph">
 <p>使用 <code>dfx ledger account-id</code> 命令显示与当前活动身份关联的帐户标识符。
-与您的开发者身份主体的文本表示一样，帐户标识符是从您的私钥派生的，用于在账本容器中表示您的身份。</p>
+与您的开发者身份principal的文本表示一样，帐户标识符是从您的私钥派生的，用于在账本容器中表示您的身份。</p>
 </div>
 <div class="sect2">
 <h3 id="_基本用法"><a class="anchor" href="#_基本用法"></a>基本用法</h3>
@@ -1004,7 +1004,7 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-h</code>, <code>--help</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">显示使用信息。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">显示帮助信息。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-V</code>, <code>--version</code></p></td>
@@ -1067,7 +1067,7 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-h</code>, <code>--help</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">显示使用信息。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">显示帮助信息。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-V</code>, <code>--version</code></p></td>
@@ -1155,7 +1155,7 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-h</code>, <code>--help</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">显示使用信息。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">显示帮助信息。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-V</code>, <code>--version</code></p></td>
@@ -1183,7 +1183,7 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;controller&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">指定主体标识符设置为新容器的控制器。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">指定principal标识符设置为新容器的控制器。</p></td>
 </tr>
 </tbody>
 </table>
@@ -1239,138 +1239,245 @@
 </div>
 </div>
 <div class="paragraph">
-<p>此命令将您为 <code>--amount</code> 参数指定的 ICP 代币数量转换为燃料费，并将燃料费与您指定的主体控制的新容器标识符相关联。</p>
+<p>此命令将您为 <code>--amount</code> 参数指定的 ICP 代币数量转换为燃料费，并将燃料费与您指定的principal控制的新容器标识符相关联。</p>
 </div>
 <div class="paragraph">
-<p>在此示例中，该命令将 1.25 个 ICP 代币转换为燃料费，并将默认身份的主体标识符指定为新容器的控制器。</p>
+<p>在此示例中，该命令将 1.25 个 ICP 代币转换为燃料费，并将默认身份的principal标识符指定为新容器的控制器。</p>
 </div>
 <div class="paragraph">
 <p>如果交易成功，账本会记录该事件，您应该会看到类似于以下内容的输出:</p>
 </div>
+<div class="literalblock">
+<div class="content">
+<pre>Transfer sent at BlockHeight: 20
+Canister created with id: "53zcu-tiaaa-aaaaa-qaaba-cai"</pre>
+</div>
+</div>
 <div class="paragraph">
-<p>……
-在 BlockHeight 发送的转账:20
-使用 id 创建的容器:“53zcu-tiaaa-aaaaa-qaaba-cai”</p>
+<p>您可以通过运行类似于以下的命令为 ICP 令牌和 e8s 指定单独的值来创建新容器:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx ledger --network ic create-canister tsqwz-udeik-5migd-ehrev-pvoqv-szx2g-akh5s-fkyqc-zy6q7-snav6-uqe --icp 3 --e8s 5000</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="通知"><a class="anchor" href="#通知"></a>dfx 账本通知</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>使用 <code>dfx ledger notify</code> 命令通知账本有关向燃料费铸币容器发送交易的信息。
+仅当 <code>dfx ledger create-canister</code> 或 <code>dfx ledger top-up</code> 成功向账本发送消息，并且在某个区块高度记录了交易，但由于某种原因后续通知失败时，才应使用此命令 .</p>
+</div>
+<div class="sect2">
+<h3 id="_基本用法_4"><a class="anchor" href="#_基本用法_4"></a>基本用法</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx ledger notify [options] _block-height_ _destination-principal_</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_标志_4"><a class="anchor" href="#_标志_4"></a>标志</h3>
+<div class="paragraph">
+<p>您可以在 <code>dfx ledger notify</code> 命令中使用以下可选标志。</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 32%;">
+<col style="width: 68%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">标志</th>
+<th class="tableblock halign-left valign-top">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-h</code>, <code>--help</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">显示帮助信息。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-V</code>, <code>--version</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">显示版本信息。</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_参数_3"><a class="anchor" href="#_参数_3"></a>参数</h3>
+<div class="paragraph">
+<p>您可以为 <code>dfx ledger notify</code> 命令指定以下参数。</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 32%;">
+<col style="width: 68%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">参数</th>
+<th class="tableblock halign-left valign-top">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;block-height&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">指定记录发送交易的区块高度。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;destination-principal&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">指定目标的principal，容器标识符或用户principal的文本表示。
+如果发送事务是针对 <code>create-canister</code> 命令的，请指定 <code>controller</code> principal。
+如果发送事务用于`top-up` 命令，请指定`canister ID`。</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_例子_4"><a class="anchor" href="#_例子_4"></a>例子</h3>
+<div class="paragraph">
+<p>以下示例说明了向账本发送“notify”消息以响应在区块高度“75948”处记录的“_send+”交易。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx ledger --network ic notify 75948 tsqwz-udeik-5migd-ehrev-pvoqv-szx2g-akh5s-fkyqc-zy6q7-snav6-uqe</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="充值"><a class="anchor" href="#充值"></a>dfx 账本充值</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>使用 <code>dfx ledger top-up</code> 命令来充值具有从 ICP 代币铸造的燃料费的容器。</p>
+</div>
+<div class="sect2">
+<h3 id="_基本用法_5"><a class="anchor" href="#_基本用法_5"></a>基本用法</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx ledger --network ic top-up [options] <em>canister</em> [flag]</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_标志_5"><a class="anchor" href="#_标志_5"></a>标志</h3>
+<div class="paragraph">
+<p>您可以在 <code>dfx ledger top-up</code> 命令中使用以下可选标志。</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 32%;">
+<col style="width: 68%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">标志</th>
+<th class="tableblock halign-left valign-top">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-h</code>, <code>--help</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">显示帮助信息。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-V</code>, <code>--version</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">显示版本信息。</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_参数_4"><a class="anchor" href="#_参数_4"></a>参数</h3>
+<div class="paragraph">
+<p>您可以为 <code>dfx ledger top-up</code> 命令指定以下参数。</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 32%;">
+<col style="width: 68%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">参数</th>
+<th class="tableblock halign-left valign-top">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>canister</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">指定要充值的容器标识符。</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_选项_2"><a class="anchor" href="#_选项_2"></a>选项</h3>
+<div class="paragraph">
+<p>您可以为 <code>dfx ledger top-up</code> 命令指定以下选项。</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 32%;">
+<col style="width: 68%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">选项</th>
+<th class="tableblock halign-left valign-top">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>--amount &lt;amount&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">指定要铸造成燃料费并存入目标容器的ICP代币的数量。
+您可以将金额指定为最多八 (8) 位小数的数字。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>--e8s &lt;e8s&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">将 ICP 代币（称为 e8s）的小数单位指定为整数，其中一个 e8 是 ICP 代币的最小单位。 例如，1.05000000 是 1 个 ICP 和 5000000 个 e8s。 您可以单独使用此选项，也可以与 <code>--icp</code> 选项结合使用。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>--fee &lt;fee&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">指定操作的交易费用。 默认值为 10000 个 e8s。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>--icp &lt;icp&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">将ICP代币指定为整数。 您可以单独使用此选项，也可以与 <code>--e8s</code> 结合使用。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>--max-fee &lt;max-fee&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">指定最高交易费用。 默认值为 10000 个 e8s。</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_例子_5"><a class="anchor" href="#_例子_5"></a>例子</h3>
+<div class="paragraph">
+<p>您可以使用 <code>dfx ledger top-up</code> 命令从您控制的 ICP 代币余额中充值特定容器的周期。
+容器标识符必须与能够接收燃料费的燃料费钱包容器相关联。 或者，您可以修改非燃料费钱包容器以使用链接中描述的系统 API 来实现接收燃料费的方法<a href="../../interface-spec/index.html">Internet 计算机接口规范</a>。</p>
+</div>
+<div class="paragraph">
+<p>例如，您可以运行以下命令来为部署在互联网计算机上的燃料费钱包容器充值 1 ICP 价值的燃料费:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx ledger --network ic top-up --icp 1 5a46r-jqaaa-aaaaa-qaadq-cai</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>此命令显示类似于以下内容的输出:</p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>您可以通过运行类似于以下的命令为 ICP 令牌和 e8s 指定单独的值来创建新容器:
-
-[source,bash]
-----
-dfx ledger --network ic create-canister tsqwz-udeik-5migd-ehrev-pvoqv-szx2g-akh5s-fkyqc-zy6q7-snav6-uqe --icp 3 --e8s 5000
-----
-
-[[通知]]
-== dfx 账本通知
-
-使用 `+dfx ledger notify+` 命令通知账本有关向燃料费铸币容器发送交易的信息。
-仅当 `+dfx ledger create-canister+` 或 `+dfx ledger top-up+` 成功向账本发送消息，并且在某个区块高度记录了交易，但由于某种原因后续通知失败时，才应使用此命令 .
-
-=== 基本用法
-
-[source,bash,sub=quote]
-----
-dfx ledger notify [options] _block-height_ _destination-principal_
-----
-
-=== 标志
-
-您可以在 `+dfx ledger notify+` 命令中使用以下可选标志。
-
-[width="100%",cols="&lt;32%,&lt;68%",options="header"]
-|===
-|标志 |说明
-|`+-h+`, `+--help+` |显示使用信息。
-|`+-V+`, `+--version+` |显示版本信息。
-|===
-
-=== 参数
-
-您可以为 `+dfx ledger notify+` 命令指定以下参数。
-
-[width="100%",cols="&lt;32%,&lt;68%",options="header"]
-|===
-|参数|描述
-|`+&lt;block-height&gt;+` |指定记录发送交易的区块高度。
-|`+&lt;destination-principal&gt;+` |指定目标的主体，容器标识符或用户主体的文本表示。
-如果发送事务是针对 `+create-canister+` 命令的，请指定 `+controller+` 主体。
-如果发送事务用于`+top-up+` 命令，请指定`+canister ID+`。
-|===
-
-=== 例子
-
-以下示例说明了向账本发送“+notify+”消息以响应在区块高度“+75948+”处记录的“_send+”交易。
-
-[source,bash]
-----
-dfx ledger --network ic notify 75948 tsqwz-udeik-5migd-ehrev-pvoqv-szx2g-akh5s-fkyqc-zy6q7-snav6-uqe
-----
-
-[[充值]]
-== dfx 账本充值
-
-使用 `+dfx ledger top-up+` 命令来充值具有从 ICP 代币铸造的燃料费的容器。
-
-=== 基本用法
-
-[source,bash,subs=quotes]
-----
-dfx ledger --network ic top-up [options] _canister_ [flag]
-----
-
-=== 标志
-
-您可以在 `+dfx ledger top-up+` 命令中使用以下可选标志。
-
-[width="100%",cols="&lt;32%,&lt;68%",options="header"]
-|===
-|标志 |说明
-|`+-h+`, `+--help+` |显示使用信息。
-|`+-V+`, `+--version+` |显示版本信息。
-|===
-
-=== 参数
-
-您可以为 `+dfx ledger top-up+` 命令指定以下参数。
-
-[width="100%",cols="&lt;32%,&lt;68%",options="header"]
-|===
-|参数 |描述
-|`+canister+` |指定要充值的容器标识符。
-|===
-
-=== 选项
-
-您可以为 `+dfx ledger top-up+` 命令指定以下选项。
-
-[width="100%",cols="&lt;32%,&lt;68%",options="header"]
-|===
-|选项 |说明
-|`+--amount &lt;amount&gt;+` |指定要铸造成燃料费并存入目标容器的ICP代币的数量。
-您可以将金额指定为最多八 (8) 位小数的数字。
-|`+--e8s &lt;e8s&gt;+` |将 ICP 代币（称为 e8s）的小数单位指定为整数，其中一个 e8 是 ICP 代币的最小单位。 例如，1.05000000 是 1 个 ICP 和 5000000 个 e8s。 您可以单独使用此选项，也可以与 `+--icp+` 选项结合使用。
-|`+--fee &lt;fee&gt;+` |指定操作的交易费用。 默认值为 10000 个 e8s。
-|`+--icp &lt;icp&gt;+` |将ICP代币指定为整数。 您可以单独使用此选项，也可以与 `+--e8s+` 结合使用。
-|`+--max-fee &lt;max-fee&gt;+` |指定最高交易费用。 默认值为 10000 个 e8s。
-|===
-
-=== 例子
-
-您可以使用 `+dfx ledger top-up+` 命令从您控制的 ICP 代币余额中充值特定容器的周期。
-容器标识符必须与能够接收燃料费的燃料费钱包容器相关联。 或者，您可以修改非燃料费钱包容器以使用链接中描述的系统 API 来实现接收燃料费的方法link:../../interface-spec/index{outfilesuffix}[Internet 计算机接口规范]。
-
-例如，您可以运行以下命令来为部署在互联网计算机上的燃料费钱包容器充值 1 ICP 价值的燃料费:
-
-[source,bash]
-----
-dfx ledger --network ic top-up --icp 1 5a46r-jqaaa-aaaaa-qaadq-cai
-----
-此命令显示类似于以下内容的输出:
-
-……
-在 BlockHeight 发送的转账:59482
-容器被充值了！</pre>
+<pre>Transfer sent at BlockHeight: 59482
+Canister was topped up!</pre>
 </div>
 </div>
 </div>
@@ -1383,7 +1490,7 @@ dfx ledger --network ic top-up --icp 1 5a46r-jqaaa-aaaaa-qaadq-cai
 <p>使用 <code>dfx ledger transfer</code> 命令将 ICP 代币从您在账本容器中的帐户地址转移到目标地址。</p>
 </div>
 <div class="sect2">
-<h3 id="_基本用法_4"><a class="anchor" href="#_基本用法_4"></a>基本用法</h3>
+<h3 id="_基本用法_6"><a class="anchor" href="#_基本用法_6"></a>基本用法</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dfx ledger transfer [options] <em>to</em> --memo <em>memo</em></code></pre>
@@ -1391,7 +1498,7 @@ dfx ledger --network ic top-up --icp 1 5a46r-jqaaa-aaaaa-qaadq-cai
 </div>
 </div>
 <div class="sect2">
-<h3 id="_标志_4"><a class="anchor" href="#_标志_4"></a>标志</h3>
+<h3 id="_标志_6"><a class="anchor" href="#_标志_6"></a>标志</h3>
 <div class="paragraph">
 <p>您可以在 <code>dfx ledger transfer</code> 命令中使用以下可选标志。</p>
 </div>
@@ -1409,7 +1516,7 @@ dfx ledger --network ic top-up --icp 1 5a46r-jqaaa-aaaaa-qaadq-cai
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-h</code>, <code>--help</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">显示使用信息。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">显示帮助信息。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-V</code>, <code>--version</code></p></td>
@@ -1419,7 +1526,7 @@ dfx ledger --network ic top-up --icp 1 5a46r-jqaaa-aaaaa-qaadq-cai
 </table>
 </div>
 <div class="sect2">
-<h3 id="_参数_3"><a class="anchor" href="#_参数_3"></a>参数</h3>
+<h3 id="_参数_5"><a class="anchor" href="#_参数_5"></a>参数</h3>
 <div class="paragraph">
 <p>您可以为 <code>dfx ledger transfer</code> 命令指定以下参数。</p>
 </div>
@@ -1443,7 +1550,7 @@ dfx ledger --network ic top-up --icp 1 5a46r-jqaaa-aaaaa-qaadq-cai
 </table>
 </div>
 <div class="sect2">
-<h3 id="_选项_2"><a class="anchor" href="#_选项_2"></a>选项</h3>
+<h3 id="_选项_3"><a class="anchor" href="#_选项_3"></a>选项</h3>
 <div class="paragraph">
 <p>您可以为 <code>dfx ledger transfer</code> 命令指定以下参数。</p>
 </div>
@@ -1484,7 +1591,7 @@ dfx ledger --network ic top-up --icp 1 5a46r-jqaaa-aaaaa-qaadq-cai
 </table>
 </div>
 <div class="sect2">
-<h3 id="_例子_4"><a class="anchor" href="#_例子_4"></a>例子</h3>
+<h3 id="_例子_6"><a class="anchor" href="#_例子_6"></a>例子</h3>
 <div class="paragraph">
 <p>您可以使用`dfx ledger transfer`命令将ICP发送到目的地的Account Identifier。</p>
 </div>
@@ -1534,10 +1641,10 @@ dfx ledger --network ic top-up --icp 1 5a46r-jqaaa-aaaaa-qaadq-cai
 <div class="paragraph">
 <p>此命令显示类似于以下内容的输出:</p>
 </div>
-<div class="paragraph">
-<p>……
-在 BlockHeight 发送的转账:59513
-……</p>
+<div class="literalblock">
+<div class="content">
+<pre>Transfer sent at BlockHeight: 59513</pre>
+</div>
 </div>
 <div class="paragraph">
 <p>然后，您可以使用 <code>dfx ledger --network ic balance</code> 命令检查您的帐户余额是否反映了您刚刚进行的交易。</p>

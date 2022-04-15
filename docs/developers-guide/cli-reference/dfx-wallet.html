@@ -915,8 +915,8 @@
 </div>
 <div class="paragraph">
 <p>根据您指定的 <code>dfx wallet</code> 子命令，可能会应用或需要其他参数、选项和标志。
-要查看特定 <code>dfx wallet</code> 子命令的使用信息，请指定子命令和 <code>--help</code> 标志。
-例如，要查看 <code>dfx wallet send</code> 的使用信息，可以运行以下命令:</p>
+要查看特定 <code>dfx wallet</code> 子命令的帮助信息，请指定子命令和 <code>--help</code> 标志。
+例如，要查看 <code>dfx wallet send</code> 的帮助信息，可以运行以下命令:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -940,7 +940,7 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#dfx wallet add-controller"><code>add-controller</code></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">使用所选身份的主体添加控制器。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">使用所选身份的principal添加控制器。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#dfx wallet addresses"><code>addresses</code></a></p></td>
@@ -1070,7 +1070,7 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-h</code>, <code>--help</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">显示使用信息。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">显示帮助信息。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-V</code>, <code>--version</code></p></td>
@@ -1122,7 +1122,7 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>controller</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">指定要添加到钱包的控制器主体。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">指定要添加到钱包的控制器principal。</p></td>
 </tr>
 </tbody>
 </table>
@@ -1173,7 +1173,7 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-h</code>, <code>--help</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">显示使用信息。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">显示帮助信息。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-V</code>, <code>--version</code></p></td>
@@ -1203,21 +1203,21 @@ Id: e7ptl-4x43t-zxcvh-n6s6c-k2dre-doy7l-bbo6h-ok8ik-msiz3-eoxhl-6qe, Kind: Unkno
 <div class="paragraph">
 <p>使用 <code>dfx wallet authorize</code> 命令为钱包授权托管人。 分配了保管人角色的身份可以在燃料费钱包上执行以下操作:</p>
 </div>
-<div class="paragraph">
-<p>*访问钱包信息。</p>
-</div>
 <div class="ulist">
 <ul>
 <li>
+<p>访问钱包信息。</p>
+</li>
+<li>
 <p>发送燃料费。</p>
 </li>
+<li>
+<p>转接电话。</p>
+</li>
+<li>
+<p>创建容器。</p>
+</li>
 </ul>
-</div>
-<div class="paragraph">
-<p>*转接电话。</p>
-</div>
-<div class="paragraph">
-<p>*创建容器。</p>
 </div>
 <div class="sect2">
 <h3 id="_基本用法_3"><a class="anchor" href="#_基本用法_3"></a>基本用法</h3>
@@ -1246,7 +1246,7 @@ Id: e7ptl-4x43t-zxcvh-n6s6c-k2dre-doy7l-bbo6h-ok8ik-msiz3-eoxhl-6qe, Kind: Unkno
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-h</code>, <code>--help</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">显示使用信息。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">显示帮助信息。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-V</code>, <code>--version</code></p></td>
@@ -1359,7 +1359,7 @@ Id: e7ptl-4x43t-zxcvh-n6s6c-k2dre-doy7l-bbo6h-ok8ik-msiz3-eoxhl-6qe, Kind: Unkno
 <h2 id="_dfx_钱包控制器"><a class="anchor" href="#_dfx_钱包控制器"></a>dfx 钱包控制器</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>使用 <code>dfx wallet controllers</code> 命令列出作为所选身份的燃料费钱包控制器的身份的主体。</p>
+<p>使用 <code>dfx wallet controllers</code> 命令列出作为所选身份的燃料费钱包控制器的身份的principal。</p>
 </div>
 <div class="sect2">
 <h3 id="_基本用法_5"><a class="anchor" href="#_基本用法_5"></a>基本用法</h3>
@@ -1388,7 +1388,7 @@ Id: e7ptl-4x43t-zxcvh-n6s6c-k2dre-doy7l-bbo6h-ok8ik-msiz3-eoxhl-6qe, Kind: Unkno
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-h</code>, <code>--help</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">显示使用信息。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">显示帮助信息。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-V</code>, <code>--version</code></p></td>
@@ -1452,7 +1452,7 @@ hpnmi-qgxsv-tgecj-hmjyn-gmfft-vbego-lpcax-ou4ld-oh7kr-l3nu2-yae</pre>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-h</code>, <code>--help</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">显示使用信息。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">显示帮助信息。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-V</code>, <code>--version</code></p></td>
@@ -1519,7 +1519,7 @@ hpnmi-qgxsv-tgecj-hmjyn-gmfft-vbego-lpcax-ou4ld-oh7kr-l3nu2-yae</pre>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-h</code>, <code>--help</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">显示使用信息。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">显示帮助信息。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-V</code>, <code>--version</code></p></td>
@@ -1598,7 +1598,7 @@ hpnmi-qgxsv-tgecj-hmjyn-gmfft-vbego-lpcax-ou4ld-oh7kr-l3nu2-yae</pre>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-h</code>, <code>--help</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">显示使用信息。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">显示帮助信息。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-V</code>, <code>--version</code></p></td>
@@ -1653,7 +1653,7 @@ hpnmi-qgxsv-tgecj-hmjyn-gmfft-vbego-lpcax-ou4ld-oh7kr-l3nu2-yae</pre>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-h</code>, <code>--help</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">显示使用信息。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">显示帮助信息。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-V</code>, <code>--version</code></p></td>
@@ -1681,7 +1681,7 @@ hpnmi-qgxsv-tgecj-hmjyn-gmfft-vbego-lpcax-ou4ld-oh7kr-l3nu2-yae</pre>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;controller&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">指定要删除的控制器的主体。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">指定要删除的控制器的principal。</p></td>
 </tr>
 </tbody>
 </table>
@@ -1689,7 +1689,7 @@ hpnmi-qgxsv-tgecj-hmjyn-gmfft-vbego-lpcax-ou4ld-oh7kr-l3nu2-yae</pre>
 <div class="sect2">
 <h3 id="_示例_4"><a class="anchor" href="#_示例_4"></a>示例</h3>
 <div class="paragraph">
-<p>例如，要删除 alice_auth 作为控制器，请在以下命令中指定她的主体:</p>
+<p>例如，要删除 alice_auth 作为控制器，请在以下命令中指定她的principal:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1732,7 +1732,7 @@ hpnmi-qgxsv-tgecj-hmjyn-gmfft-vbego-lpcax-ou4ld-oh7kr-l3nu2-yae</pre>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-h</code>, <code>--help</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">显示使用信息。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">显示帮助信息。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-V</code>, <code>--version</code></p></td>
@@ -1866,7 +1866,7 @@ hpnmi-qgxsv-tgecj-hmjyn-gmfft-vbego-lpcax-ou4ld-oh7kr-l3nu2-yae</pre>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-h</code>, <code>--help</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">显示使用信息。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">显示帮助信息。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-V</code>, <code>--version</code></p></td>
@@ -1921,7 +1921,7 @@ hpnmi-qgxsv-tgecj-hmjyn-gmfft-vbego-lpcax-ou4ld-oh7kr-l3nu2-yae</pre>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-h</code>, <code>--help</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">显示使用信息。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">显示帮助信息。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-V</code>, <code>--version</code></p></td>
